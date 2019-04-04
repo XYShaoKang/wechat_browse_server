@@ -1,0 +1,31 @@
+{
+  "name": "wechat_browse_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "XYShaoKang <zengwenjie03@gmail.com>",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "deploy": "prisma deploy -e .env",
+    "play": "prisma playground",
+    "admin": "prisma admin"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "babel-plugin-import-graphql": "^2.7.0",
+    "dotenv": "^7.0.0",
+    "nodemon": "^1.18.10",
+    "prisma": "^1.29.2"
+  },
+  "dependencies": {
+    "apollo-server-koa": "^2.4.8",
+    "bcryptjs": "^2.4.3",
+    "graphql": "^14.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.7.0",
+    "prisma-client-lib": "^1.30.0"
+  }
+}
