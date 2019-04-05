@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "XYShaoKang <zengwenjie03@gmail.com>",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
+    "start": "nodemon",
     "deploy": "prisma deploy -e .env",
     "play": "prisma playground",
     "admin": "prisma admin"
@@ -23,7 +23,8 @@
     "eslint-plugin-prettier": "^3.0.1",
     "nodemon": "^1.18.10",
     "prettier": "^1.16.4",
-    "prisma": "^1.29.2"
+    "prisma": "^1.29.2",
+    "rimraf": "^2.6.3"
   },
   "dependencies": {
     "apollo-server-koa": "^2.4.8",
