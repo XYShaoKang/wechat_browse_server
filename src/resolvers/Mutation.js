@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 
 import { APP_SECRET } from '../utils'
 
-const signup = async (_, args, { dataSources }, info) => {
+const signup = async (_, args, { dataSources }) => {
   const password = await bcrypt.hash(args.password, 10)
   const user = await dataSources.prisma.createUser({ ...args, password })
 
@@ -12,7 +12,7 @@ const signup = async (_, args, { dataSources }, info) => {
   return { token, user }
 }
 
-const login = async (_, args, { dataSources }, info) => {
+const login = async (_, args, { dataSources }) => {
   const user = await dataSources.prisma.user({ email: args.email })
   if (!user) {
     throw new Error('No such user found')
