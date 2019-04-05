@@ -17,8 +17,11 @@ const authenticated = next => (root, args, context, info) => {
   return next(root, args, context, info)
 }
 
+const generateToken = obj => jwt.sign(obj, APP_SECRET)
+
 module.exports = {
   APP_SECRET,
   getUserId,
   authenticated,
+  generateToken,
 }

@@ -11,4 +11,4 @@ hooks:
   post-deploy:
     - prisma generate
 seed:
-  run: node ./data/seed.js
+  run: babel-node ./data/seed.js

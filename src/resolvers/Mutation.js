@@ -1,13 +1,12 @@
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
 
-import { APP_SECRET } from '../utils'
+import { generateToken } from '../utils'
 
 const signup = async (_, args, { dataSources }) => {
   const password = await bcrypt.hash(args.password, 10)
   const user = await dataSources.prisma.createUser({ ...args, password })
 
-  const token = jwt.sign({ userId: user.id }, APP_SECRET)
+  const token = generateToken({ userId: user.id })
 
   return { token, user }
 }
@@ -23,7 +22,7 @@ const login = async (_, args, { dataSources }) => {
     throw new Error('Invalid password')
   }
 
-  const token = jwt.sign({ userId: user.id }, APP_SECRET)
+  const token = generateToken({ userId: user.id })
 
   return { token, user }
 }
