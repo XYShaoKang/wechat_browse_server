@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "newLine": "LF"
+    "newLine": "LF",
+    "module": "commonjs"
   },
   "exclude": ["node_modules"],
   "include": ["src/**/*"]

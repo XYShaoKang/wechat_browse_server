@@ -26,4 +26,5 @@ const login = async (_, args, { dataSources }) => {
 
   return { token, user }
 }
-module.exports = { signup, login }
+
+export default { signup, login }

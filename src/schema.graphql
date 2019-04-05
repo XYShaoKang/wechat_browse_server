@@ -1,17 +1,12 @@
+#import "./user.graphql"
+directive @requireAuth on FIELD_DEFINITION
+
 type Query {
-  users: [User!]!
-  me: User
+  users: [User!]! @requireAuth
+  me: User @requireAuth
 }
+
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
-}
-type User {
-  id: ID!
-  name: String!
-  email: String!
-}
-type AuthPayload {
-  token: String
-  user: User
 }

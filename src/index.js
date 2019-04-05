@@ -7,6 +7,7 @@ import { getUserId } from './utils'
 import typeDefs from './schema.graphql'
 import Query from './resolvers/Query'
 import Mutation from './resolvers/Mutation'
+import RequireAuthDirective from './directives/requireAuthDirective'
 
 const resolvers = {
   Query,
@@ -20,6 +21,9 @@ const dataSources = () => ({
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  schemaDirectives: {
+    requireAuth: RequireAuthDirective,
+  },
   context: async ({ ctx }) => {
     const authorization = ctx.request.header.authorization || ''
     let currentUser = null
