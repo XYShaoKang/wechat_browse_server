@@ -5,6 +5,10 @@ secret: ${env:PRISMA_SERVER_SECRET}
 generate:
   - generator: javascript-client
     output: ./generated/prisma-client/
+  - generator: graphql-schema
+    output: ./generated/prisma.graphql
 hooks:
   post-deploy:
     - prisma generate
+seed:
+  run: node ./data/seed.js

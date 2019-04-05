@@ -12,6 +12,10 @@ PRISMA_MANAGEMENT_API_SECRET= [PRISMA 服务器管理密码,如果没有可以�
 PRISMA_SERVER_SECRET= [PRISMA 端点密码,如果没有可以忽略]
 PRISMA_SERVER_ENDPOINT= <PRISMA 端点 Url>
 APP_SECRET= <用户认证加密密钥>
+## 预置管理员信息,第一次部署时写入数据库
+ADMIN_EMAIL=
+ADMIN_NAME=
+ADMIN_PASSWD=
 ```
 
 ## 运行
