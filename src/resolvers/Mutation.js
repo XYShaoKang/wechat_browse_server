@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 
-import { generateToken } from '../utils'
+import { generateToken, saveFile } from '../utils'
 
 const signup = async (_, args, { dataSources }) => {
   const password = await bcrypt.hash(args.password, 10)
@@ -26,5 +26,30 @@ const login = async (_, args, { dataSources }) => {
 
   return { token, user }
 }
+const addWechatUsers = async (
+  _,
+  { weChatUser: { username, alias, conRemark, nickname } },
+  { dataSources },
+) => {
+  const weChatUser = await dataSources.prisma.createWeChatUser({
+    username,
+    alias,
+    conRemark,
+    nickname,
+  })
 
-export default { signup, login }
+  return [weChatUser]
+}
+const addAvatar = async (_, { file }, { dataSources }) => {
+  const { stream, mimetype, encoding } = await file
+  const filename = await saveFile(stream, mimetype)
+  // console.log(filename, mimetype, encoding)
+
+  return {
+    filename,
+    mimetype,
+    encoding,
+  }
+}
+
+export default { signup, login, addWechatUsers, addAvatar }

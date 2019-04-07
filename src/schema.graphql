@@ -1,12 +1,26 @@
-#import "./user.graphql"
+#import "./type.graphql"
+#import "./input.graphql"
 directive @requireAuth on FIELD_DEFINITION
+
+scalar DateTime
+scalar JSON
 
 type Query {
   users: [User!]! @requireAuth
   me: User @requireAuth
+
+  weChatUsers: [WeChatUser!]! @requireAuth
 }
 
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
+
+  addWechatUsers(weChatUser: WeChatUserInput): [WeChatUser!]! @requireAuth
+  addAvatar(file: Upload!): Files!
+}
+type Files {
+  filename: String!
+  mimetype: String!
+  encoding: String!
 }

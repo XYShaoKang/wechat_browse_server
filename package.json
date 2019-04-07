@@ -30,8 +30,12 @@
     "apollo-server-koa": "^2.4.8",
     "bcryptjs": "^2.4.3",
     "graphql": "^14.2.1",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-type-json": "^0.2.4",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
+    "mime-types": "^2.1.22",
     "prisma-client-lib": "^1.30.0"
   }
 }

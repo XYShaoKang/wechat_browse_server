@@ -1,18 +1,14 @@
 import Koa from 'koa'
 import { ApolloServer } from 'apollo-server-koa'
+import serve from 'koa-static'
 
 import { prisma } from '../generated/prisma-client'
 import { getUserId } from './utils'
 
 import typeDefs from './schema.graphql'
-import Query from './resolvers/Query'
-import Mutation from './resolvers/Mutation'
+import resolvers from './resolvers'
 import RequireAuthDirective from './directives/requireAuthDirective'
-
-const resolvers = {
-  Query,
-  Mutation,
-}
+import { STATIC_PATH } from './utils'
 
 const dataSources = () => ({
   prisma,
@@ -42,6 +38,8 @@ const server = new ApolloServer({
 
 const app = new Koa()
 server.applyMiddleware({ app })
+
+app.use(serve(STATIC_PATH))
 
 app.listen({ port: 4000 }, () =>
   // eslint-disable-next-line no-console
