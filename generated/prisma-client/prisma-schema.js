@@ -3,23 +3,1910 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateUser {
+/* GraphQL */ `type AggregateApp {
   count: Int!
+}
+
+type AggregateAvatar {
+  count: Int!
+}
+
+type AggregateChatRoom {
+  count: Int!
+}
+
+type AggregateContact {
+  count: Int!
+}
+
+type AggregateContent {
+  count: Int!
+}
+
+type AggregateFile {
+  count: Int!
+}
+
+type AggregateImage {
+  count: Int!
+}
+
+type AggregateMessage {
+  count: Int!
+}
+
+type AggregateText {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type AggregateVideo {
+  count: Int!
+}
+
+type AggregateVoice {
+  count: Int!
+}
+
+type AggregateWeChatUser {
+  count: Int!
+}
+
+type App {
+  id: ID!
+  xml: Json
+  content: Content
+}
+
+type AppConnection {
+  pageInfo: PageInfo!
+  edges: [AppEdge]!
+  aggregate: AggregateApp!
+}
+
+input AppCreateInput {
+  xml: Json
+  content: ContentCreateOneWithoutAppInput
+}
+
+input AppCreateOneWithoutContentInput {
+  create: AppCreateWithoutContentInput
+  connect: AppWhereUniqueInput
+}
+
+input AppCreateWithoutContentInput {
+  xml: Json
+}
+
+type AppEdge {
+  node: App!
+  cursor: String!
+}
+
+enum AppOrderByInput {
+  id_ASC
+  id_DESC
+  xml_ASC
+  xml_DESC
+}
+
+type AppPreviousValues {
+  id: ID!
+  xml: Json
+}
+
+type AppSubscriptionPayload {
+  mutation: MutationType!
+  node: App
+  updatedFields: [String!]
+  previousValues: AppPreviousValues
+}
+
+input AppSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AppWhereInput
+  AND: [AppSubscriptionWhereInput!]
+}
+
+input AppUpdateInput {
+  xml: Json
+  content: ContentUpdateOneWithoutAppInput
+}
+
+input AppUpdateManyMutationInput {
+  xml: Json
+}
+
+input AppUpdateOneWithoutContentInput {
+  create: AppCreateWithoutContentInput
+  update: AppUpdateWithoutContentDataInput
+  upsert: AppUpsertWithoutContentInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: AppWhereUniqueInput
+}
+
+input AppUpdateWithoutContentDataInput {
+  xml: Json
+}
+
+input AppUpsertWithoutContentInput {
+  update: AppUpdateWithoutContentDataInput!
+  create: AppCreateWithoutContentInput!
+}
+
+input AppWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  content: ContentWhereInput
+  AND: [AppWhereInput!]
+}
+
+input AppWhereUniqueInput {
+  id: ID
+}
+
+type Avatar {
+  id: ID!
+  thumbnailImg: String
+  bigImg: String
+  weChatUser: WeChatUser
+  chatRoom: ChatRoom
+}
+
+type AvatarConnection {
+  pageInfo: PageInfo!
+  edges: [AvatarEdge]!
+  aggregate: AggregateAvatar!
+}
+
+input AvatarCreateInput {
+  thumbnailImg: String
+  bigImg: String
+  weChatUser: WeChatUserCreateOneWithoutAvatarInput
+  chatRoom: ChatRoomCreateOneWithoutAvatarInput
+}
+
+input AvatarCreateOneWithoutChatRoomInput {
+  create: AvatarCreateWithoutChatRoomInput
+  connect: AvatarWhereUniqueInput
+}
+
+input AvatarCreateOneWithoutWeChatUserInput {
+  create: AvatarCreateWithoutWeChatUserInput
+  connect: AvatarWhereUniqueInput
+}
+
+input AvatarCreateWithoutChatRoomInput {
+  thumbnailImg: String
+  bigImg: String
+  weChatUser: WeChatUserCreateOneWithoutAvatarInput
+}
+
+input AvatarCreateWithoutWeChatUserInput {
+  thumbnailImg: String
+  bigImg: String
+  chatRoom: ChatRoomCreateOneWithoutAvatarInput
+}
+
+type AvatarEdge {
+  node: Avatar!
+  cursor: String!
+}
+
+enum AvatarOrderByInput {
+  id_ASC
+  id_DESC
+  thumbnailImg_ASC
+  thumbnailImg_DESC
+  bigImg_ASC
+  bigImg_DESC
+}
+
+type AvatarPreviousValues {
+  id: ID!
+  thumbnailImg: String
+  bigImg: String
+}
+
+type AvatarSubscriptionPayload {
+  mutation: MutationType!
+  node: Avatar
+  updatedFields: [String!]
+  previousValues: AvatarPreviousValues
+}
+
+input AvatarSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AvatarWhereInput
+  AND: [AvatarSubscriptionWhereInput!]
+}
+
+input AvatarUpdateInput {
+  thumbnailImg: String
+  bigImg: String
+  weChatUser: WeChatUserUpdateOneWithoutAvatarInput
+  chatRoom: ChatRoomUpdateOneWithoutAvatarInput
+}
+
+input AvatarUpdateManyMutationInput {
+  thumbnailImg: String
+  bigImg: String
+}
+
+input AvatarUpdateOneWithoutChatRoomInput {
+  create: AvatarCreateWithoutChatRoomInput
+  update: AvatarUpdateWithoutChatRoomDataInput
+  upsert: AvatarUpsertWithoutChatRoomInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: AvatarWhereUniqueInput
+}
+
+input AvatarUpdateOneWithoutWeChatUserInput {
+  create: AvatarCreateWithoutWeChatUserInput
+  update: AvatarUpdateWithoutWeChatUserDataInput
+  upsert: AvatarUpsertWithoutWeChatUserInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: AvatarWhereUniqueInput
+}
+
+input AvatarUpdateWithoutChatRoomDataInput {
+  thumbnailImg: String
+  bigImg: String
+  weChatUser: WeChatUserUpdateOneWithoutAvatarInput
+}
+
+input AvatarUpdateWithoutWeChatUserDataInput {
+  thumbnailImg: String
+  bigImg: String
+  chatRoom: ChatRoomUpdateOneWithoutAvatarInput
+}
+
+input AvatarUpsertWithoutChatRoomInput {
+  update: AvatarUpdateWithoutChatRoomDataInput!
+  create: AvatarCreateWithoutChatRoomInput!
+}
+
+input AvatarUpsertWithoutWeChatUserInput {
+  update: AvatarUpdateWithoutWeChatUserDataInput!
+  create: AvatarCreateWithoutWeChatUserInput!
+}
+
+input AvatarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  thumbnailImg: String
+  thumbnailImg_not: String
+  thumbnailImg_in: [String!]
+  thumbnailImg_not_in: [String!]
+  thumbnailImg_lt: String
+  thumbnailImg_lte: String
+  thumbnailImg_gt: String
+  thumbnailImg_gte: String
+  thumbnailImg_contains: String
+  thumbnailImg_not_contains: String
+  thumbnailImg_starts_with: String
+  thumbnailImg_not_starts_with: String
+  thumbnailImg_ends_with: String
+  thumbnailImg_not_ends_with: String
+  bigImg: String
+  bigImg_not: String
+  bigImg_in: [String!]
+  bigImg_not_in: [String!]
+  bigImg_lt: String
+  bigImg_lte: String
+  bigImg_gt: String
+  bigImg_gte: String
+  bigImg_contains: String
+  bigImg_not_contains: String
+  bigImg_starts_with: String
+  bigImg_not_starts_with: String
+  bigImg_ends_with: String
+  bigImg_not_ends_with: String
+  weChatUser: WeChatUserWhereInput
+  chatRoom: ChatRoomWhereInput
+  AND: [AvatarWhereInput!]
+}
+
+input AvatarWhereUniqueInput {
+  id: ID
 }
 
 type BatchPayload {
   count: Long!
 }
 
+type ChatRoom {
+  id: ID!
+  userName: String!
+  nickName: String
+  displayName: String!
+  owner: WeChatUser!
+  memberList(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChatUser!]
+  modifyTime: DateTime
+  avatar: Avatar
+  message(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message!]
+}
+
+type ChatRoomConnection {
+  pageInfo: PageInfo!
+  edges: [ChatRoomEdge]!
+  aggregate: AggregateChatRoom!
+}
+
+input ChatRoomCreateInput {
+  userName: String!
+  nickName: String
+  displayName: String!
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
+  memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarCreateOneWithoutChatRoomInput
+  message: MessageCreateManyWithoutChatRoomInput
+}
+
+input ChatRoomCreateManyWithoutMemberListInput {
+  create: [ChatRoomCreateWithoutMemberListInput!]
+  connect: [ChatRoomWhereUniqueInput!]
+}
+
+input ChatRoomCreateManyWithoutOwnerInput {
+  create: [ChatRoomCreateWithoutOwnerInput!]
+  connect: [ChatRoomWhereUniqueInput!]
+}
+
+input ChatRoomCreateOneWithoutAvatarInput {
+  create: ChatRoomCreateWithoutAvatarInput
+  connect: ChatRoomWhereUniqueInput
+}
+
+input ChatRoomCreateOneWithoutMessageInput {
+  create: ChatRoomCreateWithoutMessageInput
+  connect: ChatRoomWhereUniqueInput
+}
+
+input ChatRoomCreateWithoutAvatarInput {
+  userName: String!
+  nickName: String
+  displayName: String!
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
+  memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  message: MessageCreateManyWithoutChatRoomInput
+}
+
+input ChatRoomCreateWithoutMemberListInput {
+  userName: String!
+  nickName: String
+  displayName: String!
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
+  modifyTime: DateTime
+  avatar: AvatarCreateOneWithoutChatRoomInput
+  message: MessageCreateManyWithoutChatRoomInput
+}
+
+input ChatRoomCreateWithoutMessageInput {
+  userName: String!
+  nickName: String
+  displayName: String!
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
+  memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarCreateOneWithoutChatRoomInput
+}
+
+input ChatRoomCreateWithoutOwnerInput {
+  userName: String!
+  nickName: String
+  displayName: String!
+  memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarCreateOneWithoutChatRoomInput
+  message: MessageCreateManyWithoutChatRoomInput
+}
+
+type ChatRoomEdge {
+  node: ChatRoom!
+  cursor: String!
+}
+
+enum ChatRoomOrderByInput {
+  id_ASC
+  id_DESC
+  userName_ASC
+  userName_DESC
+  nickName_ASC
+  nickName_DESC
+  displayName_ASC
+  displayName_DESC
+  modifyTime_ASC
+  modifyTime_DESC
+}
+
+type ChatRoomPreviousValues {
+  id: ID!
+  userName: String!
+  nickName: String
+  displayName: String!
+  modifyTime: DateTime
+}
+
+input ChatRoomScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  userName: String
+  userName_not: String
+  userName_in: [String!]
+  userName_not_in: [String!]
+  userName_lt: String
+  userName_lte: String
+  userName_gt: String
+  userName_gte: String
+  userName_contains: String
+  userName_not_contains: String
+  userName_starts_with: String
+  userName_not_starts_with: String
+  userName_ends_with: String
+  userName_not_ends_with: String
+  nickName: String
+  nickName_not: String
+  nickName_in: [String!]
+  nickName_not_in: [String!]
+  nickName_lt: String
+  nickName_lte: String
+  nickName_gt: String
+  nickName_gte: String
+  nickName_contains: String
+  nickName_not_contains: String
+  nickName_starts_with: String
+  nickName_not_starts_with: String
+  nickName_ends_with: String
+  nickName_not_ends_with: String
+  displayName: String
+  displayName_not: String
+  displayName_in: [String!]
+  displayName_not_in: [String!]
+  displayName_lt: String
+  displayName_lte: String
+  displayName_gt: String
+  displayName_gte: String
+  displayName_contains: String
+  displayName_not_contains: String
+  displayName_starts_with: String
+  displayName_not_starts_with: String
+  displayName_ends_with: String
+  displayName_not_ends_with: String
+  modifyTime: DateTime
+  modifyTime_not: DateTime
+  modifyTime_in: [DateTime!]
+  modifyTime_not_in: [DateTime!]
+  modifyTime_lt: DateTime
+  modifyTime_lte: DateTime
+  modifyTime_gt: DateTime
+  modifyTime_gte: DateTime
+  AND: [ChatRoomScalarWhereInput!]
+  OR: [ChatRoomScalarWhereInput!]
+  NOT: [ChatRoomScalarWhereInput!]
+}
+
+type ChatRoomSubscriptionPayload {
+  mutation: MutationType!
+  node: ChatRoom
+  updatedFields: [String!]
+  previousValues: ChatRoomPreviousValues
+}
+
+input ChatRoomSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ChatRoomWhereInput
+  AND: [ChatRoomSubscriptionWhereInput!]
+}
+
+input ChatRoomUpdateInput {
+  userName: String
+  nickName: String
+  displayName: String
+  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarUpdateOneWithoutChatRoomInput
+  message: MessageUpdateManyWithoutChatRoomInput
+}
+
+input ChatRoomUpdateManyDataInput {
+  userName: String
+  nickName: String
+  displayName: String
+  modifyTime: DateTime
+}
+
+input ChatRoomUpdateManyMutationInput {
+  userName: String
+  nickName: String
+  displayName: String
+  modifyTime: DateTime
+}
+
+input ChatRoomUpdateManyWithoutMemberListInput {
+  create: [ChatRoomCreateWithoutMemberListInput!]
+  delete: [ChatRoomWhereUniqueInput!]
+  connect: [ChatRoomWhereUniqueInput!]
+  set: [ChatRoomWhereUniqueInput!]
+  disconnect: [ChatRoomWhereUniqueInput!]
+  update: [ChatRoomUpdateWithWhereUniqueWithoutMemberListInput!]
+  upsert: [ChatRoomUpsertWithWhereUniqueWithoutMemberListInput!]
+  deleteMany: [ChatRoomScalarWhereInput!]
+  updateMany: [ChatRoomUpdateManyWithWhereNestedInput!]
+}
+
+input ChatRoomUpdateManyWithoutOwnerInput {
+  create: [ChatRoomCreateWithoutOwnerInput!]
+  delete: [ChatRoomWhereUniqueInput!]
+  connect: [ChatRoomWhereUniqueInput!]
+  set: [ChatRoomWhereUniqueInput!]
+  disconnect: [ChatRoomWhereUniqueInput!]
+  update: [ChatRoomUpdateWithWhereUniqueWithoutOwnerInput!]
+  upsert: [ChatRoomUpsertWithWhereUniqueWithoutOwnerInput!]
+  deleteMany: [ChatRoomScalarWhereInput!]
+  updateMany: [ChatRoomUpdateManyWithWhereNestedInput!]
+}
+
+input ChatRoomUpdateManyWithWhereNestedInput {
+  where: ChatRoomScalarWhereInput!
+  data: ChatRoomUpdateManyDataInput!
+}
+
+input ChatRoomUpdateOneWithoutAvatarInput {
+  create: ChatRoomCreateWithoutAvatarInput
+  update: ChatRoomUpdateWithoutAvatarDataInput
+  upsert: ChatRoomUpsertWithoutAvatarInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ChatRoomWhereUniqueInput
+}
+
+input ChatRoomUpdateOneWithoutMessageInput {
+  create: ChatRoomCreateWithoutMessageInput
+  update: ChatRoomUpdateWithoutMessageDataInput
+  upsert: ChatRoomUpsertWithoutMessageInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ChatRoomWhereUniqueInput
+}
+
+input ChatRoomUpdateWithoutAvatarDataInput {
+  userName: String
+  nickName: String
+  displayName: String
+  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  message: MessageUpdateManyWithoutChatRoomInput
+}
+
+input ChatRoomUpdateWithoutMemberListDataInput {
+  userName: String
+  nickName: String
+  displayName: String
+  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarUpdateOneWithoutChatRoomInput
+  message: MessageUpdateManyWithoutChatRoomInput
+}
+
+input ChatRoomUpdateWithoutMessageDataInput {
+  userName: String
+  nickName: String
+  displayName: String
+  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarUpdateOneWithoutChatRoomInput
+}
+
+input ChatRoomUpdateWithoutOwnerDataInput {
+  userName: String
+  nickName: String
+  displayName: String
+  memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarUpdateOneWithoutChatRoomInput
+  message: MessageUpdateManyWithoutChatRoomInput
+}
+
+input ChatRoomUpdateWithWhereUniqueWithoutMemberListInput {
+  where: ChatRoomWhereUniqueInput!
+  data: ChatRoomUpdateWithoutMemberListDataInput!
+}
+
+input ChatRoomUpdateWithWhereUniqueWithoutOwnerInput {
+  where: ChatRoomWhereUniqueInput!
+  data: ChatRoomUpdateWithoutOwnerDataInput!
+}
+
+input ChatRoomUpsertWithoutAvatarInput {
+  update: ChatRoomUpdateWithoutAvatarDataInput!
+  create: ChatRoomCreateWithoutAvatarInput!
+}
+
+input ChatRoomUpsertWithoutMessageInput {
+  update: ChatRoomUpdateWithoutMessageDataInput!
+  create: ChatRoomCreateWithoutMessageInput!
+}
+
+input ChatRoomUpsertWithWhereUniqueWithoutMemberListInput {
+  where: ChatRoomWhereUniqueInput!
+  update: ChatRoomUpdateWithoutMemberListDataInput!
+  create: ChatRoomCreateWithoutMemberListInput!
+}
+
+input ChatRoomUpsertWithWhereUniqueWithoutOwnerInput {
+  where: ChatRoomWhereUniqueInput!
+  update: ChatRoomUpdateWithoutOwnerDataInput!
+  create: ChatRoomCreateWithoutOwnerInput!
+}
+
+input ChatRoomWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  userName: String
+  userName_not: String
+  userName_in: [String!]
+  userName_not_in: [String!]
+  userName_lt: String
+  userName_lte: String
+  userName_gt: String
+  userName_gte: String
+  userName_contains: String
+  userName_not_contains: String
+  userName_starts_with: String
+  userName_not_starts_with: String
+  userName_ends_with: String
+  userName_not_ends_with: String
+  nickName: String
+  nickName_not: String
+  nickName_in: [String!]
+  nickName_not_in: [String!]
+  nickName_lt: String
+  nickName_lte: String
+  nickName_gt: String
+  nickName_gte: String
+  nickName_contains: String
+  nickName_not_contains: String
+  nickName_starts_with: String
+  nickName_not_starts_with: String
+  nickName_ends_with: String
+  nickName_not_ends_with: String
+  displayName: String
+  displayName_not: String
+  displayName_in: [String!]
+  displayName_not_in: [String!]
+  displayName_lt: String
+  displayName_lte: String
+  displayName_gt: String
+  displayName_gte: String
+  displayName_contains: String
+  displayName_not_contains: String
+  displayName_starts_with: String
+  displayName_not_starts_with: String
+  displayName_ends_with: String
+  displayName_not_ends_with: String
+  owner: WeChatUserWhereInput
+  memberList_some: WeChatUserWhereInput
+  modifyTime: DateTime
+  modifyTime_not: DateTime
+  modifyTime_in: [DateTime!]
+  modifyTime_not_in: [DateTime!]
+  modifyTime_lt: DateTime
+  modifyTime_lte: DateTime
+  modifyTime_gt: DateTime
+  modifyTime_gte: DateTime
+  avatar: AvatarWhereInput
+  message_some: MessageWhereInput
+  AND: [ChatRoomWhereInput!]
+}
+
+input ChatRoomWhereUniqueInput {
+  id: ID
+  userName: String
+}
+
+type Contact {
+  id: ID!
+  type: String!
+  weChatUser(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChatUser!]
+}
+
+type ContactConnection {
+  pageInfo: PageInfo!
+  edges: [ContactEdge]!
+  aggregate: AggregateContact!
+}
+
+input ContactCreateInput {
+  type: String!
+  weChatUser: WeChatUserCreateManyWithoutContactInput
+}
+
+input ContactCreateOneWithoutWeChatUserInput {
+  create: ContactCreateWithoutWeChatUserInput
+  connect: ContactWhereUniqueInput
+}
+
+input ContactCreateWithoutWeChatUserInput {
+  type: String!
+}
+
+type ContactEdge {
+  node: Contact!
+  cursor: String!
+}
+
+enum ContactOrderByInput {
+  id_ASC
+  id_DESC
+  type_ASC
+  type_DESC
+}
+
+type ContactPreviousValues {
+  id: ID!
+  type: String!
+}
+
+type ContactSubscriptionPayload {
+  mutation: MutationType!
+  node: Contact
+  updatedFields: [String!]
+  previousValues: ContactPreviousValues
+}
+
+input ContactSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ContactWhereInput
+  AND: [ContactSubscriptionWhereInput!]
+}
+
+input ContactUpdateInput {
+  type: String
+  weChatUser: WeChatUserUpdateManyWithoutContactInput
+}
+
+input ContactUpdateManyMutationInput {
+  type: String
+}
+
+input ContactUpdateOneWithoutWeChatUserInput {
+  create: ContactCreateWithoutWeChatUserInput
+  update: ContactUpdateWithoutWeChatUserDataInput
+  upsert: ContactUpsertWithoutWeChatUserInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContactWhereUniqueInput
+}
+
+input ContactUpdateWithoutWeChatUserDataInput {
+  type: String
+}
+
+input ContactUpsertWithoutWeChatUserInput {
+  update: ContactUpdateWithoutWeChatUserDataInput!
+  create: ContactCreateWithoutWeChatUserInput!
+}
+
+input ContactWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  weChatUser_some: WeChatUserWhereInput
+  AND: [ContactWhereInput!]
+}
+
+input ContactWhereUniqueInput {
+  id: ID
+}
+
+type Content {
+  id: ID!
+  text: Text
+  image: Image
+  voice: Voice
+  video: Video
+  file: File
+  app: App
+}
+
+type ContentConnection {
+  pageInfo: PageInfo!
+  edges: [ContentEdge]!
+  aggregate: AggregateContent!
+}
+
+input ContentCreateInput {
+  text: TextCreateOneWithoutContentInput
+  image: ImageCreateOneWithoutContentInput
+  voice: VoiceCreateOneWithoutContentInput
+  video: VideoCreateOneWithoutContentInput
+  file: FileCreateOneWithoutContentInput
+  app: AppCreateOneWithoutContentInput
+}
+
+input ContentCreateOneInput {
+  create: ContentCreateInput
+  connect: ContentWhereUniqueInput
+}
+
+input ContentCreateOneWithoutAppInput {
+  create: ContentCreateWithoutAppInput
+  connect: ContentWhereUniqueInput
+}
+
+input ContentCreateOneWithoutFileInput {
+  create: ContentCreateWithoutFileInput
+  connect: ContentWhereUniqueInput
+}
+
+input ContentCreateOneWithoutImageInput {
+  create: ContentCreateWithoutImageInput
+  connect: ContentWhereUniqueInput
+}
+
+input ContentCreateOneWithoutTextInput {
+  create: ContentCreateWithoutTextInput
+  connect: ContentWhereUniqueInput
+}
+
+input ContentCreateOneWithoutVideoInput {
+  create: ContentCreateWithoutVideoInput
+  connect: ContentWhereUniqueInput
+}
+
+input ContentCreateOneWithoutVoiceInput {
+  create: ContentCreateWithoutVoiceInput
+  connect: ContentWhereUniqueInput
+}
+
+input ContentCreateWithoutAppInput {
+  text: TextCreateOneWithoutContentInput
+  image: ImageCreateOneWithoutContentInput
+  voice: VoiceCreateOneWithoutContentInput
+  video: VideoCreateOneWithoutContentInput
+  file: FileCreateOneWithoutContentInput
+}
+
+input ContentCreateWithoutFileInput {
+  text: TextCreateOneWithoutContentInput
+  image: ImageCreateOneWithoutContentInput
+  voice: VoiceCreateOneWithoutContentInput
+  video: VideoCreateOneWithoutContentInput
+  app: AppCreateOneWithoutContentInput
+}
+
+input ContentCreateWithoutImageInput {
+  text: TextCreateOneWithoutContentInput
+  voice: VoiceCreateOneWithoutContentInput
+  video: VideoCreateOneWithoutContentInput
+  file: FileCreateOneWithoutContentInput
+  app: AppCreateOneWithoutContentInput
+}
+
+input ContentCreateWithoutTextInput {
+  image: ImageCreateOneWithoutContentInput
+  voice: VoiceCreateOneWithoutContentInput
+  video: VideoCreateOneWithoutContentInput
+  file: FileCreateOneWithoutContentInput
+  app: AppCreateOneWithoutContentInput
+}
+
+input ContentCreateWithoutVideoInput {
+  text: TextCreateOneWithoutContentInput
+  image: ImageCreateOneWithoutContentInput
+  voice: VoiceCreateOneWithoutContentInput
+  file: FileCreateOneWithoutContentInput
+  app: AppCreateOneWithoutContentInput
+}
+
+input ContentCreateWithoutVoiceInput {
+  text: TextCreateOneWithoutContentInput
+  image: ImageCreateOneWithoutContentInput
+  video: VideoCreateOneWithoutContentInput
+  file: FileCreateOneWithoutContentInput
+  app: AppCreateOneWithoutContentInput
+}
+
+type ContentEdge {
+  node: Content!
+  cursor: String!
+}
+
+enum ContentOrderByInput {
+  id_ASC
+  id_DESC
+}
+
+type ContentPreviousValues {
+  id: ID!
+}
+
+type ContentSubscriptionPayload {
+  mutation: MutationType!
+  node: Content
+  updatedFields: [String!]
+  previousValues: ContentPreviousValues
+}
+
+input ContentSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ContentWhereInput
+  AND: [ContentSubscriptionWhereInput!]
+}
+
+input ContentUpdateDataInput {
+  text: TextUpdateOneWithoutContentInput
+  image: ImageUpdateOneWithoutContentInput
+  voice: VoiceUpdateOneWithoutContentInput
+  video: VideoUpdateOneWithoutContentInput
+  file: FileUpdateOneWithoutContentInput
+  app: AppUpdateOneWithoutContentInput
+}
+
+input ContentUpdateInput {
+  text: TextUpdateOneWithoutContentInput
+  image: ImageUpdateOneWithoutContentInput
+  voice: VoiceUpdateOneWithoutContentInput
+  video: VideoUpdateOneWithoutContentInput
+  file: FileUpdateOneWithoutContentInput
+  app: AppUpdateOneWithoutContentInput
+}
+
+input ContentUpdateOneInput {
+  create: ContentCreateInput
+  update: ContentUpdateDataInput
+  upsert: ContentUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContentWhereUniqueInput
+}
+
+input ContentUpdateOneWithoutAppInput {
+  create: ContentCreateWithoutAppInput
+  update: ContentUpdateWithoutAppDataInput
+  upsert: ContentUpsertWithoutAppInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContentWhereUniqueInput
+}
+
+input ContentUpdateOneWithoutFileInput {
+  create: ContentCreateWithoutFileInput
+  update: ContentUpdateWithoutFileDataInput
+  upsert: ContentUpsertWithoutFileInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContentWhereUniqueInput
+}
+
+input ContentUpdateOneWithoutImageInput {
+  create: ContentCreateWithoutImageInput
+  update: ContentUpdateWithoutImageDataInput
+  upsert: ContentUpsertWithoutImageInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContentWhereUniqueInput
+}
+
+input ContentUpdateOneWithoutTextInput {
+  create: ContentCreateWithoutTextInput
+  update: ContentUpdateWithoutTextDataInput
+  upsert: ContentUpsertWithoutTextInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContentWhereUniqueInput
+}
+
+input ContentUpdateOneWithoutVideoInput {
+  create: ContentCreateWithoutVideoInput
+  update: ContentUpdateWithoutVideoDataInput
+  upsert: ContentUpsertWithoutVideoInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContentWhereUniqueInput
+}
+
+input ContentUpdateOneWithoutVoiceInput {
+  create: ContentCreateWithoutVoiceInput
+  update: ContentUpdateWithoutVoiceDataInput
+  upsert: ContentUpsertWithoutVoiceInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ContentWhereUniqueInput
+}
+
+input ContentUpdateWithoutAppDataInput {
+  text: TextUpdateOneWithoutContentInput
+  image: ImageUpdateOneWithoutContentInput
+  voice: VoiceUpdateOneWithoutContentInput
+  video: VideoUpdateOneWithoutContentInput
+  file: FileUpdateOneWithoutContentInput
+}
+
+input ContentUpdateWithoutFileDataInput {
+  text: TextUpdateOneWithoutContentInput
+  image: ImageUpdateOneWithoutContentInput
+  voice: VoiceUpdateOneWithoutContentInput
+  video: VideoUpdateOneWithoutContentInput
+  app: AppUpdateOneWithoutContentInput
+}
+
+input ContentUpdateWithoutImageDataInput {
+  text: TextUpdateOneWithoutContentInput
+  voice: VoiceUpdateOneWithoutContentInput
+  video: VideoUpdateOneWithoutContentInput
+  file: FileUpdateOneWithoutContentInput
+  app: AppUpdateOneWithoutContentInput
+}
+
+input ContentUpdateWithoutTextDataInput {
+  image: ImageUpdateOneWithoutContentInput
+  voice: VoiceUpdateOneWithoutContentInput
+  video: VideoUpdateOneWithoutContentInput
+  file: FileUpdateOneWithoutContentInput
+  app: AppUpdateOneWithoutContentInput
+}
+
+input ContentUpdateWithoutVideoDataInput {
+  text: TextUpdateOneWithoutContentInput
+  image: ImageUpdateOneWithoutContentInput
+  voice: VoiceUpdateOneWithoutContentInput
+  file: FileUpdateOneWithoutContentInput
+  app: AppUpdateOneWithoutContentInput
+}
+
+input ContentUpdateWithoutVoiceDataInput {
+  text: TextUpdateOneWithoutContentInput
+  image: ImageUpdateOneWithoutContentInput
+  video: VideoUpdateOneWithoutContentInput
+  file: FileUpdateOneWithoutContentInput
+  app: AppUpdateOneWithoutContentInput
+}
+
+input ContentUpsertNestedInput {
+  update: ContentUpdateDataInput!
+  create: ContentCreateInput!
+}
+
+input ContentUpsertWithoutAppInput {
+  update: ContentUpdateWithoutAppDataInput!
+  create: ContentCreateWithoutAppInput!
+}
+
+input ContentUpsertWithoutFileInput {
+  update: ContentUpdateWithoutFileDataInput!
+  create: ContentCreateWithoutFileInput!
+}
+
+input ContentUpsertWithoutImageInput {
+  update: ContentUpdateWithoutImageDataInput!
+  create: ContentCreateWithoutImageInput!
+}
+
+input ContentUpsertWithoutTextInput {
+  update: ContentUpdateWithoutTextDataInput!
+  create: ContentCreateWithoutTextInput!
+}
+
+input ContentUpsertWithoutVideoInput {
+  update: ContentUpdateWithoutVideoDataInput!
+  create: ContentCreateWithoutVideoInput!
+}
+
+input ContentUpsertWithoutVoiceInput {
+  update: ContentUpdateWithoutVoiceDataInput!
+  create: ContentCreateWithoutVoiceInput!
+}
+
+input ContentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  text: TextWhereInput
+  image: ImageWhereInput
+  voice: VoiceWhereInput
+  video: VideoWhereInput
+  file: FileWhereInput
+  app: AppWhereInput
+  AND: [ContentWhereInput!]
+}
+
+input ContentWhereUniqueInput {
+  id: ID
+}
+
+scalar DateTime
+
+type File {
+  id: ID!
+  fileName: String!
+  size: Int
+  content: Content
+}
+
+type FileConnection {
+  pageInfo: PageInfo!
+  edges: [FileEdge]!
+  aggregate: AggregateFile!
+}
+
+input FileCreateInput {
+  fileName: String!
+  size: Int
+  content: ContentCreateOneWithoutFileInput
+}
+
+input FileCreateOneWithoutContentInput {
+  create: FileCreateWithoutContentInput
+  connect: FileWhereUniqueInput
+}
+
+input FileCreateWithoutContentInput {
+  fileName: String!
+  size: Int
+}
+
+type FileEdge {
+  node: File!
+  cursor: String!
+}
+
+enum FileOrderByInput {
+  id_ASC
+  id_DESC
+  fileName_ASC
+  fileName_DESC
+  size_ASC
+  size_DESC
+}
+
+type FilePreviousValues {
+  id: ID!
+  fileName: String!
+  size: Int
+}
+
+type FileSubscriptionPayload {
+  mutation: MutationType!
+  node: File
+  updatedFields: [String!]
+  previousValues: FilePreviousValues
+}
+
+input FileSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FileWhereInput
+  AND: [FileSubscriptionWhereInput!]
+}
+
+input FileUpdateInput {
+  fileName: String
+  size: Int
+  content: ContentUpdateOneWithoutFileInput
+}
+
+input FileUpdateManyMutationInput {
+  fileName: String
+  size: Int
+}
+
+input FileUpdateOneWithoutContentInput {
+  create: FileCreateWithoutContentInput
+  update: FileUpdateWithoutContentDataInput
+  upsert: FileUpsertWithoutContentInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: FileWhereUniqueInput
+}
+
+input FileUpdateWithoutContentDataInput {
+  fileName: String
+  size: Int
+}
+
+input FileUpsertWithoutContentInput {
+  update: FileUpdateWithoutContentDataInput!
+  create: FileCreateWithoutContentInput!
+}
+
+input FileWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  fileName: String
+  fileName_not: String
+  fileName_in: [String!]
+  fileName_not_in: [String!]
+  fileName_lt: String
+  fileName_lte: String
+  fileName_gt: String
+  fileName_gte: String
+  fileName_contains: String
+  fileName_not_contains: String
+  fileName_starts_with: String
+  fileName_not_starts_with: String
+  fileName_ends_with: String
+  fileName_not_ends_with: String
+  size: Int
+  size_not: Int
+  size_in: [Int!]
+  size_not_in: [Int!]
+  size_lt: Int
+  size_lte: Int
+  size_gt: Int
+  size_gte: Int
+  content: ContentWhereInput
+  AND: [FileWhereInput!]
+}
+
+input FileWhereUniqueInput {
+  id: ID
+}
+
+type Image {
+  id: ID!
+  thumbnailImg: String
+  bigImg: String
+  content: Content
+}
+
+type ImageConnection {
+  pageInfo: PageInfo!
+  edges: [ImageEdge]!
+  aggregate: AggregateImage!
+}
+
+input ImageCreateInput {
+  thumbnailImg: String
+  bigImg: String
+  content: ContentCreateOneWithoutImageInput
+}
+
+input ImageCreateOneWithoutContentInput {
+  create: ImageCreateWithoutContentInput
+  connect: ImageWhereUniqueInput
+}
+
+input ImageCreateWithoutContentInput {
+  thumbnailImg: String
+  bigImg: String
+}
+
+type ImageEdge {
+  node: Image!
+  cursor: String!
+}
+
+enum ImageOrderByInput {
+  id_ASC
+  id_DESC
+  thumbnailImg_ASC
+  thumbnailImg_DESC
+  bigImg_ASC
+  bigImg_DESC
+}
+
+type ImagePreviousValues {
+  id: ID!
+  thumbnailImg: String
+  bigImg: String
+}
+
+type ImageSubscriptionPayload {
+  mutation: MutationType!
+  node: Image
+  updatedFields: [String!]
+  previousValues: ImagePreviousValues
+}
+
+input ImageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ImageWhereInput
+  AND: [ImageSubscriptionWhereInput!]
+}
+
+input ImageUpdateInput {
+  thumbnailImg: String
+  bigImg: String
+  content: ContentUpdateOneWithoutImageInput
+}
+
+input ImageUpdateManyMutationInput {
+  thumbnailImg: String
+  bigImg: String
+}
+
+input ImageUpdateOneWithoutContentInput {
+  create: ImageCreateWithoutContentInput
+  update: ImageUpdateWithoutContentDataInput
+  upsert: ImageUpsertWithoutContentInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ImageWhereUniqueInput
+}
+
+input ImageUpdateWithoutContentDataInput {
+  thumbnailImg: String
+  bigImg: String
+}
+
+input ImageUpsertWithoutContentInput {
+  update: ImageUpdateWithoutContentDataInput!
+  create: ImageCreateWithoutContentInput!
+}
+
+input ImageWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  thumbnailImg: String
+  thumbnailImg_not: String
+  thumbnailImg_in: [String!]
+  thumbnailImg_not_in: [String!]
+  thumbnailImg_lt: String
+  thumbnailImg_lte: String
+  thumbnailImg_gt: String
+  thumbnailImg_gte: String
+  thumbnailImg_contains: String
+  thumbnailImg_not_contains: String
+  thumbnailImg_starts_with: String
+  thumbnailImg_not_starts_with: String
+  thumbnailImg_ends_with: String
+  thumbnailImg_not_ends_with: String
+  bigImg: String
+  bigImg_not: String
+  bigImg_in: [String!]
+  bigImg_not_in: [String!]
+  bigImg_lt: String
+  bigImg_lte: String
+  bigImg_gt: String
+  bigImg_gte: String
+  bigImg_contains: String
+  bigImg_not_contains: String
+  bigImg_starts_with: String
+  bigImg_not_starts_with: String
+  bigImg_ends_with: String
+  bigImg_not_ends_with: String
+  content: ContentWhereInput
+  AND: [ImageWhereInput!]
+}
+
+input ImageWhereUniqueInput {
+  id: ID
+}
+
+scalar Json
+
 scalar Long
 
+type Message {
+  id: ID!
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  talker: WeChatUser!
+  createTime: DateTime
+  chatRoom: ChatRoom
+  content: Content
+}
+
+type MessageConnection {
+  pageInfo: PageInfo!
+  edges: [MessageEdge]!
+  aggregate: AggregateMessage!
+}
+
+input MessageCreateInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  talker: WeChatUserCreateOneWithoutMessageInput!
+  createTime: DateTime
+  chatRoom: ChatRoomCreateOneWithoutMessageInput
+  content: ContentCreateOneInput
+}
+
+input MessageCreateManyWithoutChatRoomInput {
+  create: [MessageCreateWithoutChatRoomInput!]
+  connect: [MessageWhereUniqueInput!]
+}
+
+input MessageCreateManyWithoutTalkerInput {
+  create: [MessageCreateWithoutTalkerInput!]
+  connect: [MessageWhereUniqueInput!]
+}
+
+input MessageCreateWithoutChatRoomInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  talker: WeChatUserCreateOneWithoutMessageInput!
+  createTime: DateTime
+  content: ContentCreateOneInput
+}
+
+input MessageCreateWithoutTalkerInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  createTime: DateTime
+  chatRoom: ChatRoomCreateOneWithoutMessageInput
+  content: ContentCreateOneInput
+}
+
+type MessageEdge {
+  node: Message!
+  cursor: String!
+}
+
+enum MessageOrderByInput {
+  id_ASC
+  id_DESC
+  msgSvrId_ASC
+  msgSvrId_DESC
+  isSend_ASC
+  isSend_DESC
+  type_ASC
+  type_DESC
+  createTime_ASC
+  createTime_DESC
+}
+
+type MessagePreviousValues {
+  id: ID!
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  createTime: DateTime
+}
+
+input MessageScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  msgSvrId: String
+  msgSvrId_not: String
+  msgSvrId_in: [String!]
+  msgSvrId_not_in: [String!]
+  msgSvrId_lt: String
+  msgSvrId_lte: String
+  msgSvrId_gt: String
+  msgSvrId_gte: String
+  msgSvrId_contains: String
+  msgSvrId_not_contains: String
+  msgSvrId_starts_with: String
+  msgSvrId_not_starts_with: String
+  msgSvrId_ends_with: String
+  msgSvrId_not_ends_with: String
+  isSend: Int
+  isSend_not: Int
+  isSend_in: [Int!]
+  isSend_not_in: [Int!]
+  isSend_lt: Int
+  isSend_lte: Int
+  isSend_gt: Int
+  isSend_gte: Int
+  type: Int
+  type_not: Int
+  type_in: [Int!]
+  type_not_in: [Int!]
+  type_lt: Int
+  type_lte: Int
+  type_gt: Int
+  type_gte: Int
+  createTime: DateTime
+  createTime_not: DateTime
+  createTime_in: [DateTime!]
+  createTime_not_in: [DateTime!]
+  createTime_lt: DateTime
+  createTime_lte: DateTime
+  createTime_gt: DateTime
+  createTime_gte: DateTime
+  AND: [MessageScalarWhereInput!]
+  OR: [MessageScalarWhereInput!]
+  NOT: [MessageScalarWhereInput!]
+}
+
+type MessageSubscriptionPayload {
+  mutation: MutationType!
+  node: Message
+  updatedFields: [String!]
+  previousValues: MessagePreviousValues
+}
+
+input MessageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MessageWhereInput
+  AND: [MessageSubscriptionWhereInput!]
+}
+
+input MessageUpdateInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  talker: WeChatUserUpdateOneRequiredWithoutMessageInput
+  createTime: DateTime
+  chatRoom: ChatRoomUpdateOneWithoutMessageInput
+  content: ContentUpdateOneInput
+}
+
+input MessageUpdateManyDataInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  createTime: DateTime
+}
+
+input MessageUpdateManyMutationInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  createTime: DateTime
+}
+
+input MessageUpdateManyWithoutChatRoomInput {
+  create: [MessageCreateWithoutChatRoomInput!]
+  delete: [MessageWhereUniqueInput!]
+  connect: [MessageWhereUniqueInput!]
+  set: [MessageWhereUniqueInput!]
+  disconnect: [MessageWhereUniqueInput!]
+  update: [MessageUpdateWithWhereUniqueWithoutChatRoomInput!]
+  upsert: [MessageUpsertWithWhereUniqueWithoutChatRoomInput!]
+  deleteMany: [MessageScalarWhereInput!]
+  updateMany: [MessageUpdateManyWithWhereNestedInput!]
+}
+
+input MessageUpdateManyWithoutTalkerInput {
+  create: [MessageCreateWithoutTalkerInput!]
+  delete: [MessageWhereUniqueInput!]
+  connect: [MessageWhereUniqueInput!]
+  set: [MessageWhereUniqueInput!]
+  disconnect: [MessageWhereUniqueInput!]
+  update: [MessageUpdateWithWhereUniqueWithoutTalkerInput!]
+  upsert: [MessageUpsertWithWhereUniqueWithoutTalkerInput!]
+  deleteMany: [MessageScalarWhereInput!]
+  updateMany: [MessageUpdateManyWithWhereNestedInput!]
+}
+
+input MessageUpdateManyWithWhereNestedInput {
+  where: MessageScalarWhereInput!
+  data: MessageUpdateManyDataInput!
+}
+
+input MessageUpdateWithoutChatRoomDataInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  talker: WeChatUserUpdateOneRequiredWithoutMessageInput
+  createTime: DateTime
+  content: ContentUpdateOneInput
+}
+
+input MessageUpdateWithoutTalkerDataInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  createTime: DateTime
+  chatRoom: ChatRoomUpdateOneWithoutMessageInput
+  content: ContentUpdateOneInput
+}
+
+input MessageUpdateWithWhereUniqueWithoutChatRoomInput {
+  where: MessageWhereUniqueInput!
+  data: MessageUpdateWithoutChatRoomDataInput!
+}
+
+input MessageUpdateWithWhereUniqueWithoutTalkerInput {
+  where: MessageWhereUniqueInput!
+  data: MessageUpdateWithoutTalkerDataInput!
+}
+
+input MessageUpsertWithWhereUniqueWithoutChatRoomInput {
+  where: MessageWhereUniqueInput!
+  update: MessageUpdateWithoutChatRoomDataInput!
+  create: MessageCreateWithoutChatRoomInput!
+}
+
+input MessageUpsertWithWhereUniqueWithoutTalkerInput {
+  where: MessageWhereUniqueInput!
+  update: MessageUpdateWithoutTalkerDataInput!
+  create: MessageCreateWithoutTalkerInput!
+}
+
+input MessageWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  msgSvrId: String
+  msgSvrId_not: String
+  msgSvrId_in: [String!]
+  msgSvrId_not_in: [String!]
+  msgSvrId_lt: String
+  msgSvrId_lte: String
+  msgSvrId_gt: String
+  msgSvrId_gte: String
+  msgSvrId_contains: String
+  msgSvrId_not_contains: String
+  msgSvrId_starts_with: String
+  msgSvrId_not_starts_with: String
+  msgSvrId_ends_with: String
+  msgSvrId_not_ends_with: String
+  isSend: Int
+  isSend_not: Int
+  isSend_in: [Int!]
+  isSend_not_in: [Int!]
+  isSend_lt: Int
+  isSend_lte: Int
+  isSend_gt: Int
+  isSend_gte: Int
+  type: Int
+  type_not: Int
+  type_in: [Int!]
+  type_not_in: [Int!]
+  type_lt: Int
+  type_lte: Int
+  type_gt: Int
+  type_gte: Int
+  talker: WeChatUserWhereInput
+  createTime: DateTime
+  createTime_not: DateTime
+  createTime_in: [DateTime!]
+  createTime_not_in: [DateTime!]
+  createTime_lt: DateTime
+  createTime_lte: DateTime
+  createTime_gt: DateTime
+  createTime_gte: DateTime
+  chatRoom: ChatRoomWhereInput
+  content: ContentWhereInput
+  AND: [MessageWhereInput!]
+}
+
+input MessageWhereUniqueInput {
+  id: ID
+}
+
 type Mutation {
+  createApp(data: AppCreateInput!): App!
+  updateApp(data: AppUpdateInput!, where: AppWhereUniqueInput!): App
+  updateManyApps(data: AppUpdateManyMutationInput!, where: AppWhereInput): BatchPayload!
+  upsertApp(where: AppWhereUniqueInput!, create: AppCreateInput!, update: AppUpdateInput!): App!
+  deleteApp(where: AppWhereUniqueInput!): App
+  deleteManyApps(where: AppWhereInput): BatchPayload!
+  createAvatar(data: AvatarCreateInput!): Avatar!
+  updateAvatar(data: AvatarUpdateInput!, where: AvatarWhereUniqueInput!): Avatar
+  updateManyAvatars(data: AvatarUpdateManyMutationInput!, where: AvatarWhereInput): BatchPayload!
+  upsertAvatar(where: AvatarWhereUniqueInput!, create: AvatarCreateInput!, update: AvatarUpdateInput!): Avatar!
+  deleteAvatar(where: AvatarWhereUniqueInput!): Avatar
+  deleteManyAvatars(where: AvatarWhereInput): BatchPayload!
+  createChatRoom(data: ChatRoomCreateInput!): ChatRoom!
+  updateChatRoom(data: ChatRoomUpdateInput!, where: ChatRoomWhereUniqueInput!): ChatRoom
+  updateManyChatRooms(data: ChatRoomUpdateManyMutationInput!, where: ChatRoomWhereInput): BatchPayload!
+  upsertChatRoom(where: ChatRoomWhereUniqueInput!, create: ChatRoomCreateInput!, update: ChatRoomUpdateInput!): ChatRoom!
+  deleteChatRoom(where: ChatRoomWhereUniqueInput!): ChatRoom
+  deleteManyChatRooms(where: ChatRoomWhereInput): BatchPayload!
+  createContact(data: ContactCreateInput!): Contact!
+  updateContact(data: ContactUpdateInput!, where: ContactWhereUniqueInput!): Contact
+  updateManyContacts(data: ContactUpdateManyMutationInput!, where: ContactWhereInput): BatchPayload!
+  upsertContact(where: ContactWhereUniqueInput!, create: ContactCreateInput!, update: ContactUpdateInput!): Contact!
+  deleteContact(where: ContactWhereUniqueInput!): Contact
+  deleteManyContacts(where: ContactWhereInput): BatchPayload!
+  createContent(data: ContentCreateInput!): Content!
+  updateContent(data: ContentUpdateInput!, where: ContentWhereUniqueInput!): Content
+  upsertContent(where: ContentWhereUniqueInput!, create: ContentCreateInput!, update: ContentUpdateInput!): Content!
+  deleteContent(where: ContentWhereUniqueInput!): Content
+  deleteManyContents(where: ContentWhereInput): BatchPayload!
+  createFile(data: FileCreateInput!): File!
+  updateFile(data: FileUpdateInput!, where: FileWhereUniqueInput!): File
+  updateManyFiles(data: FileUpdateManyMutationInput!, where: FileWhereInput): BatchPayload!
+  upsertFile(where: FileWhereUniqueInput!, create: FileCreateInput!, update: FileUpdateInput!): File!
+  deleteFile(where: FileWhereUniqueInput!): File
+  deleteManyFiles(where: FileWhereInput): BatchPayload!
+  createImage(data: ImageCreateInput!): Image!
+  updateImage(data: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image
+  updateManyImages(data: ImageUpdateManyMutationInput!, where: ImageWhereInput): BatchPayload!
+  upsertImage(where: ImageWhereUniqueInput!, create: ImageCreateInput!, update: ImageUpdateInput!): Image!
+  deleteImage(where: ImageWhereUniqueInput!): Image
+  deleteManyImages(where: ImageWhereInput): BatchPayload!
+  createMessage(data: MessageCreateInput!): Message!
+  updateMessage(data: MessageUpdateInput!, where: MessageWhereUniqueInput!): Message
+  updateManyMessages(data: MessageUpdateManyMutationInput!, where: MessageWhereInput): BatchPayload!
+  upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
+  deleteMessage(where: MessageWhereUniqueInput!): Message
+  deleteManyMessages(where: MessageWhereInput): BatchPayload!
+  createText(data: TextCreateInput!): Text!
+  updateText(data: TextUpdateInput!, where: TextWhereUniqueInput!): Text
+  updateManyTexts(data: TextUpdateManyMutationInput!, where: TextWhereInput): BatchPayload!
+  upsertText(where: TextWhereUniqueInput!, create: TextCreateInput!, update: TextUpdateInput!): Text!
+  deleteText(where: TextWhereUniqueInput!): Text
+  deleteManyTexts(where: TextWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   deleteUser(where: UserWhereUniqueInput!): User
   deleteManyUsers(where: UserWhereInput): BatchPayload!
+  createVideo(data: VideoCreateInput!): Video!
+  updateVideo(data: VideoUpdateInput!, where: VideoWhereUniqueInput!): Video
+  updateManyVideos(data: VideoUpdateManyMutationInput!, where: VideoWhereInput): BatchPayload!
+  upsertVideo(where: VideoWhereUniqueInput!, create: VideoCreateInput!, update: VideoUpdateInput!): Video!
+  deleteVideo(where: VideoWhereUniqueInput!): Video
+  deleteManyVideos(where: VideoWhereInput): BatchPayload!
+  createVoice(data: VoiceCreateInput!): Voice!
+  updateVoice(data: VoiceUpdateInput!, where: VoiceWhereUniqueInput!): Voice
+  updateManyVoices(data: VoiceUpdateManyMutationInput!, where: VoiceWhereInput): BatchPayload!
+  upsertVoice(where: VoiceWhereUniqueInput!, create: VoiceCreateInput!, update: VoiceUpdateInput!): Voice!
+  deleteVoice(where: VoiceWhereUniqueInput!): Voice
+  deleteManyVoices(where: VoiceWhereInput): BatchPayload!
+  createWeChatUser(data: WeChatUserCreateInput!): WeChatUser!
+  updateWeChatUser(data: WeChatUserUpdateInput!, where: WeChatUserWhereUniqueInput!): WeChatUser
+  updateManyWeChatUsers(data: WeChatUserUpdateManyMutationInput!, where: WeChatUserWhereInput): BatchPayload!
+  upsertWeChatUser(where: WeChatUserWhereUniqueInput!, create: WeChatUserCreateInput!, update: WeChatUserUpdateInput!): WeChatUser!
+  deleteWeChatUser(where: WeChatUserWhereUniqueInput!): WeChatUser
+  deleteManyWeChatUsers(where: WeChatUserWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -40,14 +1927,185 @@ type PageInfo {
 }
 
 type Query {
+  app(where: AppWhereUniqueInput!): App
+  apps(where: AppWhereInput, orderBy: AppOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [App]!
+  appsConnection(where: AppWhereInput, orderBy: AppOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AppConnection!
+  avatar(where: AvatarWhereUniqueInput!): Avatar
+  avatars(where: AvatarWhereInput, orderBy: AvatarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Avatar]!
+  avatarsConnection(where: AvatarWhereInput, orderBy: AvatarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AvatarConnection!
+  chatRoom(where: ChatRoomWhereUniqueInput!): ChatRoom
+  chatRooms(where: ChatRoomWhereInput, orderBy: ChatRoomOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ChatRoom]!
+  chatRoomsConnection(where: ChatRoomWhereInput, orderBy: ChatRoomOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ChatRoomConnection!
+  contact(where: ContactWhereUniqueInput!): Contact
+  contacts(where: ContactWhereInput, orderBy: ContactOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Contact]!
+  contactsConnection(where: ContactWhereInput, orderBy: ContactOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ContactConnection!
+  content(where: ContentWhereUniqueInput!): Content
+  contents(where: ContentWhereInput, orderBy: ContentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Content]!
+  contentsConnection(where: ContentWhereInput, orderBy: ContentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ContentConnection!
+  file(where: FileWhereUniqueInput!): File
+  files(where: FileWhereInput, orderBy: FileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [File]!
+  filesConnection(where: FileWhereInput, orderBy: FileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FileConnection!
+  image(where: ImageWhereUniqueInput!): Image
+  images(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Image]!
+  imagesConnection(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ImageConnection!
+  message(where: MessageWhereUniqueInput!): Message
+  messages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message]!
+  messagesConnection(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MessageConnection!
+  text(where: TextWhereUniqueInput!): Text
+  texts(where: TextWhereInput, orderBy: TextOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Text]!
+  textsConnection(where: TextWhereInput, orderBy: TextOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TextConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  video(where: VideoWhereUniqueInput!): Video
+  videos(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Video]!
+  videosConnection(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VideoConnection!
+  voice(where: VoiceWhereUniqueInput!): Voice
+  voices(where: VoiceWhereInput, orderBy: VoiceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Voice]!
+  voicesConnection(where: VoiceWhereInput, orderBy: VoiceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VoiceConnection!
+  weChatUser(where: WeChatUserWhereUniqueInput!): WeChatUser
+  weChatUsers(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChatUser]!
+  weChatUsersConnection(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WeChatUserConnection!
   node(id: ID!): Node
 }
 
 type Subscription {
+  app(where: AppSubscriptionWhereInput): AppSubscriptionPayload
+  avatar(where: AvatarSubscriptionWhereInput): AvatarSubscriptionPayload
+  chatRoom(where: ChatRoomSubscriptionWhereInput): ChatRoomSubscriptionPayload
+  contact(where: ContactSubscriptionWhereInput): ContactSubscriptionPayload
+  content(where: ContentSubscriptionWhereInput): ContentSubscriptionPayload
+  file(where: FileSubscriptionWhereInput): FileSubscriptionPayload
+  image(where: ImageSubscriptionWhereInput): ImageSubscriptionPayload
+  message(where: MessageSubscriptionWhereInput): MessageSubscriptionPayload
+  text(where: TextSubscriptionWhereInput): TextSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  video(where: VideoSubscriptionWhereInput): VideoSubscriptionPayload
+  voice(where: VoiceSubscriptionWhereInput): VoiceSubscriptionPayload
+  weChatUser(where: WeChatUserSubscriptionWhereInput): WeChatUserSubscriptionPayload
+}
+
+type Text {
+  id: ID!
+  textMsg: String!
+  content: Content
+}
+
+type TextConnection {
+  pageInfo: PageInfo!
+  edges: [TextEdge]!
+  aggregate: AggregateText!
+}
+
+input TextCreateInput {
+  textMsg: String!
+  content: ContentCreateOneWithoutTextInput
+}
+
+input TextCreateOneWithoutContentInput {
+  create: TextCreateWithoutContentInput
+  connect: TextWhereUniqueInput
+}
+
+input TextCreateWithoutContentInput {
+  textMsg: String!
+}
+
+type TextEdge {
+  node: Text!
+  cursor: String!
+}
+
+enum TextOrderByInput {
+  id_ASC
+  id_DESC
+  textMsg_ASC
+  textMsg_DESC
+}
+
+type TextPreviousValues {
+  id: ID!
+  textMsg: String!
+}
+
+type TextSubscriptionPayload {
+  mutation: MutationType!
+  node: Text
+  updatedFields: [String!]
+  previousValues: TextPreviousValues
+}
+
+input TextSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: TextWhereInput
+  AND: [TextSubscriptionWhereInput!]
+}
+
+input TextUpdateInput {
+  textMsg: String
+  content: ContentUpdateOneWithoutTextInput
+}
+
+input TextUpdateManyMutationInput {
+  textMsg: String
+}
+
+input TextUpdateOneWithoutContentInput {
+  create: TextCreateWithoutContentInput
+  update: TextUpdateWithoutContentDataInput
+  upsert: TextUpsertWithoutContentInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: TextWhereUniqueInput
+}
+
+input TextUpdateWithoutContentDataInput {
+  textMsg: String
+}
+
+input TextUpsertWithoutContentInput {
+  update: TextUpdateWithoutContentDataInput!
+  create: TextCreateWithoutContentInput!
+}
+
+input TextWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  textMsg: String
+  textMsg_not: String
+  textMsg_in: [String!]
+  textMsg_not_in: [String!]
+  textMsg_lt: String
+  textMsg_lte: String
+  textMsg_gt: String
+  textMsg_gte: String
+  textMsg_contains: String
+  textMsg_not_contains: String
+  textMsg_starts_with: String
+  textMsg_not_starts_with: String
+  textMsg_ends_with: String
+  textMsg_not_ends_with: String
+  content: ContentWhereInput
+  AND: [TextWhereInput!]
+}
+
+input TextWhereUniqueInput {
+  id: ID
 }
 
 type User {
@@ -183,6 +2241,792 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   id: ID
   email: String
+}
+
+type Video {
+  id: ID!
+  fileName: String!
+  thumbnailImg: String
+  videolength: Int
+  content: Content
+}
+
+type VideoConnection {
+  pageInfo: PageInfo!
+  edges: [VideoEdge]!
+  aggregate: AggregateVideo!
+}
+
+input VideoCreateInput {
+  fileName: String!
+  thumbnailImg: String
+  videolength: Int
+  content: ContentCreateOneWithoutVideoInput
+}
+
+input VideoCreateOneWithoutContentInput {
+  create: VideoCreateWithoutContentInput
+  connect: VideoWhereUniqueInput
+}
+
+input VideoCreateWithoutContentInput {
+  fileName: String!
+  thumbnailImg: String
+  videolength: Int
+}
+
+type VideoEdge {
+  node: Video!
+  cursor: String!
+}
+
+enum VideoOrderByInput {
+  id_ASC
+  id_DESC
+  fileName_ASC
+  fileName_DESC
+  thumbnailImg_ASC
+  thumbnailImg_DESC
+  videolength_ASC
+  videolength_DESC
+}
+
+type VideoPreviousValues {
+  id: ID!
+  fileName: String!
+  thumbnailImg: String
+  videolength: Int
+}
+
+type VideoSubscriptionPayload {
+  mutation: MutationType!
+  node: Video
+  updatedFields: [String!]
+  previousValues: VideoPreviousValues
+}
+
+input VideoSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: VideoWhereInput
+  AND: [VideoSubscriptionWhereInput!]
+}
+
+input VideoUpdateInput {
+  fileName: String
+  thumbnailImg: String
+  videolength: Int
+  content: ContentUpdateOneWithoutVideoInput
+}
+
+input VideoUpdateManyMutationInput {
+  fileName: String
+  thumbnailImg: String
+  videolength: Int
+}
+
+input VideoUpdateOneWithoutContentInput {
+  create: VideoCreateWithoutContentInput
+  update: VideoUpdateWithoutContentDataInput
+  upsert: VideoUpsertWithoutContentInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: VideoWhereUniqueInput
+}
+
+input VideoUpdateWithoutContentDataInput {
+  fileName: String
+  thumbnailImg: String
+  videolength: Int
+}
+
+input VideoUpsertWithoutContentInput {
+  update: VideoUpdateWithoutContentDataInput!
+  create: VideoCreateWithoutContentInput!
+}
+
+input VideoWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  fileName: String
+  fileName_not: String
+  fileName_in: [String!]
+  fileName_not_in: [String!]
+  fileName_lt: String
+  fileName_lte: String
+  fileName_gt: String
+  fileName_gte: String
+  fileName_contains: String
+  fileName_not_contains: String
+  fileName_starts_with: String
+  fileName_not_starts_with: String
+  fileName_ends_with: String
+  fileName_not_ends_with: String
+  thumbnailImg: String
+  thumbnailImg_not: String
+  thumbnailImg_in: [String!]
+  thumbnailImg_not_in: [String!]
+  thumbnailImg_lt: String
+  thumbnailImg_lte: String
+  thumbnailImg_gt: String
+  thumbnailImg_gte: String
+  thumbnailImg_contains: String
+  thumbnailImg_not_contains: String
+  thumbnailImg_starts_with: String
+  thumbnailImg_not_starts_with: String
+  thumbnailImg_ends_with: String
+  thumbnailImg_not_ends_with: String
+  videolength: Int
+  videolength_not: Int
+  videolength_in: [Int!]
+  videolength_not_in: [Int!]
+  videolength_lt: Int
+  videolength_lte: Int
+  videolength_gt: Int
+  videolength_gte: Int
+  content: ContentWhereInput
+  AND: [VideoWhereInput!]
+}
+
+input VideoWhereUniqueInput {
+  id: ID
+}
+
+type Voice {
+  id: ID!
+  fileName: String!
+  voiceLength: Int
+  content: Content
+}
+
+type VoiceConnection {
+  pageInfo: PageInfo!
+  edges: [VoiceEdge]!
+  aggregate: AggregateVoice!
+}
+
+input VoiceCreateInput {
+  fileName: String!
+  voiceLength: Int
+  content: ContentCreateOneWithoutVoiceInput
+}
+
+input VoiceCreateOneWithoutContentInput {
+  create: VoiceCreateWithoutContentInput
+  connect: VoiceWhereUniqueInput
+}
+
+input VoiceCreateWithoutContentInput {
+  fileName: String!
+  voiceLength: Int
+}
+
+type VoiceEdge {
+  node: Voice!
+  cursor: String!
+}
+
+enum VoiceOrderByInput {
+  id_ASC
+  id_DESC
+  fileName_ASC
+  fileName_DESC
+  voiceLength_ASC
+  voiceLength_DESC
+}
+
+type VoicePreviousValues {
+  id: ID!
+  fileName: String!
+  voiceLength: Int
+}
+
+type VoiceSubscriptionPayload {
+  mutation: MutationType!
+  node: Voice
+  updatedFields: [String!]
+  previousValues: VoicePreviousValues
+}
+
+input VoiceSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: VoiceWhereInput
+  AND: [VoiceSubscriptionWhereInput!]
+}
+
+input VoiceUpdateInput {
+  fileName: String
+  voiceLength: Int
+  content: ContentUpdateOneWithoutVoiceInput
+}
+
+input VoiceUpdateManyMutationInput {
+  fileName: String
+  voiceLength: Int
+}
+
+input VoiceUpdateOneWithoutContentInput {
+  create: VoiceCreateWithoutContentInput
+  update: VoiceUpdateWithoutContentDataInput
+  upsert: VoiceUpsertWithoutContentInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: VoiceWhereUniqueInput
+}
+
+input VoiceUpdateWithoutContentDataInput {
+  fileName: String
+  voiceLength: Int
+}
+
+input VoiceUpsertWithoutContentInput {
+  update: VoiceUpdateWithoutContentDataInput!
+  create: VoiceCreateWithoutContentInput!
+}
+
+input VoiceWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  fileName: String
+  fileName_not: String
+  fileName_in: [String!]
+  fileName_not_in: [String!]
+  fileName_lt: String
+  fileName_lte: String
+  fileName_gt: String
+  fileName_gte: String
+  fileName_contains: String
+  fileName_not_contains: String
+  fileName_starts_with: String
+  fileName_not_starts_with: String
+  fileName_ends_with: String
+  fileName_not_ends_with: String
+  voiceLength: Int
+  voiceLength_not: Int
+  voiceLength_in: [Int!]
+  voiceLength_not_in: [Int!]
+  voiceLength_lt: Int
+  voiceLength_lte: Int
+  voiceLength_gt: Int
+  voiceLength_gte: Int
+  content: ContentWhereInput
+  AND: [VoiceWhereInput!]
+}
+
+input VoiceWhereUniqueInput {
+  id: ID
+}
+
+type WeChatUser {
+  id: ID!
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: Avatar
+  message(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message!]
+  haveChatRoom(where: ChatRoomWhereInput, orderBy: ChatRoomOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ChatRoom!]
+  joinChatRoom(where: ChatRoomWhereInput, orderBy: ChatRoomOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ChatRoom!]
+  contact: Contact
+}
+
+type WeChatUserConnection {
+  pageInfo: PageInfo!
+  edges: [WeChatUserEdge]!
+  aggregate: AggregateWeChatUser!
+}
+
+input WeChatUserCreateInput {
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarCreateOneWithoutWeChatUserInput
+  message: MessageCreateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
+  contact: ContactCreateOneWithoutWeChatUserInput
+}
+
+input WeChatUserCreateManyWithoutContactInput {
+  create: [WeChatUserCreateWithoutContactInput!]
+  connect: [WeChatUserWhereUniqueInput!]
+}
+
+input WeChatUserCreateManyWithoutJoinChatRoomInput {
+  create: [WeChatUserCreateWithoutJoinChatRoomInput!]
+  connect: [WeChatUserWhereUniqueInput!]
+}
+
+input WeChatUserCreateOneWithoutAvatarInput {
+  create: WeChatUserCreateWithoutAvatarInput
+  connect: WeChatUserWhereUniqueInput
+}
+
+input WeChatUserCreateOneWithoutHaveChatRoomInput {
+  create: WeChatUserCreateWithoutHaveChatRoomInput
+  connect: WeChatUserWhereUniqueInput
+}
+
+input WeChatUserCreateOneWithoutMessageInput {
+  create: WeChatUserCreateWithoutMessageInput
+  connect: WeChatUserWhereUniqueInput
+}
+
+input WeChatUserCreateWithoutAvatarInput {
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+  message: MessageCreateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
+  contact: ContactCreateOneWithoutWeChatUserInput
+}
+
+input WeChatUserCreateWithoutContactInput {
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarCreateOneWithoutWeChatUserInput
+  message: MessageCreateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
+}
+
+input WeChatUserCreateWithoutHaveChatRoomInput {
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarCreateOneWithoutWeChatUserInput
+  message: MessageCreateManyWithoutTalkerInput
+  joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
+  contact: ContactCreateOneWithoutWeChatUserInput
+}
+
+input WeChatUserCreateWithoutJoinChatRoomInput {
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarCreateOneWithoutWeChatUserInput
+  message: MessageCreateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
+  contact: ContactCreateOneWithoutWeChatUserInput
+}
+
+input WeChatUserCreateWithoutMessageInput {
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarCreateOneWithoutWeChatUserInput
+  haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
+  contact: ContactCreateOneWithoutWeChatUserInput
+}
+
+type WeChatUserEdge {
+  node: WeChatUser!
+  cursor: String!
+}
+
+enum WeChatUserOrderByInput {
+  id_ASC
+  id_DESC
+  username_ASC
+  username_DESC
+  alias_ASC
+  alias_DESC
+  conRemark_ASC
+  conRemark_DESC
+  nickname_ASC
+  nickname_DESC
+}
+
+type WeChatUserPreviousValues {
+  id: ID!
+  username: String!
+  alias: String
+  conRemark: String
+  nickname: String
+}
+
+input WeChatUserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  alias: String
+  alias_not: String
+  alias_in: [String!]
+  alias_not_in: [String!]
+  alias_lt: String
+  alias_lte: String
+  alias_gt: String
+  alias_gte: String
+  alias_contains: String
+  alias_not_contains: String
+  alias_starts_with: String
+  alias_not_starts_with: String
+  alias_ends_with: String
+  alias_not_ends_with: String
+  conRemark: String
+  conRemark_not: String
+  conRemark_in: [String!]
+  conRemark_not_in: [String!]
+  conRemark_lt: String
+  conRemark_lte: String
+  conRemark_gt: String
+  conRemark_gte: String
+  conRemark_contains: String
+  conRemark_not_contains: String
+  conRemark_starts_with: String
+  conRemark_not_starts_with: String
+  conRemark_ends_with: String
+  conRemark_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  AND: [WeChatUserScalarWhereInput!]
+  OR: [WeChatUserScalarWhereInput!]
+  NOT: [WeChatUserScalarWhereInput!]
+}
+
+type WeChatUserSubscriptionPayload {
+  mutation: MutationType!
+  node: WeChatUser
+  updatedFields: [String!]
+  previousValues: WeChatUserPreviousValues
+}
+
+input WeChatUserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: WeChatUserWhereInput
+  AND: [WeChatUserSubscriptionWhereInput!]
+}
+
+input WeChatUserUpdateInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  message: MessageUpdateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
+  contact: ContactUpdateOneWithoutWeChatUserInput
+}
+
+input WeChatUserUpdateManyDataInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+}
+
+input WeChatUserUpdateManyMutationInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+}
+
+input WeChatUserUpdateManyWithoutContactInput {
+  create: [WeChatUserCreateWithoutContactInput!]
+  delete: [WeChatUserWhereUniqueInput!]
+  connect: [WeChatUserWhereUniqueInput!]
+  set: [WeChatUserWhereUniqueInput!]
+  disconnect: [WeChatUserWhereUniqueInput!]
+  update: [WeChatUserUpdateWithWhereUniqueWithoutContactInput!]
+  upsert: [WeChatUserUpsertWithWhereUniqueWithoutContactInput!]
+  deleteMany: [WeChatUserScalarWhereInput!]
+  updateMany: [WeChatUserUpdateManyWithWhereNestedInput!]
+}
+
+input WeChatUserUpdateManyWithoutJoinChatRoomInput {
+  create: [WeChatUserCreateWithoutJoinChatRoomInput!]
+  delete: [WeChatUserWhereUniqueInput!]
+  connect: [WeChatUserWhereUniqueInput!]
+  set: [WeChatUserWhereUniqueInput!]
+  disconnect: [WeChatUserWhereUniqueInput!]
+  update: [WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput!]
+  upsert: [WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput!]
+  deleteMany: [WeChatUserScalarWhereInput!]
+  updateMany: [WeChatUserUpdateManyWithWhereNestedInput!]
+}
+
+input WeChatUserUpdateManyWithWhereNestedInput {
+  where: WeChatUserScalarWhereInput!
+  data: WeChatUserUpdateManyDataInput!
+}
+
+input WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput {
+  create: WeChatUserCreateWithoutHaveChatRoomInput
+  update: WeChatUserUpdateWithoutHaveChatRoomDataInput
+  upsert: WeChatUserUpsertWithoutHaveChatRoomInput
+  connect: WeChatUserWhereUniqueInput
+}
+
+input WeChatUserUpdateOneRequiredWithoutMessageInput {
+  create: WeChatUserCreateWithoutMessageInput
+  update: WeChatUserUpdateWithoutMessageDataInput
+  upsert: WeChatUserUpsertWithoutMessageInput
+  connect: WeChatUserWhereUniqueInput
+}
+
+input WeChatUserUpdateOneWithoutAvatarInput {
+  create: WeChatUserCreateWithoutAvatarInput
+  update: WeChatUserUpdateWithoutAvatarDataInput
+  upsert: WeChatUserUpsertWithoutAvatarInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: WeChatUserWhereUniqueInput
+}
+
+input WeChatUserUpdateWithoutAvatarDataInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+  message: MessageUpdateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
+  contact: ContactUpdateOneWithoutWeChatUserInput
+}
+
+input WeChatUserUpdateWithoutContactDataInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  message: MessageUpdateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
+}
+
+input WeChatUserUpdateWithoutHaveChatRoomDataInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  message: MessageUpdateManyWithoutTalkerInput
+  joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
+  contact: ContactUpdateOneWithoutWeChatUserInput
+}
+
+input WeChatUserUpdateWithoutJoinChatRoomDataInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  message: MessageUpdateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
+  contact: ContactUpdateOneWithoutWeChatUserInput
+}
+
+input WeChatUserUpdateWithoutMessageDataInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
+  contact: ContactUpdateOneWithoutWeChatUserInput
+}
+
+input WeChatUserUpdateWithWhereUniqueWithoutContactInput {
+  where: WeChatUserWhereUniqueInput!
+  data: WeChatUserUpdateWithoutContactDataInput!
+}
+
+input WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput {
+  where: WeChatUserWhereUniqueInput!
+  data: WeChatUserUpdateWithoutJoinChatRoomDataInput!
+}
+
+input WeChatUserUpsertWithoutAvatarInput {
+  update: WeChatUserUpdateWithoutAvatarDataInput!
+  create: WeChatUserCreateWithoutAvatarInput!
+}
+
+input WeChatUserUpsertWithoutHaveChatRoomInput {
+  update: WeChatUserUpdateWithoutHaveChatRoomDataInput!
+  create: WeChatUserCreateWithoutHaveChatRoomInput!
+}
+
+input WeChatUserUpsertWithoutMessageInput {
+  update: WeChatUserUpdateWithoutMessageDataInput!
+  create: WeChatUserCreateWithoutMessageInput!
+}
+
+input WeChatUserUpsertWithWhereUniqueWithoutContactInput {
+  where: WeChatUserWhereUniqueInput!
+  update: WeChatUserUpdateWithoutContactDataInput!
+  create: WeChatUserCreateWithoutContactInput!
+}
+
+input WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput {
+  where: WeChatUserWhereUniqueInput!
+  update: WeChatUserUpdateWithoutJoinChatRoomDataInput!
+  create: WeChatUserCreateWithoutJoinChatRoomInput!
+}
+
+input WeChatUserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  alias: String
+  alias_not: String
+  alias_in: [String!]
+  alias_not_in: [String!]
+  alias_lt: String
+  alias_lte: String
+  alias_gt: String
+  alias_gte: String
+  alias_contains: String
+  alias_not_contains: String
+  alias_starts_with: String
+  alias_not_starts_with: String
+  alias_ends_with: String
+  alias_not_ends_with: String
+  conRemark: String
+  conRemark_not: String
+  conRemark_in: [String!]
+  conRemark_not_in: [String!]
+  conRemark_lt: String
+  conRemark_lte: String
+  conRemark_gt: String
+  conRemark_gte: String
+  conRemark_contains: String
+  conRemark_not_contains: String
+  conRemark_starts_with: String
+  conRemark_not_starts_with: String
+  conRemark_ends_with: String
+  conRemark_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  avatar: AvatarWhereInput
+  message_some: MessageWhereInput
+  haveChatRoom_some: ChatRoomWhereInput
+  joinChatRoom_some: ChatRoomWhereInput
+  contact: ContactWhereInput
+  AND: [WeChatUserWhereInput!]
+}
+
+input WeChatUserWhereUniqueInput {
+  id: ID
+  username: String
 }
 `
       }

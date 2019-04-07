@@ -1,5 +1,7 @@
 endpoint: ${env:PRISMA_SERVER_ENDPOINT}
-datamodel: datamodel.prisma
+datamodel:
+  - user.prisma
+  - wechat.prisma
 databaseType: document
 secret: ${env:PRISMA_SERVER_SECRET}
 generate:

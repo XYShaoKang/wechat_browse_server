@@ -1,0 +1,92 @@
+type WeChatUser {
+  id: ID! @id
+  username: String! @unique
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: Avatar @relation(link: INLINE)
+  message: [Message] @relation(link: INLINE)
+  haveChatRoom: [ChatRoom] @relation(name: "HaveChatRoom")
+  joinChatRoom: [ChatRoom] @relation(name: "JoinChatRoom")
+  contact: Contact
+}
+
+type ChatRoom {
+  id: ID! @id
+  userName: String! @unique
+  nickName: String
+  displayName: String!
+  owner: WeChatUser! @relation(name: "HaveChatRoom", link: INLINE)
+  memberList: [WeChatUser] @relation(name: "JoinChatRoom", link: INLINE)
+  modifyTime: DateTime
+  avatar: Avatar @relation(link: INLINE)
+  message: [Message] @relation(link: INLINE)
+}
+type Avatar {
+  id: ID! @id
+  thumbnailImg: String
+  bigImg: String
+  weChatUser: WeChatUser
+  chatRoom: ChatRoom
+}
+
+type Contact {
+  id: ID! @id
+  type: String!
+  weChatUser: [WeChatUser] @relation(link: INLINE)
+}
+
+type Message {
+  id: ID! @id
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  talker: WeChatUser!
+  createTime: DateTime
+  chatRoom: ChatRoom
+  content: Content @relation(link: INLINE)
+}
+type Content {
+  id: ID! @id
+  text: Text @relation(link: INLINE)
+  image: Image @relation(link: INLINE)
+  voice: Voice @relation(link: INLINE)
+  video: Video @relation(link: INLINE)
+  file: File @relation(link: INLINE)
+  app: App @relation(link: INLINE)
+}
+type Text {
+  id: ID! @id
+  textMsg: String!
+  content: Content
+}
+type Image {
+  id: ID! @id
+  thumbnailImg: String
+  bigImg: String
+  content: Content
+}
+type Voice {
+  id: ID! @id
+  fileName: String!
+  voiceLength: Int
+  content: Content
+}
+type Video {
+  id: ID! @id
+  fileName: String!
+  thumbnailImg: String
+  videolength: Int
+  content: Content
+}
+type File {
+  id: ID! @id
+  fileName: String!
+  size: Int
+  content: Content
+}
+type App {
+  id: ID! @id
+  xml: Json
+  content: Content
+}

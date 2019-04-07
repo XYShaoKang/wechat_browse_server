@@ -14,7 +14,19 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U];
 
 export interface Exists {
+  app: (where?: AppWhereInput) => Promise<boolean>;
+  avatar: (where?: AvatarWhereInput) => Promise<boolean>;
+  chatRoom: (where?: ChatRoomWhereInput) => Promise<boolean>;
+  contact: (where?: ContactWhereInput) => Promise<boolean>;
+  content: (where?: ContentWhereInput) => Promise<boolean>;
+  file: (where?: FileWhereInput) => Promise<boolean>;
+  image: (where?: ImageWhereInput) => Promise<boolean>;
+  message: (where?: MessageWhereInput) => Promise<boolean>;
+  text: (where?: TextWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
+  video: (where?: VideoWhereInput) => Promise<boolean>;
+  voice: (where?: VoiceWhereInput) => Promise<boolean>;
+  weChatUser: (where?: WeChatUserWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -36,6 +48,213 @@ export interface Prisma {
    * Queries
    */
 
+  app: (where: AppWhereUniqueInput) => AppPromise;
+  apps: (
+    args?: {
+      where?: AppWhereInput;
+      orderBy?: AppOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<App>;
+  appsConnection: (
+    args?: {
+      where?: AppWhereInput;
+      orderBy?: AppOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => AppConnectionPromise;
+  avatar: (where: AvatarWhereUniqueInput) => AvatarPromise;
+  avatars: (
+    args?: {
+      where?: AvatarWhereInput;
+      orderBy?: AvatarOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Avatar>;
+  avatarsConnection: (
+    args?: {
+      where?: AvatarWhereInput;
+      orderBy?: AvatarOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => AvatarConnectionPromise;
+  chatRoom: (where: ChatRoomWhereUniqueInput) => ChatRoomPromise;
+  chatRooms: (
+    args?: {
+      where?: ChatRoomWhereInput;
+      orderBy?: ChatRoomOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<ChatRoom>;
+  chatRoomsConnection: (
+    args?: {
+      where?: ChatRoomWhereInput;
+      orderBy?: ChatRoomOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => ChatRoomConnectionPromise;
+  contact: (where: ContactWhereUniqueInput) => ContactPromise;
+  contacts: (
+    args?: {
+      where?: ContactWhereInput;
+      orderBy?: ContactOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Contact>;
+  contactsConnection: (
+    args?: {
+      where?: ContactWhereInput;
+      orderBy?: ContactOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => ContactConnectionPromise;
+  content: (where: ContentWhereUniqueInput) => ContentPromise;
+  contents: (
+    args?: {
+      where?: ContentWhereInput;
+      orderBy?: ContentOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Content>;
+  contentsConnection: (
+    args?: {
+      where?: ContentWhereInput;
+      orderBy?: ContentOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => ContentConnectionPromise;
+  file: (where: FileWhereUniqueInput) => FilePromise;
+  files: (
+    args?: {
+      where?: FileWhereInput;
+      orderBy?: FileOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<File>;
+  filesConnection: (
+    args?: {
+      where?: FileWhereInput;
+      orderBy?: FileOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FileConnectionPromise;
+  image: (where: ImageWhereUniqueInput) => ImagePromise;
+  images: (
+    args?: {
+      where?: ImageWhereInput;
+      orderBy?: ImageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Image>;
+  imagesConnection: (
+    args?: {
+      where?: ImageWhereInput;
+      orderBy?: ImageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => ImageConnectionPromise;
+  message: (where: MessageWhereUniqueInput) => MessagePromise;
+  messages: (
+    args?: {
+      where?: MessageWhereInput;
+      orderBy?: MessageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Message>;
+  messagesConnection: (
+    args?: {
+      where?: MessageWhereInput;
+      orderBy?: MessageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => MessageConnectionPromise;
+  text: (where: TextWhereUniqueInput) => TextPromise;
+  texts: (
+    args?: {
+      where?: TextWhereInput;
+      orderBy?: TextOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Text>;
+  textsConnection: (
+    args?: {
+      where?: TextWhereInput;
+      orderBy?: TextOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => TextConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserPromise;
   users: (
     args?: {
@@ -59,12 +278,222 @@ export interface Prisma {
       last?: Int;
     }
   ) => UserConnectionPromise;
+  video: (where: VideoWhereUniqueInput) => VideoPromise;
+  videos: (
+    args?: {
+      where?: VideoWhereInput;
+      orderBy?: VideoOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Video>;
+  videosConnection: (
+    args?: {
+      where?: VideoWhereInput;
+      orderBy?: VideoOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => VideoConnectionPromise;
+  voice: (where: VoiceWhereUniqueInput) => VoicePromise;
+  voices: (
+    args?: {
+      where?: VoiceWhereInput;
+      orderBy?: VoiceOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Voice>;
+  voicesConnection: (
+    args?: {
+      where?: VoiceWhereInput;
+      orderBy?: VoiceOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => VoiceConnectionPromise;
+  weChatUser: (where: WeChatUserWhereUniqueInput) => WeChatUserPromise;
+  weChatUsers: (
+    args?: {
+      where?: WeChatUserWhereInput;
+      orderBy?: WeChatUserOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<WeChatUser>;
+  weChatUsersConnection: (
+    args?: {
+      where?: WeChatUserWhereInput;
+      orderBy?: WeChatUserOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => WeChatUserConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
    * Mutations
    */
 
+  createApp: (data: AppCreateInput) => AppPromise;
+  updateApp: (
+    args: { data: AppUpdateInput; where: AppWhereUniqueInput }
+  ) => AppPromise;
+  updateManyApps: (
+    args: { data: AppUpdateManyMutationInput; where?: AppWhereInput }
+  ) => BatchPayloadPromise;
+  upsertApp: (
+    args: {
+      where: AppWhereUniqueInput;
+      create: AppCreateInput;
+      update: AppUpdateInput;
+    }
+  ) => AppPromise;
+  deleteApp: (where: AppWhereUniqueInput) => AppPromise;
+  deleteManyApps: (where?: AppWhereInput) => BatchPayloadPromise;
+  createAvatar: (data: AvatarCreateInput) => AvatarPromise;
+  updateAvatar: (
+    args: { data: AvatarUpdateInput; where: AvatarWhereUniqueInput }
+  ) => AvatarPromise;
+  updateManyAvatars: (
+    args: { data: AvatarUpdateManyMutationInput; where?: AvatarWhereInput }
+  ) => BatchPayloadPromise;
+  upsertAvatar: (
+    args: {
+      where: AvatarWhereUniqueInput;
+      create: AvatarCreateInput;
+      update: AvatarUpdateInput;
+    }
+  ) => AvatarPromise;
+  deleteAvatar: (where: AvatarWhereUniqueInput) => AvatarPromise;
+  deleteManyAvatars: (where?: AvatarWhereInput) => BatchPayloadPromise;
+  createChatRoom: (data: ChatRoomCreateInput) => ChatRoomPromise;
+  updateChatRoom: (
+    args: { data: ChatRoomUpdateInput; where: ChatRoomWhereUniqueInput }
+  ) => ChatRoomPromise;
+  updateManyChatRooms: (
+    args: { data: ChatRoomUpdateManyMutationInput; where?: ChatRoomWhereInput }
+  ) => BatchPayloadPromise;
+  upsertChatRoom: (
+    args: {
+      where: ChatRoomWhereUniqueInput;
+      create: ChatRoomCreateInput;
+      update: ChatRoomUpdateInput;
+    }
+  ) => ChatRoomPromise;
+  deleteChatRoom: (where: ChatRoomWhereUniqueInput) => ChatRoomPromise;
+  deleteManyChatRooms: (where?: ChatRoomWhereInput) => BatchPayloadPromise;
+  createContact: (data: ContactCreateInput) => ContactPromise;
+  updateContact: (
+    args: { data: ContactUpdateInput; where: ContactWhereUniqueInput }
+  ) => ContactPromise;
+  updateManyContacts: (
+    args: { data: ContactUpdateManyMutationInput; where?: ContactWhereInput }
+  ) => BatchPayloadPromise;
+  upsertContact: (
+    args: {
+      where: ContactWhereUniqueInput;
+      create: ContactCreateInput;
+      update: ContactUpdateInput;
+    }
+  ) => ContactPromise;
+  deleteContact: (where: ContactWhereUniqueInput) => ContactPromise;
+  deleteManyContacts: (where?: ContactWhereInput) => BatchPayloadPromise;
+  createContent: (data: ContentCreateInput) => ContentPromise;
+  updateContent: (
+    args: { data: ContentUpdateInput; where: ContentWhereUniqueInput }
+  ) => ContentPromise;
+  upsertContent: (
+    args: {
+      where: ContentWhereUniqueInput;
+      create: ContentCreateInput;
+      update: ContentUpdateInput;
+    }
+  ) => ContentPromise;
+  deleteContent: (where: ContentWhereUniqueInput) => ContentPromise;
+  deleteManyContents: (where?: ContentWhereInput) => BatchPayloadPromise;
+  createFile: (data: FileCreateInput) => FilePromise;
+  updateFile: (
+    args: { data: FileUpdateInput; where: FileWhereUniqueInput }
+  ) => FilePromise;
+  updateManyFiles: (
+    args: { data: FileUpdateManyMutationInput; where?: FileWhereInput }
+  ) => BatchPayloadPromise;
+  upsertFile: (
+    args: {
+      where: FileWhereUniqueInput;
+      create: FileCreateInput;
+      update: FileUpdateInput;
+    }
+  ) => FilePromise;
+  deleteFile: (where: FileWhereUniqueInput) => FilePromise;
+  deleteManyFiles: (where?: FileWhereInput) => BatchPayloadPromise;
+  createImage: (data: ImageCreateInput) => ImagePromise;
+  updateImage: (
+    args: { data: ImageUpdateInput; where: ImageWhereUniqueInput }
+  ) => ImagePromise;
+  updateManyImages: (
+    args: { data: ImageUpdateManyMutationInput; where?: ImageWhereInput }
+  ) => BatchPayloadPromise;
+  upsertImage: (
+    args: {
+      where: ImageWhereUniqueInput;
+      create: ImageCreateInput;
+      update: ImageUpdateInput;
+    }
+  ) => ImagePromise;
+  deleteImage: (where: ImageWhereUniqueInput) => ImagePromise;
+  deleteManyImages: (where?: ImageWhereInput) => BatchPayloadPromise;
+  createMessage: (data: MessageCreateInput) => MessagePromise;
+  updateMessage: (
+    args: { data: MessageUpdateInput; where: MessageWhereUniqueInput }
+  ) => MessagePromise;
+  updateManyMessages: (
+    args: { data: MessageUpdateManyMutationInput; where?: MessageWhereInput }
+  ) => BatchPayloadPromise;
+  upsertMessage: (
+    args: {
+      where: MessageWhereUniqueInput;
+      create: MessageCreateInput;
+      update: MessageUpdateInput;
+    }
+  ) => MessagePromise;
+  deleteMessage: (where: MessageWhereUniqueInput) => MessagePromise;
+  deleteManyMessages: (where?: MessageWhereInput) => BatchPayloadPromise;
+  createText: (data: TextCreateInput) => TextPromise;
+  updateText: (
+    args: { data: TextUpdateInput; where: TextWhereUniqueInput }
+  ) => TextPromise;
+  updateManyTexts: (
+    args: { data: TextUpdateManyMutationInput; where?: TextWhereInput }
+  ) => BatchPayloadPromise;
+  upsertText: (
+    args: {
+      where: TextWhereUniqueInput;
+      create: TextCreateInput;
+      update: TextUpdateInput;
+    }
+  ) => TextPromise;
+  deleteText: (where: TextWhereUniqueInput) => TextPromise;
+  deleteManyTexts: (where?: TextWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (
     args: { data: UserUpdateInput; where: UserWhereUniqueInput }
@@ -81,6 +510,57 @@ export interface Prisma {
   ) => UserPromise;
   deleteUser: (where: UserWhereUniqueInput) => UserPromise;
   deleteManyUsers: (where?: UserWhereInput) => BatchPayloadPromise;
+  createVideo: (data: VideoCreateInput) => VideoPromise;
+  updateVideo: (
+    args: { data: VideoUpdateInput; where: VideoWhereUniqueInput }
+  ) => VideoPromise;
+  updateManyVideos: (
+    args: { data: VideoUpdateManyMutationInput; where?: VideoWhereInput }
+  ) => BatchPayloadPromise;
+  upsertVideo: (
+    args: {
+      where: VideoWhereUniqueInput;
+      create: VideoCreateInput;
+      update: VideoUpdateInput;
+    }
+  ) => VideoPromise;
+  deleteVideo: (where: VideoWhereUniqueInput) => VideoPromise;
+  deleteManyVideos: (where?: VideoWhereInput) => BatchPayloadPromise;
+  createVoice: (data: VoiceCreateInput) => VoicePromise;
+  updateVoice: (
+    args: { data: VoiceUpdateInput; where: VoiceWhereUniqueInput }
+  ) => VoicePromise;
+  updateManyVoices: (
+    args: { data: VoiceUpdateManyMutationInput; where?: VoiceWhereInput }
+  ) => BatchPayloadPromise;
+  upsertVoice: (
+    args: {
+      where: VoiceWhereUniqueInput;
+      create: VoiceCreateInput;
+      update: VoiceUpdateInput;
+    }
+  ) => VoicePromise;
+  deleteVoice: (where: VoiceWhereUniqueInput) => VoicePromise;
+  deleteManyVoices: (where?: VoiceWhereInput) => BatchPayloadPromise;
+  createWeChatUser: (data: WeChatUserCreateInput) => WeChatUserPromise;
+  updateWeChatUser: (
+    args: { data: WeChatUserUpdateInput; where: WeChatUserWhereUniqueInput }
+  ) => WeChatUserPromise;
+  updateManyWeChatUsers: (
+    args: {
+      data: WeChatUserUpdateManyMutationInput;
+      where?: WeChatUserWhereInput;
+    }
+  ) => BatchPayloadPromise;
+  upsertWeChatUser: (
+    args: {
+      where: WeChatUserWhereUniqueInput;
+      create: WeChatUserCreateInput;
+      update: WeChatUserUpdateInput;
+    }
+  ) => WeChatUserPromise;
+  deleteWeChatUser: (where: WeChatUserWhereUniqueInput) => WeChatUserPromise;
+  deleteManyWeChatUsers: (where?: WeChatUserWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -90,9 +570,45 @@ export interface Prisma {
 }
 
 export interface Subscription {
+  app: (
+    where?: AppSubscriptionWhereInput
+  ) => AppSubscriptionPayloadSubscription;
+  avatar: (
+    where?: AvatarSubscriptionWhereInput
+  ) => AvatarSubscriptionPayloadSubscription;
+  chatRoom: (
+    where?: ChatRoomSubscriptionWhereInput
+  ) => ChatRoomSubscriptionPayloadSubscription;
+  contact: (
+    where?: ContactSubscriptionWhereInput
+  ) => ContactSubscriptionPayloadSubscription;
+  content: (
+    where?: ContentSubscriptionWhereInput
+  ) => ContentSubscriptionPayloadSubscription;
+  file: (
+    where?: FileSubscriptionWhereInput
+  ) => FileSubscriptionPayloadSubscription;
+  image: (
+    where?: ImageSubscriptionWhereInput
+  ) => ImageSubscriptionPayloadSubscription;
+  message: (
+    where?: MessageSubscriptionWhereInput
+  ) => MessageSubscriptionPayloadSubscription;
+  text: (
+    where?: TextSubscriptionWhereInput
+  ) => TextSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
+  video: (
+    where?: VideoSubscriptionWhereInput
+  ) => VideoSubscriptionPayloadSubscription;
+  voice: (
+    where?: VoiceSubscriptionWhereInput
+  ) => VoiceSubscriptionPayloadSubscription;
+  weChatUser: (
+    where?: WeChatUserSubscriptionWhereInput
+  ) => WeChatUserSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -102,6 +618,32 @@ export interface ClientConstructor<T> {
 /**
  * Types
  */
+
+export type FileOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "fileName_ASC"
+  | "fileName_DESC"
+  | "size_ASC"
+  | "size_DESC";
+
+export type AppOrderByInput = "id_ASC" | "id_DESC" | "xml_ASC" | "xml_DESC";
+
+export type ContentOrderByInput = "id_ASC" | "id_DESC";
+
+export type VoiceOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "fileName_ASC"
+  | "fileName_DESC"
+  | "voiceLength_ASC"
+  | "voiceLength_DESC";
+
+export type ContactOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "type_ASC"
+  | "type_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -113,7 +655,750 @@ export type UserOrderByInput =
   | "password_ASC"
   | "password_DESC";
 
+export type MessageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "msgSvrId_ASC"
+  | "msgSvrId_DESC"
+  | "isSend_ASC"
+  | "isSend_DESC"
+  | "type_ASC"
+  | "type_DESC"
+  | "createTime_ASC"
+  | "createTime_DESC";
+
+export type WeChatUserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "username_ASC"
+  | "username_DESC"
+  | "alias_ASC"
+  | "alias_DESC"
+  | "conRemark_ASC"
+  | "conRemark_DESC"
+  | "nickname_ASC"
+  | "nickname_DESC";
+
+export type ChatRoomOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "userName_ASC"
+  | "userName_DESC"
+  | "nickName_ASC"
+  | "nickName_DESC"
+  | "displayName_ASC"
+  | "displayName_DESC"
+  | "modifyTime_ASC"
+  | "modifyTime_DESC";
+
+export type AvatarOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "thumbnailImg_ASC"
+  | "thumbnailImg_DESC"
+  | "bigImg_ASC"
+  | "bigImg_DESC";
+
+export type TextOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "textMsg_ASC"
+  | "textMsg_DESC";
+
+export type VideoOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "fileName_ASC"
+  | "fileName_DESC"
+  | "thumbnailImg_ASC"
+  | "thumbnailImg_DESC"
+  | "videolength_ASC"
+  | "videolength_DESC";
+
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
+
+export type ImageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "thumbnailImg_ASC"
+  | "thumbnailImg_DESC"
+  | "bigImg_ASC"
+  | "bigImg_DESC";
+
+export interface AppCreateWithoutContentInput {
+  xml?: Json;
+}
+
+export type AppWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface ChatRoomUpdateWithoutMessageDataInput {
+  userName?: String;
+  nickName?: String;
+  displayName?: String;
+  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarUpdateOneWithoutChatRoomInput;
+}
+
+export interface VoiceWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  fileName?: String;
+  fileName_not?: String;
+  fileName_in?: String[] | String;
+  fileName_not_in?: String[] | String;
+  fileName_lt?: String;
+  fileName_lte?: String;
+  fileName_gt?: String;
+  fileName_gte?: String;
+  fileName_contains?: String;
+  fileName_not_contains?: String;
+  fileName_starts_with?: String;
+  fileName_not_starts_with?: String;
+  fileName_ends_with?: String;
+  fileName_not_ends_with?: String;
+  voiceLength?: Int;
+  voiceLength_not?: Int;
+  voiceLength_in?: Int[] | Int;
+  voiceLength_not_in?: Int[] | Int;
+  voiceLength_lt?: Int;
+  voiceLength_lte?: Int;
+  voiceLength_gt?: Int;
+  voiceLength_gte?: Int;
+  content?: ContentWhereInput;
+  AND?: VoiceWhereInput[] | VoiceWhereInput;
+}
+
+export interface WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput {
+  create?: WeChatUserCreateWithoutHaveChatRoomInput;
+  update?: WeChatUserUpdateWithoutHaveChatRoomDataInput;
+  upsert?: WeChatUserUpsertWithoutHaveChatRoomInput;
+  connect?: WeChatUserWhereUniqueInput;
+}
+
+export interface FileWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  fileName?: String;
+  fileName_not?: String;
+  fileName_in?: String[] | String;
+  fileName_not_in?: String[] | String;
+  fileName_lt?: String;
+  fileName_lte?: String;
+  fileName_gt?: String;
+  fileName_gte?: String;
+  fileName_contains?: String;
+  fileName_not_contains?: String;
+  fileName_starts_with?: String;
+  fileName_not_starts_with?: String;
+  fileName_ends_with?: String;
+  fileName_not_ends_with?: String;
+  size?: Int;
+  size_not?: Int;
+  size_in?: Int[] | Int;
+  size_not_in?: Int[] | Int;
+  size_lt?: Int;
+  size_lte?: Int;
+  size_gt?: Int;
+  size_gte?: Int;
+  content?: ContentWhereInput;
+  AND?: FileWhereInput[] | FileWhereInput;
+}
+
+export interface AppUpdateManyMutationInput {
+  xml?: Json;
+}
+
+export interface ContentCreateWithoutFileInput {
+  text?: TextCreateOneWithoutContentInput;
+  image?: ImageCreateOneWithoutContentInput;
+  voice?: VoiceCreateOneWithoutContentInput;
+  video?: VideoCreateOneWithoutContentInput;
+  app?: AppCreateOneWithoutContentInput;
+}
+
+export interface ContentUpsertWithoutFileInput {
+  update: ContentUpdateWithoutFileDataInput;
+  create: ContentCreateWithoutFileInput;
+}
+
+export interface WeChatUserUpdateWithoutHaveChatRoomDataInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarUpdateOneWithoutWeChatUserInput;
+  message?: MessageUpdateManyWithoutTalkerInput;
+  joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput;
+  contact?: ContactUpdateOneWithoutWeChatUserInput;
+}
+
+export interface ContentUpdateWithoutFileDataInput {
+  text?: TextUpdateOneWithoutContentInput;
+  image?: ImageUpdateOneWithoutContentInput;
+  voice?: VoiceUpdateOneWithoutContentInput;
+  video?: VideoUpdateOneWithoutContentInput;
+  app?: AppUpdateOneWithoutContentInput;
+}
+
+export interface VoiceSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: VoiceWhereInput;
+  AND?: VoiceSubscriptionWhereInput[] | VoiceSubscriptionWhereInput;
+}
+
+export interface AvatarCreateInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  weChatUser?: WeChatUserCreateOneWithoutAvatarInput;
+  chatRoom?: ChatRoomCreateOneWithoutAvatarInput;
+}
+
+export type AvatarWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface WeChatUserCreateOneWithoutAvatarInput {
+  create?: WeChatUserCreateWithoutAvatarInput;
+  connect?: WeChatUserWhereUniqueInput;
+}
+
+export interface TextSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TextWhereInput;
+  AND?: TextSubscriptionWhereInput[] | TextSubscriptionWhereInput;
+}
+
+export interface WeChatUserCreateWithoutAvatarInput {
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  message?: MessageCreateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput;
+  contact?: ContactCreateOneWithoutWeChatUserInput;
+}
+
+export interface WeChatUserWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  username?: String;
+  username_not?: String;
+  username_in?: String[] | String;
+  username_not_in?: String[] | String;
+  username_lt?: String;
+  username_lte?: String;
+  username_gt?: String;
+  username_gte?: String;
+  username_contains?: String;
+  username_not_contains?: String;
+  username_starts_with?: String;
+  username_not_starts_with?: String;
+  username_ends_with?: String;
+  username_not_ends_with?: String;
+  alias?: String;
+  alias_not?: String;
+  alias_in?: String[] | String;
+  alias_not_in?: String[] | String;
+  alias_lt?: String;
+  alias_lte?: String;
+  alias_gt?: String;
+  alias_gte?: String;
+  alias_contains?: String;
+  alias_not_contains?: String;
+  alias_starts_with?: String;
+  alias_not_starts_with?: String;
+  alias_ends_with?: String;
+  alias_not_ends_with?: String;
+  conRemark?: String;
+  conRemark_not?: String;
+  conRemark_in?: String[] | String;
+  conRemark_not_in?: String[] | String;
+  conRemark_lt?: String;
+  conRemark_lte?: String;
+  conRemark_gt?: String;
+  conRemark_gte?: String;
+  conRemark_contains?: String;
+  conRemark_not_contains?: String;
+  conRemark_starts_with?: String;
+  conRemark_not_starts_with?: String;
+  conRemark_ends_with?: String;
+  conRemark_not_ends_with?: String;
+  nickname?: String;
+  nickname_not?: String;
+  nickname_in?: String[] | String;
+  nickname_not_in?: String[] | String;
+  nickname_lt?: String;
+  nickname_lte?: String;
+  nickname_gt?: String;
+  nickname_gte?: String;
+  nickname_contains?: String;
+  nickname_not_contains?: String;
+  nickname_starts_with?: String;
+  nickname_not_starts_with?: String;
+  nickname_ends_with?: String;
+  nickname_not_ends_with?: String;
+  avatar?: AvatarWhereInput;
+  message_some?: MessageWhereInput;
+  haveChatRoom_some?: ChatRoomWhereInput;
+  joinChatRoom_some?: ChatRoomWhereInput;
+  contact?: ContactWhereInput;
+  AND?: WeChatUserWhereInput[] | WeChatUserWhereInput;
+}
+
+export interface MessageCreateManyWithoutTalkerInput {
+  create?: MessageCreateWithoutTalkerInput[] | MessageCreateWithoutTalkerInput;
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+}
+
+export interface ChatRoomWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  userName?: String;
+  userName_not?: String;
+  userName_in?: String[] | String;
+  userName_not_in?: String[] | String;
+  userName_lt?: String;
+  userName_lte?: String;
+  userName_gt?: String;
+  userName_gte?: String;
+  userName_contains?: String;
+  userName_not_contains?: String;
+  userName_starts_with?: String;
+  userName_not_starts_with?: String;
+  userName_ends_with?: String;
+  userName_not_ends_with?: String;
+  nickName?: String;
+  nickName_not?: String;
+  nickName_in?: String[] | String;
+  nickName_not_in?: String[] | String;
+  nickName_lt?: String;
+  nickName_lte?: String;
+  nickName_gt?: String;
+  nickName_gte?: String;
+  nickName_contains?: String;
+  nickName_not_contains?: String;
+  nickName_starts_with?: String;
+  nickName_not_starts_with?: String;
+  nickName_ends_with?: String;
+  nickName_not_ends_with?: String;
+  displayName?: String;
+  displayName_not?: String;
+  displayName_in?: String[] | String;
+  displayName_not_in?: String[] | String;
+  displayName_lt?: String;
+  displayName_lte?: String;
+  displayName_gt?: String;
+  displayName_gte?: String;
+  displayName_contains?: String;
+  displayName_not_contains?: String;
+  displayName_starts_with?: String;
+  displayName_not_starts_with?: String;
+  displayName_ends_with?: String;
+  displayName_not_ends_with?: String;
+  owner?: WeChatUserWhereInput;
+  memberList_some?: WeChatUserWhereInput;
+  modifyTime?: DateTimeInput;
+  modifyTime_not?: DateTimeInput;
+  modifyTime_in?: DateTimeInput[] | DateTimeInput;
+  modifyTime_not_in?: DateTimeInput[] | DateTimeInput;
+  modifyTime_lt?: DateTimeInput;
+  modifyTime_lte?: DateTimeInput;
+  modifyTime_gt?: DateTimeInput;
+  modifyTime_gte?: DateTimeInput;
+  avatar?: AvatarWhereInput;
+  message_some?: MessageWhereInput;
+  AND?: ChatRoomWhereInput[] | ChatRoomWhereInput;
+}
+
+export interface MessageCreateWithoutTalkerInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  createTime?: DateTimeInput;
+  chatRoom?: ChatRoomCreateOneWithoutMessageInput;
+  content?: ContentCreateOneInput;
+}
+
+export interface ContactWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  type?: String;
+  type_not?: String;
+  type_in?: String[] | String;
+  type_not_in?: String[] | String;
+  type_lt?: String;
+  type_lte?: String;
+  type_gt?: String;
+  type_gte?: String;
+  type_contains?: String;
+  type_not_contains?: String;
+  type_starts_with?: String;
+  type_not_starts_with?: String;
+  type_ends_with?: String;
+  type_not_ends_with?: String;
+  weChatUser_some?: WeChatUserWhereInput;
+  AND?: ContactWhereInput[] | ContactWhereInput;
+}
+
+export interface ChatRoomCreateOneWithoutMessageInput {
+  create?: ChatRoomCreateWithoutMessageInput;
+  connect?: ChatRoomWhereUniqueInput;
+}
+
+export interface ImageSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ImageWhereInput;
+  AND?: ImageSubscriptionWhereInput[] | ImageSubscriptionWhereInput;
+}
+
+export interface ChatRoomCreateWithoutMessageInput {
+  userName: String;
+  nickName?: String;
+  displayName: String;
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput;
+  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarCreateOneWithoutChatRoomInput;
+}
+
+export interface ContentWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  text?: TextWhereInput;
+  image?: ImageWhereInput;
+  voice?: VoiceWhereInput;
+  video?: VideoWhereInput;
+  file?: FileWhereInput;
+  app?: AppWhereInput;
+  AND?: ContentWhereInput[] | ContentWhereInput;
+}
+
+export interface WeChatUserCreateOneWithoutHaveChatRoomInput {
+  create?: WeChatUserCreateWithoutHaveChatRoomInput;
+  connect?: WeChatUserWhereUniqueInput;
+}
+
+export interface ContentSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ContentWhereInput;
+  AND?: ContentSubscriptionWhereInput[] | ContentSubscriptionWhereInput;
+}
+
+export interface WeChatUserCreateWithoutHaveChatRoomInput {
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarCreateOneWithoutWeChatUserInput;
+  message?: MessageCreateManyWithoutTalkerInput;
+  joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput;
+  contact?: ContactCreateOneWithoutWeChatUserInput;
+}
+
+export interface ChatRoomSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ChatRoomWhereInput;
+  AND?: ChatRoomSubscriptionWhereInput[] | ChatRoomSubscriptionWhereInput;
+}
+
+export interface AvatarCreateOneWithoutWeChatUserInput {
+  create?: AvatarCreateWithoutWeChatUserInput;
+  connect?: AvatarWhereUniqueInput;
+}
+
+export interface AppSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: AppWhereInput;
+  AND?: AppSubscriptionWhereInput[] | AppSubscriptionWhereInput;
+}
+
+export interface AvatarCreateWithoutWeChatUserInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  chatRoom?: ChatRoomCreateOneWithoutAvatarInput;
+}
+
+export interface WeChatUserUpdateManyMutationInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+}
+
+export interface ChatRoomCreateOneWithoutAvatarInput {
+  create?: ChatRoomCreateWithoutAvatarInput;
+  connect?: ChatRoomWhereUniqueInput;
+}
+
+export interface WeChatUserCreateInput {
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarCreateOneWithoutWeChatUserInput;
+  message?: MessageCreateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput;
+  contact?: ContactCreateOneWithoutWeChatUserInput;
+}
+
+export interface ChatRoomCreateWithoutAvatarInput {
+  userName: String;
+  nickName?: String;
+  displayName: String;
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput;
+  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  message?: MessageCreateManyWithoutChatRoomInput;
+}
+
+export interface VoiceUpdateManyMutationInput {
+  fileName?: String;
+  voiceLength?: Int;
+}
+
+export interface WeChatUserCreateManyWithoutJoinChatRoomInput {
+  create?:
+    | WeChatUserCreateWithoutJoinChatRoomInput[]
+    | WeChatUserCreateWithoutJoinChatRoomInput;
+  connect?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+}
+
+export interface ContentUpdateWithoutVoiceDataInput {
+  text?: TextUpdateOneWithoutContentInput;
+  image?: ImageUpdateOneWithoutContentInput;
+  video?: VideoUpdateOneWithoutContentInput;
+  file?: FileUpdateOneWithoutContentInput;
+  app?: AppUpdateOneWithoutContentInput;
+}
+
+export interface WeChatUserCreateWithoutJoinChatRoomInput {
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarCreateOneWithoutWeChatUserInput;
+  message?: MessageCreateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput;
+  contact?: ContactCreateOneWithoutWeChatUserInput;
+}
+
+export type ContentWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface ChatRoomCreateManyWithoutOwnerInput {
+  create?: ChatRoomCreateWithoutOwnerInput[] | ChatRoomCreateWithoutOwnerInput;
+  connect?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+}
+
+export interface ContentCreateWithoutVoiceInput {
+  text?: TextCreateOneWithoutContentInput;
+  image?: ImageCreateOneWithoutContentInput;
+  video?: VideoCreateOneWithoutContentInput;
+  file?: FileCreateOneWithoutContentInput;
+  app?: AppCreateOneWithoutContentInput;
+}
+
+export interface ChatRoomCreateWithoutOwnerInput {
+  userName: String;
+  nickName?: String;
+  displayName: String;
+  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarCreateOneWithoutChatRoomInput;
+  message?: MessageCreateManyWithoutChatRoomInput;
+}
+
+export interface VoiceCreateInput {
+  fileName: String;
+  voiceLength?: Int;
+  content?: ContentCreateOneWithoutVoiceInput;
+}
+
+export interface AvatarCreateOneWithoutChatRoomInput {
+  create?: AvatarCreateWithoutChatRoomInput;
+  connect?: AvatarWhereUniqueInput;
+}
+
+export interface VideoUpdateManyMutationInput {
+  fileName?: String;
+  thumbnailImg?: String;
+  videolength?: Int;
+}
+
+export interface AvatarCreateWithoutChatRoomInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  weChatUser?: WeChatUserCreateOneWithoutAvatarInput;
+}
+
+export interface ContentUpdateWithoutVideoDataInput {
+  text?: TextUpdateOneWithoutContentInput;
+  image?: ImageUpdateOneWithoutContentInput;
+  voice?: VoiceUpdateOneWithoutContentInput;
+  file?: FileUpdateOneWithoutContentInput;
+  app?: AppUpdateOneWithoutContentInput;
+}
+
+export interface MessageCreateManyWithoutChatRoomInput {
+  create?:
+    | MessageCreateWithoutChatRoomInput[]
+    | MessageCreateWithoutChatRoomInput;
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+}
+
+export type ImageWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface MessageCreateWithoutChatRoomInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  talker: WeChatUserCreateOneWithoutMessageInput;
+  createTime?: DateTimeInput;
+  content?: ContentCreateOneInput;
+}
+
+export interface ContentCreateWithoutVideoInput {
+  text?: TextCreateOneWithoutContentInput;
+  image?: ImageCreateOneWithoutContentInput;
+  voice?: VoiceCreateOneWithoutContentInput;
+  file?: FileCreateOneWithoutContentInput;
+  app?: AppCreateOneWithoutContentInput;
+}
+
+export interface WeChatUserCreateOneWithoutMessageInput {
+  create?: WeChatUserCreateWithoutMessageInput;
+  connect?: WeChatUserWhereUniqueInput;
+}
+
+export interface VideoCreateInput {
+  fileName: String;
+  thumbnailImg?: String;
+  videolength?: Int;
+  content?: ContentCreateOneWithoutVideoInput;
+}
+
+export interface WeChatUserCreateWithoutMessageInput {
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarCreateOneWithoutWeChatUserInput;
+  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput;
+  contact?: ContactCreateOneWithoutWeChatUserInput;
+}
+
+export interface UserUpdateManyMutationInput {
+  email?: String;
+  name?: String;
+  password?: String;
+}
+
+export interface ChatRoomCreateManyWithoutMemberListInput {
+  create?:
+    | ChatRoomCreateWithoutMemberListInput[]
+    | ChatRoomCreateWithoutMemberListInput;
+  connect?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+}
 
 export interface UserCreateInput {
   email: String;
@@ -121,16 +1406,45 @@ export interface UserCreateInput {
   password: String;
 }
 
-export interface UserUpdateInput {
-  email?: String;
-  name?: String;
-  password?: String;
+export interface ChatRoomCreateWithoutMemberListInput {
+  userName: String;
+  nickName?: String;
+  displayName: String;
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarCreateOneWithoutChatRoomInput;
+  message?: MessageCreateManyWithoutChatRoomInput;
 }
 
-export interface UserUpdateManyMutationInput {
+export interface TextUpdateManyMutationInput {
+  textMsg?: String;
+}
+
+export interface ContactCreateOneWithoutWeChatUserInput {
+  create?: ContactCreateWithoutWeChatUserInput;
+  connect?: ContactWhereUniqueInput;
+}
+
+export interface ContentUpdateWithoutTextDataInput {
+  image?: ImageUpdateOneWithoutContentInput;
+  voice?: VoiceUpdateOneWithoutContentInput;
+  video?: VideoUpdateOneWithoutContentInput;
+  file?: FileUpdateOneWithoutContentInput;
+  app?: AppUpdateOneWithoutContentInput;
+}
+
+export interface ContactCreateWithoutWeChatUserInput {
+  type: String;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
   email?: String;
-  name?: String;
-  password?: String;
+}>;
+
+export interface ContentCreateOneInput {
+  create?: ContentCreateInput;
+  connect?: ContentWhereUniqueInput;
 }
 
 export interface UserWhereInput {
@@ -193,6 +1507,515 @@ export interface UserWhereInput {
   AND?: UserWhereInput[] | UserWhereInput;
 }
 
+export interface ContentCreateInput {
+  text?: TextCreateOneWithoutContentInput;
+  image?: ImageCreateOneWithoutContentInput;
+  voice?: VoiceCreateOneWithoutContentInput;
+  video?: VideoCreateOneWithoutContentInput;
+  file?: FileCreateOneWithoutContentInput;
+  app?: AppCreateOneWithoutContentInput;
+}
+
+export interface ContentCreateOneWithoutTextInput {
+  create?: ContentCreateWithoutTextInput;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface AppCreateOneWithoutContentInput {
+  create?: AppCreateWithoutContentInput;
+  connect?: AppWhereUniqueInput;
+}
+
+export interface MessageUpdateManyMutationInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  createTime?: DateTimeInput;
+}
+
+export interface ContentUpdateOneWithoutFileInput {
+  create?: ContentCreateWithoutFileInput;
+  update?: ContentUpdateWithoutFileDataInput;
+  upsert?: ContentUpsertWithoutFileInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface MessageUpdateInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  talker?: WeChatUserUpdateOneRequiredWithoutMessageInput;
+  createTime?: DateTimeInput;
+  chatRoom?: ChatRoomUpdateOneWithoutMessageInput;
+  content?: ContentUpdateOneInput;
+}
+
+export interface AvatarUpdateInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  weChatUser?: WeChatUserUpdateOneWithoutAvatarInput;
+  chatRoom?: ChatRoomUpdateOneWithoutAvatarInput;
+}
+
+export interface ImageUpdateManyMutationInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface WeChatUserUpdateOneWithoutAvatarInput {
+  create?: WeChatUserCreateWithoutAvatarInput;
+  update?: WeChatUserUpdateWithoutAvatarDataInput;
+  upsert?: WeChatUserUpsertWithoutAvatarInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: WeChatUserWhereUniqueInput;
+}
+
+export type VoiceWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface WeChatUserUpdateWithoutAvatarDataInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  message?: MessageUpdateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput;
+  contact?: ContactUpdateOneWithoutWeChatUserInput;
+}
+
+export interface ContentUpdateOneWithoutImageInput {
+  create?: ContentCreateWithoutImageInput;
+  update?: ContentUpdateWithoutImageDataInput;
+  upsert?: ContentUpsertWithoutImageInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface MessageUpdateManyWithoutTalkerInput {
+  create?: MessageCreateWithoutTalkerInput[] | MessageCreateWithoutTalkerInput;
+  delete?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  set?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  disconnect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  update?:
+    | MessageUpdateWithWhereUniqueWithoutTalkerInput[]
+    | MessageUpdateWithWhereUniqueWithoutTalkerInput;
+  upsert?:
+    | MessageUpsertWithWhereUniqueWithoutTalkerInput[]
+    | MessageUpsertWithWhereUniqueWithoutTalkerInput;
+  deleteMany?: MessageScalarWhereInput[] | MessageScalarWhereInput;
+  updateMany?:
+    | MessageUpdateManyWithWhereNestedInput[]
+    | MessageUpdateManyWithWhereNestedInput;
+}
+
+export interface ContentCreateWithoutImageInput {
+  text?: TextCreateOneWithoutContentInput;
+  voice?: VoiceCreateOneWithoutContentInput;
+  video?: VideoCreateOneWithoutContentInput;
+  file?: FileCreateOneWithoutContentInput;
+  app?: AppCreateOneWithoutContentInput;
+}
+
+export interface MessageUpdateWithWhereUniqueWithoutTalkerInput {
+  where: MessageWhereUniqueInput;
+  data: MessageUpdateWithoutTalkerDataInput;
+}
+
+export interface ContentCreateOneWithoutImageInput {
+  create?: ContentCreateWithoutImageInput;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface MessageUpdateWithoutTalkerDataInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  createTime?: DateTimeInput;
+  chatRoom?: ChatRoomUpdateOneWithoutMessageInput;
+  content?: ContentUpdateOneInput;
+}
+
+export interface FileUpdateManyMutationInput {
+  fileName?: String;
+  size?: Int;
+}
+
+export interface ChatRoomUpdateOneWithoutMessageInput {
+  create?: ChatRoomCreateWithoutMessageInput;
+  update?: ChatRoomUpdateWithoutMessageDataInput;
+  upsert?: ChatRoomUpsertWithoutMessageInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ChatRoomWhereUniqueInput;
+}
+
+export interface AppCreateInput {
+  xml?: Json;
+  content?: ContentCreateOneWithoutAppInput;
+}
+
+export interface VideoWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  fileName?: String;
+  fileName_not?: String;
+  fileName_in?: String[] | String;
+  fileName_not_in?: String[] | String;
+  fileName_lt?: String;
+  fileName_lte?: String;
+  fileName_gt?: String;
+  fileName_gte?: String;
+  fileName_contains?: String;
+  fileName_not_contains?: String;
+  fileName_starts_with?: String;
+  fileName_not_starts_with?: String;
+  fileName_ends_with?: String;
+  fileName_not_ends_with?: String;
+  thumbnailImg?: String;
+  thumbnailImg_not?: String;
+  thumbnailImg_in?: String[] | String;
+  thumbnailImg_not_in?: String[] | String;
+  thumbnailImg_lt?: String;
+  thumbnailImg_lte?: String;
+  thumbnailImg_gt?: String;
+  thumbnailImg_gte?: String;
+  thumbnailImg_contains?: String;
+  thumbnailImg_not_contains?: String;
+  thumbnailImg_starts_with?: String;
+  thumbnailImg_not_starts_with?: String;
+  thumbnailImg_ends_with?: String;
+  thumbnailImg_not_ends_with?: String;
+  videolength?: Int;
+  videolength_not?: Int;
+  videolength_in?: Int[] | Int;
+  videolength_not_in?: Int[] | Int;
+  videolength_lt?: Int;
+  videolength_lte?: Int;
+  videolength_gt?: Int;
+  videolength_gte?: Int;
+  content?: ContentWhereInput;
+  AND?: VideoWhereInput[] | VideoWhereInput;
+}
+
+export interface ContentCreateWithoutAppInput {
+  text?: TextCreateOneWithoutContentInput;
+  image?: ImageCreateOneWithoutContentInput;
+  voice?: VoiceCreateOneWithoutContentInput;
+  video?: VideoCreateOneWithoutContentInput;
+  file?: FileCreateOneWithoutContentInput;
+}
+
+export interface ImageWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  thumbnailImg?: String;
+  thumbnailImg_not?: String;
+  thumbnailImg_in?: String[] | String;
+  thumbnailImg_not_in?: String[] | String;
+  thumbnailImg_lt?: String;
+  thumbnailImg_lte?: String;
+  thumbnailImg_gt?: String;
+  thumbnailImg_gte?: String;
+  thumbnailImg_contains?: String;
+  thumbnailImg_not_contains?: String;
+  thumbnailImg_starts_with?: String;
+  thumbnailImg_not_starts_with?: String;
+  thumbnailImg_ends_with?: String;
+  thumbnailImg_not_ends_with?: String;
+  bigImg?: String;
+  bigImg_not?: String;
+  bigImg_in?: String[] | String;
+  bigImg_not_in?: String[] | String;
+  bigImg_lt?: String;
+  bigImg_lte?: String;
+  bigImg_gt?: String;
+  bigImg_gte?: String;
+  bigImg_contains?: String;
+  bigImg_not_contains?: String;
+  bigImg_starts_with?: String;
+  bigImg_not_starts_with?: String;
+  bigImg_ends_with?: String;
+  bigImg_not_ends_with?: String;
+  content?: ContentWhereInput;
+  AND?: ImageWhereInput[] | ImageWhereInput;
+}
+
+export interface TextCreateWithoutContentInput {
+  textMsg: String;
+}
+
+export interface FileUpdateInput {
+  fileName?: String;
+  size?: Int;
+  content?: ContentUpdateOneWithoutFileInput;
+}
+
+export interface ImageCreateWithoutContentInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface AvatarUpdateOneWithoutWeChatUserInput {
+  create?: AvatarCreateWithoutWeChatUserInput;
+  update?: AvatarUpdateWithoutWeChatUserDataInput;
+  upsert?: AvatarUpsertWithoutWeChatUserInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: AvatarWhereUniqueInput;
+}
+
+export interface VoiceCreateWithoutContentInput {
+  fileName: String;
+  voiceLength?: Int;
+}
+
+export interface AvatarUpdateWithoutWeChatUserDataInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  chatRoom?: ChatRoomUpdateOneWithoutAvatarInput;
+}
+
+export interface VideoCreateWithoutContentInput {
+  fileName: String;
+  thumbnailImg?: String;
+  videolength?: Int;
+}
+
+export interface ChatRoomUpdateOneWithoutAvatarInput {
+  create?: ChatRoomCreateWithoutAvatarInput;
+  update?: ChatRoomUpdateWithoutAvatarDataInput;
+  upsert?: ChatRoomUpsertWithoutAvatarInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ChatRoomWhereUniqueInput;
+}
+
+export interface FileCreateWithoutContentInput {
+  fileName: String;
+  size?: Int;
+}
+
+export interface ChatRoomUpdateWithoutAvatarDataInput {
+  userName?: String;
+  nickName?: String;
+  displayName?: String;
+  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  message?: MessageUpdateManyWithoutChatRoomInput;
+}
+
+export interface ContentUpdateOneWithoutAppInput {
+  create?: ContentCreateWithoutAppInput;
+  update?: ContentUpdateWithoutAppDataInput;
+  upsert?: ContentUpsertWithoutAppInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface WeChatUserUpdateManyWithoutJoinChatRoomInput {
+  create?:
+    | WeChatUserCreateWithoutJoinChatRoomInput[]
+    | WeChatUserCreateWithoutJoinChatRoomInput;
+  delete?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  connect?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  set?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  disconnect?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  update?:
+    | WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput[]
+    | WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput;
+  upsert?:
+    | WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput[]
+    | WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput;
+  deleteMany?: WeChatUserScalarWhereInput[] | WeChatUserScalarWhereInput;
+  updateMany?:
+    | WeChatUserUpdateManyWithWhereNestedInput[]
+    | WeChatUserUpdateManyWithWhereNestedInput;
+}
+
+export interface TextUpdateOneWithoutContentInput {
+  create?: TextCreateWithoutContentInput;
+  update?: TextUpdateWithoutContentDataInput;
+  upsert?: TextUpsertWithoutContentInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: TextWhereUniqueInput;
+}
+
+export interface WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput {
+  where: WeChatUserWhereUniqueInput;
+  data: WeChatUserUpdateWithoutJoinChatRoomDataInput;
+}
+
+export interface TextUpsertWithoutContentInput {
+  update: TextUpdateWithoutContentDataInput;
+  create: TextCreateWithoutContentInput;
+}
+
+export interface WeChatUserUpdateWithoutJoinChatRoomDataInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarUpdateOneWithoutWeChatUserInput;
+  message?: MessageUpdateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput;
+  contact?: ContactUpdateOneWithoutWeChatUserInput;
+}
+
+export interface ImageUpdateWithoutContentDataInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface ChatRoomUpdateManyWithoutOwnerInput {
+  create?: ChatRoomCreateWithoutOwnerInput[] | ChatRoomCreateWithoutOwnerInput;
+  delete?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  connect?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  set?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  disconnect?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  update?:
+    | ChatRoomUpdateWithWhereUniqueWithoutOwnerInput[]
+    | ChatRoomUpdateWithWhereUniqueWithoutOwnerInput;
+  upsert?:
+    | ChatRoomUpsertWithWhereUniqueWithoutOwnerInput[]
+    | ChatRoomUpsertWithWhereUniqueWithoutOwnerInput;
+  deleteMany?: ChatRoomScalarWhereInput[] | ChatRoomScalarWhereInput;
+  updateMany?:
+    | ChatRoomUpdateManyWithWhereNestedInput[]
+    | ChatRoomUpdateManyWithWhereNestedInput;
+}
+
+export interface VoiceUpdateOneWithoutContentInput {
+  create?: VoiceCreateWithoutContentInput;
+  update?: VoiceUpdateWithoutContentDataInput;
+  upsert?: VoiceUpsertWithoutContentInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: VoiceWhereUniqueInput;
+}
+
+export interface ChatRoomUpdateWithWhereUniqueWithoutOwnerInput {
+  where: ChatRoomWhereUniqueInput;
+  data: ChatRoomUpdateWithoutOwnerDataInput;
+}
+
+export interface VoiceUpsertWithoutContentInput {
+  update: VoiceUpdateWithoutContentDataInput;
+  create: VoiceCreateWithoutContentInput;
+}
+
+export interface ChatRoomUpdateWithoutOwnerDataInput {
+  userName?: String;
+  nickName?: String;
+  displayName?: String;
+  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarUpdateOneWithoutChatRoomInput;
+  message?: MessageUpdateManyWithoutChatRoomInput;
+}
+
+export interface VideoUpdateWithoutContentDataInput {
+  fileName?: String;
+  thumbnailImg?: String;
+  videolength?: Int;
+}
+
+export interface AvatarUpdateOneWithoutChatRoomInput {
+  create?: AvatarCreateWithoutChatRoomInput;
+  update?: AvatarUpdateWithoutChatRoomDataInput;
+  upsert?: AvatarUpsertWithoutChatRoomInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: AvatarWhereUniqueInput;
+}
+
+export interface FileUpdateOneWithoutContentInput {
+  create?: FileCreateWithoutContentInput;
+  update?: FileUpdateWithoutContentDataInput;
+  upsert?: FileUpsertWithoutContentInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: FileWhereUniqueInput;
+}
+
+export interface AvatarUpdateWithoutChatRoomDataInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  weChatUser?: WeChatUserUpdateOneWithoutAvatarInput;
+}
+
+export interface FileUpsertWithoutContentInput {
+  update: FileUpdateWithoutContentDataInput;
+  create: FileCreateWithoutContentInput;
+}
+
+export interface AvatarUpsertWithoutChatRoomInput {
+  update: AvatarUpdateWithoutChatRoomDataInput;
+  create: AvatarCreateWithoutChatRoomInput;
+}
+
+export interface WeChatUserSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: WeChatUserWhereInput;
+  AND?: WeChatUserSubscriptionWhereInput[] | WeChatUserSubscriptionWhereInput;
+}
+
+export interface MessageUpdateManyWithoutChatRoomInput {
+  create?:
+    | MessageCreateWithoutChatRoomInput[]
+    | MessageCreateWithoutChatRoomInput;
+  delete?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  set?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  disconnect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput;
+  update?:
+    | MessageUpdateWithWhereUniqueWithoutChatRoomInput[]
+    | MessageUpdateWithWhereUniqueWithoutChatRoomInput;
+  upsert?:
+    | MessageUpsertWithWhereUniqueWithoutChatRoomInput[]
+    | MessageUpsertWithWhereUniqueWithoutChatRoomInput;
+  deleteMany?: MessageScalarWhereInput[] | MessageScalarWhereInput;
+  updateMany?:
+    | MessageUpdateManyWithWhereNestedInput[]
+    | MessageUpdateManyWithWhereNestedInput;
+}
+
 export interface UserSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
@@ -202,13 +2025,1382 @@ export interface UserSubscriptionWhereInput {
   AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
+export interface MessageUpdateWithWhereUniqueWithoutChatRoomInput {
+  where: MessageWhereUniqueInput;
+  data: MessageUpdateWithoutChatRoomDataInput;
+}
+
+export interface AvatarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  thumbnailImg?: String;
+  thumbnailImg_not?: String;
+  thumbnailImg_in?: String[] | String;
+  thumbnailImg_not_in?: String[] | String;
+  thumbnailImg_lt?: String;
+  thumbnailImg_lte?: String;
+  thumbnailImg_gt?: String;
+  thumbnailImg_gte?: String;
+  thumbnailImg_contains?: String;
+  thumbnailImg_not_contains?: String;
+  thumbnailImg_starts_with?: String;
+  thumbnailImg_not_starts_with?: String;
+  thumbnailImg_ends_with?: String;
+  thumbnailImg_not_ends_with?: String;
+  bigImg?: String;
+  bigImg_not?: String;
+  bigImg_in?: String[] | String;
+  bigImg_not_in?: String[] | String;
+  bigImg_lt?: String;
+  bigImg_lte?: String;
+  bigImg_gt?: String;
+  bigImg_gte?: String;
+  bigImg_contains?: String;
+  bigImg_not_contains?: String;
+  bigImg_starts_with?: String;
+  bigImg_not_starts_with?: String;
+  bigImg_ends_with?: String;
+  bigImg_not_ends_with?: String;
+  weChatUser?: WeChatUserWhereInput;
+  chatRoom?: ChatRoomWhereInput;
+  AND?: AvatarWhereInput[] | AvatarWhereInput;
+}
+
+export interface MessageUpdateWithoutChatRoomDataInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  talker?: WeChatUserUpdateOneRequiredWithoutMessageInput;
+  createTime?: DateTimeInput;
+  content?: ContentUpdateOneInput;
+}
+
+export interface TextWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  textMsg?: String;
+  textMsg_not?: String;
+  textMsg_in?: String[] | String;
+  textMsg_not_in?: String[] | String;
+  textMsg_lt?: String;
+  textMsg_lte?: String;
+  textMsg_gt?: String;
+  textMsg_gte?: String;
+  textMsg_contains?: String;
+  textMsg_not_contains?: String;
+  textMsg_starts_with?: String;
+  textMsg_not_starts_with?: String;
+  textMsg_ends_with?: String;
+  textMsg_not_ends_with?: String;
+  content?: ContentWhereInput;
+  AND?: TextWhereInput[] | TextWhereInput;
+}
+
+export interface WeChatUserUpdateOneRequiredWithoutMessageInput {
+  create?: WeChatUserCreateWithoutMessageInput;
+  update?: WeChatUserUpdateWithoutMessageDataInput;
+  upsert?: WeChatUserUpsertWithoutMessageInput;
+  connect?: WeChatUserWhereUniqueInput;
+}
+
+export interface AppWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  content?: ContentWhereInput;
+  AND?: AppWhereInput[] | AppWhereInput;
+}
+
+export interface WeChatUserUpdateWithoutMessageDataInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarUpdateOneWithoutWeChatUserInput;
+  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput;
+  contact?: ContactUpdateOneWithoutWeChatUserInput;
+}
+
+export interface AvatarSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: AvatarWhereInput;
+  AND?: AvatarSubscriptionWhereInput[] | AvatarSubscriptionWhereInput;
+}
+
+export interface ChatRoomUpdateManyWithoutMemberListInput {
+  create?:
+    | ChatRoomCreateWithoutMemberListInput[]
+    | ChatRoomCreateWithoutMemberListInput;
+  delete?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  connect?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  set?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  disconnect?: ChatRoomWhereUniqueInput[] | ChatRoomWhereUniqueInput;
+  update?:
+    | ChatRoomUpdateWithWhereUniqueWithoutMemberListInput[]
+    | ChatRoomUpdateWithWhereUniqueWithoutMemberListInput;
+  upsert?:
+    | ChatRoomUpsertWithWhereUniqueWithoutMemberListInput[]
+    | ChatRoomUpsertWithWhereUniqueWithoutMemberListInput;
+  deleteMany?: ChatRoomScalarWhereInput[] | ChatRoomScalarWhereInput;
+  updateMany?:
+    | ChatRoomUpdateManyWithWhereNestedInput[]
+    | ChatRoomUpdateManyWithWhereNestedInput;
+}
+
+export interface WeChatUserUpdateInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarUpdateOneWithoutWeChatUserInput;
+  message?: MessageUpdateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput;
+  contact?: ContactUpdateOneWithoutWeChatUserInput;
+}
+
+export interface ChatRoomUpdateWithWhereUniqueWithoutMemberListInput {
+  where: ChatRoomWhereUniqueInput;
+  data: ChatRoomUpdateWithoutMemberListDataInput;
+}
+
+export interface ContentUpsertWithoutVoiceInput {
+  update: ContentUpdateWithoutVoiceDataInput;
+  create: ContentCreateWithoutVoiceInput;
+}
+
+export interface ChatRoomUpdateWithoutMemberListDataInput {
+  userName?: String;
+  nickName?: String;
+  displayName?: String;
+  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarUpdateOneWithoutChatRoomInput;
+  message?: MessageUpdateManyWithoutChatRoomInput;
+}
+
+export interface VoiceUpdateInput {
+  fileName?: String;
+  voiceLength?: Int;
+  content?: ContentUpdateOneWithoutVoiceInput;
+}
+
+export interface ChatRoomUpsertWithWhereUniqueWithoutMemberListInput {
+  where: ChatRoomWhereUniqueInput;
+  update: ChatRoomUpdateWithoutMemberListDataInput;
+  create: ChatRoomCreateWithoutMemberListInput;
+}
+
+export type FileWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  email?: String;
 }>;
+
+export interface ChatRoomScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  userName?: String;
+  userName_not?: String;
+  userName_in?: String[] | String;
+  userName_not_in?: String[] | String;
+  userName_lt?: String;
+  userName_lte?: String;
+  userName_gt?: String;
+  userName_gte?: String;
+  userName_contains?: String;
+  userName_not_contains?: String;
+  userName_starts_with?: String;
+  userName_not_starts_with?: String;
+  userName_ends_with?: String;
+  userName_not_ends_with?: String;
+  nickName?: String;
+  nickName_not?: String;
+  nickName_in?: String[] | String;
+  nickName_not_in?: String[] | String;
+  nickName_lt?: String;
+  nickName_lte?: String;
+  nickName_gt?: String;
+  nickName_gte?: String;
+  nickName_contains?: String;
+  nickName_not_contains?: String;
+  nickName_starts_with?: String;
+  nickName_not_starts_with?: String;
+  nickName_ends_with?: String;
+  nickName_not_ends_with?: String;
+  displayName?: String;
+  displayName_not?: String;
+  displayName_in?: String[] | String;
+  displayName_not_in?: String[] | String;
+  displayName_lt?: String;
+  displayName_lte?: String;
+  displayName_gt?: String;
+  displayName_gte?: String;
+  displayName_contains?: String;
+  displayName_not_contains?: String;
+  displayName_starts_with?: String;
+  displayName_not_starts_with?: String;
+  displayName_ends_with?: String;
+  displayName_not_ends_with?: String;
+  modifyTime?: DateTimeInput;
+  modifyTime_not?: DateTimeInput;
+  modifyTime_in?: DateTimeInput[] | DateTimeInput;
+  modifyTime_not_in?: DateTimeInput[] | DateTimeInput;
+  modifyTime_lt?: DateTimeInput;
+  modifyTime_lte?: DateTimeInput;
+  modifyTime_gt?: DateTimeInput;
+  modifyTime_gte?: DateTimeInput;
+  AND?: ChatRoomScalarWhereInput[] | ChatRoomScalarWhereInput;
+  OR?: ChatRoomScalarWhereInput[] | ChatRoomScalarWhereInput;
+  NOT?: ChatRoomScalarWhereInput[] | ChatRoomScalarWhereInput;
+}
+
+export interface ContentUpdateOneWithoutVideoInput {
+  create?: ContentCreateWithoutVideoInput;
+  update?: ContentUpdateWithoutVideoDataInput;
+  upsert?: ContentUpsertWithoutVideoInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface ChatRoomUpdateManyWithWhereNestedInput {
+  where: ChatRoomScalarWhereInput;
+  data: ChatRoomUpdateManyDataInput;
+}
+
+export interface ContentCreateOneWithoutVideoInput {
+  create?: ContentCreateWithoutVideoInput;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface ChatRoomUpdateManyDataInput {
+  userName?: String;
+  nickName?: String;
+  displayName?: String;
+  modifyTime?: DateTimeInput;
+}
+
+export interface UserUpdateInput {
+  email?: String;
+  name?: String;
+  password?: String;
+}
+
+export interface ContactUpdateOneWithoutWeChatUserInput {
+  create?: ContactCreateWithoutWeChatUserInput;
+  update?: ContactUpdateWithoutWeChatUserDataInput;
+  upsert?: ContactUpsertWithoutWeChatUserInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContactWhereUniqueInput;
+}
+
+export interface ContentUpsertWithoutTextInput {
+  update: ContentUpdateWithoutTextDataInput;
+  create: ContentCreateWithoutTextInput;
+}
+
+export interface ContactUpdateWithoutWeChatUserDataInput {
+  type?: String;
+}
+
+export interface TextUpdateInput {
+  textMsg?: String;
+  content?: ContentUpdateOneWithoutTextInput;
+}
+
+export interface ContactUpsertWithoutWeChatUserInput {
+  update: ContactUpdateWithoutWeChatUserDataInput;
+  create: ContactCreateWithoutWeChatUserInput;
+}
+
+export interface TextCreateInput {
+  textMsg: String;
+  content?: ContentCreateOneWithoutTextInput;
+}
+
+export interface WeChatUserUpsertWithoutMessageInput {
+  update: WeChatUserUpdateWithoutMessageDataInput;
+  create: WeChatUserCreateWithoutMessageInput;
+}
+
+export interface MessageCreateInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  talker: WeChatUserCreateOneWithoutMessageInput;
+  createTime?: DateTimeInput;
+  chatRoom?: ChatRoomCreateOneWithoutMessageInput;
+  content?: ContentCreateOneInput;
+}
+
+export interface ContentUpdateOneInput {
+  create?: ContentCreateInput;
+  update?: ContentUpdateDataInput;
+  upsert?: ContentUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface ContentUpdateWithoutImageDataInput {
+  text?: TextUpdateOneWithoutContentInput;
+  voice?: VoiceUpdateOneWithoutContentInput;
+  video?: VideoUpdateOneWithoutContentInput;
+  file?: FileUpdateOneWithoutContentInput;
+  app?: AppUpdateOneWithoutContentInput;
+}
+
+export interface ContentUpdateDataInput {
+  text?: TextUpdateOneWithoutContentInput;
+  image?: ImageUpdateOneWithoutContentInput;
+  voice?: VoiceUpdateOneWithoutContentInput;
+  video?: VideoUpdateOneWithoutContentInput;
+  file?: FileUpdateOneWithoutContentInput;
+  app?: AppUpdateOneWithoutContentInput;
+}
+
+export type WeChatUserWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  username?: String;
+}>;
+
+export interface AppUpdateOneWithoutContentInput {
+  create?: AppCreateWithoutContentInput;
+  update?: AppUpdateWithoutContentDataInput;
+  upsert?: AppUpsertWithoutContentInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: AppWhereUniqueInput;
+}
+
+export interface TextCreateOneWithoutContentInput {
+  create?: TextCreateWithoutContentInput;
+  connect?: TextWhereUniqueInput;
+}
+
+export interface AppUpdateWithoutContentDataInput {
+  xml?: Json;
+}
+
+export interface VoiceCreateOneWithoutContentInput {
+  create?: VoiceCreateWithoutContentInput;
+  connect?: VoiceWhereUniqueInput;
+}
+
+export interface AppUpsertWithoutContentInput {
+  update: AppUpdateWithoutContentDataInput;
+  create: AppCreateWithoutContentInput;
+}
+
+export interface FileCreateOneWithoutContentInput {
+  create?: FileCreateWithoutContentInput;
+  connect?: FileWhereUniqueInput;
+}
+
+export interface ContentUpsertNestedInput {
+  update: ContentUpdateDataInput;
+  create: ContentCreateInput;
+}
+
+export interface ContentUpdateWithoutAppDataInput {
+  text?: TextUpdateOneWithoutContentInput;
+  image?: ImageUpdateOneWithoutContentInput;
+  voice?: VoiceUpdateOneWithoutContentInput;
+  video?: VideoUpdateOneWithoutContentInput;
+  file?: FileUpdateOneWithoutContentInput;
+}
+
+export interface MessageUpsertWithWhereUniqueWithoutChatRoomInput {
+  where: MessageWhereUniqueInput;
+  update: MessageUpdateWithoutChatRoomDataInput;
+  create: MessageCreateWithoutChatRoomInput;
+}
+
+export interface ImageUpdateOneWithoutContentInput {
+  create?: ImageCreateWithoutContentInput;
+  update?: ImageUpdateWithoutContentDataInput;
+  upsert?: ImageUpsertWithoutContentInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ImageWhereUniqueInput;
+}
+
+export interface MessageScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  msgSvrId?: String;
+  msgSvrId_not?: String;
+  msgSvrId_in?: String[] | String;
+  msgSvrId_not_in?: String[] | String;
+  msgSvrId_lt?: String;
+  msgSvrId_lte?: String;
+  msgSvrId_gt?: String;
+  msgSvrId_gte?: String;
+  msgSvrId_contains?: String;
+  msgSvrId_not_contains?: String;
+  msgSvrId_starts_with?: String;
+  msgSvrId_not_starts_with?: String;
+  msgSvrId_ends_with?: String;
+  msgSvrId_not_ends_with?: String;
+  isSend?: Int;
+  isSend_not?: Int;
+  isSend_in?: Int[] | Int;
+  isSend_not_in?: Int[] | Int;
+  isSend_lt?: Int;
+  isSend_lte?: Int;
+  isSend_gt?: Int;
+  isSend_gte?: Int;
+  type?: Int;
+  type_not?: Int;
+  type_in?: Int[] | Int;
+  type_not_in?: Int[] | Int;
+  type_lt?: Int;
+  type_lte?: Int;
+  type_gt?: Int;
+  type_gte?: Int;
+  createTime?: DateTimeInput;
+  createTime_not?: DateTimeInput;
+  createTime_in?: DateTimeInput[] | DateTimeInput;
+  createTime_not_in?: DateTimeInput[] | DateTimeInput;
+  createTime_lt?: DateTimeInput;
+  createTime_lte?: DateTimeInput;
+  createTime_gt?: DateTimeInput;
+  createTime_gte?: DateTimeInput;
+  AND?: MessageScalarWhereInput[] | MessageScalarWhereInput;
+  OR?: MessageScalarWhereInput[] | MessageScalarWhereInput;
+  NOT?: MessageScalarWhereInput[] | MessageScalarWhereInput;
+}
+
+export interface VoiceUpdateWithoutContentDataInput {
+  fileName?: String;
+  voiceLength?: Int;
+}
+
+export interface MessageUpdateManyWithWhereNestedInput {
+  where: MessageScalarWhereInput;
+  data: MessageUpdateManyDataInput;
+}
+
+export interface VideoUpsertWithoutContentInput {
+  update: VideoUpdateWithoutContentDataInput;
+  create: VideoCreateWithoutContentInput;
+}
+
+export interface MessageUpdateManyDataInput {
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  createTime?: DateTimeInput;
+}
+
+export interface ContentUpsertWithoutAppInput {
+  update: ContentUpdateWithoutAppDataInput;
+  create: ContentCreateWithoutAppInput;
+}
+
+export interface ChatRoomUpsertWithWhereUniqueWithoutOwnerInput {
+  where: ChatRoomWhereUniqueInput;
+  update: ChatRoomUpdateWithoutOwnerDataInput;
+  create: ChatRoomCreateWithoutOwnerInput;
+}
+
+export interface MessageWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  msgSvrId?: String;
+  msgSvrId_not?: String;
+  msgSvrId_in?: String[] | String;
+  msgSvrId_not_in?: String[] | String;
+  msgSvrId_lt?: String;
+  msgSvrId_lte?: String;
+  msgSvrId_gt?: String;
+  msgSvrId_gte?: String;
+  msgSvrId_contains?: String;
+  msgSvrId_not_contains?: String;
+  msgSvrId_starts_with?: String;
+  msgSvrId_not_starts_with?: String;
+  msgSvrId_ends_with?: String;
+  msgSvrId_not_ends_with?: String;
+  isSend?: Int;
+  isSend_not?: Int;
+  isSend_in?: Int[] | Int;
+  isSend_not_in?: Int[] | Int;
+  isSend_lt?: Int;
+  isSend_lte?: Int;
+  isSend_gt?: Int;
+  isSend_gte?: Int;
+  type?: Int;
+  type_not?: Int;
+  type_in?: Int[] | Int;
+  type_not_in?: Int[] | Int;
+  type_lt?: Int;
+  type_lte?: Int;
+  type_gt?: Int;
+  type_gte?: Int;
+  talker?: WeChatUserWhereInput;
+  createTime?: DateTimeInput;
+  createTime_not?: DateTimeInput;
+  createTime_in?: DateTimeInput[] | DateTimeInput;
+  createTime_not_in?: DateTimeInput[] | DateTimeInput;
+  createTime_lt?: DateTimeInput;
+  createTime_lte?: DateTimeInput;
+  createTime_gt?: DateTimeInput;
+  createTime_gte?: DateTimeInput;
+  chatRoom?: ChatRoomWhereInput;
+  content?: ContentWhereInput;
+  AND?: MessageWhereInput[] | MessageWhereInput;
+}
+
+export interface WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput {
+  where: WeChatUserWhereUniqueInput;
+  update: WeChatUserUpdateWithoutJoinChatRoomDataInput;
+  create: WeChatUserCreateWithoutJoinChatRoomInput;
+}
+
+export interface FileSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: FileWhereInput;
+  AND?: FileSubscriptionWhereInput[] | FileSubscriptionWhereInput;
+}
+
+export interface WeChatUserScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  username?: String;
+  username_not?: String;
+  username_in?: String[] | String;
+  username_not_in?: String[] | String;
+  username_lt?: String;
+  username_lte?: String;
+  username_gt?: String;
+  username_gte?: String;
+  username_contains?: String;
+  username_not_contains?: String;
+  username_starts_with?: String;
+  username_not_starts_with?: String;
+  username_ends_with?: String;
+  username_not_ends_with?: String;
+  alias?: String;
+  alias_not?: String;
+  alias_in?: String[] | String;
+  alias_not_in?: String[] | String;
+  alias_lt?: String;
+  alias_lte?: String;
+  alias_gt?: String;
+  alias_gte?: String;
+  alias_contains?: String;
+  alias_not_contains?: String;
+  alias_starts_with?: String;
+  alias_not_starts_with?: String;
+  alias_ends_with?: String;
+  alias_not_ends_with?: String;
+  conRemark?: String;
+  conRemark_not?: String;
+  conRemark_in?: String[] | String;
+  conRemark_not_in?: String[] | String;
+  conRemark_lt?: String;
+  conRemark_lte?: String;
+  conRemark_gt?: String;
+  conRemark_gte?: String;
+  conRemark_contains?: String;
+  conRemark_not_contains?: String;
+  conRemark_starts_with?: String;
+  conRemark_not_starts_with?: String;
+  conRemark_ends_with?: String;
+  conRemark_not_ends_with?: String;
+  nickname?: String;
+  nickname_not?: String;
+  nickname_in?: String[] | String;
+  nickname_not_in?: String[] | String;
+  nickname_lt?: String;
+  nickname_lte?: String;
+  nickname_gt?: String;
+  nickname_gte?: String;
+  nickname_contains?: String;
+  nickname_not_contains?: String;
+  nickname_starts_with?: String;
+  nickname_not_starts_with?: String;
+  nickname_ends_with?: String;
+  nickname_not_ends_with?: String;
+  AND?: WeChatUserScalarWhereInput[] | WeChatUserScalarWhereInput;
+  OR?: WeChatUserScalarWhereInput[] | WeChatUserScalarWhereInput;
+  NOT?: WeChatUserScalarWhereInput[] | WeChatUserScalarWhereInput;
+}
+
+export type ChatRoomWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  userName?: String;
+}>;
+
+export interface WeChatUserUpdateManyWithWhereNestedInput {
+  where: WeChatUserScalarWhereInput;
+  data: WeChatUserUpdateManyDataInput;
+}
+
+export interface ContentUpdateOneWithoutVoiceInput {
+  create?: ContentCreateWithoutVoiceInput;
+  update?: ContentUpdateWithoutVoiceDataInput;
+  upsert?: ContentUpsertWithoutVoiceInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface WeChatUserUpdateManyDataInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+}
+
+export interface ContentUpsertWithoutVideoInput {
+  update: ContentUpdateWithoutVideoDataInput;
+  create: ContentCreateWithoutVideoInput;
+}
+
+export interface ChatRoomUpsertWithoutAvatarInput {
+  update: ChatRoomUpdateWithoutAvatarDataInput;
+  create: ChatRoomCreateWithoutAvatarInput;
+}
+
+export type MessageWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface AvatarUpsertWithoutWeChatUserInput {
+  update: AvatarUpdateWithoutWeChatUserDataInput;
+  create: AvatarCreateWithoutWeChatUserInput;
+}
+
+export interface ContentUpdateOneWithoutTextInput {
+  create?: ContentCreateWithoutTextInput;
+  update?: ContentUpdateWithoutTextDataInput;
+  upsert?: ContentUpsertWithoutTextInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface WeChatUserUpsertWithoutHaveChatRoomInput {
+  update: WeChatUserUpdateWithoutHaveChatRoomDataInput;
+  create: WeChatUserCreateWithoutHaveChatRoomInput;
+}
+
+export type VideoWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface ChatRoomUpsertWithoutMessageInput {
+  update: ChatRoomUpdateWithoutMessageDataInput;
+  create: ChatRoomCreateWithoutMessageInput;
+}
+
+export interface ImageUpdateInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  content?: ContentUpdateOneWithoutImageInput;
+}
+
+export interface MessageUpsertWithWhereUniqueWithoutTalkerInput {
+  where: MessageWhereUniqueInput;
+  update: MessageUpdateWithoutTalkerDataInput;
+  create: MessageCreateWithoutTalkerInput;
+}
+
+export interface ContentCreateOneWithoutAppInput {
+  create?: ContentCreateWithoutAppInput;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface WeChatUserUpsertWithoutAvatarInput {
+  update: WeChatUserUpdateWithoutAvatarDataInput;
+  create: WeChatUserCreateWithoutAvatarInput;
+}
+
+export interface VideoCreateOneWithoutContentInput {
+  create?: VideoCreateWithoutContentInput;
+  connect?: VideoWhereUniqueInput;
+}
+
+export interface AvatarUpdateManyMutationInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface TextUpdateWithoutContentDataInput {
+  textMsg?: String;
+}
+
+export interface ChatRoomCreateInput {
+  userName: String;
+  nickName?: String;
+  displayName: String;
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput;
+  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarCreateOneWithoutChatRoomInput;
+  message?: MessageCreateManyWithoutChatRoomInput;
+}
+
+export interface VideoUpdateOneWithoutContentInput {
+  create?: VideoCreateWithoutContentInput;
+  update?: VideoUpdateWithoutContentDataInput;
+  upsert?: VideoUpsertWithoutContentInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: VideoWhereUniqueInput;
+}
+
+export interface ChatRoomUpdateInput {
+  userName?: String;
+  nickName?: String;
+  displayName?: String;
+  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput;
+  modifyTime?: DateTimeInput;
+  avatar?: AvatarUpdateOneWithoutChatRoomInput;
+  message?: MessageUpdateManyWithoutChatRoomInput;
+}
+
+export interface VideoSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: VideoWhereInput;
+  AND?: VideoSubscriptionWhereInput[] | VideoSubscriptionWhereInput;
+}
+
+export interface ChatRoomUpdateManyMutationInput {
+  userName?: String;
+  nickName?: String;
+  displayName?: String;
+  modifyTime?: DateTimeInput;
+}
+
+export interface ContactSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ContactWhereInput;
+  AND?: ContactSubscriptionWhereInput[] | ContactSubscriptionWhereInput;
+}
+
+export interface ContactCreateInput {
+  type: String;
+  weChatUser?: WeChatUserCreateManyWithoutContactInput;
+}
+
+export interface ContentCreateOneWithoutVoiceInput {
+  create?: ContentCreateWithoutVoiceInput;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface WeChatUserCreateManyWithoutContactInput {
+  create?:
+    | WeChatUserCreateWithoutContactInput[]
+    | WeChatUserCreateWithoutContactInput;
+  connect?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+}
+
+export type TextWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface WeChatUserCreateWithoutContactInput {
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarCreateOneWithoutWeChatUserInput;
+  message?: MessageCreateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput;
+}
+
+export interface ContentUpsertWithoutImageInput {
+  update: ContentUpdateWithoutImageDataInput;
+  create: ContentCreateWithoutImageInput;
+}
+
+export interface ContactUpdateInput {
+  type?: String;
+  weChatUser?: WeChatUserUpdateManyWithoutContactInput;
+}
+
+export interface ImageCreateOneWithoutContentInput {
+  create?: ImageCreateWithoutContentInput;
+  connect?: ImageWhereUniqueInput;
+}
+
+export interface WeChatUserUpdateManyWithoutContactInput {
+  create?:
+    | WeChatUserCreateWithoutContactInput[]
+    | WeChatUserCreateWithoutContactInput;
+  delete?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  connect?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  set?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  disconnect?: WeChatUserWhereUniqueInput[] | WeChatUserWhereUniqueInput;
+  update?:
+    | WeChatUserUpdateWithWhereUniqueWithoutContactInput[]
+    | WeChatUserUpdateWithWhereUniqueWithoutContactInput;
+  upsert?:
+    | WeChatUserUpsertWithWhereUniqueWithoutContactInput[]
+    | WeChatUserUpsertWithWhereUniqueWithoutContactInput;
+  deleteMany?: WeChatUserScalarWhereInput[] | WeChatUserScalarWhereInput;
+  updateMany?:
+    | WeChatUserUpdateManyWithWhereNestedInput[]
+    | WeChatUserUpdateManyWithWhereNestedInput;
+}
+
+export interface ImageUpsertWithoutContentInput {
+  update: ImageUpdateWithoutContentDataInput;
+  create: ImageCreateWithoutContentInput;
+}
+
+export interface WeChatUserUpdateWithWhereUniqueWithoutContactInput {
+  where: WeChatUserWhereUniqueInput;
+  data: WeChatUserUpdateWithoutContactDataInput;
+}
+
+export interface MessageSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: MessageWhereInput;
+  AND?: MessageSubscriptionWhereInput[] | MessageSubscriptionWhereInput;
+}
+
+export interface WeChatUserUpdateWithoutContactDataInput {
+  username?: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+  avatar?: AvatarUpdateOneWithoutWeChatUserInput;
+  message?: MessageUpdateManyWithoutTalkerInput;
+  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput;
+  joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput;
+}
+
+export interface VideoUpdateInput {
+  fileName?: String;
+  thumbnailImg?: String;
+  videolength?: Int;
+  content?: ContentUpdateOneWithoutVideoInput;
+}
+
+export interface WeChatUserUpsertWithWhereUniqueWithoutContactInput {
+  where: WeChatUserWhereUniqueInput;
+  update: WeChatUserUpdateWithoutContactDataInput;
+  create: WeChatUserCreateWithoutContactInput;
+}
+
+export interface ImageCreateInput {
+  thumbnailImg?: String;
+  bigImg?: String;
+  content?: ContentCreateOneWithoutImageInput;
+}
+
+export interface ContentCreateOneWithoutFileInput {
+  create?: ContentCreateWithoutFileInput;
+  connect?: ContentWhereUniqueInput;
+}
+
+export interface FileCreateInput {
+  fileName: String;
+  size?: Int;
+  content?: ContentCreateOneWithoutFileInput;
+}
+
+export interface ContentUpdateInput {
+  text?: TextUpdateOneWithoutContentInput;
+  image?: ImageUpdateOneWithoutContentInput;
+  voice?: VoiceUpdateOneWithoutContentInput;
+  video?: VideoUpdateOneWithoutContentInput;
+  file?: FileUpdateOneWithoutContentInput;
+  app?: AppUpdateOneWithoutContentInput;
+}
+
+export interface ContactUpdateManyMutationInput {
+  type?: String;
+}
+
+export interface AppUpdateInput {
+  xml?: Json;
+  content?: ContentUpdateOneWithoutAppInput;
+}
+
+export interface ContentCreateWithoutTextInput {
+  image?: ImageCreateOneWithoutContentInput;
+  voice?: VoiceCreateOneWithoutContentInput;
+  video?: VideoCreateOneWithoutContentInput;
+  file?: FileCreateOneWithoutContentInput;
+  app?: AppCreateOneWithoutContentInput;
+}
+
+export type ContactWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface FileUpdateWithoutContentDataInput {
+  fileName?: String;
+  size?: Int;
+}
 
 export interface NodeNode {
   id: ID_Output;
+}
+
+export interface WeChatUserPreviousValues {
+  id: ID_Output;
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+}
+
+export interface WeChatUserPreviousValuesPromise
+  extends Promise<WeChatUserPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  username: () => Promise<String>;
+  alias: () => Promise<String>;
+  conRemark: () => Promise<String>;
+  nickname: () => Promise<String>;
+}
+
+export interface WeChatUserPreviousValuesSubscription
+  extends Promise<AsyncIterator<WeChatUserPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  username: () => Promise<AsyncIterator<String>>;
+  alias: () => Promise<AsyncIterator<String>>;
+  conRemark: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateChatRoom {
+  count: Int;
+}
+
+export interface AggregateChatRoomPromise
+  extends Promise<AggregateChatRoom>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateChatRoomSubscription
+  extends Promise<AsyncIterator<AggregateChatRoom>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AppConnection {
+  pageInfo: PageInfo;
+  edges: AppEdge[];
+}
+
+export interface AppConnectionPromise
+  extends Promise<AppConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AppEdge>>() => T;
+  aggregate: <T = AggregateAppPromise>() => T;
+}
+
+export interface AppConnectionSubscription
+  extends Promise<AsyncIterator<AppConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AppEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAppSubscription>() => T;
+}
+
+export interface ChatRoomEdge {
+  node: ChatRoom;
+  cursor: String;
+}
+
+export interface ChatRoomEdgePromise
+  extends Promise<ChatRoomEdge>,
+    Fragmentable {
+  node: <T = ChatRoomPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ChatRoomEdgeSubscription
+  extends Promise<AsyncIterator<ChatRoomEdge>>,
+    Fragmentable {
+  node: <T = ChatRoomSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ChatRoomConnection {
+  pageInfo: PageInfo;
+  edges: ChatRoomEdge[];
+}
+
+export interface ChatRoomConnectionPromise
+  extends Promise<ChatRoomConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ChatRoomEdge>>() => T;
+  aggregate: <T = AggregateChatRoomPromise>() => T;
+}
+
+export interface ChatRoomConnectionSubscription
+  extends Promise<AsyncIterator<ChatRoomConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ChatRoomEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateChatRoomSubscription>() => T;
+}
+
+export interface AggregateWeChatUser {
+  count: Int;
+}
+
+export interface AggregateWeChatUserPromise
+  extends Promise<AggregateWeChatUser>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateWeChatUserSubscription
+  extends Promise<AsyncIterator<AggregateWeChatUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateAvatar {
+  count: Int;
+}
+
+export interface AggregateAvatarPromise
+  extends Promise<AggregateAvatar>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAvatarSubscription
+  extends Promise<AsyncIterator<AggregateAvatar>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface WeChatUserConnection {
+  pageInfo: PageInfo;
+  edges: WeChatUserEdge[];
+}
+
+export interface WeChatUserConnectionPromise
+  extends Promise<WeChatUserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<WeChatUserEdge>>() => T;
+  aggregate: <T = AggregateWeChatUserPromise>() => T;
+}
+
+export interface WeChatUserConnectionSubscription
+  extends Promise<AsyncIterator<WeChatUserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<WeChatUserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateWeChatUserSubscription>() => T;
+}
+
+export interface App {
+  id: ID_Output;
+  xml?: Json;
+}
+
+export interface AppPromise extends Promise<App>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  xml: () => Promise<Json>;
+  content: <T = ContentPromise>() => T;
+}
+
+export interface AppSubscription
+  extends Promise<AsyncIterator<App>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  xml: () => Promise<AsyncIterator<Json>>;
+  content: <T = ContentSubscription>() => T;
+}
+
+export interface VoiceEdge {
+  node: Voice;
+  cursor: String;
+}
+
+export interface VoiceEdgePromise extends Promise<VoiceEdge>, Fragmentable {
+  node: <T = VoicePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface VoiceEdgeSubscription
+  extends Promise<AsyncIterator<VoiceEdge>>,
+    Fragmentable {
+  node: <T = VoiceSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface WeChatUserEdge {
+  node: WeChatUser;
+  cursor: String;
+}
+
+export interface WeChatUserEdgePromise
+  extends Promise<WeChatUserEdge>,
+    Fragmentable {
+  node: <T = WeChatUserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface WeChatUserEdgeSubscription
+  extends Promise<AsyncIterator<WeChatUserEdge>>,
+    Fragmentable {
+  node: <T = WeChatUserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface VideoPreviousValues {
+  id: ID_Output;
+  fileName: String;
+  thumbnailImg?: String;
+  videolength?: Int;
+}
+
+export interface VideoPreviousValuesPromise
+  extends Promise<VideoPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  fileName: () => Promise<String>;
+  thumbnailImg: () => Promise<String>;
+  videolength: () => Promise<Int>;
+}
+
+export interface VideoPreviousValuesSubscription
+  extends Promise<AsyncIterator<VideoPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  fileName: () => Promise<AsyncIterator<String>>;
+  thumbnailImg: () => Promise<AsyncIterator<String>>;
+  videolength: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateVoice {
+  count: Int;
+}
+
+export interface AggregateVoicePromise
+  extends Promise<AggregateVoice>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateVoiceSubscription
+  extends Promise<AsyncIterator<AggregateVoice>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AppSubscriptionPayload {
+  mutation: MutationType;
+  node: App;
+  updatedFields: String[];
+  previousValues: AppPreviousValues;
+}
+
+export interface AppSubscriptionPayloadPromise
+  extends Promise<AppSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AppPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AppPreviousValuesPromise>() => T;
+}
+
+export interface AppSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AppSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AppSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AppPreviousValuesSubscription>() => T;
+}
+
+export interface VoiceConnection {
+  pageInfo: PageInfo;
+  edges: VoiceEdge[];
+}
+
+export interface VoiceConnectionPromise
+  extends Promise<VoiceConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<VoiceEdge>>() => T;
+  aggregate: <T = AggregateVoicePromise>() => T;
+}
+
+export interface VoiceConnectionSubscription
+  extends Promise<AsyncIterator<VoiceConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<VoiceEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateVoiceSubscription>() => T;
+}
+
+export interface VideoConnection {
+  pageInfo: PageInfo;
+  edges: VideoEdge[];
+}
+
+export interface VideoConnectionPromise
+  extends Promise<VideoConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<VideoEdge>>() => T;
+  aggregate: <T = AggregateVideoPromise>() => T;
+}
+
+export interface VideoConnectionSubscription
+  extends Promise<AsyncIterator<VideoConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<VideoEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateVideoSubscription>() => T;
+}
+
+export interface AggregateVideo {
+  count: Int;
+}
+
+export interface AggregateVideoPromise
+  extends Promise<AggregateVideo>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateVideoSubscription
+  extends Promise<AsyncIterator<AggregateVideo>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface AggregateUser {
@@ -227,6 +3419,1085 @@ export interface AggregateUserSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface AppPreviousValues {
+  id: ID_Output;
+  xml?: Json;
+}
+
+export interface AppPreviousValuesPromise
+  extends Promise<AppPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  xml: () => Promise<Json>;
+}
+
+export interface AppPreviousValuesSubscription
+  extends Promise<AsyncIterator<AppPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  xml: () => Promise<AsyncIterator<Json>>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
+export interface AvatarEdge {
+  node: Avatar;
+  cursor: String;
+}
+
+export interface AvatarEdgePromise extends Promise<AvatarEdge>, Fragmentable {
+  node: <T = AvatarPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AvatarEdgeSubscription
+  extends Promise<AsyncIterator<AvatarEdge>>,
+    Fragmentable {
+  node: <T = AvatarSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface User {
+  id: ID_Output;
+  email: String;
+  name: String;
+  password: String;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  name: () => Promise<String>;
+  password: () => Promise<String>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AvatarSubscriptionPayload {
+  mutation: MutationType;
+  node: Avatar;
+  updatedFields: String[];
+  previousValues: AvatarPreviousValues;
+}
+
+export interface AvatarSubscriptionPayloadPromise
+  extends Promise<AvatarSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AvatarPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AvatarPreviousValuesPromise>() => T;
+}
+
+export interface AvatarSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AvatarSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AvatarSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AvatarPreviousValuesSubscription>() => T;
+}
+
+export interface TextEdge {
+  node: Text;
+  cursor: String;
+}
+
+export interface TextEdgePromise extends Promise<TextEdge>, Fragmentable {
+  node: <T = TextPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TextEdgeSubscription
+  extends Promise<AsyncIterator<TextEdge>>,
+    Fragmentable {
+  node: <T = TextSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AvatarPreviousValues {
+  id: ID_Output;
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface AvatarPreviousValuesPromise
+  extends Promise<AvatarPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  thumbnailImg: () => Promise<String>;
+  bigImg: () => Promise<String>;
+}
+
+export interface AvatarPreviousValuesSubscription
+  extends Promise<AsyncIterator<AvatarPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  thumbnailImg: () => Promise<AsyncIterator<String>>;
+  bigImg: () => Promise<AsyncIterator<String>>;
+}
+
+export interface WeChatUserSubscriptionPayload {
+  mutation: MutationType;
+  node: WeChatUser;
+  updatedFields: String[];
+  previousValues: WeChatUserPreviousValues;
+}
+
+export interface WeChatUserSubscriptionPayloadPromise
+  extends Promise<WeChatUserSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = WeChatUserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = WeChatUserPreviousValuesPromise>() => T;
+}
+
+export interface WeChatUserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<WeChatUserSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = WeChatUserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = WeChatUserPreviousValuesSubscription>() => T;
+}
+
+export interface AvatarConnection {
+  pageInfo: PageInfo;
+  edges: AvatarEdge[];
+}
+
+export interface AvatarConnectionPromise
+  extends Promise<AvatarConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AvatarEdge>>() => T;
+  aggregate: <T = AggregateAvatarPromise>() => T;
+}
+
+export interface AvatarConnectionSubscription
+  extends Promise<AsyncIterator<AvatarConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AvatarEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAvatarSubscription>() => T;
+}
+
+export interface MessageEdge {
+  node: Message;
+  cursor: String;
+}
+
+export interface MessageEdgePromise extends Promise<MessageEdge>, Fragmentable {
+  node: <T = MessagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface MessageEdgeSubscription
+  extends Promise<AsyncIterator<MessageEdge>>,
+    Fragmentable {
+  node: <T = MessageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ChatRoomSubscriptionPayload {
+  mutation: MutationType;
+  node: ChatRoom;
+  updatedFields: String[];
+  previousValues: ChatRoomPreviousValues;
+}
+
+export interface ChatRoomSubscriptionPayloadPromise
+  extends Promise<ChatRoomSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ChatRoomPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ChatRoomPreviousValuesPromise>() => T;
+}
+
+export interface ChatRoomSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ChatRoomSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ChatRoomSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ChatRoomPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateImage {
+  count: Int;
+}
+
+export interface AggregateImagePromise
+  extends Promise<AggregateImage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateImageSubscription
+  extends Promise<AsyncIterator<AggregateImage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ChatRoomPreviousValues {
+  id: ID_Output;
+  userName: String;
+  nickName?: String;
+  displayName: String;
+  modifyTime?: DateTimeOutput;
+}
+
+export interface ChatRoomPreviousValuesPromise
+  extends Promise<ChatRoomPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  userName: () => Promise<String>;
+  nickName: () => Promise<String>;
+  displayName: () => Promise<String>;
+  modifyTime: () => Promise<DateTimeOutput>;
+}
+
+export interface ChatRoomPreviousValuesSubscription
+  extends Promise<AsyncIterator<ChatRoomPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  userName: () => Promise<AsyncIterator<String>>;
+  nickName: () => Promise<AsyncIterator<String>>;
+  displayName: () => Promise<AsyncIterator<String>>;
+  modifyTime: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ImageConnection {
+  pageInfo: PageInfo;
+  edges: ImageEdge[];
+}
+
+export interface ImageConnectionPromise
+  extends Promise<ImageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ImageEdge>>() => T;
+  aggregate: <T = AggregateImagePromise>() => T;
+}
+
+export interface ImageConnectionSubscription
+  extends Promise<AsyncIterator<ImageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateImageSubscription>() => T;
+}
+
+export interface File {
+  id: ID_Output;
+  fileName: String;
+  size?: Int;
+}
+
+export interface FilePromise extends Promise<File>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  fileName: () => Promise<String>;
+  size: () => Promise<Int>;
+  content: <T = ContentPromise>() => T;
+}
+
+export interface FileSubscription
+  extends Promise<AsyncIterator<File>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  fileName: () => Promise<AsyncIterator<String>>;
+  size: () => Promise<AsyncIterator<Int>>;
+  content: <T = ContentSubscription>() => T;
+}
+
+export interface AggregateFile {
+  count: Int;
+}
+
+export interface AggregateFilePromise
+  extends Promise<AggregateFile>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateFileSubscription
+  extends Promise<AsyncIterator<AggregateFile>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ContactSubscriptionPayload {
+  mutation: MutationType;
+  node: Contact;
+  updatedFields: String[];
+  previousValues: ContactPreviousValues;
+}
+
+export interface ContactSubscriptionPayloadPromise
+  extends Promise<ContactSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ContactPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ContactPreviousValuesPromise>() => T;
+}
+
+export interface ContactSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ContactSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ContactSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ContactPreviousValuesSubscription>() => T;
+}
+
+export interface FileConnection {
+  pageInfo: PageInfo;
+  edges: FileEdge[];
+}
+
+export interface FileConnectionPromise
+  extends Promise<FileConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<FileEdge>>() => T;
+  aggregate: <T = AggregateFilePromise>() => T;
+}
+
+export interface FileConnectionSubscription
+  extends Promise<AsyncIterator<FileConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<FileEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateFileSubscription>() => T;
+}
+
+export interface ContactPreviousValues {
+  id: ID_Output;
+  type: String;
+}
+
+export interface ContactPreviousValuesPromise
+  extends Promise<ContactPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: () => Promise<String>;
+}
+
+export interface ContactPreviousValuesSubscription
+  extends Promise<AsyncIterator<ContactPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateContent {
+  count: Int;
+}
+
+export interface AggregateContentPromise
+  extends Promise<AggregateContent>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateContentSubscription
+  extends Promise<AsyncIterator<AggregateContent>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Contact {
+  id: ID_Output;
+  type: String;
+}
+
+export interface ContactPromise extends Promise<Contact>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: () => Promise<String>;
+  weChatUser: <T = FragmentableArray<WeChatUser>>(
+    args?: {
+      where?: WeChatUserWhereInput;
+      orderBy?: WeChatUserOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ContactSubscription
+  extends Promise<AsyncIterator<Contact>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<String>>;
+  weChatUser: <T = Promise<AsyncIterator<WeChatUserSubscription>>>(
+    args?: {
+      where?: WeChatUserWhereInput;
+      orderBy?: WeChatUserOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ContentConnection {
+  pageInfo: PageInfo;
+  edges: ContentEdge[];
+}
+
+export interface ContentConnectionPromise
+  extends Promise<ContentConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ContentEdge>>() => T;
+  aggregate: <T = AggregateContentPromise>() => T;
+}
+
+export interface ContentConnectionSubscription
+  extends Promise<AsyncIterator<ContentConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ContentEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateContentSubscription>() => T;
+}
+
+export interface ContentSubscriptionPayload {
+  mutation: MutationType;
+  node: Content;
+  updatedFields: String[];
+  previousValues: ContentPreviousValues;
+}
+
+export interface ContentSubscriptionPayloadPromise
+  extends Promise<ContentSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ContentPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ContentPreviousValuesPromise>() => T;
+}
+
+export interface ContentSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ContentSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ContentSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ContentPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateContact {
+  count: Int;
+}
+
+export interface AggregateContactPromise
+  extends Promise<AggregateContact>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateContactSubscription
+  extends Promise<AsyncIterator<AggregateContact>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ContentPreviousValues {
+  id: ID_Output;
+}
+
+export interface ContentPreviousValuesPromise
+  extends Promise<ContentPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface ContentPreviousValuesSubscription
+  extends Promise<AsyncIterator<ContentPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface ContactConnection {
+  pageInfo: PageInfo;
+  edges: ContactEdge[];
+}
+
+export interface ContactConnectionPromise
+  extends Promise<ContactConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ContactEdge>>() => T;
+  aggregate: <T = AggregateContactPromise>() => T;
+}
+
+export interface ContactConnectionSubscription
+  extends Promise<AsyncIterator<ContactConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ContactEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateContactSubscription>() => T;
+}
+
+export interface ChatRoom {
+  id: ID_Output;
+  userName: String;
+  nickName?: String;
+  displayName: String;
+  modifyTime?: DateTimeOutput;
+}
+
+export interface ChatRoomPromise extends Promise<ChatRoom>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  userName: () => Promise<String>;
+  nickName: () => Promise<String>;
+  displayName: () => Promise<String>;
+  owner: <T = WeChatUserPromise>() => T;
+  memberList: <T = FragmentableArray<WeChatUser>>(
+    args?: {
+      where?: WeChatUserWhereInput;
+      orderBy?: WeChatUserOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  modifyTime: () => Promise<DateTimeOutput>;
+  avatar: <T = AvatarPromise>() => T;
+  message: <T = FragmentableArray<Message>>(
+    args?: {
+      where?: MessageWhereInput;
+      orderBy?: MessageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ChatRoomSubscription
+  extends Promise<AsyncIterator<ChatRoom>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  userName: () => Promise<AsyncIterator<String>>;
+  nickName: () => Promise<AsyncIterator<String>>;
+  displayName: () => Promise<AsyncIterator<String>>;
+  owner: <T = WeChatUserSubscription>() => T;
+  memberList: <T = Promise<AsyncIterator<WeChatUserSubscription>>>(
+    args?: {
+      where?: WeChatUserWhereInput;
+      orderBy?: WeChatUserOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  modifyTime: () => Promise<AsyncIterator<DateTimeOutput>>;
+  avatar: <T = AvatarSubscription>() => T;
+  message: <T = Promise<AsyncIterator<MessageSubscription>>>(
+    args?: {
+      where?: MessageWhereInput;
+      orderBy?: MessageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface VoiceSubscriptionPayload {
+  mutation: MutationType;
+  node: Voice;
+  updatedFields: String[];
+  previousValues: VoicePreviousValues;
+}
+
+export interface VoiceSubscriptionPayloadPromise
+  extends Promise<VoiceSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = VoicePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = VoicePreviousValuesPromise>() => T;
+}
+
+export interface VoiceSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<VoiceSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = VoiceSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = VoicePreviousValuesSubscription>() => T;
+}
+
+export interface FileSubscriptionPayload {
+  mutation: MutationType;
+  node: File;
+  updatedFields: String[];
+  previousValues: FilePreviousValues;
+}
+
+export interface FileSubscriptionPayloadPromise
+  extends Promise<FileSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = FilePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = FilePreviousValuesPromise>() => T;
+}
+
+export interface FileSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<FileSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = FileSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = FilePreviousValuesSubscription>() => T;
+}
+
+export interface VideoEdge {
+  node: Video;
+  cursor: String;
+}
+
+export interface VideoEdgePromise extends Promise<VideoEdge>, Fragmentable {
+  node: <T = VideoPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface VideoEdgeSubscription
+  extends Promise<AsyncIterator<VideoEdge>>,
+    Fragmentable {
+  node: <T = VideoSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface FilePreviousValues {
+  id: ID_Output;
+  fileName: String;
+  size?: Int;
+}
+
+export interface FilePreviousValuesPromise
+  extends Promise<FilePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  fileName: () => Promise<String>;
+  size: () => Promise<Int>;
+}
+
+export interface FilePreviousValuesSubscription
+  extends Promise<AsyncIterator<FilePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  fileName: () => Promise<AsyncIterator<String>>;
+  size: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Message {
+  id: ID_Output;
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  createTime?: DateTimeOutput;
+}
+
+export interface MessagePromise extends Promise<Message>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  msgSvrId: () => Promise<String>;
+  isSend: () => Promise<Int>;
+  type: () => Promise<Int>;
+  talker: <T = WeChatUserPromise>() => T;
+  createTime: () => Promise<DateTimeOutput>;
+  chatRoom: <T = ChatRoomPromise>() => T;
+  content: <T = ContentPromise>() => T;
+}
+
+export interface MessageSubscription
+  extends Promise<AsyncIterator<Message>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  msgSvrId: () => Promise<AsyncIterator<String>>;
+  isSend: () => Promise<AsyncIterator<Int>>;
+  type: () => Promise<AsyncIterator<Int>>;
+  talker: <T = WeChatUserSubscription>() => T;
+  createTime: () => Promise<AsyncIterator<DateTimeOutput>>;
+  chatRoom: <T = ChatRoomSubscription>() => T;
+  content: <T = ContentSubscription>() => T;
+}
+
+export interface AggregateText {
+  count: Int;
+}
+
+export interface AggregateTextPromise
+  extends Promise<AggregateText>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateTextSubscription
+  extends Promise<AsyncIterator<AggregateText>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ImageSubscriptionPayload {
+  mutation: MutationType;
+  node: Image;
+  updatedFields: String[];
+  previousValues: ImagePreviousValues;
+}
+
+export interface ImageSubscriptionPayloadPromise
+  extends Promise<ImageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ImagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ImagePreviousValuesPromise>() => T;
+}
+
+export interface ImageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ImageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ImageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ImagePreviousValuesSubscription>() => T;
+}
+
+export interface AggregateMessage {
+  count: Int;
+}
+
+export interface AggregateMessagePromise
+  extends Promise<AggregateMessage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateMessageSubscription
+  extends Promise<AsyncIterator<AggregateMessage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ImagePreviousValues {
+  id: ID_Output;
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface ImagePreviousValuesPromise
+  extends Promise<ImagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  thumbnailImg: () => Promise<String>;
+  bigImg: () => Promise<String>;
+}
+
+export interface ImagePreviousValuesSubscription
+  extends Promise<AsyncIterator<ImagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  thumbnailImg: () => Promise<AsyncIterator<String>>;
+  bigImg: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ImageEdge {
+  node: Image;
+  cursor: String;
+}
+
+export interface ImageEdgePromise extends Promise<ImageEdge>, Fragmentable {
+  node: <T = ImagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ImageEdgeSubscription
+  extends Promise<AsyncIterator<ImageEdge>>,
+    Fragmentable {
+  node: <T = ImageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AppEdge {
+  node: App;
+  cursor: String;
+}
+
+export interface AppEdgePromise extends Promise<AppEdge>, Fragmentable {
+  node: <T = AppPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AppEdgeSubscription
+  extends Promise<AsyncIterator<AppEdge>>,
+    Fragmentable {
+  node: <T = AppSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface FileEdge {
+  node: File;
+  cursor: String;
+}
+
+export interface FileEdgePromise extends Promise<FileEdge>, Fragmentable {
+  node: <T = FilePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface FileEdgeSubscription
+  extends Promise<AsyncIterator<FileEdge>>,
+    Fragmentable {
+  node: <T = FileSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface MessageSubscriptionPayload {
+  mutation: MutationType;
+  node: Message;
+  updatedFields: String[];
+  previousValues: MessagePreviousValues;
+}
+
+export interface MessageSubscriptionPayloadPromise
+  extends Promise<MessageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = MessagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = MessagePreviousValuesPromise>() => T;
+}
+
+export interface MessageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<MessageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = MessageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = MessagePreviousValuesSubscription>() => T;
+}
+
+export interface ContentEdge {
+  node: Content;
+  cursor: String;
+}
+
+export interface ContentEdgePromise extends Promise<ContentEdge>, Fragmentable {
+  node: <T = ContentPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ContentEdgeSubscription
+  extends Promise<AsyncIterator<ContentEdge>>,
+    Fragmentable {
+  node: <T = ContentSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface MessagePreviousValues {
+  id: ID_Output;
+  msgSvrId?: String;
+  isSend?: Int;
+  type?: Int;
+  createTime?: DateTimeOutput;
+}
+
+export interface MessagePreviousValuesPromise
+  extends Promise<MessagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  msgSvrId: () => Promise<String>;
+  isSend: () => Promise<Int>;
+  type: () => Promise<Int>;
+  createTime: () => Promise<DateTimeOutput>;
+}
+
+export interface MessagePreviousValuesSubscription
+  extends Promise<AsyncIterator<MessagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  msgSvrId: () => Promise<AsyncIterator<String>>;
+  isSend: () => Promise<AsyncIterator<Int>>;
+  type: () => Promise<AsyncIterator<Int>>;
+  createTime: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ContactEdge {
+  node: Contact;
+  cursor: String;
+}
+
+export interface ContactEdgePromise extends Promise<ContactEdge>, Fragmentable {
+  node: <T = ContactPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ContactEdgeSubscription
+  extends Promise<AsyncIterator<ContactEdge>>,
+    Fragmentable {
+  node: <T = ContactSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface WeChatUser {
+  id: ID_Output;
+  username: String;
+  alias?: String;
+  conRemark?: String;
+  nickname?: String;
+}
+
+export interface WeChatUserPromise extends Promise<WeChatUser>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  username: () => Promise<String>;
+  alias: () => Promise<String>;
+  conRemark: () => Promise<String>;
+  nickname: () => Promise<String>;
+  avatar: <T = AvatarPromise>() => T;
+  message: <T = FragmentableArray<Message>>(
+    args?: {
+      where?: MessageWhereInput;
+      orderBy?: MessageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  haveChatRoom: <T = FragmentableArray<ChatRoom>>(
+    args?: {
+      where?: ChatRoomWhereInput;
+      orderBy?: ChatRoomOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  joinChatRoom: <T = FragmentableArray<ChatRoom>>(
+    args?: {
+      where?: ChatRoomWhereInput;
+      orderBy?: ChatRoomOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  contact: <T = ContactPromise>() => T;
+}
+
+export interface WeChatUserSubscription
+  extends Promise<AsyncIterator<WeChatUser>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  username: () => Promise<AsyncIterator<String>>;
+  alias: () => Promise<AsyncIterator<String>>;
+  conRemark: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
+  avatar: <T = AvatarSubscription>() => T;
+  message: <T = Promise<AsyncIterator<MessageSubscription>>>(
+    args?: {
+      where?: MessageWhereInput;
+      orderBy?: MessageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  haveChatRoom: <T = Promise<AsyncIterator<ChatRoomSubscription>>>(
+    args?: {
+      where?: ChatRoomWhereInput;
+      orderBy?: ChatRoomOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  joinChatRoom: <T = Promise<AsyncIterator<ChatRoomSubscription>>>(
+    args?: {
+      where?: ChatRoomWhereInput;
+      orderBy?: ChatRoomOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  contact: <T = ContactSubscription>() => T;
+}
+
 export interface BatchPayload {
   count: Long;
 }
@@ -241,6 +4512,202 @@ export interface BatchPayloadSubscription
   extends Promise<AsyncIterator<BatchPayload>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface TextSubscriptionPayload {
+  mutation: MutationType;
+  node: Text;
+  updatedFields: String[];
+  previousValues: TextPreviousValues;
+}
+
+export interface TextSubscriptionPayloadPromise
+  extends Promise<TextSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = TextPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = TextPreviousValuesPromise>() => T;
+}
+
+export interface TextSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TextSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = TextSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = TextPreviousValuesSubscription>() => T;
+}
+
+export interface Text {
+  id: ID_Output;
+  textMsg: String;
+}
+
+export interface TextPromise extends Promise<Text>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  textMsg: () => Promise<String>;
+  content: <T = ContentPromise>() => T;
+}
+
+export interface TextSubscription
+  extends Promise<AsyncIterator<Text>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  textMsg: () => Promise<AsyncIterator<String>>;
+  content: <T = ContentSubscription>() => T;
+}
+
+export interface TextPreviousValues {
+  id: ID_Output;
+  textMsg: String;
+}
+
+export interface TextPreviousValuesPromise
+  extends Promise<TextPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  textMsg: () => Promise<String>;
+}
+
+export interface TextPreviousValuesSubscription
+  extends Promise<AsyncIterator<TextPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  textMsg: () => Promise<AsyncIterator<String>>;
+}
+
+export interface MessageConnection {
+  pageInfo: PageInfo;
+  edges: MessageEdge[];
+}
+
+export interface MessageConnectionPromise
+  extends Promise<MessageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<MessageEdge>>() => T;
+  aggregate: <T = AggregateMessagePromise>() => T;
+}
+
+export interface MessageConnectionSubscription
+  extends Promise<AsyncIterator<MessageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<MessageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateMessageSubscription>() => T;
+}
+
+export interface Avatar {
+  id: ID_Output;
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface AvatarPromise extends Promise<Avatar>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  thumbnailImg: () => Promise<String>;
+  bigImg: () => Promise<String>;
+  weChatUser: <T = WeChatUserPromise>() => T;
+  chatRoom: <T = ChatRoomPromise>() => T;
+}
+
+export interface AvatarSubscription
+  extends Promise<AsyncIterator<Avatar>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  thumbnailImg: () => Promise<AsyncIterator<String>>;
+  bigImg: () => Promise<AsyncIterator<String>>;
+  weChatUser: <T = WeChatUserSubscription>() => T;
+  chatRoom: <T = ChatRoomSubscription>() => T;
+}
+
+export interface Voice {
+  id: ID_Output;
+  fileName: String;
+  voiceLength?: Int;
+}
+
+export interface VoicePromise extends Promise<Voice>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  fileName: () => Promise<String>;
+  voiceLength: () => Promise<Int>;
+  content: <T = ContentPromise>() => T;
+}
+
+export interface VoiceSubscription
+  extends Promise<AsyncIterator<Voice>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  fileName: () => Promise<AsyncIterator<String>>;
+  voiceLength: () => Promise<AsyncIterator<Int>>;
+  content: <T = ContentSubscription>() => T;
+}
+
+export interface Video {
+  id: ID_Output;
+  fileName: String;
+  thumbnailImg?: String;
+  videolength?: Int;
+}
+
+export interface VideoPromise extends Promise<Video>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  fileName: () => Promise<String>;
+  thumbnailImg: () => Promise<String>;
+  videolength: () => Promise<Int>;
+  content: <T = ContentPromise>() => T;
+}
+
+export interface VideoSubscription
+  extends Promise<AsyncIterator<Video>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  fileName: () => Promise<AsyncIterator<String>>;
+  thumbnailImg: () => Promise<AsyncIterator<String>>;
+  videolength: () => Promise<AsyncIterator<Int>>;
+  content: <T = ContentSubscription>() => T;
+}
+
+export interface VideoSubscriptionPayload {
+  mutation: MutationType;
+  node: Video;
+  updatedFields: String[];
+  previousValues: VideoPreviousValues;
+}
+
+export interface VideoSubscriptionPayloadPromise
+  extends Promise<VideoSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = VideoPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = VideoPreviousValuesPromise>() => T;
+}
+
+export interface VideoSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<VideoSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = VideoSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = VideoPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateApp {
+  count: Int;
+}
+
+export interface AggregateAppPromise
+  extends Promise<AggregateApp>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAppSubscription
+  extends Promise<AsyncIterator<AggregateApp>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface UserPreviousValues {
@@ -268,23 +4735,6 @@ export interface UserPreviousValuesSubscription
   password: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
 export interface UserSubscriptionPayload {
   mutation: MutationType;
   node: User;
@@ -310,79 +4760,115 @@ export interface UserSubscriptionPayloadSubscription
   previousValues: <T = UserPreviousValuesSubscription>() => T;
 }
 
-export interface User {
+export interface Content {
   id: ID_Output;
-  email: String;
-  name: String;
-  password: String;
 }
 
-export interface UserPromise extends Promise<User>, Fragmentable {
+export interface ContentPromise extends Promise<Content>, Fragmentable {
   id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  name: () => Promise<String>;
-  password: () => Promise<String>;
+  text: <T = TextPromise>() => T;
+  image: <T = ImagePromise>() => T;
+  voice: <T = VoicePromise>() => T;
+  video: <T = VideoPromise>() => T;
+  file: <T = FilePromise>() => T;
+  app: <T = AppPromise>() => T;
 }
 
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
+export interface ContentSubscription
+  extends Promise<AsyncIterator<Content>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
+  text: <T = TextSubscription>() => T;
+  image: <T = ImageSubscription>() => T;
+  voice: <T = VoiceSubscription>() => T;
+  video: <T = VideoSubscription>() => T;
+  file: <T = FileSubscription>() => T;
+  app: <T = AppSubscription>() => T;
 }
 
-export interface UserConnection {
+export interface VoicePreviousValues {
+  id: ID_Output;
+  fileName: String;
+  voiceLength?: Int;
+}
+
+export interface VoicePreviousValuesPromise
+  extends Promise<VoicePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  fileName: () => Promise<String>;
+  voiceLength: () => Promise<Int>;
+}
+
+export interface VoicePreviousValuesSubscription
+  extends Promise<AsyncIterator<VoicePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  fileName: () => Promise<AsyncIterator<String>>;
+  voiceLength: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Image {
+  id: ID_Output;
+  thumbnailImg?: String;
+  bigImg?: String;
+}
+
+export interface ImagePromise extends Promise<Image>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  thumbnailImg: () => Promise<String>;
+  bigImg: () => Promise<String>;
+  content: <T = ContentPromise>() => T;
+}
+
+export interface ImageSubscription
+  extends Promise<AsyncIterator<Image>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  thumbnailImg: () => Promise<AsyncIterator<String>>;
+  bigImg: () => Promise<AsyncIterator<String>>;
+  content: <T = ContentSubscription>() => T;
+}
+
+export interface TextConnection {
   pageInfo: PageInfo;
-  edges: UserEdge[];
+  edges: TextEdge[];
 }
 
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
+export interface TextConnectionPromise
+  extends Promise<TextConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  edges: <T = FragmentableArray<TextEdge>>() => T;
+  aggregate: <T = AggregateTextPromise>() => T;
 }
 
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
+export interface TextConnectionSubscription
+  extends Promise<AsyncIterator<TextConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TextEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTextSubscription>() => T;
 }
 
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
+export type Long = string;
 
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
+export type Json = any;
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
 
-export type Long = string;
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+*/
+export type Int = number;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -391,14 +4877,14 @@ export type ID_Input = string | number;
 export type ID_Output = string;
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+DateTime scalar input type, allowing Date
 */
-export type Int = number;
+export type DateTimeInput = Date | string;
 
 /*
-The `Boolean` scalar type represents `true` or `false`.
+DateTime scalar output type, which is always a string
 */
-export type Boolean = boolean;
+export type DateTimeOutput = string;
 
 /**
  * Model Metadata
@@ -407,6 +4893,54 @@ export type Boolean = boolean;
 export const models: Model[] = [
   {
     name: "User",
+    embedded: false
+  },
+  {
+    name: "WeChatUser",
+    embedded: false
+  },
+  {
+    name: "ChatRoom",
+    embedded: false
+  },
+  {
+    name: "Avatar",
+    embedded: false
+  },
+  {
+    name: "Contact",
+    embedded: false
+  },
+  {
+    name: "Message",
+    embedded: false
+  },
+  {
+    name: "Content",
+    embedded: false
+  },
+  {
+    name: "Text",
+    embedded: false
+  },
+  {
+    name: "Image",
+    embedded: false
+  },
+  {
+    name: "Voice",
+    embedded: false
+  },
+  {
+    name: "Video",
+    embedded: false
+  },
+  {
+    name: "File",
+    embedded: false
+  },
+  {
+    name: "App",
     embedded: false
   }
 ];

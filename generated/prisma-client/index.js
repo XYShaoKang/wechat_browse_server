@@ -7,6 +7,54 @@ var models = [
   {
     name: "User",
     embedded: false
+  },
+  {
+    name: "WeChatUser",
+    embedded: false
+  },
+  {
+    name: "ChatRoom",
+    embedded: false
+  },
+  {
+    name: "Avatar",
+    embedded: false
+  },
+  {
+    name: "Contact",
+    embedded: false
+  },
+  {
+    name: "Message",
+    embedded: false
+  },
+  {
+    name: "Content",
+    embedded: false
+  },
+  {
+    name: "Text",
+    embedded: false
+  },
+  {
+    name: "Image",
+    embedded: false
+  },
+  {
+    name: "Voice",
+    embedded: false
+  },
+  {
+    name: "Video",
+    embedded: false
+  },
+  {
+    name: "File",
+    embedded: false
+  },
+  {
+    name: "App",
+    embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({
