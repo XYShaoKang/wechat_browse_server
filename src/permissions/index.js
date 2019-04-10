@@ -9,6 +9,6 @@ export const permissions = shield({
     weChatUsers: isAuthenticatedUser,
   },
   Mutation: {
-    addWechatUsers: isAuthenticatedUser,
+    createWechatUsers: isAuthenticatedUser,
   },
 })
