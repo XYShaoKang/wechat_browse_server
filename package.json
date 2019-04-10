@@ -16,26 +16,26 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.3",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-import-graphql": "^2.7.0",
     "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
     "nodemon": "^1.18.10",
     "prettier": "^1.16.4",
-    "prisma": "^1.29.2",
-    "rimraf": "^2.6.3"
+    "prisma": "^1.29.2"
   },
   "dependencies": {
     "apollo-server-koa": "^2.4.8",
     "bcryptjs": "^2.4.3",
     "graphql": "^14.2.1",
-    "graphql-iso-date": "^3.6.1",
-    "graphql-type-json": "^0.2.4",
+    "graphql-middleware": "^3.0.2",
+    "graphql-shield": "^5.3.2",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
     "koa-static": "^5.0.0",
     "mime-types": "^2.1.22",
+    "nexus": "^0.11.6",
+    "nexus-prisma": "^0.3.5",
     "prisma-client-lib": "^1.30.0"
   }
 }

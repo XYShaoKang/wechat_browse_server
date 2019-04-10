@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "newLine": "LF",
-    "module": "commonjs"
-  },
-  "exclude": ["node_modules"],
-  "include": ["src/**/*"]
+    "strict": true,
+    "checkJs": true,
+    "rootDir": "./src",
+    "skipDefaultLibCheck": true
+  }
 }

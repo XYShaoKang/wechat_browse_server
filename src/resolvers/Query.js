@@ -1,5 +1,6 @@
-const users = async (_, __, { dataSources }) => await dataSources.prisma.users()
+import { prismaObjectType } from 'nexus-prisma'
 
-const me = async (_, __, { currentUser }) => currentUser
-
-export default { users, me }
+export const Query = prismaObjectType({
+  name: 'Query',
+  definition: t => t.prismaFields(['users', 'weChatUsers']),
+})

@@ -1,6 +1,0 @@
-input WeChatUserInput {
-  username: String!
-  alias: String
-  conRemark: String
-  nickname: String
-}

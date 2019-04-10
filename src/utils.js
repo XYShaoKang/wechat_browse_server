@@ -4,7 +4,7 @@ import crypto from 'crypto'
 import jwt from 'jsonwebtoken'
 import mime from 'mime-types'
 
-const APP_SECRET = process.env.APP_SECRET
+const APP_SECRET = process.env.APP_SECRET || ''
 export const STATIC_PATH = path.join(__dirname, '../public/static/')
 
 if (!fs.existsSync(STATIC_PATH)) {
@@ -25,31 +25,36 @@ const randomMd5 = () => {
   return hash.digest('hex')
 }
 
-const saveFile = async (file, mimetype) => {
+const saveFile = async file => {
+  const { stream, mimetype, encoding } = await file
   const ext = mime.extension(mimetype)
   const hash = crypto.createHash('md5')
   const tempName = `${randomMd5()}.${ext}`
   const ws = fs.createWriteStream(path.join(STATIC_PATH, tempName))
 
-  file.on('data', chunk => {
+  stream.on('data', chunk => {
     hash.update(chunk)
   })
 
-  file.pipe(ws)
+  stream.pipe(ws)
 
   return new Promise(function(resolve, reject) {
-    file.on('end', err => {
+    stream.on('end', err => {
       if (err) reject(err)
       const md5Str = hash.digest('hex')
       const fileName = `${md5Str}.${ext}`
-      fs.rename(
-        path.join(STATIC_PATH, tempName),
-        path.join(STATIC_PATH, fileName),
-        err => {
-          if (err) reject(err)
-          resolve(fileName)
-        },
-      )
+      if (fs.existsSync(fileName)) {
+        resolve(fileName)
+      } else {
+        fs.rename(
+          path.join(STATIC_PATH, tempName),
+          path.join(STATIC_PATH, fileName),
+          err => {
+            if (err) reject(err)
+            resolve({ fileName, mimetype, encoding })
+          },
+        )
+      }
     })
   })
 }
