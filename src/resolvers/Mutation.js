@@ -12,9 +12,9 @@ export const Mutation = prismaObjectType({
     t.field('signup', {
       type: 'AuthPayload',
       args: {
-        name: stringArg(),
-        email: stringArg(),
-        password: stringArg(),
+        name: stringArg({ required: true }),
+        email: stringArg({ required: true }),
+        password: stringArg({ required: true }),
       },
       resolve: async (_, args, { prisma }) => {
         if (!args.password) {
@@ -32,8 +32,8 @@ export const Mutation = prismaObjectType({
     t.field('login', {
       type: 'AuthPayload',
       args: {
-        email: stringArg(),
-        password: stringArg(),
+        email: stringArg({ required: true }),
+        password: stringArg({ required: true }),
       },
       resolve: async (_, args, { prisma }) => {
         const user = await prisma.user({ email: args.email })
