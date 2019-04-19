@@ -9,30 +9,46 @@ import { permissions } from './permissions'
 
 import { schema } from './schema'
 
+// @ts-ignore
+export const context = async ({ ctx }) => {
+  const authorization = ctx.request.header.authorization || ''
+  let currentUser = null
+  let currentWeChat = null
+  try {
+    if (authorization) {
+      const { userId, weChatId } = getUserId(authorization)
+      currentUser = await prisma.user({ id: userId })
+      currentWeChat = await prisma.weChat({ id: weChatId })
+    }
+  } catch (e) {
+    // console.warn(`Unable to authenticate using auth token: ${authorization}`)
+  }
+  return { currentUser, currentWeChat, prisma }
+}
+
 const server = new ApolloServer({
   schema: applyMiddleware(schema, permissions),
-  context: async ({ ctx }) => {
-    const authorization = ctx.request.header.authorization || ''
-    let currentUser = null
-    try {
-      if (authorization) {
-        const userId = getUserId(authorization)
-        currentUser = await prisma.user({ id: userId })
-      }
-    } catch (e) {
-      // console.warn(`Unable to authenticate using auth token: ${authorization}`)
-    }
-    return { currentUser, prisma }
-  },
+  context,
 })
 
 const app = new Koa()
 
-server.applyMiddleware({ app })
+// 设置请求时的 json 大小限制,默认为 1mb,当批量导入数据时会报错`request entity too large`
+const bodyParserConfig = {
+  jsonLimit: '10mb',
+}
+
+server.applyMiddleware({
+  app,
+  bodyParserConfig,
+})
 
 app.use(serve(STATIC_PATH))
-
-app.listen({ port: 4000 }, () =>
-  // eslint-disable-next-line no-console
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`),
-)
+if (process.env.NODE_ENV !== 'test') {
+  app.listen({ port: 4000 }, () =>
+    // eslint-disable-next-line no-console
+    console.log(
+      `🚀 Server ready at http://localhost:4000${server.graphqlPath}`,
+    ),
+  )
+}

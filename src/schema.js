@@ -1,4 +1,4 @@
-import * as path from 'path'
+import path from 'path'
 import { makePrismaSchema } from 'nexus-prisma'
 
 import { prisma } from '../generated/prisma-client'

@@ -1,3 +1,5 @@
 export * from './Query'
 export * from './Mutation'
 export * from './Scalar'
+export * from './Type'
+export * from './Input'

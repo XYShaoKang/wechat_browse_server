@@ -4,6 +4,10 @@ export const UploadScalar = scalarType({
   name: 'Upload',
   asNexusMethod: 'upload',
   description: 'The `Upload` scalar type represents a file upload.',
+  /**
+   * 解析 Upload
+   * @param {string} value
+   */
   parseValue(value) {
     return value
   },
