@@ -9,6 +9,10 @@ var models = [
     embedded: false
   },
   {
+    name: "WeChat",
+    embedded: false
+  },
+  {
     name: "WeChatUser",
     embedded: false
   },
@@ -54,6 +58,10 @@ var models = [
   },
   {
     name: "App",
+    embedded: false
+  },
+  {
+    name: "FileIndex",
     embedded: false
   }
 ];

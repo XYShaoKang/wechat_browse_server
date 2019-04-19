@@ -7,6 +7,16 @@ async function main() {
     email: process.env.ADMIN_EMAIL,
     name: process.env.ADMIN_NAME,
     password,
+    weChat: {
+      create: {
+        weChatOwner: {
+          create: {
+            username: 'demo',
+            alias: 'demo',
+          },
+        },
+      },
+    },
   })
 }
 

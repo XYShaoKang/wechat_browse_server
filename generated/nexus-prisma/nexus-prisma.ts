@@ -16,14 +16,12 @@ export interface NexusPrismaTypes {
     fields: {
       Query: QueryObject
       User: UserObject
-      UserConnection: UserConnectionObject
-      PageInfo: PageInfoObject
-      UserEdge: UserEdgeObject
-      AggregateUser: AggregateUserObject
+      WeChat: WeChatObject
       WeChatUser: WeChatUserObject
       Avatar: AvatarObject
-      ChatRoom: ChatRoomObject
+      FileIndex: FileIndexObject
       Message: MessageObject
+      ChatRoom: ChatRoomObject
       Content: ContentObject
       Text: TextObject
       Image: ImageObject
@@ -32,6 +30,13 @@ export interface NexusPrismaTypes {
       File: FileObject
       App: AppObject
       Contact: ContactObject
+      UserConnection: UserConnectionObject
+      PageInfo: PageInfoObject
+      UserEdge: UserEdgeObject
+      AggregateUser: AggregateUserObject
+      WeChatConnection: WeChatConnectionObject
+      WeChatEdge: WeChatEdgeObject
+      AggregateWeChat: AggregateWeChatObject
       WeChatUserConnection: WeChatUserConnectionObject
       WeChatUserEdge: WeChatUserEdgeObject
       AggregateWeChatUser: AggregateWeChatUserObject
@@ -68,11 +73,16 @@ export interface NexusPrismaTypes {
       AppConnection: AppConnectionObject
       AppEdge: AppEdgeObject
       AggregateApp: AggregateAppObject
+      FileIndexConnection: FileIndexConnectionObject
+      FileIndexEdge: FileIndexEdgeObject
+      AggregateFileIndex: AggregateFileIndexObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
       UserSubscriptionPayload: UserSubscriptionPayloadObject
       UserPreviousValues: UserPreviousValuesObject
+      WeChatSubscriptionPayload: WeChatSubscriptionPayloadObject
+      WeChatPreviousValues: WeChatPreviousValuesObject
       WeChatUserSubscriptionPayload: WeChatUserSubscriptionPayloadObject
       WeChatUserPreviousValues: WeChatUserPreviousValuesObject
       ChatRoomSubscriptionPayload: ChatRoomSubscriptionPayloadObject
@@ -97,18 +107,18 @@ export interface NexusPrismaTypes {
       FilePreviousValues: FilePreviousValuesObject
       AppSubscriptionPayload: AppSubscriptionPayloadObject
       AppPreviousValues: AppPreviousValuesObject
+      FileIndexSubscriptionPayload: FileIndexSubscriptionPayloadObject
+      FileIndexPreviousValues: FileIndexPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
       User: UserFieldDetails
-      UserConnection: UserConnectionFieldDetails
-      PageInfo: PageInfoFieldDetails
-      UserEdge: UserEdgeFieldDetails
-      AggregateUser: AggregateUserFieldDetails
+      WeChat: WeChatFieldDetails
       WeChatUser: WeChatUserFieldDetails
       Avatar: AvatarFieldDetails
-      ChatRoom: ChatRoomFieldDetails
+      FileIndex: FileIndexFieldDetails
       Message: MessageFieldDetails
+      ChatRoom: ChatRoomFieldDetails
       Content: ContentFieldDetails
       Text: TextFieldDetails
       Image: ImageFieldDetails
@@ -117,6 +127,13 @@ export interface NexusPrismaTypes {
       File: FileFieldDetails
       App: AppFieldDetails
       Contact: ContactFieldDetails
+      UserConnection: UserConnectionFieldDetails
+      PageInfo: PageInfoFieldDetails
+      UserEdge: UserEdgeFieldDetails
+      AggregateUser: AggregateUserFieldDetails
+      WeChatConnection: WeChatConnectionFieldDetails
+      WeChatEdge: WeChatEdgeFieldDetails
+      AggregateWeChat: AggregateWeChatFieldDetails
       WeChatUserConnection: WeChatUserConnectionFieldDetails
       WeChatUserEdge: WeChatUserEdgeFieldDetails
       AggregateWeChatUser: AggregateWeChatUserFieldDetails
@@ -153,11 +170,16 @@ export interface NexusPrismaTypes {
       AppConnection: AppConnectionFieldDetails
       AppEdge: AppEdgeFieldDetails
       AggregateApp: AggregateAppFieldDetails
+      FileIndexConnection: FileIndexConnectionFieldDetails
+      FileIndexEdge: FileIndexEdgeFieldDetails
+      AggregateFileIndex: AggregateFileIndexFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
       UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
       UserPreviousValues: UserPreviousValuesFieldDetails
+      WeChatSubscriptionPayload: WeChatSubscriptionPayloadFieldDetails
+      WeChatPreviousValues: WeChatPreviousValuesFieldDetails
       WeChatUserSubscriptionPayload: WeChatUserSubscriptionPayloadFieldDetails
       WeChatUserPreviousValues: WeChatUserPreviousValuesFieldDetails
       ChatRoomSubscriptionPayload: ChatRoomSubscriptionPayloadFieldDetails
@@ -182,17 +204,19 @@ export interface NexusPrismaTypes {
       FilePreviousValues: FilePreviousValuesFieldDetails
       AppSubscriptionPayload: AppSubscriptionPayloadFieldDetails
       AppPreviousValues: AppPreviousValuesFieldDetails
+      FileIndexSubscriptionPayload: FileIndexSubscriptionPayloadFieldDetails
+      FileIndexPreviousValues: FileIndexPreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
       UserWhereUniqueInput: UserWhereUniqueInputInputObject
-      UserWhereInput: UserWhereInputInputObject
-      WeChatUserWhereUniqueInput: WeChatUserWhereUniqueInputInputObject
+      WeChatWhereInput: WeChatWhereInputInputObject
       WeChatUserWhereInput: WeChatUserWhereInputInputObject
       AvatarWhereInput: AvatarWhereInputInputObject
-      ChatRoomWhereInput: ChatRoomWhereInputInputObject
+      FileIndexWhereInput: FileIndexWhereInputInputObject
       MessageWhereInput: MessageWhereInputInputObject
+      ChatRoomWhereInput: ChatRoomWhereInputInputObject
       ContentWhereInput: ContentWhereInputInputObject
       TextWhereInput: TextWhereInputInputObject
       ImageWhereInput: ImageWhereInputInputObject
@@ -201,6 +225,9 @@ export interface NexusPrismaTypes {
       FileWhereInput: FileWhereInputInputObject
       AppWhereInput: AppWhereInputInputObject
       ContactWhereInput: ContactWhereInputInputObject
+      UserWhereInput: UserWhereInputInputObject
+      WeChatWhereUniqueInput: WeChatWhereUniqueInputInputObject
+      WeChatUserWhereUniqueInput: WeChatUserWhereUniqueInputInputObject
       ChatRoomWhereUniqueInput: ChatRoomWhereUniqueInputInputObject
       AvatarWhereUniqueInput: AvatarWhereUniqueInputInputObject
       ContactWhereUniqueInput: ContactWhereUniqueInputInputObject
@@ -212,34 +239,32 @@ export interface NexusPrismaTypes {
       VideoWhereUniqueInput: VideoWhereUniqueInputInputObject
       FileWhereUniqueInput: FileWhereUniqueInputInputObject
       AppWhereUniqueInput: AppWhereUniqueInputInputObject
+      FileIndexWhereUniqueInput: FileIndexWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
-      UserUpdateInput: UserUpdateInputInputObject
-      UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
+      WeChatCreateManyInput: WeChatCreateManyInputInputObject
+      WeChatCreateInput: WeChatCreateInputInputObject
+      WeChatUserCreateOneInput: WeChatUserCreateOneInputInputObject
       WeChatUserCreateInput: WeChatUserCreateInputInputObject
-      AvatarCreateOneWithoutWeChatUserInput: AvatarCreateOneWithoutWeChatUserInputInputObject
-      AvatarCreateWithoutWeChatUserInput: AvatarCreateWithoutWeChatUserInputInputObject
-      ChatRoomCreateOneWithoutAvatarInput: ChatRoomCreateOneWithoutAvatarInputInputObject
-      ChatRoomCreateWithoutAvatarInput: ChatRoomCreateWithoutAvatarInputInputObject
-      WeChatUserCreateOneWithoutHaveChatRoomInput: WeChatUserCreateOneWithoutHaveChatRoomInputInputObject
-      WeChatUserCreateWithoutHaveChatRoomInput: WeChatUserCreateWithoutHaveChatRoomInputInputObject
+      AvatarCreateOneInput: AvatarCreateOneInputInputObject
+      AvatarCreateInput: AvatarCreateInputInputObject
+      FileIndexCreateOneInput: FileIndexCreateOneInputInputObject
+      FileIndexCreateInput: FileIndexCreateInputInputObject
       MessageCreateManyWithoutTalkerInput: MessageCreateManyWithoutTalkerInputInputObject
       MessageCreateWithoutTalkerInput: MessageCreateWithoutTalkerInputInputObject
       ChatRoomCreateOneWithoutMessageInput: ChatRoomCreateOneWithoutMessageInputInputObject
       ChatRoomCreateWithoutMessageInput: ChatRoomCreateWithoutMessageInputInputObject
-      WeChatUserCreateManyWithoutJoinChatRoomInput: WeChatUserCreateManyWithoutJoinChatRoomInputInputObject
-      WeChatUserCreateWithoutJoinChatRoomInput: WeChatUserCreateWithoutJoinChatRoomInputInputObject
-      ChatRoomCreateManyWithoutOwnerInput: ChatRoomCreateManyWithoutOwnerInputInputObject
-      ChatRoomCreateWithoutOwnerInput: ChatRoomCreateWithoutOwnerInputInputObject
-      AvatarCreateOneWithoutChatRoomInput: AvatarCreateOneWithoutChatRoomInputInputObject
-      AvatarCreateWithoutChatRoomInput: AvatarCreateWithoutChatRoomInputInputObject
-      WeChatUserCreateOneWithoutAvatarInput: WeChatUserCreateOneWithoutAvatarInputInputObject
-      WeChatUserCreateWithoutAvatarInput: WeChatUserCreateWithoutAvatarInputInputObject
+      WeChatUserCreateOneWithoutHaveChatRoomInput: WeChatUserCreateOneWithoutHaveChatRoomInputInputObject
+      WeChatUserCreateWithoutHaveChatRoomInput: WeChatUserCreateWithoutHaveChatRoomInputInputObject
       ChatRoomCreateManyWithoutMemberListInput: ChatRoomCreateManyWithoutMemberListInputInputObject
       ChatRoomCreateWithoutMemberListInput: ChatRoomCreateWithoutMemberListInputInputObject
       MessageCreateManyWithoutChatRoomInput: MessageCreateManyWithoutChatRoomInputInputObject
       MessageCreateWithoutChatRoomInput: MessageCreateWithoutChatRoomInputInputObject
       WeChatUserCreateOneWithoutMessageInput: WeChatUserCreateOneWithoutMessageInputInputObject
       WeChatUserCreateWithoutMessageInput: WeChatUserCreateWithoutMessageInputInputObject
+      ChatRoomCreateManyWithoutOwnerInput: ChatRoomCreateManyWithoutOwnerInputInputObject
+      ChatRoomCreateWithoutOwnerInput: ChatRoomCreateWithoutOwnerInputInputObject
+      WeChatUserCreateManyWithoutJoinChatRoomInput: WeChatUserCreateManyWithoutJoinChatRoomInputInputObject
+      WeChatUserCreateWithoutJoinChatRoomInput: WeChatUserCreateWithoutJoinChatRoomInputInputObject
       ContactCreateOneWithoutWeChatUserInput: ContactCreateOneWithoutWeChatUserInputInputObject
       ContactCreateWithoutWeChatUserInput: ContactCreateWithoutWeChatUserInputInputObject
       ContentCreateOneInput: ContentCreateOneInputInputObject
@@ -256,28 +281,30 @@ export interface NexusPrismaTypes {
       FileCreateWithoutContentInput: FileCreateWithoutContentInputInputObject
       AppCreateOneWithoutContentInput: AppCreateOneWithoutContentInputInputObject
       AppCreateWithoutContentInput: AppCreateWithoutContentInputInputObject
-      WeChatUserUpdateInput: WeChatUserUpdateInputInputObject
-      AvatarUpdateOneWithoutWeChatUserInput: AvatarUpdateOneWithoutWeChatUserInputInputObject
-      AvatarUpdateWithoutWeChatUserDataInput: AvatarUpdateWithoutWeChatUserDataInputInputObject
-      ChatRoomUpdateOneWithoutAvatarInput: ChatRoomUpdateOneWithoutAvatarInputInputObject
-      ChatRoomUpdateWithoutAvatarDataInput: ChatRoomUpdateWithoutAvatarDataInputInputObject
-      WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInputInputObject
-      WeChatUserUpdateWithoutHaveChatRoomDataInput: WeChatUserUpdateWithoutHaveChatRoomDataInputInputObject
+      WeChatUserCreateManyInput: WeChatUserCreateManyInputInputObject
+      ChatRoomCreateManyInput: ChatRoomCreateManyInputInputObject
+      ChatRoomCreateInput: ChatRoomCreateInputInputObject
+      MessageCreateManyInput: MessageCreateManyInputInputObject
+      MessageCreateInput: MessageCreateInputInputObject
+      UserUpdateInput: UserUpdateInputInputObject
+      WeChatUpdateManyInput: WeChatUpdateManyInputInputObject
+      WeChatUpdateWithWhereUniqueNestedInput: WeChatUpdateWithWhereUniqueNestedInputInputObject
+      WeChatUpdateDataInput: WeChatUpdateDataInputInputObject
+      WeChatUserUpdateOneRequiredInput: WeChatUserUpdateOneRequiredInputInputObject
+      WeChatUserUpdateDataInput: WeChatUserUpdateDataInputInputObject
+      AvatarUpdateOneInput: AvatarUpdateOneInputInputObject
+      AvatarUpdateDataInput: AvatarUpdateDataInputInputObject
+      FileIndexUpdateOneInput: FileIndexUpdateOneInputInputObject
+      FileIndexUpdateDataInput: FileIndexUpdateDataInputInputObject
+      FileIndexUpsertNestedInput: FileIndexUpsertNestedInputInputObject
+      AvatarUpsertNestedInput: AvatarUpsertNestedInputInputObject
       MessageUpdateManyWithoutTalkerInput: MessageUpdateManyWithoutTalkerInputInputObject
       MessageUpdateWithWhereUniqueWithoutTalkerInput: MessageUpdateWithWhereUniqueWithoutTalkerInputInputObject
       MessageUpdateWithoutTalkerDataInput: MessageUpdateWithoutTalkerDataInputInputObject
       ChatRoomUpdateOneWithoutMessageInput: ChatRoomUpdateOneWithoutMessageInputInputObject
       ChatRoomUpdateWithoutMessageDataInput: ChatRoomUpdateWithoutMessageDataInputInputObject
-      WeChatUserUpdateManyWithoutJoinChatRoomInput: WeChatUserUpdateManyWithoutJoinChatRoomInputInputObject
-      WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput: WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInputInputObject
-      WeChatUserUpdateWithoutJoinChatRoomDataInput: WeChatUserUpdateWithoutJoinChatRoomDataInputInputObject
-      ChatRoomUpdateManyWithoutOwnerInput: ChatRoomUpdateManyWithoutOwnerInputInputObject
-      ChatRoomUpdateWithWhereUniqueWithoutOwnerInput: ChatRoomUpdateWithWhereUniqueWithoutOwnerInputInputObject
-      ChatRoomUpdateWithoutOwnerDataInput: ChatRoomUpdateWithoutOwnerDataInputInputObject
-      AvatarUpdateOneWithoutChatRoomInput: AvatarUpdateOneWithoutChatRoomInputInputObject
-      AvatarUpdateWithoutChatRoomDataInput: AvatarUpdateWithoutChatRoomDataInputInputObject
-      WeChatUserUpdateOneWithoutAvatarInput: WeChatUserUpdateOneWithoutAvatarInputInputObject
-      WeChatUserUpdateWithoutAvatarDataInput: WeChatUserUpdateWithoutAvatarDataInputInputObject
+      WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInputInputObject
+      WeChatUserUpdateWithoutHaveChatRoomDataInput: WeChatUserUpdateWithoutHaveChatRoomDataInputInputObject
       ChatRoomUpdateManyWithoutMemberListInput: ChatRoomUpdateManyWithoutMemberListInputInputObject
       ChatRoomUpdateWithWhereUniqueWithoutMemberListInput: ChatRoomUpdateWithWhereUniqueWithoutMemberListInputInputObject
       ChatRoomUpdateWithoutMemberListDataInput: ChatRoomUpdateWithoutMemberListDataInputInputObject
@@ -286,9 +313,23 @@ export interface NexusPrismaTypes {
       MessageUpdateWithoutChatRoomDataInput: MessageUpdateWithoutChatRoomDataInputInputObject
       WeChatUserUpdateOneRequiredWithoutMessageInput: WeChatUserUpdateOneRequiredWithoutMessageInputInputObject
       WeChatUserUpdateWithoutMessageDataInput: WeChatUserUpdateWithoutMessageDataInputInputObject
+      ChatRoomUpdateManyWithoutOwnerInput: ChatRoomUpdateManyWithoutOwnerInputInputObject
+      ChatRoomUpdateWithWhereUniqueWithoutOwnerInput: ChatRoomUpdateWithWhereUniqueWithoutOwnerInputInputObject
+      ChatRoomUpdateWithoutOwnerDataInput: ChatRoomUpdateWithoutOwnerDataInputInputObject
+      WeChatUserUpdateManyWithoutJoinChatRoomInput: WeChatUserUpdateManyWithoutJoinChatRoomInputInputObject
+      WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput: WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInputInputObject
+      WeChatUserUpdateWithoutJoinChatRoomDataInput: WeChatUserUpdateWithoutJoinChatRoomDataInputInputObject
       ContactUpdateOneWithoutWeChatUserInput: ContactUpdateOneWithoutWeChatUserInputInputObject
       ContactUpdateWithoutWeChatUserDataInput: ContactUpdateWithoutWeChatUserDataInputInputObject
       ContactUpsertWithoutWeChatUserInput: ContactUpsertWithoutWeChatUserInputInputObject
+      WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput: WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInputInputObject
+      WeChatUserScalarWhereInput: WeChatUserScalarWhereInputInputObject
+      WeChatUserUpdateManyWithWhereNestedInput: WeChatUserUpdateManyWithWhereNestedInputInputObject
+      WeChatUserUpdateManyDataInput: WeChatUserUpdateManyDataInputInputObject
+      ChatRoomUpsertWithWhereUniqueWithoutOwnerInput: ChatRoomUpsertWithWhereUniqueWithoutOwnerInputInputObject
+      ChatRoomScalarWhereInput: ChatRoomScalarWhereInputInputObject
+      ChatRoomUpdateManyWithWhereNestedInput: ChatRoomUpdateManyWithWhereNestedInputInputObject
+      ChatRoomUpdateManyDataInput: ChatRoomUpdateManyDataInputInputObject
       WeChatUserUpsertWithoutMessageInput: WeChatUserUpsertWithoutMessageInputInputObject
       ContentUpdateOneInput: ContentUpdateOneInputInputObject
       ContentUpdateDataInput: ContentUpdateDataInputInputObject
@@ -316,28 +357,30 @@ export interface NexusPrismaTypes {
       MessageUpdateManyWithWhereNestedInput: MessageUpdateManyWithWhereNestedInputInputObject
       MessageUpdateManyDataInput: MessageUpdateManyDataInputInputObject
       ChatRoomUpsertWithWhereUniqueWithoutMemberListInput: ChatRoomUpsertWithWhereUniqueWithoutMemberListInputInputObject
-      ChatRoomScalarWhereInput: ChatRoomScalarWhereInputInputObject
-      ChatRoomUpdateManyWithWhereNestedInput: ChatRoomUpdateManyWithWhereNestedInputInputObject
-      ChatRoomUpdateManyDataInput: ChatRoomUpdateManyDataInputInputObject
-      WeChatUserUpsertWithoutAvatarInput: WeChatUserUpsertWithoutAvatarInputInputObject
-      AvatarUpsertWithoutChatRoomInput: AvatarUpsertWithoutChatRoomInputInputObject
-      ChatRoomUpsertWithWhereUniqueWithoutOwnerInput: ChatRoomUpsertWithWhereUniqueWithoutOwnerInputInputObject
-      WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput: WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInputInputObject
-      WeChatUserScalarWhereInput: WeChatUserScalarWhereInputInputObject
-      WeChatUserUpdateManyWithWhereNestedInput: WeChatUserUpdateManyWithWhereNestedInputInputObject
-      WeChatUserUpdateManyDataInput: WeChatUserUpdateManyDataInputInputObject
+      WeChatUserUpsertWithoutHaveChatRoomInput: WeChatUserUpsertWithoutHaveChatRoomInputInputObject
       ChatRoomUpsertWithoutMessageInput: ChatRoomUpsertWithoutMessageInputInputObject
       MessageUpsertWithWhereUniqueWithoutTalkerInput: MessageUpsertWithWhereUniqueWithoutTalkerInputInputObject
-      WeChatUserUpsertWithoutHaveChatRoomInput: WeChatUserUpsertWithoutHaveChatRoomInputInputObject
-      ChatRoomUpsertWithoutAvatarInput: ChatRoomUpsertWithoutAvatarInputInputObject
-      AvatarUpsertWithoutWeChatUserInput: AvatarUpsertWithoutWeChatUserInputInputObject
+      WeChatUserUpsertNestedInput: WeChatUserUpsertNestedInputInputObject
+      WeChatUserUpdateManyInput: WeChatUserUpdateManyInputInputObject
+      WeChatUserUpdateWithWhereUniqueNestedInput: WeChatUserUpdateWithWhereUniqueNestedInputInputObject
+      WeChatUserUpsertWithWhereUniqueNestedInput: WeChatUserUpsertWithWhereUniqueNestedInputInputObject
+      ChatRoomUpdateManyInput: ChatRoomUpdateManyInputInputObject
+      ChatRoomUpdateWithWhereUniqueNestedInput: ChatRoomUpdateWithWhereUniqueNestedInputInputObject
+      ChatRoomUpdateDataInput: ChatRoomUpdateDataInputInputObject
+      ChatRoomUpsertWithWhereUniqueNestedInput: ChatRoomUpsertWithWhereUniqueNestedInputInputObject
+      MessageUpdateManyInput: MessageUpdateManyInputInputObject
+      MessageUpdateWithWhereUniqueNestedInput: MessageUpdateWithWhereUniqueNestedInputInputObject
+      MessageUpdateDataInput: MessageUpdateDataInputInputObject
+      MessageUpsertWithWhereUniqueNestedInput: MessageUpsertWithWhereUniqueNestedInputInputObject
+      WeChatUpsertWithWhereUniqueNestedInput: WeChatUpsertWithWhereUniqueNestedInputInputObject
+      WeChatScalarWhereInput: WeChatScalarWhereInputInputObject
+      UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
+      WeChatUpdateInput: WeChatUpdateInputInputObject
+      WeChatUserUpdateInput: WeChatUserUpdateInputInputObject
       WeChatUserUpdateManyMutationInput: WeChatUserUpdateManyMutationInputInputObject
-      ChatRoomCreateInput: ChatRoomCreateInputInputObject
       ChatRoomUpdateInput: ChatRoomUpdateInputInputObject
       ChatRoomUpdateManyMutationInput: ChatRoomUpdateManyMutationInputInputObject
-      AvatarCreateInput: AvatarCreateInputInputObject
       AvatarUpdateInput: AvatarUpdateInputInputObject
-      AvatarUpdateManyMutationInput: AvatarUpdateManyMutationInputInputObject
       ContactCreateInput: ContactCreateInputInputObject
       WeChatUserCreateManyWithoutContactInput: WeChatUserCreateManyWithoutContactInputInputObject
       WeChatUserCreateWithoutContactInput: WeChatUserCreateWithoutContactInputInputObject
@@ -347,7 +390,6 @@ export interface NexusPrismaTypes {
       WeChatUserUpdateWithoutContactDataInput: WeChatUserUpdateWithoutContactDataInputInputObject
       WeChatUserUpsertWithWhereUniqueWithoutContactInput: WeChatUserUpsertWithWhereUniqueWithoutContactInputInputObject
       ContactUpdateManyMutationInput: ContactUpdateManyMutationInputInputObject
-      MessageCreateInput: MessageCreateInputInputObject
       MessageUpdateInput: MessageUpdateInputInputObject
       MessageUpdateManyMutationInput: MessageUpdateManyMutationInputInputObject
       ContentUpdateInput: ContentUpdateInputInputObject
@@ -366,7 +408,6 @@ export interface NexusPrismaTypes {
       ContentUpdateOneWithoutImageInput: ContentUpdateOneWithoutImageInputInputObject
       ContentUpdateWithoutImageDataInput: ContentUpdateWithoutImageDataInputInputObject
       ContentUpsertWithoutImageInput: ContentUpsertWithoutImageInputInputObject
-      ImageUpdateManyMutationInput: ImageUpdateManyMutationInputInputObject
       VoiceCreateInput: VoiceCreateInputInputObject
       ContentCreateOneWithoutVoiceInput: ContentCreateOneWithoutVoiceInputInputObject
       ContentCreateWithoutVoiceInput: ContentCreateWithoutVoiceInputInputObject
@@ -399,7 +440,10 @@ export interface NexusPrismaTypes {
       ContentUpdateWithoutAppDataInput: ContentUpdateWithoutAppDataInputInputObject
       ContentUpsertWithoutAppInput: ContentUpsertWithoutAppInputInputObject
       AppUpdateManyMutationInput: AppUpdateManyMutationInputInputObject
+      FileIndexUpdateInput: FileIndexUpdateInputInputObject
+      FileIndexUpdateManyMutationInput: FileIndexUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
+      WeChatSubscriptionWhereInput: WeChatSubscriptionWhereInputInputObject
       WeChatUserSubscriptionWhereInput: WeChatUserSubscriptionWhereInputInputObject
       ChatRoomSubscriptionWhereInput: ChatRoomSubscriptionWhereInputInputObject
       AvatarSubscriptionWhereInput: AvatarSubscriptionWhereInputInputObject
@@ -412,13 +456,15 @@ export interface NexusPrismaTypes {
       VideoSubscriptionWhereInput: VideoSubscriptionWhereInputInputObject
       FileSubscriptionWhereInput: FileSubscriptionWhereInputInputObject
       AppSubscriptionWhereInput: AppSubscriptionWhereInputInputObject
+      FileIndexSubscriptionWhereInput: FileIndexSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
-    UserOrderByInput: UserOrderByInputValues,
-    WeChatUserOrderByInput: WeChatUserOrderByInputValues,
+    WeChatOrderByInput: WeChatOrderByInputValues,
     MessageOrderByInput: MessageOrderByInputValues,
+    WeChatUserOrderByInput: WeChatUserOrderByInputValues,
     ChatRoomOrderByInput: ChatRoomOrderByInputValues,
+    UserOrderByInput: UserOrderByInputValues,
     AvatarOrderByInput: AvatarOrderByInputValues,
     ContactOrderByInput: ContactOrderByInputValues,
     ContentOrderByInput: ContentOrderByInputValues,
@@ -428,6 +474,7 @@ export interface NexusPrismaTypes {
     VideoOrderByInput: VideoOrderByInputValues,
     FileOrderByInput: FileOrderByInputValues,
     AppOrderByInput: AppOrderByInputValues,
+    FileIndexOrderByInput: FileIndexOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -439,6 +486,9 @@ type QueryObject =
   | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
   | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
   | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
+  | { name: 'weChat', args?: QueryWeChatArgs[] | false, alias?: string  } 
+  | { name: 'weChats', args?: QueryWeChatsArgs[] | false, alias?: string  } 
+  | { name: 'weChatsConnection', args?: QueryWeChatsConnectionArgs[] | false, alias?: string  } 
   | { name: 'weChatUser', args?: QueryWeChatUserArgs[] | false, alias?: string  } 
   | { name: 'weChatUsers', args?: QueryWeChatUsersArgs[] | false, alias?: string  } 
   | { name: 'weChatUsersConnection', args?: QueryWeChatUsersConnectionArgs[] | false, alias?: string  } 
@@ -475,11 +525,17 @@ type QueryObject =
   | { name: 'app', args?: QueryAppArgs[] | false, alias?: string  } 
   | { name: 'apps', args?: QueryAppsArgs[] | false, alias?: string  } 
   | { name: 'appsConnection', args?: QueryAppsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'fileIndex', args?: QueryFileIndexArgs[] | false, alias?: string  } 
+  | { name: 'fileIndexes', args?: QueryFileIndexesArgs[] | false, alias?: string  } 
+  | { name: 'fileIndexesConnection', args?: QueryFileIndexesConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
   | 'users'
   | 'usersConnection'
+  | 'weChat'
+  | 'weChats'
+  | 'weChatsConnection'
   | 'weChatUser'
   | 'weChatUsers'
   | 'weChatUsersConnection'
@@ -516,6 +572,9 @@ type QueryFields =
   | 'app'
   | 'apps'
   | 'appsConnection'
+  | 'fileIndex'
+  | 'fileIndexes'
+  | 'fileIndexesConnection'
 
 
 type QueryUserArgs =
@@ -529,6 +588,24 @@ type QueryUsersArgs =
   | 'first'
   | 'last'
 type QueryUsersConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryWeChatArgs =
+  | 'where'
+type QueryWeChatsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryWeChatsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -752,6 +829,24 @@ type QueryAppsConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
+type QueryFileIndexArgs =
+  | 'where'
+type QueryFileIndexesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryFileIndexesConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
   
 
 export interface QueryFieldDetails {
@@ -793,6 +888,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserConnection> | prisma.UserConnection
+  }
+  weChat: {
+    type: 'WeChat'
+    args: Record<QueryWeChatArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: WeChatWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat | null> | prisma.WeChat | null
+  }
+  weChats: {
+    type: 'WeChat'
+    args: Record<QueryWeChatsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: WeChatWhereInput | null, orderBy?: prisma.WeChatOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat[]> | prisma.WeChat[]
+  }
+  weChatsConnection: {
+    type: 'WeChatConnection'
+    args: Record<QueryWeChatsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: WeChatWhereInput | null, orderBy?: prisma.WeChatOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChatConnection> | prisma.WeChatConnection
   }
   weChatUser: {
     type: 'WeChatUser'
@@ -1262,6 +1396,45 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.AppConnection> | prisma.AppConnection
   }
+  fileIndex: {
+    type: 'FileIndex'
+    args: Record<QueryFileIndexArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: FileIndexWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
+  }
+  fileIndexes: {
+    type: 'FileIndex'
+    args: Record<QueryFileIndexesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: FileIndexWhereInput | null, orderBy?: prisma.FileIndexOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex[]> | prisma.FileIndex[]
+  }
+  fileIndexesConnection: {
+    type: 'FileIndexConnection'
+    args: Record<QueryFileIndexesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: FileIndexWhereInput | null, orderBy?: prisma.FileIndexOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndexConnection> | prisma.FileIndexConnection
+  }
 }
   
 
@@ -1273,15 +1446,24 @@ type UserObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
+  | { name: 'weChat', args?: UserWeChatArgs[] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
   | 'email'
   | 'name'
   | 'password'
+  | 'weChat'
 
 
-
+type UserWeChatArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
   
 
 export interface UserFieldDetails {
@@ -1317,185 +1499,126 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-}
-  
-
-// Types for UserConnection
-
-type UserConnectionObject =
-  | UserConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type UserConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface UserConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'UserEdge'
-    args: {}
+  weChat: {
+    type: 'WeChat'
+    args: Record<UserWeChatArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
+      root: core.RootValue<"User">,
+      args: { where?: WeChatWhereInput | null, orderBy?: prisma.WeChatOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.UserEdge[]> | prisma.UserEdge[]
+    ) => Promise<prisma.WeChat[]> | prisma.WeChat[]
   }
-  aggregate: {
-    type: 'AggregateUser'
+}
+  
+
+// Types for WeChat
+
+type WeChatObject =
+  | WeChatFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'weChatOwner', args?: [] | false, alias?: string  } 
+  | { name: 'weChatUsers', args?: WeChatWeChatUsersArgs[] | false, alias?: string  } 
+  | { name: 'chatRooms', args?: WeChatChatRoomsArgs[] | false, alias?: string  } 
+  | { name: 'messages', args?: WeChatMessagesArgs[] | false, alias?: string  } 
+
+type WeChatFields =
+  | 'id'
+  | 'weChatOwner'
+  | 'weChatUsers'
+  | 'chatRooms'
+  | 'messages'
+
+
+type WeChatWeChatUsersArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type WeChatChatRoomsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type WeChatMessagesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface WeChatFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  weChatOwner: {
+    type: 'WeChatUser'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"UserConnection">,
+      root: core.RootValue<"WeChat">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateUser> | prisma.AggregateUser
+    ) => Promise<prisma.WeChatUser> | prisma.WeChatUser
   }
-}
-  
-
-// Types for PageInfo
-
-type PageInfoObject =
-  | PageInfoFields
-  | { name: 'hasNextPage', args?: [] | false, alias?: string  } 
-  | { name: 'hasPreviousPage', args?: [] | false, alias?: string  } 
-  | { name: 'startCursor', args?: [] | false, alias?: string  } 
-  | { name: 'endCursor', args?: [] | false, alias?: string  } 
-
-type PageInfoFields =
-  | 'hasNextPage'
-  | 'hasPreviousPage'
-  | 'startCursor'
-  | 'endCursor'
-
-
-
-  
-
-export interface PageInfoFieldDetails {
-  hasNextPage: {
-    type: 'Boolean'
-    args: {}
+  weChatUsers: {
+    type: 'WeChatUser'
+    args: Record<WeChatWeChatUsersArgs, core.NexusArgDef<string>>
     description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  hasPreviousPage: {
-    type: 'Boolean'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  startCursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  endCursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-}
-  
-
-// Types for UserEdge
-
-type UserEdgeObject =
-  | UserEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type UserEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface UserEdgeFieldDetails {
-  node: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
+    list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"UserEdge">,
-      args: {  }  ,
+      root: core.RootValue<"WeChat">,
+      args: { where?: WeChatUserWhereInput | null, orderBy?: prisma.WeChatUserOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
+    ) => Promise<prisma.WeChatUser[]> | prisma.WeChatUser[]
   }
-  cursor: {
-    type: 'String'
-    args: {}
+  chatRooms: {
+    type: 'ChatRoom'
+    args: Record<WeChatChatRoomsArgs, core.NexusArgDef<string>>
     description: string
-    list: undefined
+    list: true
     nullable: false
-    resolve: undefined
+    resolve: (
+      root: core.RootValue<"WeChat">,
+      args: { where?: ChatRoomWhereInput | null, orderBy?: prisma.ChatRoomOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ChatRoom[]> | prisma.ChatRoom[]
   }
-}
-  
-
-// Types for AggregateUser
-
-type AggregateUserObject =
-  | AggregateUserFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateUserFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateUserFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
+  messages: {
+    type: 'Message'
+    args: Record<WeChatMessagesArgs, core.NexusArgDef<string>>
     description: string
-    list: undefined
+    list: true
     nullable: false
-    resolve: undefined
+    resolve: (
+      root: core.RootValue<"WeChat">,
+      args: { where?: MessageWhereInput | null, orderBy?: prisma.MessageOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Message[]> | prisma.Message[]
   }
 }
   
@@ -1670,15 +1793,11 @@ type AvatarObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'thumbnailImg', args?: [] | false, alias?: string  } 
   | { name: 'bigImg', args?: [] | false, alias?: string  } 
-  | { name: 'weChatUser', args?: [] | false, alias?: string  } 
-  | { name: 'chatRoom', args?: [] | false, alias?: string  } 
 
 type AvatarFields =
   | 'id'
   | 'thumbnailImg'
   | 'bigImg'
-  | 'weChatUser'
-  | 'chatRoom'
 
 
 
@@ -1694,23 +1813,7 @@ export interface AvatarFieldDetails {
     resolve: undefined
   }
   thumbnailImg: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  bigImg: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  weChatUser: {
-    type: 'WeChatUser'
+    type: 'FileIndex'
     args: {}
     description: string
     list: undefined
@@ -1720,7 +1823,169 @@ export interface AvatarFieldDetails {
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.WeChatUser | null> | prisma.WeChatUser | null
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
+  }
+  bigImg: {
+    type: 'FileIndex'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Avatar">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
+  }
+}
+  
+
+// Types for FileIndex
+
+type FileIndexObject =
+  | FileIndexFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'fileName', args?: [] | false, alias?: string  } 
+  | { name: 'mimetype', args?: [] | false, alias?: string  } 
+  | { name: 'size', args?: [] | false, alias?: string  } 
+  | { name: 'url', args?: [] | false, alias?: string  } 
+
+type FileIndexFields =
+  | 'id'
+  | 'fileName'
+  | 'mimetype'
+  | 'size'
+  | 'url'
+
+
+
+  
+
+export interface FileIndexFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  fileName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  mimetype: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  size: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  url: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for Message
+
+type MessageObject =
+  | MessageFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'msgSvrId', args?: [] | false, alias?: string  } 
+  | { name: 'isSend', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'talker', args?: [] | false, alias?: string  } 
+  | { name: 'createTime', args?: [] | false, alias?: string  } 
+  | { name: 'chatRoom', args?: [] | false, alias?: string  } 
+  | { name: 'content', args?: [] | false, alias?: string  } 
+
+type MessageFields =
+  | 'id'
+  | 'msgSvrId'
+  | 'isSend'
+  | 'type'
+  | 'talker'
+  | 'createTime'
+  | 'chatRoom'
+  | 'content'
+
+
+
+  
+
+export interface MessageFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  msgSvrId: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  isSend: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  type: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  talker: {
+    type: 'WeChatUser'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Message">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChatUser> | prisma.WeChatUser
+  }
+  createTime: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
   }
   chatRoom: {
     type: 'ChatRoom'
@@ -1729,11 +1994,24 @@ export interface AvatarFieldDetails {
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"Avatar">,
+      root: core.RootValue<"Message">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ChatRoom | null> | prisma.ChatRoom | null
+  }
+  content: {
+    type: 'Content'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Message">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Content | null> | prisma.Content | null
   }
 }
   
@@ -1874,116 +2152,6 @@ export interface ChatRoomFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Message[]> | prisma.Message[]
-  }
-}
-  
-
-// Types for Message
-
-type MessageObject =
-  | MessageFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'msgSvrId', args?: [] | false, alias?: string  } 
-  | { name: 'isSend', args?: [] | false, alias?: string  } 
-  | { name: 'type', args?: [] | false, alias?: string  } 
-  | { name: 'talker', args?: [] | false, alias?: string  } 
-  | { name: 'createTime', args?: [] | false, alias?: string  } 
-  | { name: 'chatRoom', args?: [] | false, alias?: string  } 
-  | { name: 'content', args?: [] | false, alias?: string  } 
-
-type MessageFields =
-  | 'id'
-  | 'msgSvrId'
-  | 'isSend'
-  | 'type'
-  | 'talker'
-  | 'createTime'
-  | 'chatRoom'
-  | 'content'
-
-
-
-  
-
-export interface MessageFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  msgSvrId: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  isSend: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  type: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  talker: {
-    type: 'WeChatUser'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Message">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.WeChatUser> | prisma.WeChatUser
-  }
-  createTime: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  chatRoom: {
-    type: 'ChatRoom'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Message">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.ChatRoom | null> | prisma.ChatRoom | null
-  }
-  content: {
-    type: 'Content'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Message">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Content | null> | prisma.Content | null
   }
 }
   
@@ -2182,20 +2350,30 @@ export interface ImageFieldDetails {
     resolve: undefined
   }
   thumbnailImg: {
-    type: 'String'
+    type: 'FileIndex'
     args: {}
     description: string
     list: undefined
     nullable: true
-    resolve: undefined
+    resolve: (
+      root: core.RootValue<"Image">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
   }
   bigImg: {
-    type: 'String'
+    type: 'FileIndex'
     args: {}
     description: string
     list: undefined
     nullable: true
-    resolve: undefined
+    resolve: (
+      root: core.RootValue<"Image">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
   }
   content: {
     type: 'Content'
@@ -2242,12 +2420,17 @@ export interface VoiceFieldDetails {
     resolve: undefined
   }
   fileName: {
-    type: 'String'
+    type: 'FileIndex'
     args: {}
     description: string
     list: undefined
-    nullable: false
-    resolve: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Voice">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
   }
   voiceLength: {
     type: 'Int'
@@ -2304,20 +2487,30 @@ export interface VideoFieldDetails {
     resolve: undefined
   }
   fileName: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  thumbnailImg: {
-    type: 'String'
+    type: 'FileIndex'
     args: {}
     description: string
     list: undefined
     nullable: true
-    resolve: undefined
+    resolve: (
+      root: core.RootValue<"Video">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
+  }
+  thumbnailImg: {
+    type: 'FileIndex'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Video">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
   }
   videolength: {
     type: 'Int'
@@ -2372,12 +2565,17 @@ export interface FileFieldDetails {
     resolve: undefined
   }
   fileName: {
-    type: 'String'
+    type: 'FileIndex'
     args: {}
     description: string
     list: undefined
-    nullable: false
-    resolve: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"File">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
   }
   size: {
     type: 'Int'
@@ -2506,6 +2704,311 @@ export interface ContactFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.WeChatUser[]> | prisma.WeChatUser[]
+  }
+}
+  
+
+// Types for UserConnection
+
+type UserConnectionObject =
+  | UserConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type UserConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface UserConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'UserEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.UserEdge[]> | prisma.UserEdge[]
+  }
+  aggregate: {
+    type: 'AggregateUser'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateUser> | prisma.AggregateUser
+  }
+}
+  
+
+// Types for PageInfo
+
+type PageInfoObject =
+  | PageInfoFields
+  | { name: 'hasNextPage', args?: [] | false, alias?: string  } 
+  | { name: 'hasPreviousPage', args?: [] | false, alias?: string  } 
+  | { name: 'startCursor', args?: [] | false, alias?: string  } 
+  | { name: 'endCursor', args?: [] | false, alias?: string  } 
+
+type PageInfoFields =
+  | 'hasNextPage'
+  | 'hasPreviousPage'
+  | 'startCursor'
+  | 'endCursor'
+
+
+
+  
+
+export interface PageInfoFieldDetails {
+  hasNextPage: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  hasPreviousPage: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  startCursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  endCursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for UserEdge
+
+type UserEdgeObject =
+  | UserEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type UserEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface UserEdgeFieldDetails {
+  node: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateUser
+
+type AggregateUserObject =
+  | AggregateUserFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateUserFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateUserFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for WeChatConnection
+
+type WeChatConnectionObject =
+  | WeChatConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type WeChatConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface WeChatConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"WeChatConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'WeChatEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"WeChatConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChatEdge[]> | prisma.WeChatEdge[]
+  }
+  aggregate: {
+    type: 'AggregateWeChat'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"WeChatConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateWeChat> | prisma.AggregateWeChat
+  }
+}
+  
+
+// Types for WeChatEdge
+
+type WeChatEdgeObject =
+  | WeChatEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type WeChatEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface WeChatEdgeFieldDetails {
+  node: {
+    type: 'WeChat'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"WeChatEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat> | prisma.WeChat
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateWeChat
+
+type AggregateWeChatObject =
+  | AggregateWeChatFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateWeChatFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateWeChatFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
   }
 }
   
@@ -4010,6 +4513,131 @@ export interface AggregateAppFieldDetails {
 }
   
 
+// Types for FileIndexConnection
+
+type FileIndexConnectionObject =
+  | FileIndexConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type FileIndexConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface FileIndexConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"FileIndexConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'FileIndexEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"FileIndexConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndexEdge[]> | prisma.FileIndexEdge[]
+  }
+  aggregate: {
+    type: 'AggregateFileIndex'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"FileIndexConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateFileIndex> | prisma.AggregateFileIndex
+  }
+}
+  
+
+// Types for FileIndexEdge
+
+type FileIndexEdgeObject =
+  | FileIndexEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type FileIndexEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface FileIndexEdgeFieldDetails {
+  node: {
+    type: 'FileIndex'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"FileIndexEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex> | prisma.FileIndex
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateFileIndex
+
+type AggregateFileIndexObject =
+  | AggregateFileIndexFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateFileIndexFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateFileIndexFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -4020,6 +4648,11 @@ type MutationObject =
   | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
   | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
   | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
+  | { name: 'createWeChat', args?: MutationCreateWeChatArgs[] | false, alias?: string  } 
+  | { name: 'updateWeChat', args?: MutationUpdateWeChatArgs[] | false, alias?: string  } 
+  | { name: 'upsertWeChat', args?: MutationUpsertWeChatArgs[] | false, alias?: string  } 
+  | { name: 'deleteWeChat', args?: MutationDeleteWeChatArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyWeChats', args?: MutationDeleteManyWeChatsArgs[] | false, alias?: string  } 
   | { name: 'createWeChatUser', args?: MutationCreateWeChatUserArgs[] | false, alias?: string  } 
   | { name: 'updateWeChatUser', args?: MutationUpdateWeChatUserArgs[] | false, alias?: string  } 
   | { name: 'updateManyWeChatUsers', args?: MutationUpdateManyWeChatUsersArgs[] | false, alias?: string  } 
@@ -4034,7 +4667,6 @@ type MutationObject =
   | { name: 'deleteManyChatRooms', args?: MutationDeleteManyChatRoomsArgs[] | false, alias?: string  } 
   | { name: 'createAvatar', args?: MutationCreateAvatarArgs[] | false, alias?: string  } 
   | { name: 'updateAvatar', args?: MutationUpdateAvatarArgs[] | false, alias?: string  } 
-  | { name: 'updateManyAvatars', args?: MutationUpdateManyAvatarsArgs[] | false, alias?: string  } 
   | { name: 'upsertAvatar', args?: MutationUpsertAvatarArgs[] | false, alias?: string  } 
   | { name: 'deleteAvatar', args?: MutationDeleteAvatarArgs[] | false, alias?: string  } 
   | { name: 'deleteManyAvatars', args?: MutationDeleteManyAvatarsArgs[] | false, alias?: string  } 
@@ -4063,7 +4695,6 @@ type MutationObject =
   | { name: 'deleteManyTexts', args?: MutationDeleteManyTextsArgs[] | false, alias?: string  } 
   | { name: 'createImage', args?: MutationCreateImageArgs[] | false, alias?: string  } 
   | { name: 'updateImage', args?: MutationUpdateImageArgs[] | false, alias?: string  } 
-  | { name: 'updateManyImages', args?: MutationUpdateManyImagesArgs[] | false, alias?: string  } 
   | { name: 'upsertImage', args?: MutationUpsertImageArgs[] | false, alias?: string  } 
   | { name: 'deleteImage', args?: MutationDeleteImageArgs[] | false, alias?: string  } 
   | { name: 'deleteManyImages', args?: MutationDeleteManyImagesArgs[] | false, alias?: string  } 
@@ -4091,6 +4722,12 @@ type MutationObject =
   | { name: 'upsertApp', args?: MutationUpsertAppArgs[] | false, alias?: string  } 
   | { name: 'deleteApp', args?: MutationDeleteAppArgs[] | false, alias?: string  } 
   | { name: 'deleteManyApps', args?: MutationDeleteManyAppsArgs[] | false, alias?: string  } 
+  | { name: 'createFileIndex', args?: MutationCreateFileIndexArgs[] | false, alias?: string  } 
+  | { name: 'updateFileIndex', args?: MutationUpdateFileIndexArgs[] | false, alias?: string  } 
+  | { name: 'updateManyFileIndexes', args?: MutationUpdateManyFileIndexesArgs[] | false, alias?: string  } 
+  | { name: 'upsertFileIndex', args?: MutationUpsertFileIndexArgs[] | false, alias?: string  } 
+  | { name: 'deleteFileIndex', args?: MutationDeleteFileIndexArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyFileIndexes', args?: MutationDeleteManyFileIndexesArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -4099,6 +4736,11 @@ type MutationFields =
   | 'upsertUser'
   | 'deleteUser'
   | 'deleteManyUsers'
+  | 'createWeChat'
+  | 'updateWeChat'
+  | 'upsertWeChat'
+  | 'deleteWeChat'
+  | 'deleteManyWeChats'
   | 'createWeChatUser'
   | 'updateWeChatUser'
   | 'updateManyWeChatUsers'
@@ -4113,7 +4755,6 @@ type MutationFields =
   | 'deleteManyChatRooms'
   | 'createAvatar'
   | 'updateAvatar'
-  | 'updateManyAvatars'
   | 'upsertAvatar'
   | 'deleteAvatar'
   | 'deleteManyAvatars'
@@ -4142,7 +4783,6 @@ type MutationFields =
   | 'deleteManyTexts'
   | 'createImage'
   | 'updateImage'
-  | 'updateManyImages'
   | 'upsertImage'
   | 'deleteImage'
   | 'deleteManyImages'
@@ -4170,6 +4810,12 @@ type MutationFields =
   | 'upsertApp'
   | 'deleteApp'
   | 'deleteManyApps'
+  | 'createFileIndex'
+  | 'updateFileIndex'
+  | 'updateManyFileIndexes'
+  | 'upsertFileIndex'
+  | 'deleteFileIndex'
+  | 'deleteManyFileIndexes'
 
 
 type MutationCreateUserArgs =
@@ -4187,6 +4833,19 @@ type MutationUpsertUserArgs =
 type MutationDeleteUserArgs =
   | 'where'
 type MutationDeleteManyUsersArgs =
+  | 'where'
+type MutationCreateWeChatArgs =
+  | 'data'
+type MutationUpdateWeChatArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertWeChatArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteWeChatArgs =
+  | 'where'
+type MutationDeleteManyWeChatsArgs =
   | 'where'
 type MutationCreateWeChatUserArgs =
   | 'data'
@@ -4223,9 +4882,6 @@ type MutationDeleteManyChatRoomsArgs =
 type MutationCreateAvatarArgs =
   | 'data'
 type MutationUpdateAvatarArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyAvatarsArgs =
   | 'data'
   | 'where'
 type MutationUpsertAvatarArgs =
@@ -4302,9 +4958,6 @@ type MutationCreateImageArgs =
 type MutationUpdateImageArgs =
   | 'data'
   | 'where'
-type MutationUpdateManyImagesArgs =
-  | 'data'
-  | 'where'
 type MutationUpsertImageArgs =
   | 'where'
   | 'create'
@@ -4376,6 +5029,22 @@ type MutationUpsertAppArgs =
 type MutationDeleteAppArgs =
   | 'where'
 type MutationDeleteManyAppsArgs =
+  | 'where'
+type MutationCreateFileIndexArgs =
+  | 'data'
+type MutationUpdateFileIndexArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyFileIndexesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertFileIndexArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteFileIndexArgs =
+  | 'where'
+type MutationDeleteManyFileIndexesArgs =
   | 'where'
   
 
@@ -4454,6 +5123,71 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: UserWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createWeChat: {
+    type: 'WeChat'
+    args: Record<MutationCreateWeChatArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: WeChatCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat> | prisma.WeChat
+  }
+  updateWeChat: {
+    type: 'WeChat'
+    args: Record<MutationUpdateWeChatArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: WeChatUpdateInput, where: WeChatWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat | null> | prisma.WeChat | null
+  }
+  upsertWeChat: {
+    type: 'WeChat'
+    args: Record<MutationUpsertWeChatArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: WeChatWhereUniqueInput, create: WeChatCreateInput, update: WeChatUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat> | prisma.WeChat
+  }
+  deleteWeChat: {
+    type: 'WeChat'
+    args: Record<MutationDeleteWeChatArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: WeChatWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat | null> | prisma.WeChat | null
+  }
+  deleteManyWeChats: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyWeChatsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: WeChatWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -4639,19 +5373,6 @@ export interface MutationFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Avatar | null> | prisma.Avatar | null
-  }
-  updateManyAvatars: {
-    type: 'BatchPayload'
-    args: Record<MutationUpdateManyAvatarsArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: AvatarUpdateManyMutationInput, where?: AvatarWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
   upsertAvatar: {
     type: 'Avatar'
@@ -5017,19 +5738,6 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Image | null> | prisma.Image | null
   }
-  updateManyImages: {
-    type: 'BatchPayload'
-    args: Record<MutationUpdateManyImagesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: ImageUpdateManyMutationInput, where?: ImageWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
   upsertImage: {
     type: 'Image'
     args: Record<MutationUpsertImageArgs, core.NexusArgDef<string>>
@@ -5381,6 +6089,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createFileIndex: {
+    type: 'FileIndex'
+    args: Record<MutationCreateFileIndexArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: FileIndexCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex> | prisma.FileIndex
+  }
+  updateFileIndex: {
+    type: 'FileIndex'
+    args: Record<MutationUpdateFileIndexArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: FileIndexUpdateInput, where: FileIndexWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
+  }
+  updateManyFileIndexes: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyFileIndexesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: FileIndexUpdateManyMutationInput, where?: FileIndexWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertFileIndex: {
+    type: 'FileIndex'
+    args: Record<MutationUpsertFileIndexArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: FileIndexWhereUniqueInput, create: FileIndexCreateInput, update: FileIndexUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex> | prisma.FileIndex
+  }
+  deleteFileIndex: {
+    type: 'FileIndex'
+    args: Record<MutationDeleteFileIndexArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: FileIndexWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
+  }
+  deleteManyFileIndexes: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyFileIndexesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: FileIndexWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -5414,6 +6200,7 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
+  | { name: 'weChat', args?: SubscriptionWeChatArgs[] | false, alias?: string  } 
   | { name: 'weChatUser', args?: SubscriptionWeChatUserArgs[] | false, alias?: string  } 
   | { name: 'chatRoom', args?: SubscriptionChatRoomArgs[] | false, alias?: string  } 
   | { name: 'avatar', args?: SubscriptionAvatarArgs[] | false, alias?: string  } 
@@ -5426,9 +6213,11 @@ type SubscriptionObject =
   | { name: 'video', args?: SubscriptionVideoArgs[] | false, alias?: string  } 
   | { name: 'file', args?: SubscriptionFileArgs[] | false, alias?: string  } 
   | { name: 'app', args?: SubscriptionAppArgs[] | false, alias?: string  } 
+  | { name: 'fileIndex', args?: SubscriptionFileIndexArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
+  | 'weChat'
   | 'weChatUser'
   | 'chatRoom'
   | 'avatar'
@@ -5441,9 +6230,12 @@ type SubscriptionFields =
   | 'video'
   | 'file'
   | 'app'
+  | 'fileIndex'
 
 
 type SubscriptionUserArgs =
+  | 'where'
+type SubscriptionWeChatArgs =
   | 'where'
 type SubscriptionWeChatUserArgs =
   | 'where'
@@ -5469,6 +6261,8 @@ type SubscriptionFileArgs =
   | 'where'
 type SubscriptionAppArgs =
   | 'where'
+type SubscriptionFileIndexArgs =
+  | 'where'
   
 
 export interface SubscriptionFieldDetails {
@@ -5484,6 +6278,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
+  }
+  weChat: {
+    type: 'WeChatSubscriptionPayload'
+    args: Record<SubscriptionWeChatArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: WeChatSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChatSubscriptionPayload | null> | prisma.WeChatSubscriptionPayload | null
   }
   weChatUser: {
     type: 'WeChatUserSubscriptionPayload'
@@ -5641,6 +6448,19 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.AppSubscriptionPayload | null> | prisma.AppSubscriptionPayload | null
   }
+  fileIndex: {
+    type: 'FileIndexSubscriptionPayload'
+    args: Record<SubscriptionFileIndexArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: FileIndexSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndexSubscriptionPayload | null> | prisma.FileIndexSubscriptionPayload | null
+  }
 }
   
 
@@ -5760,6 +6580,101 @@ export interface UserPreviousValuesFieldDetails {
   }
   password: {
     type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for WeChatSubscriptionPayload
+
+type WeChatSubscriptionPayloadObject =
+  | WeChatSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type WeChatSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface WeChatSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"WeChatSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'WeChat'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"WeChatSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChat | null> | prisma.WeChat | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'WeChatPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"WeChatSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.WeChatPreviousValues | null> | prisma.WeChatPreviousValues | null
+  }
+}
+  
+
+// Types for WeChatPreviousValues
+
+type WeChatPreviousValuesObject =
+  | WeChatPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+
+type WeChatPreviousValuesFields =
+  | 'id'
+
+
+
+  
+
+export interface WeChatPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
     args: {}
     description: string
     list: undefined
@@ -6114,13 +7029,9 @@ export interface AvatarSubscriptionPayloadFieldDetails {
 type AvatarPreviousValuesObject =
   | AvatarPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'thumbnailImg', args?: [] | false, alias?: string  } 
-  | { name: 'bigImg', args?: [] | false, alias?: string  } 
 
 type AvatarPreviousValuesFields =
   | 'id'
-  | 'thumbnailImg'
-  | 'bigImg'
 
 
 
@@ -6133,22 +7044,6 @@ export interface AvatarPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
-    resolve: undefined
-  }
-  thumbnailImg: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  bigImg: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
     resolve: undefined
   }
 }
@@ -6669,13 +7564,9 @@ export interface ImageSubscriptionPayloadFieldDetails {
 type ImagePreviousValuesObject =
   | ImagePreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'thumbnailImg', args?: [] | false, alias?: string  } 
-  | { name: 'bigImg', args?: [] | false, alias?: string  } 
 
 type ImagePreviousValuesFields =
   | 'id'
-  | 'thumbnailImg'
-  | 'bigImg'
 
 
 
@@ -6688,22 +7579,6 @@ export interface ImagePreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
-    resolve: undefined
-  }
-  thumbnailImg: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  bigImg: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
     resolve: undefined
   }
 }
@@ -6784,12 +7659,10 @@ export interface VoiceSubscriptionPayloadFieldDetails {
 type VoicePreviousValuesObject =
   | VoicePreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'fileName', args?: [] | false, alias?: string  } 
   | { name: 'voiceLength', args?: [] | false, alias?: string  } 
 
 type VoicePreviousValuesFields =
   | 'id'
-  | 'fileName'
   | 'voiceLength'
 
 
@@ -6799,14 +7672,6 @@ type VoicePreviousValuesFields =
 export interface VoicePreviousValuesFieldDetails {
   id: {
     type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  fileName: {
-    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -6899,14 +7764,10 @@ export interface VideoSubscriptionPayloadFieldDetails {
 type VideoPreviousValuesObject =
   | VideoPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'fileName', args?: [] | false, alias?: string  } 
-  | { name: 'thumbnailImg', args?: [] | false, alias?: string  } 
   | { name: 'videolength', args?: [] | false, alias?: string  } 
 
 type VideoPreviousValuesFields =
   | 'id'
-  | 'fileName'
-  | 'thumbnailImg'
   | 'videolength'
 
 
@@ -6920,22 +7781,6 @@ export interface VideoPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
-    resolve: undefined
-  }
-  fileName: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  thumbnailImg: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
     resolve: undefined
   }
   videolength: {
@@ -7024,12 +7869,10 @@ export interface FileSubscriptionPayloadFieldDetails {
 type FilePreviousValuesObject =
   | FilePreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'fileName', args?: [] | false, alias?: string  } 
   | { name: 'size', args?: [] | false, alias?: string  } 
 
 type FilePreviousValuesFields =
   | 'id'
-  | 'fileName'
   | 'size'
 
 
@@ -7039,14 +7882,6 @@ type FilePreviousValuesFields =
 export interface FilePreviousValuesFieldDetails {
   id: {
     type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  fileName: {
-    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -7169,6 +8004,141 @@ export interface AppPreviousValuesFieldDetails {
 }
   
 
+// Types for FileIndexSubscriptionPayload
+
+type FileIndexSubscriptionPayloadObject =
+  | FileIndexSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type FileIndexSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface FileIndexSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"FileIndexSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'FileIndex'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"FileIndexSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndex | null> | prisma.FileIndex | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'FileIndexPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"FileIndexSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.FileIndexPreviousValues | null> | prisma.FileIndexPreviousValues | null
+  }
+}
+  
+
+// Types for FileIndexPreviousValues
+
+type FileIndexPreviousValuesObject =
+  | FileIndexPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'fileName', args?: [] | false, alias?: string  } 
+  | { name: 'mimetype', args?: [] | false, alias?: string  } 
+  | { name: 'size', args?: [] | false, alias?: string  } 
+  | { name: 'url', args?: [] | false, alias?: string  } 
+
+type FileIndexPreviousValuesFields =
+  | 'id'
+  | 'fileName'
+  | 'mimetype'
+  | 'size'
+  | 'url'
+
+
+
+  
+
+export interface FileIndexPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  fileName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  mimetype: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  size: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  url: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
 
 export interface UserWhereUniqueInput {
   id?: string | null
@@ -7179,7 +8149,7 @@ export type UserWhereUniqueInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'email', alias?: string  } 
   
-export interface UserWhereInput {
+export interface WeChatWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -7194,52 +8164,14 @@ export interface UserWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  email?: string | null
-  email_not?: string | null
-  email_in?: string[]
-  email_not_in?: string[]
-  email_lt?: string | null
-  email_lte?: string | null
-  email_gt?: string | null
-  email_gte?: string | null
-  email_contains?: string | null
-  email_not_contains?: string | null
-  email_starts_with?: string | null
-  email_not_starts_with?: string | null
-  email_ends_with?: string | null
-  email_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  password?: string | null
-  password_not?: string | null
-  password_in?: string[]
-  password_not_in?: string[]
-  password_lt?: string | null
-  password_lte?: string | null
-  password_gt?: string | null
-  password_gte?: string | null
-  password_contains?: string | null
-  password_not_contains?: string | null
-  password_starts_with?: string | null
-  password_not_starts_with?: string | null
-  password_ends_with?: string | null
-  password_not_ends_with?: string | null
-  AND?: UserWhereInput[]
+  weChatOwner?: WeChatUserWhereInput | null
+  weChatUsers_some?: WeChatUserWhereInput | null
+  chatRooms_some?: ChatRoomWhereInput | null
+  messages_some?: MessageWhereInput | null
+  AND?: WeChatWhereInput[]
 }
-export type UserWhereInputInputObject =
-  | Extract<keyof UserWhereInput, string>
+export type WeChatWhereInputInputObject =
+  | Extract<keyof WeChatWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -7254,58 +8186,11 @@ export type UserWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'email_not', alias?: string  } 
-  | { name: 'email_in', alias?: string  } 
-  | { name: 'email_not_in', alias?: string  } 
-  | { name: 'email_lt', alias?: string  } 
-  | { name: 'email_lte', alias?: string  } 
-  | { name: 'email_gt', alias?: string  } 
-  | { name: 'email_gte', alias?: string  } 
-  | { name: 'email_contains', alias?: string  } 
-  | { name: 'email_not_contains', alias?: string  } 
-  | { name: 'email_starts_with', alias?: string  } 
-  | { name: 'email_not_starts_with', alias?: string  } 
-  | { name: 'email_ends_with', alias?: string  } 
-  | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'password_not', alias?: string  } 
-  | { name: 'password_in', alias?: string  } 
-  | { name: 'password_not_in', alias?: string  } 
-  | { name: 'password_lt', alias?: string  } 
-  | { name: 'password_lte', alias?: string  } 
-  | { name: 'password_gt', alias?: string  } 
-  | { name: 'password_gte', alias?: string  } 
-  | { name: 'password_contains', alias?: string  } 
-  | { name: 'password_not_contains', alias?: string  } 
-  | { name: 'password_starts_with', alias?: string  } 
-  | { name: 'password_not_starts_with', alias?: string  } 
-  | { name: 'password_ends_with', alias?: string  } 
-  | { name: 'password_not_ends_with', alias?: string  } 
+  | { name: 'weChatOwner', alias?: string  } 
+  | { name: 'weChatUsers_some', alias?: string  } 
+  | { name: 'chatRooms_some', alias?: string  } 
+  | { name: 'messages_some', alias?: string  } 
   | { name: 'AND', alias?: string  } 
-  
-export interface WeChatUserWhereUniqueInput {
-  id?: string | null
-  username?: string | null
-}
-export type WeChatUserWhereUniqueInputInputObject =
-  | Extract<keyof WeChatUserWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'username', alias?: string  } 
   
 export interface WeChatUserWhereInput {
   id?: string | null
@@ -7479,36 +8364,8 @@ export interface AvatarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  thumbnailImg?: string | null
-  thumbnailImg_not?: string | null
-  thumbnailImg_in?: string[]
-  thumbnailImg_not_in?: string[]
-  thumbnailImg_lt?: string | null
-  thumbnailImg_lte?: string | null
-  thumbnailImg_gt?: string | null
-  thumbnailImg_gte?: string | null
-  thumbnailImg_contains?: string | null
-  thumbnailImg_not_contains?: string | null
-  thumbnailImg_starts_with?: string | null
-  thumbnailImg_not_starts_with?: string | null
-  thumbnailImg_ends_with?: string | null
-  thumbnailImg_not_ends_with?: string | null
-  bigImg?: string | null
-  bigImg_not?: string | null
-  bigImg_in?: string[]
-  bigImg_not_in?: string[]
-  bigImg_lt?: string | null
-  bigImg_lte?: string | null
-  bigImg_gt?: string | null
-  bigImg_gte?: string | null
-  bigImg_contains?: string | null
-  bigImg_not_contains?: string | null
-  bigImg_starts_with?: string | null
-  bigImg_not_starts_with?: string | null
-  bigImg_ends_with?: string | null
-  bigImg_not_ends_with?: string | null
-  weChatUser?: WeChatUserWhereInput | null
-  chatRoom?: ChatRoomWhereInput | null
+  thumbnailImg?: FileIndexWhereInput | null
+  bigImg?: FileIndexWhereInput | null
   AND?: AvatarWhereInput[]
 }
 export type AvatarWhereInputInputObject =
@@ -7528,35 +8385,259 @@ export type AvatarWhereInputInputObject =
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'thumbnailImg_not', alias?: string  } 
-  | { name: 'thumbnailImg_in', alias?: string  } 
-  | { name: 'thumbnailImg_not_in', alias?: string  } 
-  | { name: 'thumbnailImg_lt', alias?: string  } 
-  | { name: 'thumbnailImg_lte', alias?: string  } 
-  | { name: 'thumbnailImg_gt', alias?: string  } 
-  | { name: 'thumbnailImg_gte', alias?: string  } 
-  | { name: 'thumbnailImg_contains', alias?: string  } 
-  | { name: 'thumbnailImg_not_contains', alias?: string  } 
-  | { name: 'thumbnailImg_starts_with', alias?: string  } 
-  | { name: 'thumbnailImg_not_starts_with', alias?: string  } 
-  | { name: 'thumbnailImg_ends_with', alias?: string  } 
-  | { name: 'thumbnailImg_not_ends_with', alias?: string  } 
   | { name: 'bigImg', alias?: string  } 
-  | { name: 'bigImg_not', alias?: string  } 
-  | { name: 'bigImg_in', alias?: string  } 
-  | { name: 'bigImg_not_in', alias?: string  } 
-  | { name: 'bigImg_lt', alias?: string  } 
-  | { name: 'bigImg_lte', alias?: string  } 
-  | { name: 'bigImg_gt', alias?: string  } 
-  | { name: 'bigImg_gte', alias?: string  } 
-  | { name: 'bigImg_contains', alias?: string  } 
-  | { name: 'bigImg_not_contains', alias?: string  } 
-  | { name: 'bigImg_starts_with', alias?: string  } 
-  | { name: 'bigImg_not_starts_with', alias?: string  } 
-  | { name: 'bigImg_ends_with', alias?: string  } 
-  | { name: 'bigImg_not_ends_with', alias?: string  } 
-  | { name: 'weChatUser', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  
+export interface FileIndexWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  fileName?: string | null
+  fileName_not?: string | null
+  fileName_in?: string[]
+  fileName_not_in?: string[]
+  fileName_lt?: string | null
+  fileName_lte?: string | null
+  fileName_gt?: string | null
+  fileName_gte?: string | null
+  fileName_contains?: string | null
+  fileName_not_contains?: string | null
+  fileName_starts_with?: string | null
+  fileName_not_starts_with?: string | null
+  fileName_ends_with?: string | null
+  fileName_not_ends_with?: string | null
+  mimetype?: string | null
+  mimetype_not?: string | null
+  mimetype_in?: string[]
+  mimetype_not_in?: string[]
+  mimetype_lt?: string | null
+  mimetype_lte?: string | null
+  mimetype_gt?: string | null
+  mimetype_gte?: string | null
+  mimetype_contains?: string | null
+  mimetype_not_contains?: string | null
+  mimetype_starts_with?: string | null
+  mimetype_not_starts_with?: string | null
+  mimetype_ends_with?: string | null
+  mimetype_not_ends_with?: string | null
+  size?: number | null
+  size_not?: number | null
+  size_in?: number[]
+  size_not_in?: number[]
+  size_lt?: number | null
+  size_lte?: number | null
+  size_gt?: number | null
+  size_gte?: number | null
+  url?: string | null
+  url_not?: string | null
+  url_in?: string[]
+  url_not_in?: string[]
+  url_lt?: string | null
+  url_lte?: string | null
+  url_gt?: string | null
+  url_gte?: string | null
+  url_contains?: string | null
+  url_not_contains?: string | null
+  url_starts_with?: string | null
+  url_not_starts_with?: string | null
+  url_ends_with?: string | null
+  url_not_ends_with?: string | null
+  AND?: FileIndexWhereInput[]
+}
+export type FileIndexWhereInputInputObject =
+  | Extract<keyof FileIndexWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'fileName', alias?: string  } 
+  | { name: 'fileName_not', alias?: string  } 
+  | { name: 'fileName_in', alias?: string  } 
+  | { name: 'fileName_not_in', alias?: string  } 
+  | { name: 'fileName_lt', alias?: string  } 
+  | { name: 'fileName_lte', alias?: string  } 
+  | { name: 'fileName_gt', alias?: string  } 
+  | { name: 'fileName_gte', alias?: string  } 
+  | { name: 'fileName_contains', alias?: string  } 
+  | { name: 'fileName_not_contains', alias?: string  } 
+  | { name: 'fileName_starts_with', alias?: string  } 
+  | { name: 'fileName_not_starts_with', alias?: string  } 
+  | { name: 'fileName_ends_with', alias?: string  } 
+  | { name: 'fileName_not_ends_with', alias?: string  } 
+  | { name: 'mimetype', alias?: string  } 
+  | { name: 'mimetype_not', alias?: string  } 
+  | { name: 'mimetype_in', alias?: string  } 
+  | { name: 'mimetype_not_in', alias?: string  } 
+  | { name: 'mimetype_lt', alias?: string  } 
+  | { name: 'mimetype_lte', alias?: string  } 
+  | { name: 'mimetype_gt', alias?: string  } 
+  | { name: 'mimetype_gte', alias?: string  } 
+  | { name: 'mimetype_contains', alias?: string  } 
+  | { name: 'mimetype_not_contains', alias?: string  } 
+  | { name: 'mimetype_starts_with', alias?: string  } 
+  | { name: 'mimetype_not_starts_with', alias?: string  } 
+  | { name: 'mimetype_ends_with', alias?: string  } 
+  | { name: 'mimetype_not_ends_with', alias?: string  } 
+  | { name: 'size', alias?: string  } 
+  | { name: 'size_not', alias?: string  } 
+  | { name: 'size_in', alias?: string  } 
+  | { name: 'size_not_in', alias?: string  } 
+  | { name: 'size_lt', alias?: string  } 
+  | { name: 'size_lte', alias?: string  } 
+  | { name: 'size_gt', alias?: string  } 
+  | { name: 'size_gte', alias?: string  } 
+  | { name: 'url', alias?: string  } 
+  | { name: 'url_not', alias?: string  } 
+  | { name: 'url_in', alias?: string  } 
+  | { name: 'url_not_in', alias?: string  } 
+  | { name: 'url_lt', alias?: string  } 
+  | { name: 'url_lte', alias?: string  } 
+  | { name: 'url_gt', alias?: string  } 
+  | { name: 'url_gte', alias?: string  } 
+  | { name: 'url_contains', alias?: string  } 
+  | { name: 'url_not_contains', alias?: string  } 
+  | { name: 'url_starts_with', alias?: string  } 
+  | { name: 'url_not_starts_with', alias?: string  } 
+  | { name: 'url_ends_with', alias?: string  } 
+  | { name: 'url_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  
+export interface MessageWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  msgSvrId?: string | null
+  msgSvrId_not?: string | null
+  msgSvrId_in?: string[]
+  msgSvrId_not_in?: string[]
+  msgSvrId_lt?: string | null
+  msgSvrId_lte?: string | null
+  msgSvrId_gt?: string | null
+  msgSvrId_gte?: string | null
+  msgSvrId_contains?: string | null
+  msgSvrId_not_contains?: string | null
+  msgSvrId_starts_with?: string | null
+  msgSvrId_not_starts_with?: string | null
+  msgSvrId_ends_with?: string | null
+  msgSvrId_not_ends_with?: string | null
+  isSend?: number | null
+  isSend_not?: number | null
+  isSend_in?: number[]
+  isSend_not_in?: number[]
+  isSend_lt?: number | null
+  isSend_lte?: number | null
+  isSend_gt?: number | null
+  isSend_gte?: number | null
+  type?: number | null
+  type_not?: number | null
+  type_in?: number[]
+  type_not_in?: number[]
+  type_lt?: number | null
+  type_lte?: number | null
+  type_gt?: number | null
+  type_gte?: number | null
+  talker?: WeChatUserWhereInput | null
+  createTime?: string | null
+  createTime_not?: string | null
+  createTime_in?: string[]
+  createTime_not_in?: string[]
+  createTime_lt?: string | null
+  createTime_lte?: string | null
+  createTime_gt?: string | null
+  createTime_gte?: string | null
+  chatRoom?: ChatRoomWhereInput | null
+  content?: ContentWhereInput | null
+  AND?: MessageWhereInput[]
+}
+export type MessageWhereInputInputObject =
+  | Extract<keyof MessageWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'msgSvrId', alias?: string  } 
+  | { name: 'msgSvrId_not', alias?: string  } 
+  | { name: 'msgSvrId_in', alias?: string  } 
+  | { name: 'msgSvrId_not_in', alias?: string  } 
+  | { name: 'msgSvrId_lt', alias?: string  } 
+  | { name: 'msgSvrId_lte', alias?: string  } 
+  | { name: 'msgSvrId_gt', alias?: string  } 
+  | { name: 'msgSvrId_gte', alias?: string  } 
+  | { name: 'msgSvrId_contains', alias?: string  } 
+  | { name: 'msgSvrId_not_contains', alias?: string  } 
+  | { name: 'msgSvrId_starts_with', alias?: string  } 
+  | { name: 'msgSvrId_not_starts_with', alias?: string  } 
+  | { name: 'msgSvrId_ends_with', alias?: string  } 
+  | { name: 'msgSvrId_not_ends_with', alias?: string  } 
+  | { name: 'isSend', alias?: string  } 
+  | { name: 'isSend_not', alias?: string  } 
+  | { name: 'isSend_in', alias?: string  } 
+  | { name: 'isSend_not_in', alias?: string  } 
+  | { name: 'isSend_lt', alias?: string  } 
+  | { name: 'isSend_lte', alias?: string  } 
+  | { name: 'isSend_gt', alias?: string  } 
+  | { name: 'isSend_gte', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'type_lt', alias?: string  } 
+  | { name: 'type_lte', alias?: string  } 
+  | { name: 'type_gt', alias?: string  } 
+  | { name: 'type_gte', alias?: string  } 
+  | { name: 'talker', alias?: string  } 
+  | { name: 'createTime', alias?: string  } 
+  | { name: 'createTime_not', alias?: string  } 
+  | { name: 'createTime_in', alias?: string  } 
+  | { name: 'createTime_not_in', alias?: string  } 
+  | { name: 'createTime_lt', alias?: string  } 
+  | { name: 'createTime_lte', alias?: string  } 
+  | { name: 'createTime_gt', alias?: string  } 
+  | { name: 'createTime_gte', alias?: string  } 
   | { name: 'chatRoom', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   
 export interface ChatRoomWhereInput {
@@ -7702,123 +8783,6 @@ export type ChatRoomWhereInputInputObject =
   | { name: 'message_some', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   
-export interface MessageWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  msgSvrId?: string | null
-  msgSvrId_not?: string | null
-  msgSvrId_in?: string[]
-  msgSvrId_not_in?: string[]
-  msgSvrId_lt?: string | null
-  msgSvrId_lte?: string | null
-  msgSvrId_gt?: string | null
-  msgSvrId_gte?: string | null
-  msgSvrId_contains?: string | null
-  msgSvrId_not_contains?: string | null
-  msgSvrId_starts_with?: string | null
-  msgSvrId_not_starts_with?: string | null
-  msgSvrId_ends_with?: string | null
-  msgSvrId_not_ends_with?: string | null
-  isSend?: number | null
-  isSend_not?: number | null
-  isSend_in?: number[]
-  isSend_not_in?: number[]
-  isSend_lt?: number | null
-  isSend_lte?: number | null
-  isSend_gt?: number | null
-  isSend_gte?: number | null
-  type?: number | null
-  type_not?: number | null
-  type_in?: number[]
-  type_not_in?: number[]
-  type_lt?: number | null
-  type_lte?: number | null
-  type_gt?: number | null
-  type_gte?: number | null
-  talker?: WeChatUserWhereInput | null
-  createTime?: string | null
-  createTime_not?: string | null
-  createTime_in?: string[]
-  createTime_not_in?: string[]
-  createTime_lt?: string | null
-  createTime_lte?: string | null
-  createTime_gt?: string | null
-  createTime_gte?: string | null
-  chatRoom?: ChatRoomWhereInput | null
-  content?: ContentWhereInput | null
-  AND?: MessageWhereInput[]
-}
-export type MessageWhereInputInputObject =
-  | Extract<keyof MessageWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'msgSvrId', alias?: string  } 
-  | { name: 'msgSvrId_not', alias?: string  } 
-  | { name: 'msgSvrId_in', alias?: string  } 
-  | { name: 'msgSvrId_not_in', alias?: string  } 
-  | { name: 'msgSvrId_lt', alias?: string  } 
-  | { name: 'msgSvrId_lte', alias?: string  } 
-  | { name: 'msgSvrId_gt', alias?: string  } 
-  | { name: 'msgSvrId_gte', alias?: string  } 
-  | { name: 'msgSvrId_contains', alias?: string  } 
-  | { name: 'msgSvrId_not_contains', alias?: string  } 
-  | { name: 'msgSvrId_starts_with', alias?: string  } 
-  | { name: 'msgSvrId_not_starts_with', alias?: string  } 
-  | { name: 'msgSvrId_ends_with', alias?: string  } 
-  | { name: 'msgSvrId_not_ends_with', alias?: string  } 
-  | { name: 'isSend', alias?: string  } 
-  | { name: 'isSend_not', alias?: string  } 
-  | { name: 'isSend_in', alias?: string  } 
-  | { name: 'isSend_not_in', alias?: string  } 
-  | { name: 'isSend_lt', alias?: string  } 
-  | { name: 'isSend_lte', alias?: string  } 
-  | { name: 'isSend_gt', alias?: string  } 
-  | { name: 'isSend_gte', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'type_not', alias?: string  } 
-  | { name: 'type_in', alias?: string  } 
-  | { name: 'type_not_in', alias?: string  } 
-  | { name: 'type_lt', alias?: string  } 
-  | { name: 'type_lte', alias?: string  } 
-  | { name: 'type_gt', alias?: string  } 
-  | { name: 'type_gte', alias?: string  } 
-  | { name: 'talker', alias?: string  } 
-  | { name: 'createTime', alias?: string  } 
-  | { name: 'createTime_not', alias?: string  } 
-  | { name: 'createTime_in', alias?: string  } 
-  | { name: 'createTime_not_in', alias?: string  } 
-  | { name: 'createTime_lt', alias?: string  } 
-  | { name: 'createTime_lte', alias?: string  } 
-  | { name: 'createTime_gt', alias?: string  } 
-  | { name: 'createTime_gte', alias?: string  } 
-  | { name: 'chatRoom', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  
 export interface ContentWhereInput {
   id?: string | null
   id_not?: string | null
@@ -7946,34 +8910,8 @@ export interface ImageWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  thumbnailImg?: string | null
-  thumbnailImg_not?: string | null
-  thumbnailImg_in?: string[]
-  thumbnailImg_not_in?: string[]
-  thumbnailImg_lt?: string | null
-  thumbnailImg_lte?: string | null
-  thumbnailImg_gt?: string | null
-  thumbnailImg_gte?: string | null
-  thumbnailImg_contains?: string | null
-  thumbnailImg_not_contains?: string | null
-  thumbnailImg_starts_with?: string | null
-  thumbnailImg_not_starts_with?: string | null
-  thumbnailImg_ends_with?: string | null
-  thumbnailImg_not_ends_with?: string | null
-  bigImg?: string | null
-  bigImg_not?: string | null
-  bigImg_in?: string[]
-  bigImg_not_in?: string[]
-  bigImg_lt?: string | null
-  bigImg_lte?: string | null
-  bigImg_gt?: string | null
-  bigImg_gte?: string | null
-  bigImg_contains?: string | null
-  bigImg_not_contains?: string | null
-  bigImg_starts_with?: string | null
-  bigImg_not_starts_with?: string | null
-  bigImg_ends_with?: string | null
-  bigImg_not_ends_with?: string | null
+  thumbnailImg?: FileIndexWhereInput | null
+  bigImg?: FileIndexWhereInput | null
   content?: ContentWhereInput | null
   AND?: ImageWhereInput[]
 }
@@ -7994,33 +8932,7 @@ export type ImageWhereInputInputObject =
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'thumbnailImg_not', alias?: string  } 
-  | { name: 'thumbnailImg_in', alias?: string  } 
-  | { name: 'thumbnailImg_not_in', alias?: string  } 
-  | { name: 'thumbnailImg_lt', alias?: string  } 
-  | { name: 'thumbnailImg_lte', alias?: string  } 
-  | { name: 'thumbnailImg_gt', alias?: string  } 
-  | { name: 'thumbnailImg_gte', alias?: string  } 
-  | { name: 'thumbnailImg_contains', alias?: string  } 
-  | { name: 'thumbnailImg_not_contains', alias?: string  } 
-  | { name: 'thumbnailImg_starts_with', alias?: string  } 
-  | { name: 'thumbnailImg_not_starts_with', alias?: string  } 
-  | { name: 'thumbnailImg_ends_with', alias?: string  } 
-  | { name: 'thumbnailImg_not_ends_with', alias?: string  } 
   | { name: 'bigImg', alias?: string  } 
-  | { name: 'bigImg_not', alias?: string  } 
-  | { name: 'bigImg_in', alias?: string  } 
-  | { name: 'bigImg_not_in', alias?: string  } 
-  | { name: 'bigImg_lt', alias?: string  } 
-  | { name: 'bigImg_lte', alias?: string  } 
-  | { name: 'bigImg_gt', alias?: string  } 
-  | { name: 'bigImg_gte', alias?: string  } 
-  | { name: 'bigImg_contains', alias?: string  } 
-  | { name: 'bigImg_not_contains', alias?: string  } 
-  | { name: 'bigImg_starts_with', alias?: string  } 
-  | { name: 'bigImg_not_starts_with', alias?: string  } 
-  | { name: 'bigImg_ends_with', alias?: string  } 
-  | { name: 'bigImg_not_ends_with', alias?: string  } 
   | { name: 'content', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   
@@ -8039,20 +8951,7 @@ export interface VoiceWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  fileName?: string | null
-  fileName_not?: string | null
-  fileName_in?: string[]
-  fileName_not_in?: string[]
-  fileName_lt?: string | null
-  fileName_lte?: string | null
-  fileName_gt?: string | null
-  fileName_gte?: string | null
-  fileName_contains?: string | null
-  fileName_not_contains?: string | null
-  fileName_starts_with?: string | null
-  fileName_not_starts_with?: string | null
-  fileName_ends_with?: string | null
-  fileName_not_ends_with?: string | null
+  fileName?: FileIndexWhereInput | null
   voiceLength?: number | null
   voiceLength_not?: number | null
   voiceLength_in?: number[]
@@ -8081,19 +8980,6 @@ export type VoiceWhereInputInputObject =
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'fileName', alias?: string  } 
-  | { name: 'fileName_not', alias?: string  } 
-  | { name: 'fileName_in', alias?: string  } 
-  | { name: 'fileName_not_in', alias?: string  } 
-  | { name: 'fileName_lt', alias?: string  } 
-  | { name: 'fileName_lte', alias?: string  } 
-  | { name: 'fileName_gt', alias?: string  } 
-  | { name: 'fileName_gte', alias?: string  } 
-  | { name: 'fileName_contains', alias?: string  } 
-  | { name: 'fileName_not_contains', alias?: string  } 
-  | { name: 'fileName_starts_with', alias?: string  } 
-  | { name: 'fileName_not_starts_with', alias?: string  } 
-  | { name: 'fileName_ends_with', alias?: string  } 
-  | { name: 'fileName_not_ends_with', alias?: string  } 
   | { name: 'voiceLength', alias?: string  } 
   | { name: 'voiceLength_not', alias?: string  } 
   | { name: 'voiceLength_in', alias?: string  } 
@@ -8120,34 +9006,8 @@ export interface VideoWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  fileName?: string | null
-  fileName_not?: string | null
-  fileName_in?: string[]
-  fileName_not_in?: string[]
-  fileName_lt?: string | null
-  fileName_lte?: string | null
-  fileName_gt?: string | null
-  fileName_gte?: string | null
-  fileName_contains?: string | null
-  fileName_not_contains?: string | null
-  fileName_starts_with?: string | null
-  fileName_not_starts_with?: string | null
-  fileName_ends_with?: string | null
-  fileName_not_ends_with?: string | null
-  thumbnailImg?: string | null
-  thumbnailImg_not?: string | null
-  thumbnailImg_in?: string[]
-  thumbnailImg_not_in?: string[]
-  thumbnailImg_lt?: string | null
-  thumbnailImg_lte?: string | null
-  thumbnailImg_gt?: string | null
-  thumbnailImg_gte?: string | null
-  thumbnailImg_contains?: string | null
-  thumbnailImg_not_contains?: string | null
-  thumbnailImg_starts_with?: string | null
-  thumbnailImg_not_starts_with?: string | null
-  thumbnailImg_ends_with?: string | null
-  thumbnailImg_not_ends_with?: string | null
+  fileName?: FileIndexWhereInput | null
+  thumbnailImg?: FileIndexWhereInput | null
   videolength?: number | null
   videolength_not?: number | null
   videolength_in?: number[]
@@ -8176,33 +9036,7 @@ export type VideoWhereInputInputObject =
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'fileName', alias?: string  } 
-  | { name: 'fileName_not', alias?: string  } 
-  | { name: 'fileName_in', alias?: string  } 
-  | { name: 'fileName_not_in', alias?: string  } 
-  | { name: 'fileName_lt', alias?: string  } 
-  | { name: 'fileName_lte', alias?: string  } 
-  | { name: 'fileName_gt', alias?: string  } 
-  | { name: 'fileName_gte', alias?: string  } 
-  | { name: 'fileName_contains', alias?: string  } 
-  | { name: 'fileName_not_contains', alias?: string  } 
-  | { name: 'fileName_starts_with', alias?: string  } 
-  | { name: 'fileName_not_starts_with', alias?: string  } 
-  | { name: 'fileName_ends_with', alias?: string  } 
-  | { name: 'fileName_not_ends_with', alias?: string  } 
   | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'thumbnailImg_not', alias?: string  } 
-  | { name: 'thumbnailImg_in', alias?: string  } 
-  | { name: 'thumbnailImg_not_in', alias?: string  } 
-  | { name: 'thumbnailImg_lt', alias?: string  } 
-  | { name: 'thumbnailImg_lte', alias?: string  } 
-  | { name: 'thumbnailImg_gt', alias?: string  } 
-  | { name: 'thumbnailImg_gte', alias?: string  } 
-  | { name: 'thumbnailImg_contains', alias?: string  } 
-  | { name: 'thumbnailImg_not_contains', alias?: string  } 
-  | { name: 'thumbnailImg_starts_with', alias?: string  } 
-  | { name: 'thumbnailImg_not_starts_with', alias?: string  } 
-  | { name: 'thumbnailImg_ends_with', alias?: string  } 
-  | { name: 'thumbnailImg_not_ends_with', alias?: string  } 
   | { name: 'videolength', alias?: string  } 
   | { name: 'videolength_not', alias?: string  } 
   | { name: 'videolength_in', alias?: string  } 
@@ -8229,20 +9063,7 @@ export interface FileWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  fileName?: string | null
-  fileName_not?: string | null
-  fileName_in?: string[]
-  fileName_not_in?: string[]
-  fileName_lt?: string | null
-  fileName_lte?: string | null
-  fileName_gt?: string | null
-  fileName_gte?: string | null
-  fileName_contains?: string | null
-  fileName_not_contains?: string | null
-  fileName_starts_with?: string | null
-  fileName_not_starts_with?: string | null
-  fileName_ends_with?: string | null
-  fileName_not_ends_with?: string | null
+  fileName?: FileIndexWhereInput | null
   size?: number | null
   size_not?: number | null
   size_in?: number[]
@@ -8271,19 +9092,6 @@ export type FileWhereInputInputObject =
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'fileName', alias?: string  } 
-  | { name: 'fileName_not', alias?: string  } 
-  | { name: 'fileName_in', alias?: string  } 
-  | { name: 'fileName_not_in', alias?: string  } 
-  | { name: 'fileName_lt', alias?: string  } 
-  | { name: 'fileName_lte', alias?: string  } 
-  | { name: 'fileName_gt', alias?: string  } 
-  | { name: 'fileName_gte', alias?: string  } 
-  | { name: 'fileName_contains', alias?: string  } 
-  | { name: 'fileName_not_contains', alias?: string  } 
-  | { name: 'fileName_starts_with', alias?: string  } 
-  | { name: 'fileName_not_starts_with', alias?: string  } 
-  | { name: 'fileName_ends_with', alias?: string  } 
-  | { name: 'fileName_not_ends_with', alias?: string  } 
   | { name: 'size', alias?: string  } 
   | { name: 'size_not', alias?: string  } 
   | { name: 'size_in', alias?: string  } 
@@ -8397,6 +9205,143 @@ export type ContactWhereInputInputObject =
   | { name: 'weChatUser_some', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   
+export interface UserWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  password?: string | null
+  password_not?: string | null
+  password_in?: string[]
+  password_not_in?: string[]
+  password_lt?: string | null
+  password_lte?: string | null
+  password_gt?: string | null
+  password_gte?: string | null
+  password_contains?: string | null
+  password_not_contains?: string | null
+  password_starts_with?: string | null
+  password_not_starts_with?: string | null
+  password_ends_with?: string | null
+  password_not_ends_with?: string | null
+  weChat_some?: WeChatWhereInput | null
+  AND?: UserWhereInput[]
+}
+export type UserWhereInputInputObject =
+  | Extract<keyof UserWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'password_not', alias?: string  } 
+  | { name: 'password_in', alias?: string  } 
+  | { name: 'password_not_in', alias?: string  } 
+  | { name: 'password_lt', alias?: string  } 
+  | { name: 'password_lte', alias?: string  } 
+  | { name: 'password_gt', alias?: string  } 
+  | { name: 'password_gte', alias?: string  } 
+  | { name: 'password_contains', alias?: string  } 
+  | { name: 'password_not_contains', alias?: string  } 
+  | { name: 'password_starts_with', alias?: string  } 
+  | { name: 'password_not_starts_with', alias?: string  } 
+  | { name: 'password_ends_with', alias?: string  } 
+  | { name: 'password_not_ends_with', alias?: string  } 
+  | { name: 'weChat_some', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  
+export interface WeChatWhereUniqueInput {
+  id?: string | null
+}
+export type WeChatWhereUniqueInputInputObject =
+  | Extract<keyof WeChatWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface WeChatUserWhereUniqueInput {
+  id?: string | null
+  username?: string | null
+}
+export type WeChatUserWhereUniqueInputInputObject =
+  | Extract<keyof WeChatUserWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  
 export interface ChatRoomWhereUniqueInput {
   id?: string | null
   userName?: string | null
@@ -8476,45 +9421,65 @@ export type AppWhereUniqueInputInputObject =
   | Extract<keyof AppWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
+export interface FileIndexWhereUniqueInput {
+  id?: string | null
+  fileName?: string | null
+}
+export type FileIndexWhereUniqueInputInputObject =
+  | Extract<keyof FileIndexWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'fileName', alias?: string  } 
+  
 export interface UserCreateInput {
   email?: string
   name?: string
   password?: string
+  weChat?: WeChatCreateManyInput | null
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'password', alias?: string  } 
+  | { name: 'weChat', alias?: string  } 
   
-export interface UserUpdateInput {
-  email?: string | null
-  name?: string | null
-  password?: string | null
+export interface WeChatCreateManyInput {
+  create?: WeChatCreateInput[]
+  connect?: WeChatWhereUniqueInput[]
 }
-export type UserUpdateInputInputObject =
-  | Extract<keyof UserUpdateInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'password', alias?: string  } 
+export type WeChatCreateManyInputInputObject =
+  | Extract<keyof WeChatCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
   
-export interface UserUpdateManyMutationInput {
-  email?: string | null
-  name?: string | null
-  password?: string | null
+export interface WeChatCreateInput {
+  weChatOwner?: WeChatUserCreateOneInput
+  weChatUsers?: WeChatUserCreateManyInput | null
+  chatRooms?: ChatRoomCreateManyInput | null
+  messages?: MessageCreateManyInput | null
 }
-export type UserUpdateManyMutationInputInputObject =
-  | Extract<keyof UserUpdateManyMutationInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'password', alias?: string  } 
+export type WeChatCreateInputInputObject =
+  | Extract<keyof WeChatCreateInput, string>
+  | { name: 'weChatOwner', alias?: string  } 
+  | { name: 'weChatUsers', alias?: string  } 
+  | { name: 'chatRooms', alias?: string  } 
+  | { name: 'messages', alias?: string  } 
+  
+export interface WeChatUserCreateOneInput {
+  create?: WeChatUserCreateInput | null
+  connect?: WeChatUserWhereUniqueInput | null
+}
+export type WeChatUserCreateOneInputInputObject =
+  | Extract<keyof WeChatUserCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
   
 export interface WeChatUserCreateInput {
   username?: string
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
-  avatar?: AvatarCreateOneWithoutWeChatUserInput | null
+  avatar?: AvatarCreateOneInput | null
   message?: MessageCreateManyWithoutTalkerInput | null
   haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput | null
@@ -8532,83 +9497,45 @@ export type WeChatUserCreateInputInputObject =
   | { name: 'joinChatRoom', alias?: string  } 
   | { name: 'contact', alias?: string  } 
   
-export interface AvatarCreateOneWithoutWeChatUserInput {
-  create?: AvatarCreateWithoutWeChatUserInput | null
+export interface AvatarCreateOneInput {
+  create?: AvatarCreateInput | null
   connect?: AvatarWhereUniqueInput | null
 }
-export type AvatarCreateOneWithoutWeChatUserInputInputObject =
-  | Extract<keyof AvatarCreateOneWithoutWeChatUserInput, string>
+export type AvatarCreateOneInputInputObject =
+  | Extract<keyof AvatarCreateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface AvatarCreateWithoutWeChatUserInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-  chatRoom?: ChatRoomCreateOneWithoutAvatarInput | null
+export interface AvatarCreateInput {
+  thumbnailImg?: FileIndexCreateOneInput | null
+  bigImg?: FileIndexCreateOneInput | null
 }
-export type AvatarCreateWithoutWeChatUserInputInputObject =
-  | Extract<keyof AvatarCreateWithoutWeChatUserInput, string>
+export type AvatarCreateInputInputObject =
+  | Extract<keyof AvatarCreateInput, string>
   | { name: 'thumbnailImg', alias?: string  } 
   | { name: 'bigImg', alias?: string  } 
-  | { name: 'chatRoom', alias?: string  } 
   
-export interface ChatRoomCreateOneWithoutAvatarInput {
-  create?: ChatRoomCreateWithoutAvatarInput | null
-  connect?: ChatRoomWhereUniqueInput | null
+export interface FileIndexCreateOneInput {
+  create?: FileIndexCreateInput | null
+  connect?: FileIndexWhereUniqueInput | null
 }
-export type ChatRoomCreateOneWithoutAvatarInputInputObject =
-  | Extract<keyof ChatRoomCreateOneWithoutAvatarInput, string>
+export type FileIndexCreateOneInputInputObject =
+  | Extract<keyof FileIndexCreateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ChatRoomCreateWithoutAvatarInput {
-  userName?: string
-  nickName?: string | null
-  displayName?: string
-  owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
-  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
-  modifyTime?: string | null
-  message?: MessageCreateManyWithoutChatRoomInput | null
+export interface FileIndexCreateInput {
+  fileName?: string
+  mimetype?: string
+  size?: number
+  url?: string | null
 }
-export type ChatRoomCreateWithoutAvatarInputInputObject =
-  | Extract<keyof ChatRoomCreateWithoutAvatarInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'displayName', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'memberList', alias?: string  } 
-  | { name: 'modifyTime', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  
-export interface WeChatUserCreateOneWithoutHaveChatRoomInput {
-  create?: WeChatUserCreateWithoutHaveChatRoomInput | null
-  connect?: WeChatUserWhereUniqueInput | null
-}
-export type WeChatUserCreateOneWithoutHaveChatRoomInputInputObject =
-  | Extract<keyof WeChatUserCreateOneWithoutHaveChatRoomInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface WeChatUserCreateWithoutHaveChatRoomInput {
-  username?: string
-  alias?: string | null
-  conRemark?: string | null
-  nickname?: string | null
-  avatar?: AvatarCreateOneWithoutWeChatUserInput | null
-  message?: MessageCreateManyWithoutTalkerInput | null
-  joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput | null
-  contact?: ContactCreateOneWithoutWeChatUserInput | null
-}
-export type WeChatUserCreateWithoutHaveChatRoomInputInputObject =
-  | Extract<keyof WeChatUserCreateWithoutHaveChatRoomInput, string>
-  | { name: 'username', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'conRemark', alias?: string  } 
-  | { name: 'nickname', alias?: string  } 
-  | { name: 'avatar', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  | { name: 'joinChatRoom', alias?: string  } 
-  | { name: 'contact', alias?: string  } 
+export type FileIndexCreateInputInputObject =
+  | Extract<keyof FileIndexCreateInput, string>
+  | { name: 'fileName', alias?: string  } 
+  | { name: 'mimetype', alias?: string  } 
+  | { name: 'size', alias?: string  } 
+  | { name: 'url', alias?: string  } 
   
 export interface MessageCreateManyWithoutTalkerInput {
   create?: MessageCreateWithoutTalkerInput[]
@@ -8652,7 +9579,7 @@ export interface ChatRoomCreateWithoutMessageInput {
   owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
   memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
   modifyTime?: string | null
-  avatar?: AvatarCreateOneWithoutChatRoomInput | null
+  avatar?: AvatarCreateOneInput | null
 }
 export type ChatRoomCreateWithoutMessageInputInputObject =
   | Extract<keyof ChatRoomCreateWithoutMessageInput, string>
@@ -8664,111 +9591,33 @@ export type ChatRoomCreateWithoutMessageInputInputObject =
   | { name: 'modifyTime', alias?: string  } 
   | { name: 'avatar', alias?: string  } 
   
-export interface WeChatUserCreateManyWithoutJoinChatRoomInput {
-  create?: WeChatUserCreateWithoutJoinChatRoomInput[]
-  connect?: WeChatUserWhereUniqueInput[]
-}
-export type WeChatUserCreateManyWithoutJoinChatRoomInputInputObject =
-  | Extract<keyof WeChatUserCreateManyWithoutJoinChatRoomInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface WeChatUserCreateWithoutJoinChatRoomInput {
-  username?: string
-  alias?: string | null
-  conRemark?: string | null
-  nickname?: string | null
-  avatar?: AvatarCreateOneWithoutWeChatUserInput | null
-  message?: MessageCreateManyWithoutTalkerInput | null
-  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput | null
-  contact?: ContactCreateOneWithoutWeChatUserInput | null
-}
-export type WeChatUserCreateWithoutJoinChatRoomInputInputObject =
-  | Extract<keyof WeChatUserCreateWithoutJoinChatRoomInput, string>
-  | { name: 'username', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'conRemark', alias?: string  } 
-  | { name: 'nickname', alias?: string  } 
-  | { name: 'avatar', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  | { name: 'haveChatRoom', alias?: string  } 
-  | { name: 'contact', alias?: string  } 
-  
-export interface ChatRoomCreateManyWithoutOwnerInput {
-  create?: ChatRoomCreateWithoutOwnerInput[]
-  connect?: ChatRoomWhereUniqueInput[]
-}
-export type ChatRoomCreateManyWithoutOwnerInputInputObject =
-  | Extract<keyof ChatRoomCreateManyWithoutOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ChatRoomCreateWithoutOwnerInput {
-  userName?: string
-  nickName?: string | null
-  displayName?: string
-  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
-  modifyTime?: string | null
-  avatar?: AvatarCreateOneWithoutChatRoomInput | null
-  message?: MessageCreateManyWithoutChatRoomInput | null
-}
-export type ChatRoomCreateWithoutOwnerInputInputObject =
-  | Extract<keyof ChatRoomCreateWithoutOwnerInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'displayName', alias?: string  } 
-  | { name: 'memberList', alias?: string  } 
-  | { name: 'modifyTime', alias?: string  } 
-  | { name: 'avatar', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  
-export interface AvatarCreateOneWithoutChatRoomInput {
-  create?: AvatarCreateWithoutChatRoomInput | null
-  connect?: AvatarWhereUniqueInput | null
-}
-export type AvatarCreateOneWithoutChatRoomInputInputObject =
-  | Extract<keyof AvatarCreateOneWithoutChatRoomInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface AvatarCreateWithoutChatRoomInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-  weChatUser?: WeChatUserCreateOneWithoutAvatarInput | null
-}
-export type AvatarCreateWithoutChatRoomInputInputObject =
-  | Extract<keyof AvatarCreateWithoutChatRoomInput, string>
-  | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'bigImg', alias?: string  } 
-  | { name: 'weChatUser', alias?: string  } 
-  
-export interface WeChatUserCreateOneWithoutAvatarInput {
-  create?: WeChatUserCreateWithoutAvatarInput | null
+export interface WeChatUserCreateOneWithoutHaveChatRoomInput {
+  create?: WeChatUserCreateWithoutHaveChatRoomInput | null
   connect?: WeChatUserWhereUniqueInput | null
 }
-export type WeChatUserCreateOneWithoutAvatarInputInputObject =
-  | Extract<keyof WeChatUserCreateOneWithoutAvatarInput, string>
+export type WeChatUserCreateOneWithoutHaveChatRoomInputInputObject =
+  | Extract<keyof WeChatUserCreateOneWithoutHaveChatRoomInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface WeChatUserCreateWithoutAvatarInput {
+export interface WeChatUserCreateWithoutHaveChatRoomInput {
   username?: string
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
+  avatar?: AvatarCreateOneInput | null
   message?: MessageCreateManyWithoutTalkerInput | null
-  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput | null
   contact?: ContactCreateOneWithoutWeChatUserInput | null
 }
-export type WeChatUserCreateWithoutAvatarInputInputObject =
-  | Extract<keyof WeChatUserCreateWithoutAvatarInput, string>
+export type WeChatUserCreateWithoutHaveChatRoomInputInputObject =
+  | Extract<keyof WeChatUserCreateWithoutHaveChatRoomInput, string>
   | { name: 'username', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'conRemark', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
   | { name: 'message', alias?: string  } 
-  | { name: 'haveChatRoom', alias?: string  } 
   | { name: 'joinChatRoom', alias?: string  } 
   | { name: 'contact', alias?: string  } 
   
@@ -8787,7 +9636,7 @@ export interface ChatRoomCreateWithoutMemberListInput {
   displayName?: string
   owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
   modifyTime?: string | null
-  avatar?: AvatarCreateOneWithoutChatRoomInput | null
+  avatar?: AvatarCreateOneInput | null
   message?: MessageCreateManyWithoutChatRoomInput | null
 }
 export type ChatRoomCreateWithoutMemberListInputInputObject =
@@ -8840,7 +9689,7 @@ export interface WeChatUserCreateWithoutMessageInput {
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
-  avatar?: AvatarCreateOneWithoutWeChatUserInput | null
+  avatar?: AvatarCreateOneInput | null
   haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput | null
   contact?: ContactCreateOneWithoutWeChatUserInput | null
@@ -8854,6 +9703,64 @@ export type WeChatUserCreateWithoutMessageInputInputObject =
   | { name: 'avatar', alias?: string  } 
   | { name: 'haveChatRoom', alias?: string  } 
   | { name: 'joinChatRoom', alias?: string  } 
+  | { name: 'contact', alias?: string  } 
+  
+export interface ChatRoomCreateManyWithoutOwnerInput {
+  create?: ChatRoomCreateWithoutOwnerInput[]
+  connect?: ChatRoomWhereUniqueInput[]
+}
+export type ChatRoomCreateManyWithoutOwnerInputInputObject =
+  | Extract<keyof ChatRoomCreateManyWithoutOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ChatRoomCreateWithoutOwnerInput {
+  userName?: string
+  nickName?: string | null
+  displayName?: string
+  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
+  modifyTime?: string | null
+  avatar?: AvatarCreateOneInput | null
+  message?: MessageCreateManyWithoutChatRoomInput | null
+}
+export type ChatRoomCreateWithoutOwnerInputInputObject =
+  | Extract<keyof ChatRoomCreateWithoutOwnerInput, string>
+  | { name: 'userName', alias?: string  } 
+  | { name: 'nickName', alias?: string  } 
+  | { name: 'displayName', alias?: string  } 
+  | { name: 'memberList', alias?: string  } 
+  | { name: 'modifyTime', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
+  | { name: 'message', alias?: string  } 
+  
+export interface WeChatUserCreateManyWithoutJoinChatRoomInput {
+  create?: WeChatUserCreateWithoutJoinChatRoomInput[]
+  connect?: WeChatUserWhereUniqueInput[]
+}
+export type WeChatUserCreateManyWithoutJoinChatRoomInputInputObject =
+  | Extract<keyof WeChatUserCreateManyWithoutJoinChatRoomInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface WeChatUserCreateWithoutJoinChatRoomInput {
+  username?: string
+  alias?: string | null
+  conRemark?: string | null
+  nickname?: string | null
+  avatar?: AvatarCreateOneInput | null
+  message?: MessageCreateManyWithoutTalkerInput | null
+  haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput | null
+  contact?: ContactCreateOneWithoutWeChatUserInput | null
+}
+export type WeChatUserCreateWithoutJoinChatRoomInputInputObject =
+  | Extract<keyof WeChatUserCreateWithoutJoinChatRoomInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'conRemark', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
+  | { name: 'message', alias?: string  } 
+  | { name: 'haveChatRoom', alias?: string  } 
   | { name: 'contact', alias?: string  } 
   
 export interface ContactCreateOneWithoutWeChatUserInput {
@@ -8924,8 +9831,8 @@ export type ImageCreateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface ImageCreateWithoutContentInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
+  thumbnailImg?: FileIndexCreateOneInput | null
+  bigImg?: FileIndexCreateOneInput | null
 }
 export type ImageCreateWithoutContentInputInputObject =
   | Extract<keyof ImageCreateWithoutContentInput, string>
@@ -8942,7 +9849,7 @@ export type VoiceCreateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface VoiceCreateWithoutContentInput {
-  fileName?: string
+  fileName?: FileIndexCreateOneInput | null
   voiceLength?: number | null
 }
 export type VoiceCreateWithoutContentInputInputObject =
@@ -8960,8 +9867,8 @@ export type VideoCreateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface VideoCreateWithoutContentInput {
-  fileName?: string
-  thumbnailImg?: string | null
+  fileName?: FileIndexCreateOneInput | null
+  thumbnailImg?: FileIndexCreateOneInput | null
   videolength?: number | null
 }
 export type VideoCreateWithoutContentInputInputObject =
@@ -8980,7 +9887,7 @@ export type FileCreateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface FileCreateWithoutContentInput {
-  fileName?: string
+  fileName?: FileIndexCreateOneInput | null
   size?: number | null
 }
 export type FileCreateWithoutContentInputInputObject =
@@ -9004,19 +9911,155 @@ export type AppCreateWithoutContentInputInputObject =
   | Extract<keyof AppCreateWithoutContentInput, string>
   | { name: 'xml', alias?: string  } 
   
-export interface WeChatUserUpdateInput {
+export interface WeChatUserCreateManyInput {
+  create?: WeChatUserCreateInput[]
+  connect?: WeChatUserWhereUniqueInput[]
+}
+export type WeChatUserCreateManyInputInputObject =
+  | Extract<keyof WeChatUserCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ChatRoomCreateManyInput {
+  create?: ChatRoomCreateInput[]
+  connect?: ChatRoomWhereUniqueInput[]
+}
+export type ChatRoomCreateManyInputInputObject =
+  | Extract<keyof ChatRoomCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ChatRoomCreateInput {
+  userName?: string
+  nickName?: string | null
+  displayName?: string
+  owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
+  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
+  modifyTime?: string | null
+  avatar?: AvatarCreateOneInput | null
+  message?: MessageCreateManyWithoutChatRoomInput | null
+}
+export type ChatRoomCreateInputInputObject =
+  | Extract<keyof ChatRoomCreateInput, string>
+  | { name: 'userName', alias?: string  } 
+  | { name: 'nickName', alias?: string  } 
+  | { name: 'displayName', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'memberList', alias?: string  } 
+  | { name: 'modifyTime', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
+  | { name: 'message', alias?: string  } 
+  
+export interface MessageCreateManyInput {
+  create?: MessageCreateInput[]
+  connect?: MessageWhereUniqueInput[]
+}
+export type MessageCreateManyInputInputObject =
+  | Extract<keyof MessageCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface MessageCreateInput {
+  msgSvrId?: string | null
+  isSend?: number | null
+  type?: number | null
+  talker?: WeChatUserCreateOneWithoutMessageInput
+  createTime?: string | null
+  chatRoom?: ChatRoomCreateOneWithoutMessageInput | null
+  content?: ContentCreateOneInput | null
+}
+export type MessageCreateInputInputObject =
+  | Extract<keyof MessageCreateInput, string>
+  | { name: 'msgSvrId', alias?: string  } 
+  | { name: 'isSend', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'talker', alias?: string  } 
+  | { name: 'createTime', alias?: string  } 
+  | { name: 'chatRoom', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  
+export interface UserUpdateInput {
+  email?: string | null
+  name?: string | null
+  password?: string | null
+  weChat?: WeChatUpdateManyInput | null
+}
+export type UserUpdateInputInputObject =
+  | Extract<keyof UserUpdateInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'weChat', alias?: string  } 
+  
+export interface WeChatUpdateManyInput {
+  create?: WeChatCreateInput[]
+  update?: WeChatUpdateWithWhereUniqueNestedInput[]
+  upsert?: WeChatUpsertWithWhereUniqueNestedInput[]
+  delete?: WeChatWhereUniqueInput[]
+  connect?: WeChatWhereUniqueInput[]
+  set?: WeChatWhereUniqueInput[]
+  disconnect?: WeChatWhereUniqueInput[]
+  deleteMany?: WeChatScalarWhereInput[]
+}
+export type WeChatUpdateManyInputInputObject =
+  | Extract<keyof WeChatUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  
+export interface WeChatUpdateWithWhereUniqueNestedInput {
+  where?: WeChatWhereUniqueInput
+  data?: WeChatUpdateDataInput
+}
+export type WeChatUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof WeChatUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface WeChatUpdateDataInput {
+  weChatOwner?: WeChatUserUpdateOneRequiredInput | null
+  weChatUsers?: WeChatUserUpdateManyInput | null
+  chatRooms?: ChatRoomUpdateManyInput | null
+  messages?: MessageUpdateManyInput | null
+}
+export type WeChatUpdateDataInputInputObject =
+  | Extract<keyof WeChatUpdateDataInput, string>
+  | { name: 'weChatOwner', alias?: string  } 
+  | { name: 'weChatUsers', alias?: string  } 
+  | { name: 'chatRooms', alias?: string  } 
+  | { name: 'messages', alias?: string  } 
+  
+export interface WeChatUserUpdateOneRequiredInput {
+  create?: WeChatUserCreateInput | null
+  update?: WeChatUserUpdateDataInput | null
+  upsert?: WeChatUserUpsertNestedInput | null
+  connect?: WeChatUserWhereUniqueInput | null
+}
+export type WeChatUserUpdateOneRequiredInputInputObject =
+  | Extract<keyof WeChatUserUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface WeChatUserUpdateDataInput {
   username?: string | null
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
-  avatar?: AvatarUpdateOneWithoutWeChatUserInput | null
+  avatar?: AvatarUpdateOneInput | null
   message?: MessageUpdateManyWithoutTalkerInput | null
   haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput | null
   contact?: ContactUpdateOneWithoutWeChatUserInput | null
 }
-export type WeChatUserUpdateInputInputObject =
-  | Extract<keyof WeChatUserUpdateInput, string>
+export type WeChatUserUpdateDataInputInputObject =
+  | Extract<keyof WeChatUserUpdateDataInput, string>
   | { name: 'username', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'conRemark', alias?: string  } 
@@ -9027,16 +10070,16 @@ export type WeChatUserUpdateInputInputObject =
   | { name: 'joinChatRoom', alias?: string  } 
   | { name: 'contact', alias?: string  } 
   
-export interface AvatarUpdateOneWithoutWeChatUserInput {
-  create?: AvatarCreateWithoutWeChatUserInput | null
-  update?: AvatarUpdateWithoutWeChatUserDataInput | null
-  upsert?: AvatarUpsertWithoutWeChatUserInput | null
+export interface AvatarUpdateOneInput {
+  create?: AvatarCreateInput | null
+  update?: AvatarUpdateDataInput | null
+  upsert?: AvatarUpsertNestedInput | null
   delete?: boolean | null
   disconnect?: boolean | null
   connect?: AvatarWhereUniqueInput | null
 }
-export type AvatarUpdateOneWithoutWeChatUserInputInputObject =
-  | Extract<keyof AvatarUpdateOneWithoutWeChatUserInput, string>
+export type AvatarUpdateOneInputInputObject =
+  | Extract<keyof AvatarUpdateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
@@ -9044,27 +10087,25 @@ export type AvatarUpdateOneWithoutWeChatUserInputInputObject =
   | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface AvatarUpdateWithoutWeChatUserDataInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-  chatRoom?: ChatRoomUpdateOneWithoutAvatarInput | null
+export interface AvatarUpdateDataInput {
+  thumbnailImg?: FileIndexUpdateOneInput | null
+  bigImg?: FileIndexUpdateOneInput | null
 }
-export type AvatarUpdateWithoutWeChatUserDataInputInputObject =
-  | Extract<keyof AvatarUpdateWithoutWeChatUserDataInput, string>
+export type AvatarUpdateDataInputInputObject =
+  | Extract<keyof AvatarUpdateDataInput, string>
   | { name: 'thumbnailImg', alias?: string  } 
   | { name: 'bigImg', alias?: string  } 
-  | { name: 'chatRoom', alias?: string  } 
   
-export interface ChatRoomUpdateOneWithoutAvatarInput {
-  create?: ChatRoomCreateWithoutAvatarInput | null
-  update?: ChatRoomUpdateWithoutAvatarDataInput | null
-  upsert?: ChatRoomUpsertWithoutAvatarInput | null
+export interface FileIndexUpdateOneInput {
+  create?: FileIndexCreateInput | null
+  update?: FileIndexUpdateDataInput | null
+  upsert?: FileIndexUpsertNestedInput | null
   delete?: boolean | null
   disconnect?: boolean | null
-  connect?: ChatRoomWhereUniqueInput | null
+  connect?: FileIndexWhereUniqueInput | null
 }
-export type ChatRoomUpdateOneWithoutAvatarInputInputObject =
-  | Extract<keyof ChatRoomUpdateOneWithoutAvatarInput, string>
+export type FileIndexUpdateOneInputInputObject =
+  | Extract<keyof FileIndexUpdateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
@@ -9072,58 +10113,36 @@ export type ChatRoomUpdateOneWithoutAvatarInputInputObject =
   | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ChatRoomUpdateWithoutAvatarDataInput {
-  userName?: string | null
-  nickName?: string | null
-  displayName?: string | null
-  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
-  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
-  modifyTime?: string | null
-  message?: MessageUpdateManyWithoutChatRoomInput | null
+export interface FileIndexUpdateDataInput {
+  fileName?: string | null
+  mimetype?: string | null
+  size?: number | null
+  url?: string | null
 }
-export type ChatRoomUpdateWithoutAvatarDataInputInputObject =
-  | Extract<keyof ChatRoomUpdateWithoutAvatarDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'displayName', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'memberList', alias?: string  } 
-  | { name: 'modifyTime', alias?: string  } 
-  | { name: 'message', alias?: string  } 
+export type FileIndexUpdateDataInputInputObject =
+  | Extract<keyof FileIndexUpdateDataInput, string>
+  | { name: 'fileName', alias?: string  } 
+  | { name: 'mimetype', alias?: string  } 
+  | { name: 'size', alias?: string  } 
+  | { name: 'url', alias?: string  } 
   
-export interface WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput {
-  create?: WeChatUserCreateWithoutHaveChatRoomInput | null
-  update?: WeChatUserUpdateWithoutHaveChatRoomDataInput | null
-  upsert?: WeChatUserUpsertWithoutHaveChatRoomInput | null
-  connect?: WeChatUserWhereUniqueInput | null
+export interface FileIndexUpsertNestedInput {
+  update?: FileIndexUpdateDataInput
+  create?: FileIndexCreateInput
 }
-export type WeChatUserUpdateOneRequiredWithoutHaveChatRoomInputInputObject =
-  | Extract<keyof WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput, string>
-  | { name: 'create', alias?: string  } 
+export type FileIndexUpsertNestedInputInputObject =
+  | Extract<keyof FileIndexUpsertNestedInput, string>
   | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
-export interface WeChatUserUpdateWithoutHaveChatRoomDataInput {
-  username?: string | null
-  alias?: string | null
-  conRemark?: string | null
-  nickname?: string | null
-  avatar?: AvatarUpdateOneWithoutWeChatUserInput | null
-  message?: MessageUpdateManyWithoutTalkerInput | null
-  joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput | null
-  contact?: ContactUpdateOneWithoutWeChatUserInput | null
+export interface AvatarUpsertNestedInput {
+  update?: AvatarUpdateDataInput
+  create?: AvatarCreateInput
 }
-export type WeChatUserUpdateWithoutHaveChatRoomDataInputInputObject =
-  | Extract<keyof WeChatUserUpdateWithoutHaveChatRoomDataInput, string>
-  | { name: 'username', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'conRemark', alias?: string  } 
-  | { name: 'nickname', alias?: string  } 
-  | { name: 'avatar', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  | { name: 'joinChatRoom', alias?: string  } 
-  | { name: 'contact', alias?: string  } 
+export type AvatarUpsertNestedInputInputObject =
+  | Extract<keyof AvatarUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface MessageUpdateManyWithoutTalkerInput {
   create?: MessageCreateWithoutTalkerInput[]
@@ -9198,7 +10217,7 @@ export interface ChatRoomUpdateWithoutMessageDataInput {
   owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
   modifyTime?: string | null
-  avatar?: AvatarUpdateOneWithoutChatRoomInput | null
+  avatar?: AvatarUpdateOneInput | null
 }
 export type ChatRoomUpdateWithoutMessageDataInputInputObject =
   | Extract<keyof ChatRoomUpdateWithoutMessageDataInput, string>
@@ -9210,173 +10229,37 @@ export type ChatRoomUpdateWithoutMessageDataInputInputObject =
   | { name: 'modifyTime', alias?: string  } 
   | { name: 'avatar', alias?: string  } 
   
-export interface WeChatUserUpdateManyWithoutJoinChatRoomInput {
-  create?: WeChatUserCreateWithoutJoinChatRoomInput[]
-  delete?: WeChatUserWhereUniqueInput[]
-  connect?: WeChatUserWhereUniqueInput[]
-  set?: WeChatUserWhereUniqueInput[]
-  disconnect?: WeChatUserWhereUniqueInput[]
-  update?: WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput[]
-  upsert?: WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput[]
-  deleteMany?: WeChatUserScalarWhereInput[]
-  updateMany?: WeChatUserUpdateManyWithWhereNestedInput[]
-}
-export type WeChatUserUpdateManyWithoutJoinChatRoomInputInputObject =
-  | Extract<keyof WeChatUserUpdateManyWithoutJoinChatRoomInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput {
-  where?: WeChatUserWhereUniqueInput
-  data?: WeChatUserUpdateWithoutJoinChatRoomDataInput
-}
-export type WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInputInputObject =
-  | Extract<keyof WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface WeChatUserUpdateWithoutJoinChatRoomDataInput {
-  username?: string | null
-  alias?: string | null
-  conRemark?: string | null
-  nickname?: string | null
-  avatar?: AvatarUpdateOneWithoutWeChatUserInput | null
-  message?: MessageUpdateManyWithoutTalkerInput | null
-  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput | null
-  contact?: ContactUpdateOneWithoutWeChatUserInput | null
-}
-export type WeChatUserUpdateWithoutJoinChatRoomDataInputInputObject =
-  | Extract<keyof WeChatUserUpdateWithoutJoinChatRoomDataInput, string>
-  | { name: 'username', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'conRemark', alias?: string  } 
-  | { name: 'nickname', alias?: string  } 
-  | { name: 'avatar', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  | { name: 'haveChatRoom', alias?: string  } 
-  | { name: 'contact', alias?: string  } 
-  
-export interface ChatRoomUpdateManyWithoutOwnerInput {
-  create?: ChatRoomCreateWithoutOwnerInput[]
-  delete?: ChatRoomWhereUniqueInput[]
-  connect?: ChatRoomWhereUniqueInput[]
-  set?: ChatRoomWhereUniqueInput[]
-  disconnect?: ChatRoomWhereUniqueInput[]
-  update?: ChatRoomUpdateWithWhereUniqueWithoutOwnerInput[]
-  upsert?: ChatRoomUpsertWithWhereUniqueWithoutOwnerInput[]
-  deleteMany?: ChatRoomScalarWhereInput[]
-  updateMany?: ChatRoomUpdateManyWithWhereNestedInput[]
-}
-export type ChatRoomUpdateManyWithoutOwnerInputInputObject =
-  | Extract<keyof ChatRoomUpdateManyWithoutOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ChatRoomUpdateWithWhereUniqueWithoutOwnerInput {
-  where?: ChatRoomWhereUniqueInput
-  data?: ChatRoomUpdateWithoutOwnerDataInput
-}
-export type ChatRoomUpdateWithWhereUniqueWithoutOwnerInputInputObject =
-  | Extract<keyof ChatRoomUpdateWithWhereUniqueWithoutOwnerInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ChatRoomUpdateWithoutOwnerDataInput {
-  userName?: string | null
-  nickName?: string | null
-  displayName?: string | null
-  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
-  modifyTime?: string | null
-  avatar?: AvatarUpdateOneWithoutChatRoomInput | null
-  message?: MessageUpdateManyWithoutChatRoomInput | null
-}
-export type ChatRoomUpdateWithoutOwnerDataInputInputObject =
-  | Extract<keyof ChatRoomUpdateWithoutOwnerDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'displayName', alias?: string  } 
-  | { name: 'memberList', alias?: string  } 
-  | { name: 'modifyTime', alias?: string  } 
-  | { name: 'avatar', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  
-export interface AvatarUpdateOneWithoutChatRoomInput {
-  create?: AvatarCreateWithoutChatRoomInput | null
-  update?: AvatarUpdateWithoutChatRoomDataInput | null
-  upsert?: AvatarUpsertWithoutChatRoomInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: AvatarWhereUniqueInput | null
-}
-export type AvatarUpdateOneWithoutChatRoomInputInputObject =
-  | Extract<keyof AvatarUpdateOneWithoutChatRoomInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface AvatarUpdateWithoutChatRoomDataInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-  weChatUser?: WeChatUserUpdateOneWithoutAvatarInput | null
-}
-export type AvatarUpdateWithoutChatRoomDataInputInputObject =
-  | Extract<keyof AvatarUpdateWithoutChatRoomDataInput, string>
-  | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'bigImg', alias?: string  } 
-  | { name: 'weChatUser', alias?: string  } 
-  
-export interface WeChatUserUpdateOneWithoutAvatarInput {
-  create?: WeChatUserCreateWithoutAvatarInput | null
-  update?: WeChatUserUpdateWithoutAvatarDataInput | null
-  upsert?: WeChatUserUpsertWithoutAvatarInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
+export interface WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput {
+  create?: WeChatUserCreateWithoutHaveChatRoomInput | null
+  update?: WeChatUserUpdateWithoutHaveChatRoomDataInput | null
+  upsert?: WeChatUserUpsertWithoutHaveChatRoomInput | null
   connect?: WeChatUserWhereUniqueInput | null
 }
-export type WeChatUserUpdateOneWithoutAvatarInputInputObject =
-  | Extract<keyof WeChatUserUpdateOneWithoutAvatarInput, string>
+export type WeChatUserUpdateOneRequiredWithoutHaveChatRoomInputInputObject =
+  | Extract<keyof WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface WeChatUserUpdateWithoutAvatarDataInput {
+export interface WeChatUserUpdateWithoutHaveChatRoomDataInput {
   username?: string | null
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
+  avatar?: AvatarUpdateOneInput | null
   message?: MessageUpdateManyWithoutTalkerInput | null
-  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput | null
   contact?: ContactUpdateOneWithoutWeChatUserInput | null
 }
-export type WeChatUserUpdateWithoutAvatarDataInputInputObject =
-  | Extract<keyof WeChatUserUpdateWithoutAvatarDataInput, string>
+export type WeChatUserUpdateWithoutHaveChatRoomDataInputInputObject =
+  | Extract<keyof WeChatUserUpdateWithoutHaveChatRoomDataInput, string>
   | { name: 'username', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'conRemark', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
   | { name: 'message', alias?: string  } 
-  | { name: 'haveChatRoom', alias?: string  } 
   | { name: 'joinChatRoom', alias?: string  } 
   | { name: 'contact', alias?: string  } 
   
@@ -9418,7 +10301,7 @@ export interface ChatRoomUpdateWithoutMemberListDataInput {
   displayName?: string | null
   owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
   modifyTime?: string | null
-  avatar?: AvatarUpdateOneWithoutChatRoomInput | null
+  avatar?: AvatarUpdateOneInput | null
   message?: MessageUpdateManyWithoutChatRoomInput | null
 }
 export type ChatRoomUpdateWithoutMemberListDataInputInputObject =
@@ -9498,7 +10381,7 @@ export interface WeChatUserUpdateWithoutMessageDataInput {
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
-  avatar?: AvatarUpdateOneWithoutWeChatUserInput | null
+  avatar?: AvatarUpdateOneInput | null
   haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput | null
   contact?: ContactUpdateOneWithoutWeChatUserInput | null
@@ -9512,6 +10395,110 @@ export type WeChatUserUpdateWithoutMessageDataInputInputObject =
   | { name: 'avatar', alias?: string  } 
   | { name: 'haveChatRoom', alias?: string  } 
   | { name: 'joinChatRoom', alias?: string  } 
+  | { name: 'contact', alias?: string  } 
+  
+export interface ChatRoomUpdateManyWithoutOwnerInput {
+  create?: ChatRoomCreateWithoutOwnerInput[]
+  delete?: ChatRoomWhereUniqueInput[]
+  connect?: ChatRoomWhereUniqueInput[]
+  set?: ChatRoomWhereUniqueInput[]
+  disconnect?: ChatRoomWhereUniqueInput[]
+  update?: ChatRoomUpdateWithWhereUniqueWithoutOwnerInput[]
+  upsert?: ChatRoomUpsertWithWhereUniqueWithoutOwnerInput[]
+  deleteMany?: ChatRoomScalarWhereInput[]
+  updateMany?: ChatRoomUpdateManyWithWhereNestedInput[]
+}
+export type ChatRoomUpdateManyWithoutOwnerInputInputObject =
+  | Extract<keyof ChatRoomUpdateManyWithoutOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ChatRoomUpdateWithWhereUniqueWithoutOwnerInput {
+  where?: ChatRoomWhereUniqueInput
+  data?: ChatRoomUpdateWithoutOwnerDataInput
+}
+export type ChatRoomUpdateWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof ChatRoomUpdateWithWhereUniqueWithoutOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ChatRoomUpdateWithoutOwnerDataInput {
+  userName?: string | null
+  nickName?: string | null
+  displayName?: string | null
+  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
+  modifyTime?: string | null
+  avatar?: AvatarUpdateOneInput | null
+  message?: MessageUpdateManyWithoutChatRoomInput | null
+}
+export type ChatRoomUpdateWithoutOwnerDataInputInputObject =
+  | Extract<keyof ChatRoomUpdateWithoutOwnerDataInput, string>
+  | { name: 'userName', alias?: string  } 
+  | { name: 'nickName', alias?: string  } 
+  | { name: 'displayName', alias?: string  } 
+  | { name: 'memberList', alias?: string  } 
+  | { name: 'modifyTime', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
+  | { name: 'message', alias?: string  } 
+  
+export interface WeChatUserUpdateManyWithoutJoinChatRoomInput {
+  create?: WeChatUserCreateWithoutJoinChatRoomInput[]
+  delete?: WeChatUserWhereUniqueInput[]
+  connect?: WeChatUserWhereUniqueInput[]
+  set?: WeChatUserWhereUniqueInput[]
+  disconnect?: WeChatUserWhereUniqueInput[]
+  update?: WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput[]
+  upsert?: WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput[]
+  deleteMany?: WeChatUserScalarWhereInput[]
+  updateMany?: WeChatUserUpdateManyWithWhereNestedInput[]
+}
+export type WeChatUserUpdateManyWithoutJoinChatRoomInputInputObject =
+  | Extract<keyof WeChatUserUpdateManyWithoutJoinChatRoomInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput {
+  where?: WeChatUserWhereUniqueInput
+  data?: WeChatUserUpdateWithoutJoinChatRoomDataInput
+}
+export type WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInputInputObject =
+  | Extract<keyof WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface WeChatUserUpdateWithoutJoinChatRoomDataInput {
+  username?: string | null
+  alias?: string | null
+  conRemark?: string | null
+  nickname?: string | null
+  avatar?: AvatarUpdateOneInput | null
+  message?: MessageUpdateManyWithoutTalkerInput | null
+  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput | null
+  contact?: ContactUpdateOneWithoutWeChatUserInput | null
+}
+export type WeChatUserUpdateWithoutJoinChatRoomDataInputInputObject =
+  | Extract<keyof WeChatUserUpdateWithoutJoinChatRoomDataInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'conRemark', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
+  | { name: 'message', alias?: string  } 
+  | { name: 'haveChatRoom', alias?: string  } 
   | { name: 'contact', alias?: string  } 
   
 export interface ContactUpdateOneWithoutWeChatUserInput {
@@ -9546,6 +10533,362 @@ export type ContactUpsertWithoutWeChatUserInputInputObject =
   | Extract<keyof ContactUpsertWithoutWeChatUserInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
+  
+export interface WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput {
+  where?: WeChatUserWhereUniqueInput
+  update?: WeChatUserUpdateWithoutJoinChatRoomDataInput
+  create?: WeChatUserCreateWithoutJoinChatRoomInput
+}
+export type WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInputInputObject =
+  | Extract<keyof WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface WeChatUserScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  username?: string | null
+  username_not?: string | null
+  username_in?: string[]
+  username_not_in?: string[]
+  username_lt?: string | null
+  username_lte?: string | null
+  username_gt?: string | null
+  username_gte?: string | null
+  username_contains?: string | null
+  username_not_contains?: string | null
+  username_starts_with?: string | null
+  username_not_starts_with?: string | null
+  username_ends_with?: string | null
+  username_not_ends_with?: string | null
+  alias?: string | null
+  alias_not?: string | null
+  alias_in?: string[]
+  alias_not_in?: string[]
+  alias_lt?: string | null
+  alias_lte?: string | null
+  alias_gt?: string | null
+  alias_gte?: string | null
+  alias_contains?: string | null
+  alias_not_contains?: string | null
+  alias_starts_with?: string | null
+  alias_not_starts_with?: string | null
+  alias_ends_with?: string | null
+  alias_not_ends_with?: string | null
+  conRemark?: string | null
+  conRemark_not?: string | null
+  conRemark_in?: string[]
+  conRemark_not_in?: string[]
+  conRemark_lt?: string | null
+  conRemark_lte?: string | null
+  conRemark_gt?: string | null
+  conRemark_gte?: string | null
+  conRemark_contains?: string | null
+  conRemark_not_contains?: string | null
+  conRemark_starts_with?: string | null
+  conRemark_not_starts_with?: string | null
+  conRemark_ends_with?: string | null
+  conRemark_not_ends_with?: string | null
+  nickname?: string | null
+  nickname_not?: string | null
+  nickname_in?: string[]
+  nickname_not_in?: string[]
+  nickname_lt?: string | null
+  nickname_lte?: string | null
+  nickname_gt?: string | null
+  nickname_gte?: string | null
+  nickname_contains?: string | null
+  nickname_not_contains?: string | null
+  nickname_starts_with?: string | null
+  nickname_not_starts_with?: string | null
+  nickname_ends_with?: string | null
+  nickname_not_ends_with?: string | null
+  AND?: WeChatUserScalarWhereInput[]
+  OR?: WeChatUserScalarWhereInput[]
+  NOT?: WeChatUserScalarWhereInput[]
+}
+export type WeChatUserScalarWhereInputInputObject =
+  | Extract<keyof WeChatUserScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'username_not', alias?: string  } 
+  | { name: 'username_in', alias?: string  } 
+  | { name: 'username_not_in', alias?: string  } 
+  | { name: 'username_lt', alias?: string  } 
+  | { name: 'username_lte', alias?: string  } 
+  | { name: 'username_gt', alias?: string  } 
+  | { name: 'username_gte', alias?: string  } 
+  | { name: 'username_contains', alias?: string  } 
+  | { name: 'username_not_contains', alias?: string  } 
+  | { name: 'username_starts_with', alias?: string  } 
+  | { name: 'username_not_starts_with', alias?: string  } 
+  | { name: 'username_ends_with', alias?: string  } 
+  | { name: 'username_not_ends_with', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'alias_not', alias?: string  } 
+  | { name: 'alias_in', alias?: string  } 
+  | { name: 'alias_not_in', alias?: string  } 
+  | { name: 'alias_lt', alias?: string  } 
+  | { name: 'alias_lte', alias?: string  } 
+  | { name: 'alias_gt', alias?: string  } 
+  | { name: 'alias_gte', alias?: string  } 
+  | { name: 'alias_contains', alias?: string  } 
+  | { name: 'alias_not_contains', alias?: string  } 
+  | { name: 'alias_starts_with', alias?: string  } 
+  | { name: 'alias_not_starts_with', alias?: string  } 
+  | { name: 'alias_ends_with', alias?: string  } 
+  | { name: 'alias_not_ends_with', alias?: string  } 
+  | { name: 'conRemark', alias?: string  } 
+  | { name: 'conRemark_not', alias?: string  } 
+  | { name: 'conRemark_in', alias?: string  } 
+  | { name: 'conRemark_not_in', alias?: string  } 
+  | { name: 'conRemark_lt', alias?: string  } 
+  | { name: 'conRemark_lte', alias?: string  } 
+  | { name: 'conRemark_gt', alias?: string  } 
+  | { name: 'conRemark_gte', alias?: string  } 
+  | { name: 'conRemark_contains', alias?: string  } 
+  | { name: 'conRemark_not_contains', alias?: string  } 
+  | { name: 'conRemark_starts_with', alias?: string  } 
+  | { name: 'conRemark_not_starts_with', alias?: string  } 
+  | { name: 'conRemark_ends_with', alias?: string  } 
+  | { name: 'conRemark_not_ends_with', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nickname_not', alias?: string  } 
+  | { name: 'nickname_in', alias?: string  } 
+  | { name: 'nickname_not_in', alias?: string  } 
+  | { name: 'nickname_lt', alias?: string  } 
+  | { name: 'nickname_lte', alias?: string  } 
+  | { name: 'nickname_gt', alias?: string  } 
+  | { name: 'nickname_gte', alias?: string  } 
+  | { name: 'nickname_contains', alias?: string  } 
+  | { name: 'nickname_not_contains', alias?: string  } 
+  | { name: 'nickname_starts_with', alias?: string  } 
+  | { name: 'nickname_not_starts_with', alias?: string  } 
+  | { name: 'nickname_ends_with', alias?: string  } 
+  | { name: 'nickname_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface WeChatUserUpdateManyWithWhereNestedInput {
+  where?: WeChatUserScalarWhereInput
+  data?: WeChatUserUpdateManyDataInput
+}
+export type WeChatUserUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof WeChatUserUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface WeChatUserUpdateManyDataInput {
+  username?: string | null
+  alias?: string | null
+  conRemark?: string | null
+  nickname?: string | null
+}
+export type WeChatUserUpdateManyDataInputInputObject =
+  | Extract<keyof WeChatUserUpdateManyDataInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'conRemark', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  
+export interface ChatRoomUpsertWithWhereUniqueWithoutOwnerInput {
+  where?: ChatRoomWhereUniqueInput
+  update?: ChatRoomUpdateWithoutOwnerDataInput
+  create?: ChatRoomCreateWithoutOwnerInput
+}
+export type ChatRoomUpsertWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof ChatRoomUpsertWithWhereUniqueWithoutOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ChatRoomScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  userName?: string | null
+  userName_not?: string | null
+  userName_in?: string[]
+  userName_not_in?: string[]
+  userName_lt?: string | null
+  userName_lte?: string | null
+  userName_gt?: string | null
+  userName_gte?: string | null
+  userName_contains?: string | null
+  userName_not_contains?: string | null
+  userName_starts_with?: string | null
+  userName_not_starts_with?: string | null
+  userName_ends_with?: string | null
+  userName_not_ends_with?: string | null
+  nickName?: string | null
+  nickName_not?: string | null
+  nickName_in?: string[]
+  nickName_not_in?: string[]
+  nickName_lt?: string | null
+  nickName_lte?: string | null
+  nickName_gt?: string | null
+  nickName_gte?: string | null
+  nickName_contains?: string | null
+  nickName_not_contains?: string | null
+  nickName_starts_with?: string | null
+  nickName_not_starts_with?: string | null
+  nickName_ends_with?: string | null
+  nickName_not_ends_with?: string | null
+  displayName?: string | null
+  displayName_not?: string | null
+  displayName_in?: string[]
+  displayName_not_in?: string[]
+  displayName_lt?: string | null
+  displayName_lte?: string | null
+  displayName_gt?: string | null
+  displayName_gte?: string | null
+  displayName_contains?: string | null
+  displayName_not_contains?: string | null
+  displayName_starts_with?: string | null
+  displayName_not_starts_with?: string | null
+  displayName_ends_with?: string | null
+  displayName_not_ends_with?: string | null
+  modifyTime?: string | null
+  modifyTime_not?: string | null
+  modifyTime_in?: string[]
+  modifyTime_not_in?: string[]
+  modifyTime_lt?: string | null
+  modifyTime_lte?: string | null
+  modifyTime_gt?: string | null
+  modifyTime_gte?: string | null
+  AND?: ChatRoomScalarWhereInput[]
+  OR?: ChatRoomScalarWhereInput[]
+  NOT?: ChatRoomScalarWhereInput[]
+}
+export type ChatRoomScalarWhereInputInputObject =
+  | Extract<keyof ChatRoomScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'userName', alias?: string  } 
+  | { name: 'userName_not', alias?: string  } 
+  | { name: 'userName_in', alias?: string  } 
+  | { name: 'userName_not_in', alias?: string  } 
+  | { name: 'userName_lt', alias?: string  } 
+  | { name: 'userName_lte', alias?: string  } 
+  | { name: 'userName_gt', alias?: string  } 
+  | { name: 'userName_gte', alias?: string  } 
+  | { name: 'userName_contains', alias?: string  } 
+  | { name: 'userName_not_contains', alias?: string  } 
+  | { name: 'userName_starts_with', alias?: string  } 
+  | { name: 'userName_not_starts_with', alias?: string  } 
+  | { name: 'userName_ends_with', alias?: string  } 
+  | { name: 'userName_not_ends_with', alias?: string  } 
+  | { name: 'nickName', alias?: string  } 
+  | { name: 'nickName_not', alias?: string  } 
+  | { name: 'nickName_in', alias?: string  } 
+  | { name: 'nickName_not_in', alias?: string  } 
+  | { name: 'nickName_lt', alias?: string  } 
+  | { name: 'nickName_lte', alias?: string  } 
+  | { name: 'nickName_gt', alias?: string  } 
+  | { name: 'nickName_gte', alias?: string  } 
+  | { name: 'nickName_contains', alias?: string  } 
+  | { name: 'nickName_not_contains', alias?: string  } 
+  | { name: 'nickName_starts_with', alias?: string  } 
+  | { name: 'nickName_not_starts_with', alias?: string  } 
+  | { name: 'nickName_ends_with', alias?: string  } 
+  | { name: 'nickName_not_ends_with', alias?: string  } 
+  | { name: 'displayName', alias?: string  } 
+  | { name: 'displayName_not', alias?: string  } 
+  | { name: 'displayName_in', alias?: string  } 
+  | { name: 'displayName_not_in', alias?: string  } 
+  | { name: 'displayName_lt', alias?: string  } 
+  | { name: 'displayName_lte', alias?: string  } 
+  | { name: 'displayName_gt', alias?: string  } 
+  | { name: 'displayName_gte', alias?: string  } 
+  | { name: 'displayName_contains', alias?: string  } 
+  | { name: 'displayName_not_contains', alias?: string  } 
+  | { name: 'displayName_starts_with', alias?: string  } 
+  | { name: 'displayName_not_starts_with', alias?: string  } 
+  | { name: 'displayName_ends_with', alias?: string  } 
+  | { name: 'displayName_not_ends_with', alias?: string  } 
+  | { name: 'modifyTime', alias?: string  } 
+  | { name: 'modifyTime_not', alias?: string  } 
+  | { name: 'modifyTime_in', alias?: string  } 
+  | { name: 'modifyTime_not_in', alias?: string  } 
+  | { name: 'modifyTime_lt', alias?: string  } 
+  | { name: 'modifyTime_lte', alias?: string  } 
+  | { name: 'modifyTime_gt', alias?: string  } 
+  | { name: 'modifyTime_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ChatRoomUpdateManyWithWhereNestedInput {
+  where?: ChatRoomScalarWhereInput
+  data?: ChatRoomUpdateManyDataInput
+}
+export type ChatRoomUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ChatRoomUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ChatRoomUpdateManyDataInput {
+  userName?: string | null
+  nickName?: string | null
+  displayName?: string | null
+  modifyTime?: string | null
+}
+export type ChatRoomUpdateManyDataInputInputObject =
+  | Extract<keyof ChatRoomUpdateManyDataInput, string>
+  | { name: 'userName', alias?: string  } 
+  | { name: 'nickName', alias?: string  } 
+  | { name: 'displayName', alias?: string  } 
+  | { name: 'modifyTime', alias?: string  } 
   
 export interface WeChatUserUpsertWithoutMessageInput {
   update?: WeChatUserUpdateWithoutMessageDataInput
@@ -9641,8 +10984,8 @@ export type ImageUpdateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface ImageUpdateWithoutContentDataInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
+  thumbnailImg?: FileIndexUpdateOneInput | null
+  bigImg?: FileIndexUpdateOneInput | null
 }
 export type ImageUpdateWithoutContentDataInputInputObject =
   | Extract<keyof ImageUpdateWithoutContentDataInput, string>
@@ -9676,7 +11019,7 @@ export type VoiceUpdateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface VoiceUpdateWithoutContentDataInput {
-  fileName?: string | null
+  fileName?: FileIndexUpdateOneInput | null
   voiceLength?: number | null
 }
 export type VoiceUpdateWithoutContentDataInputInputObject =
@@ -9711,8 +11054,8 @@ export type VideoUpdateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface VideoUpdateWithoutContentDataInput {
-  fileName?: string | null
-  thumbnailImg?: string | null
+  fileName?: FileIndexUpdateOneInput | null
+  thumbnailImg?: FileIndexUpdateOneInput | null
   videolength?: number | null
 }
 export type VideoUpdateWithoutContentDataInputInputObject =
@@ -9748,7 +11091,7 @@ export type FileUpdateOneWithoutContentInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface FileUpdateWithoutContentDataInput {
-  fileName?: string | null
+  fileName?: FileIndexUpdateOneInput | null
   size?: number | null
 }
 export type FileUpdateWithoutContentDataInputInputObject =
@@ -9966,379 +11309,14 @@ export type ChatRoomUpsertWithWhereUniqueWithoutMemberListInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ChatRoomScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  userName?: string | null
-  userName_not?: string | null
-  userName_in?: string[]
-  userName_not_in?: string[]
-  userName_lt?: string | null
-  userName_lte?: string | null
-  userName_gt?: string | null
-  userName_gte?: string | null
-  userName_contains?: string | null
-  userName_not_contains?: string | null
-  userName_starts_with?: string | null
-  userName_not_starts_with?: string | null
-  userName_ends_with?: string | null
-  userName_not_ends_with?: string | null
-  nickName?: string | null
-  nickName_not?: string | null
-  nickName_in?: string[]
-  nickName_not_in?: string[]
-  nickName_lt?: string | null
-  nickName_lte?: string | null
-  nickName_gt?: string | null
-  nickName_gte?: string | null
-  nickName_contains?: string | null
-  nickName_not_contains?: string | null
-  nickName_starts_with?: string | null
-  nickName_not_starts_with?: string | null
-  nickName_ends_with?: string | null
-  nickName_not_ends_with?: string | null
-  displayName?: string | null
-  displayName_not?: string | null
-  displayName_in?: string[]
-  displayName_not_in?: string[]
-  displayName_lt?: string | null
-  displayName_lte?: string | null
-  displayName_gt?: string | null
-  displayName_gte?: string | null
-  displayName_contains?: string | null
-  displayName_not_contains?: string | null
-  displayName_starts_with?: string | null
-  displayName_not_starts_with?: string | null
-  displayName_ends_with?: string | null
-  displayName_not_ends_with?: string | null
-  modifyTime?: string | null
-  modifyTime_not?: string | null
-  modifyTime_in?: string[]
-  modifyTime_not_in?: string[]
-  modifyTime_lt?: string | null
-  modifyTime_lte?: string | null
-  modifyTime_gt?: string | null
-  modifyTime_gte?: string | null
-  AND?: ChatRoomScalarWhereInput[]
-  OR?: ChatRoomScalarWhereInput[]
-  NOT?: ChatRoomScalarWhereInput[]
+export interface WeChatUserUpsertWithoutHaveChatRoomInput {
+  update?: WeChatUserUpdateWithoutHaveChatRoomDataInput
+  create?: WeChatUserCreateWithoutHaveChatRoomInput
 }
-export type ChatRoomScalarWhereInputInputObject =
-  | Extract<keyof ChatRoomScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'userName', alias?: string  } 
-  | { name: 'userName_not', alias?: string  } 
-  | { name: 'userName_in', alias?: string  } 
-  | { name: 'userName_not_in', alias?: string  } 
-  | { name: 'userName_lt', alias?: string  } 
-  | { name: 'userName_lte', alias?: string  } 
-  | { name: 'userName_gt', alias?: string  } 
-  | { name: 'userName_gte', alias?: string  } 
-  | { name: 'userName_contains', alias?: string  } 
-  | { name: 'userName_not_contains', alias?: string  } 
-  | { name: 'userName_starts_with', alias?: string  } 
-  | { name: 'userName_not_starts_with', alias?: string  } 
-  | { name: 'userName_ends_with', alias?: string  } 
-  | { name: 'userName_not_ends_with', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'nickName_not', alias?: string  } 
-  | { name: 'nickName_in', alias?: string  } 
-  | { name: 'nickName_not_in', alias?: string  } 
-  | { name: 'nickName_lt', alias?: string  } 
-  | { name: 'nickName_lte', alias?: string  } 
-  | { name: 'nickName_gt', alias?: string  } 
-  | { name: 'nickName_gte', alias?: string  } 
-  | { name: 'nickName_contains', alias?: string  } 
-  | { name: 'nickName_not_contains', alias?: string  } 
-  | { name: 'nickName_starts_with', alias?: string  } 
-  | { name: 'nickName_not_starts_with', alias?: string  } 
-  | { name: 'nickName_ends_with', alias?: string  } 
-  | { name: 'nickName_not_ends_with', alias?: string  } 
-  | { name: 'displayName', alias?: string  } 
-  | { name: 'displayName_not', alias?: string  } 
-  | { name: 'displayName_in', alias?: string  } 
-  | { name: 'displayName_not_in', alias?: string  } 
-  | { name: 'displayName_lt', alias?: string  } 
-  | { name: 'displayName_lte', alias?: string  } 
-  | { name: 'displayName_gt', alias?: string  } 
-  | { name: 'displayName_gte', alias?: string  } 
-  | { name: 'displayName_contains', alias?: string  } 
-  | { name: 'displayName_not_contains', alias?: string  } 
-  | { name: 'displayName_starts_with', alias?: string  } 
-  | { name: 'displayName_not_starts_with', alias?: string  } 
-  | { name: 'displayName_ends_with', alias?: string  } 
-  | { name: 'displayName_not_ends_with', alias?: string  } 
-  | { name: 'modifyTime', alias?: string  } 
-  | { name: 'modifyTime_not', alias?: string  } 
-  | { name: 'modifyTime_in', alias?: string  } 
-  | { name: 'modifyTime_not_in', alias?: string  } 
-  | { name: 'modifyTime_lt', alias?: string  } 
-  | { name: 'modifyTime_lte', alias?: string  } 
-  | { name: 'modifyTime_gt', alias?: string  } 
-  | { name: 'modifyTime_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface ChatRoomUpdateManyWithWhereNestedInput {
-  where?: ChatRoomScalarWhereInput
-  data?: ChatRoomUpdateManyDataInput
-}
-export type ChatRoomUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof ChatRoomUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ChatRoomUpdateManyDataInput {
-  userName?: string | null
-  nickName?: string | null
-  displayName?: string | null
-  modifyTime?: string | null
-}
-export type ChatRoomUpdateManyDataInputInputObject =
-  | Extract<keyof ChatRoomUpdateManyDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'displayName', alias?: string  } 
-  | { name: 'modifyTime', alias?: string  } 
-  
-export interface WeChatUserUpsertWithoutAvatarInput {
-  update?: WeChatUserUpdateWithoutAvatarDataInput
-  create?: WeChatUserCreateWithoutAvatarInput
-}
-export type WeChatUserUpsertWithoutAvatarInputInputObject =
-  | Extract<keyof WeChatUserUpsertWithoutAvatarInput, string>
+export type WeChatUserUpsertWithoutHaveChatRoomInputInputObject =
+  | Extract<keyof WeChatUserUpsertWithoutHaveChatRoomInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
-  
-export interface AvatarUpsertWithoutChatRoomInput {
-  update?: AvatarUpdateWithoutChatRoomDataInput
-  create?: AvatarCreateWithoutChatRoomInput
-}
-export type AvatarUpsertWithoutChatRoomInputInputObject =
-  | Extract<keyof AvatarUpsertWithoutChatRoomInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ChatRoomUpsertWithWhereUniqueWithoutOwnerInput {
-  where?: ChatRoomWhereUniqueInput
-  update?: ChatRoomUpdateWithoutOwnerDataInput
-  create?: ChatRoomCreateWithoutOwnerInput
-}
-export type ChatRoomUpsertWithWhereUniqueWithoutOwnerInputInputObject =
-  | Extract<keyof ChatRoomUpsertWithWhereUniqueWithoutOwnerInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput {
-  where?: WeChatUserWhereUniqueInput
-  update?: WeChatUserUpdateWithoutJoinChatRoomDataInput
-  create?: WeChatUserCreateWithoutJoinChatRoomInput
-}
-export type WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInputInputObject =
-  | Extract<keyof WeChatUserUpsertWithWhereUniqueWithoutJoinChatRoomInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface WeChatUserScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  username?: string | null
-  username_not?: string | null
-  username_in?: string[]
-  username_not_in?: string[]
-  username_lt?: string | null
-  username_lte?: string | null
-  username_gt?: string | null
-  username_gte?: string | null
-  username_contains?: string | null
-  username_not_contains?: string | null
-  username_starts_with?: string | null
-  username_not_starts_with?: string | null
-  username_ends_with?: string | null
-  username_not_ends_with?: string | null
-  alias?: string | null
-  alias_not?: string | null
-  alias_in?: string[]
-  alias_not_in?: string[]
-  alias_lt?: string | null
-  alias_lte?: string | null
-  alias_gt?: string | null
-  alias_gte?: string | null
-  alias_contains?: string | null
-  alias_not_contains?: string | null
-  alias_starts_with?: string | null
-  alias_not_starts_with?: string | null
-  alias_ends_with?: string | null
-  alias_not_ends_with?: string | null
-  conRemark?: string | null
-  conRemark_not?: string | null
-  conRemark_in?: string[]
-  conRemark_not_in?: string[]
-  conRemark_lt?: string | null
-  conRemark_lte?: string | null
-  conRemark_gt?: string | null
-  conRemark_gte?: string | null
-  conRemark_contains?: string | null
-  conRemark_not_contains?: string | null
-  conRemark_starts_with?: string | null
-  conRemark_not_starts_with?: string | null
-  conRemark_ends_with?: string | null
-  conRemark_not_ends_with?: string | null
-  nickname?: string | null
-  nickname_not?: string | null
-  nickname_in?: string[]
-  nickname_not_in?: string[]
-  nickname_lt?: string | null
-  nickname_lte?: string | null
-  nickname_gt?: string | null
-  nickname_gte?: string | null
-  nickname_contains?: string | null
-  nickname_not_contains?: string | null
-  nickname_starts_with?: string | null
-  nickname_not_starts_with?: string | null
-  nickname_ends_with?: string | null
-  nickname_not_ends_with?: string | null
-  AND?: WeChatUserScalarWhereInput[]
-  OR?: WeChatUserScalarWhereInput[]
-  NOT?: WeChatUserScalarWhereInput[]
-}
-export type WeChatUserScalarWhereInputInputObject =
-  | Extract<keyof WeChatUserScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'username', alias?: string  } 
-  | { name: 'username_not', alias?: string  } 
-  | { name: 'username_in', alias?: string  } 
-  | { name: 'username_not_in', alias?: string  } 
-  | { name: 'username_lt', alias?: string  } 
-  | { name: 'username_lte', alias?: string  } 
-  | { name: 'username_gt', alias?: string  } 
-  | { name: 'username_gte', alias?: string  } 
-  | { name: 'username_contains', alias?: string  } 
-  | { name: 'username_not_contains', alias?: string  } 
-  | { name: 'username_starts_with', alias?: string  } 
-  | { name: 'username_not_starts_with', alias?: string  } 
-  | { name: 'username_ends_with', alias?: string  } 
-  | { name: 'username_not_ends_with', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'alias_not', alias?: string  } 
-  | { name: 'alias_in', alias?: string  } 
-  | { name: 'alias_not_in', alias?: string  } 
-  | { name: 'alias_lt', alias?: string  } 
-  | { name: 'alias_lte', alias?: string  } 
-  | { name: 'alias_gt', alias?: string  } 
-  | { name: 'alias_gte', alias?: string  } 
-  | { name: 'alias_contains', alias?: string  } 
-  | { name: 'alias_not_contains', alias?: string  } 
-  | { name: 'alias_starts_with', alias?: string  } 
-  | { name: 'alias_not_starts_with', alias?: string  } 
-  | { name: 'alias_ends_with', alias?: string  } 
-  | { name: 'alias_not_ends_with', alias?: string  } 
-  | { name: 'conRemark', alias?: string  } 
-  | { name: 'conRemark_not', alias?: string  } 
-  | { name: 'conRemark_in', alias?: string  } 
-  | { name: 'conRemark_not_in', alias?: string  } 
-  | { name: 'conRemark_lt', alias?: string  } 
-  | { name: 'conRemark_lte', alias?: string  } 
-  | { name: 'conRemark_gt', alias?: string  } 
-  | { name: 'conRemark_gte', alias?: string  } 
-  | { name: 'conRemark_contains', alias?: string  } 
-  | { name: 'conRemark_not_contains', alias?: string  } 
-  | { name: 'conRemark_starts_with', alias?: string  } 
-  | { name: 'conRemark_not_starts_with', alias?: string  } 
-  | { name: 'conRemark_ends_with', alias?: string  } 
-  | { name: 'conRemark_not_ends_with', alias?: string  } 
-  | { name: 'nickname', alias?: string  } 
-  | { name: 'nickname_not', alias?: string  } 
-  | { name: 'nickname_in', alias?: string  } 
-  | { name: 'nickname_not_in', alias?: string  } 
-  | { name: 'nickname_lt', alias?: string  } 
-  | { name: 'nickname_lte', alias?: string  } 
-  | { name: 'nickname_gt', alias?: string  } 
-  | { name: 'nickname_gte', alias?: string  } 
-  | { name: 'nickname_contains', alias?: string  } 
-  | { name: 'nickname_not_contains', alias?: string  } 
-  | { name: 'nickname_starts_with', alias?: string  } 
-  | { name: 'nickname_not_starts_with', alias?: string  } 
-  | { name: 'nickname_ends_with', alias?: string  } 
-  | { name: 'nickname_not_ends_with', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface WeChatUserUpdateManyWithWhereNestedInput {
-  where?: WeChatUserScalarWhereInput
-  data?: WeChatUserUpdateManyDataInput
-}
-export type WeChatUserUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof WeChatUserUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface WeChatUserUpdateManyDataInput {
-  username?: string | null
-  alias?: string | null
-  conRemark?: string | null
-  nickname?: string | null
-}
-export type WeChatUserUpdateManyDataInputInputObject =
-  | Extract<keyof WeChatUserUpdateManyDataInput, string>
-  | { name: 'username', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'conRemark', alias?: string  } 
-  | { name: 'nickname', alias?: string  } 
   
 export interface ChatRoomUpsertWithoutMessageInput {
   update?: ChatRoomUpdateWithoutMessageDataInput
@@ -10360,32 +11338,280 @@ export type MessageUpsertWithWhereUniqueWithoutTalkerInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface WeChatUserUpsertWithoutHaveChatRoomInput {
-  update?: WeChatUserUpdateWithoutHaveChatRoomDataInput
-  create?: WeChatUserCreateWithoutHaveChatRoomInput
+export interface WeChatUserUpsertNestedInput {
+  update?: WeChatUserUpdateDataInput
+  create?: WeChatUserCreateInput
 }
-export type WeChatUserUpsertWithoutHaveChatRoomInputInputObject =
-  | Extract<keyof WeChatUserUpsertWithoutHaveChatRoomInput, string>
+export type WeChatUserUpsertNestedInputInputObject =
+  | Extract<keyof WeChatUserUpsertNestedInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ChatRoomUpsertWithoutAvatarInput {
-  update?: ChatRoomUpdateWithoutAvatarDataInput
-  create?: ChatRoomCreateWithoutAvatarInput
+export interface WeChatUserUpdateManyInput {
+  create?: WeChatUserCreateInput[]
+  update?: WeChatUserUpdateWithWhereUniqueNestedInput[]
+  upsert?: WeChatUserUpsertWithWhereUniqueNestedInput[]
+  delete?: WeChatUserWhereUniqueInput[]
+  connect?: WeChatUserWhereUniqueInput[]
+  set?: WeChatUserWhereUniqueInput[]
+  disconnect?: WeChatUserWhereUniqueInput[]
+  deleteMany?: WeChatUserScalarWhereInput[]
+  updateMany?: WeChatUserUpdateManyWithWhereNestedInput[]
 }
-export type ChatRoomUpsertWithoutAvatarInputInputObject =
-  | Extract<keyof ChatRoomUpsertWithoutAvatarInput, string>
+export type WeChatUserUpdateManyInputInputObject =
+  | Extract<keyof WeChatUserUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface WeChatUserUpdateWithWhereUniqueNestedInput {
+  where?: WeChatUserWhereUniqueInput
+  data?: WeChatUserUpdateDataInput
+}
+export type WeChatUserUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof WeChatUserUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface WeChatUserUpsertWithWhereUniqueNestedInput {
+  where?: WeChatUserWhereUniqueInput
+  update?: WeChatUserUpdateDataInput
+  create?: WeChatUserCreateInput
+}
+export type WeChatUserUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof WeChatUserUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface AvatarUpsertWithoutWeChatUserInput {
-  update?: AvatarUpdateWithoutWeChatUserDataInput
-  create?: AvatarCreateWithoutWeChatUserInput
+export interface ChatRoomUpdateManyInput {
+  create?: ChatRoomCreateInput[]
+  update?: ChatRoomUpdateWithWhereUniqueNestedInput[]
+  upsert?: ChatRoomUpsertWithWhereUniqueNestedInput[]
+  delete?: ChatRoomWhereUniqueInput[]
+  connect?: ChatRoomWhereUniqueInput[]
+  set?: ChatRoomWhereUniqueInput[]
+  disconnect?: ChatRoomWhereUniqueInput[]
+  deleteMany?: ChatRoomScalarWhereInput[]
+  updateMany?: ChatRoomUpdateManyWithWhereNestedInput[]
 }
-export type AvatarUpsertWithoutWeChatUserInputInputObject =
-  | Extract<keyof AvatarUpsertWithoutWeChatUserInput, string>
+export type ChatRoomUpdateManyInputInputObject =
+  | Extract<keyof ChatRoomUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ChatRoomUpdateWithWhereUniqueNestedInput {
+  where?: ChatRoomWhereUniqueInput
+  data?: ChatRoomUpdateDataInput
+}
+export type ChatRoomUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof ChatRoomUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ChatRoomUpdateDataInput {
+  userName?: string | null
+  nickName?: string | null
+  displayName?: string | null
+  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
+  memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
+  modifyTime?: string | null
+  avatar?: AvatarUpdateOneInput | null
+  message?: MessageUpdateManyWithoutChatRoomInput | null
+}
+export type ChatRoomUpdateDataInputInputObject =
+  | Extract<keyof ChatRoomUpdateDataInput, string>
+  | { name: 'userName', alias?: string  } 
+  | { name: 'nickName', alias?: string  } 
+  | { name: 'displayName', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'memberList', alias?: string  } 
+  | { name: 'modifyTime', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
+  | { name: 'message', alias?: string  } 
+  
+export interface ChatRoomUpsertWithWhereUniqueNestedInput {
+  where?: ChatRoomWhereUniqueInput
+  update?: ChatRoomUpdateDataInput
+  create?: ChatRoomCreateInput
+}
+export type ChatRoomUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof ChatRoomUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
+  
+export interface MessageUpdateManyInput {
+  create?: MessageCreateInput[]
+  update?: MessageUpdateWithWhereUniqueNestedInput[]
+  upsert?: MessageUpsertWithWhereUniqueNestedInput[]
+  delete?: MessageWhereUniqueInput[]
+  connect?: MessageWhereUniqueInput[]
+  set?: MessageWhereUniqueInput[]
+  disconnect?: MessageWhereUniqueInput[]
+  deleteMany?: MessageScalarWhereInput[]
+  updateMany?: MessageUpdateManyWithWhereNestedInput[]
+}
+export type MessageUpdateManyInputInputObject =
+  | Extract<keyof MessageUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface MessageUpdateWithWhereUniqueNestedInput {
+  where?: MessageWhereUniqueInput
+  data?: MessageUpdateDataInput
+}
+export type MessageUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof MessageUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface MessageUpdateDataInput {
+  msgSvrId?: string | null
+  isSend?: number | null
+  type?: number | null
+  talker?: WeChatUserUpdateOneRequiredWithoutMessageInput | null
+  createTime?: string | null
+  chatRoom?: ChatRoomUpdateOneWithoutMessageInput | null
+  content?: ContentUpdateOneInput | null
+}
+export type MessageUpdateDataInputInputObject =
+  | Extract<keyof MessageUpdateDataInput, string>
+  | { name: 'msgSvrId', alias?: string  } 
+  | { name: 'isSend', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'talker', alias?: string  } 
+  | { name: 'createTime', alias?: string  } 
+  | { name: 'chatRoom', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  
+export interface MessageUpsertWithWhereUniqueNestedInput {
+  where?: MessageWhereUniqueInput
+  update?: MessageUpdateDataInput
+  create?: MessageCreateInput
+}
+export type MessageUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof MessageUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface WeChatUpsertWithWhereUniqueNestedInput {
+  where?: WeChatWhereUniqueInput
+  update?: WeChatUpdateDataInput
+  create?: WeChatCreateInput
+}
+export type WeChatUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof WeChatUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface WeChatScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  AND?: WeChatScalarWhereInput[]
+  OR?: WeChatScalarWhereInput[]
+  NOT?: WeChatScalarWhereInput[]
+}
+export type WeChatScalarWhereInputInputObject =
+  | Extract<keyof WeChatScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface UserUpdateManyMutationInput {
+  email?: string | null
+  name?: string | null
+  password?: string | null
+}
+export type UserUpdateManyMutationInputInputObject =
+  | Extract<keyof UserUpdateManyMutationInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  
+export interface WeChatUpdateInput {
+  weChatOwner?: WeChatUserUpdateOneRequiredInput | null
+  weChatUsers?: WeChatUserUpdateManyInput | null
+  chatRooms?: ChatRoomUpdateManyInput | null
+  messages?: MessageUpdateManyInput | null
+}
+export type WeChatUpdateInputInputObject =
+  | Extract<keyof WeChatUpdateInput, string>
+  | { name: 'weChatOwner', alias?: string  } 
+  | { name: 'weChatUsers', alias?: string  } 
+  | { name: 'chatRooms', alias?: string  } 
+  | { name: 'messages', alias?: string  } 
+  
+export interface WeChatUserUpdateInput {
+  username?: string | null
+  alias?: string | null
+  conRemark?: string | null
+  nickname?: string | null
+  avatar?: AvatarUpdateOneInput | null
+  message?: MessageUpdateManyWithoutTalkerInput | null
+  haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput | null
+  joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput | null
+  contact?: ContactUpdateOneWithoutWeChatUserInput | null
+}
+export type WeChatUserUpdateInputInputObject =
+  | Extract<keyof WeChatUserUpdateInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'conRemark', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'avatar', alias?: string  } 
+  | { name: 'message', alias?: string  } 
+  | { name: 'haveChatRoom', alias?: string  } 
+  | { name: 'joinChatRoom', alias?: string  } 
+  | { name: 'contact', alias?: string  } 
   
 export interface WeChatUserUpdateManyMutationInput {
   username?: string | null
@@ -10400,27 +11626,6 @@ export type WeChatUserUpdateManyMutationInputInputObject =
   | { name: 'conRemark', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
   
-export interface ChatRoomCreateInput {
-  userName?: string
-  nickName?: string | null
-  displayName?: string
-  owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
-  memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
-  modifyTime?: string | null
-  avatar?: AvatarCreateOneWithoutChatRoomInput | null
-  message?: MessageCreateManyWithoutChatRoomInput | null
-}
-export type ChatRoomCreateInputInputObject =
-  | Extract<keyof ChatRoomCreateInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'displayName', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'memberList', alias?: string  } 
-  | { name: 'modifyTime', alias?: string  } 
-  | { name: 'avatar', alias?: string  } 
-  | { name: 'message', alias?: string  } 
-  
 export interface ChatRoomUpdateInput {
   userName?: string | null
   nickName?: string | null
@@ -10428,7 +11633,7 @@ export interface ChatRoomUpdateInput {
   owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
   modifyTime?: string | null
-  avatar?: AvatarUpdateOneWithoutChatRoomInput | null
+  avatar?: AvatarUpdateOneInput | null
   message?: MessageUpdateManyWithoutChatRoomInput | null
 }
 export type ChatRoomUpdateInputInputObject =
@@ -10455,38 +11660,12 @@ export type ChatRoomUpdateManyMutationInputInputObject =
   | { name: 'displayName', alias?: string  } 
   | { name: 'modifyTime', alias?: string  } 
   
-export interface AvatarCreateInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-  weChatUser?: WeChatUserCreateOneWithoutAvatarInput | null
-  chatRoom?: ChatRoomCreateOneWithoutAvatarInput | null
-}
-export type AvatarCreateInputInputObject =
-  | Extract<keyof AvatarCreateInput, string>
-  | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'bigImg', alias?: string  } 
-  | { name: 'weChatUser', alias?: string  } 
-  | { name: 'chatRoom', alias?: string  } 
-  
 export interface AvatarUpdateInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-  weChatUser?: WeChatUserUpdateOneWithoutAvatarInput | null
-  chatRoom?: ChatRoomUpdateOneWithoutAvatarInput | null
+  thumbnailImg?: FileIndexUpdateOneInput | null
+  bigImg?: FileIndexUpdateOneInput | null
 }
 export type AvatarUpdateInputInputObject =
   | Extract<keyof AvatarUpdateInput, string>
-  | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'bigImg', alias?: string  } 
-  | { name: 'weChatUser', alias?: string  } 
-  | { name: 'chatRoom', alias?: string  } 
-  
-export interface AvatarUpdateManyMutationInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-}
-export type AvatarUpdateManyMutationInputInputObject =
-  | Extract<keyof AvatarUpdateManyMutationInput, string>
   | { name: 'thumbnailImg', alias?: string  } 
   | { name: 'bigImg', alias?: string  } 
   
@@ -10513,7 +11692,7 @@ export interface WeChatUserCreateWithoutContactInput {
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
-  avatar?: AvatarCreateOneWithoutWeChatUserInput | null
+  avatar?: AvatarCreateOneInput | null
   message?: MessageCreateManyWithoutTalkerInput | null
   haveChatRoom?: ChatRoomCreateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomCreateManyWithoutMemberListInput | null
@@ -10575,7 +11754,7 @@ export interface WeChatUserUpdateWithoutContactDataInput {
   alias?: string | null
   conRemark?: string | null
   nickname?: string | null
-  avatar?: AvatarUpdateOneWithoutWeChatUserInput | null
+  avatar?: AvatarUpdateOneInput | null
   message?: MessageUpdateManyWithoutTalkerInput | null
   haveChatRoom?: ChatRoomUpdateManyWithoutOwnerInput | null
   joinChatRoom?: ChatRoomUpdateManyWithoutMemberListInput | null
@@ -10608,25 +11787,6 @@ export interface ContactUpdateManyMutationInput {
 export type ContactUpdateManyMutationInputInputObject =
   | Extract<keyof ContactUpdateManyMutationInput, string>
   | { name: 'type', alias?: string  } 
-  
-export interface MessageCreateInput {
-  msgSvrId?: string | null
-  isSend?: number | null
-  type?: number | null
-  talker?: WeChatUserCreateOneWithoutMessageInput
-  createTime?: string | null
-  chatRoom?: ChatRoomCreateOneWithoutMessageInput | null
-  content?: ContentCreateOneInput | null
-}
-export type MessageCreateInputInputObject =
-  | Extract<keyof MessageCreateInput, string>
-  | { name: 'msgSvrId', alias?: string  } 
-  | { name: 'isSend', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'talker', alias?: string  } 
-  | { name: 'createTime', alias?: string  } 
-  | { name: 'chatRoom', alias?: string  } 
-  | { name: 'content', alias?: string  } 
   
 export interface MessageUpdateInput {
   msgSvrId?: string | null
@@ -10768,8 +11928,8 @@ export type TextUpdateManyMutationInputInputObject =
   | { name: 'textMsg', alias?: string  } 
   
 export interface ImageCreateInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
+  thumbnailImg?: FileIndexCreateOneInput | null
+  bigImg?: FileIndexCreateOneInput | null
   content?: ContentCreateOneWithoutImageInput | null
 }
 export type ImageCreateInputInputObject =
@@ -10803,8 +11963,8 @@ export type ContentCreateWithoutImageInputInputObject =
   | { name: 'app', alias?: string  } 
   
 export interface ImageUpdateInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
+  thumbnailImg?: FileIndexUpdateOneInput | null
+  bigImg?: FileIndexUpdateOneInput | null
   content?: ContentUpdateOneWithoutImageInput | null
 }
 export type ImageUpdateInputInputObject =
@@ -10854,17 +12014,8 @@ export type ContentUpsertWithoutImageInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ImageUpdateManyMutationInput {
-  thumbnailImg?: string | null
-  bigImg?: string | null
-}
-export type ImageUpdateManyMutationInputInputObject =
-  | Extract<keyof ImageUpdateManyMutationInput, string>
-  | { name: 'thumbnailImg', alias?: string  } 
-  | { name: 'bigImg', alias?: string  } 
-  
 export interface VoiceCreateInput {
-  fileName?: string
+  fileName?: FileIndexCreateOneInput | null
   voiceLength?: number | null
   content?: ContentCreateOneWithoutVoiceInput | null
 }
@@ -10899,7 +12050,7 @@ export type ContentCreateWithoutVoiceInputInputObject =
   | { name: 'app', alias?: string  } 
   
 export interface VoiceUpdateInput {
-  fileName?: string | null
+  fileName?: FileIndexUpdateOneInput | null
   voiceLength?: number | null
   content?: ContentUpdateOneWithoutVoiceInput | null
 }
@@ -10951,17 +12102,15 @@ export type ContentUpsertWithoutVoiceInputInputObject =
   | { name: 'create', alias?: string  } 
   
 export interface VoiceUpdateManyMutationInput {
-  fileName?: string | null
   voiceLength?: number | null
 }
 export type VoiceUpdateManyMutationInputInputObject =
   | Extract<keyof VoiceUpdateManyMutationInput, string>
-  | { name: 'fileName', alias?: string  } 
   | { name: 'voiceLength', alias?: string  } 
   
 export interface VideoCreateInput {
-  fileName?: string
-  thumbnailImg?: string | null
+  fileName?: FileIndexCreateOneInput | null
+  thumbnailImg?: FileIndexCreateOneInput | null
   videolength?: number | null
   content?: ContentCreateOneWithoutVideoInput | null
 }
@@ -10997,8 +12146,8 @@ export type ContentCreateWithoutVideoInputInputObject =
   | { name: 'app', alias?: string  } 
   
 export interface VideoUpdateInput {
-  fileName?: string | null
-  thumbnailImg?: string | null
+  fileName?: FileIndexUpdateOneInput | null
+  thumbnailImg?: FileIndexUpdateOneInput | null
   videolength?: number | null
   content?: ContentUpdateOneWithoutVideoInput | null
 }
@@ -11051,18 +12200,14 @@ export type ContentUpsertWithoutVideoInputInputObject =
   | { name: 'create', alias?: string  } 
   
 export interface VideoUpdateManyMutationInput {
-  fileName?: string | null
-  thumbnailImg?: string | null
   videolength?: number | null
 }
 export type VideoUpdateManyMutationInputInputObject =
   | Extract<keyof VideoUpdateManyMutationInput, string>
-  | { name: 'fileName', alias?: string  } 
-  | { name: 'thumbnailImg', alias?: string  } 
   | { name: 'videolength', alias?: string  } 
   
 export interface FileCreateInput {
-  fileName?: string
+  fileName?: FileIndexCreateOneInput | null
   size?: number | null
   content?: ContentCreateOneWithoutFileInput | null
 }
@@ -11097,7 +12242,7 @@ export type ContentCreateWithoutFileInputInputObject =
   | { name: 'app', alias?: string  } 
   
 export interface FileUpdateInput {
-  fileName?: string | null
+  fileName?: FileIndexUpdateOneInput | null
   size?: number | null
   content?: ContentUpdateOneWithoutFileInput | null
 }
@@ -11149,12 +12294,10 @@ export type ContentUpsertWithoutFileInputInputObject =
   | { name: 'create', alias?: string  } 
   
 export interface FileUpdateManyMutationInput {
-  fileName?: string | null
   size?: number | null
 }
 export type FileUpdateManyMutationInputInputObject =
   | Extract<keyof FileUpdateManyMutationInput, string>
-  | { name: 'fileName', alias?: string  } 
   | { name: 'size', alias?: string  } 
   
 export interface AppCreateInput {
@@ -11247,6 +12390,32 @@ export type AppUpdateManyMutationInputInputObject =
   | Extract<keyof AppUpdateManyMutationInput, string>
   | { name: 'xml', alias?: string  } 
   
+export interface FileIndexUpdateInput {
+  fileName?: string | null
+  mimetype?: string | null
+  size?: number | null
+  url?: string | null
+}
+export type FileIndexUpdateInputInputObject =
+  | Extract<keyof FileIndexUpdateInput, string>
+  | { name: 'fileName', alias?: string  } 
+  | { name: 'mimetype', alias?: string  } 
+  | { name: 'size', alias?: string  } 
+  | { name: 'url', alias?: string  } 
+  
+export interface FileIndexUpdateManyMutationInput {
+  fileName?: string | null
+  mimetype?: string | null
+  size?: number | null
+  url?: string | null
+}
+export type FileIndexUpdateManyMutationInputInputObject =
+  | Extract<keyof FileIndexUpdateManyMutationInput, string>
+  | { name: 'fileName', alias?: string  } 
+  | { name: 'mimetype', alias?: string  } 
+  | { name: 'size', alias?: string  } 
+  | { name: 'url', alias?: string  } 
+  
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -11257,6 +12426,23 @@ export interface UserSubscriptionWhereInput {
 }
 export type UserSubscriptionWhereInputInputObject =
   | Extract<keyof UserSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  
+export interface WeChatSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: WeChatWhereInput | null
+  AND?: WeChatSubscriptionWhereInput[]
+}
+export type WeChatSubscriptionWhereInputInputObject =
+  | Extract<keyof WeChatSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -11468,28 +12654,27 @@ export type AppSubscriptionWhereInputInputObject =
   | { name: 'node', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   
-
-export type UserOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'email_ASC'
-  | 'email_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
-  | 'password_ASC'
-  | 'password_DESC'
+export interface FileIndexSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: FileIndexWhereInput | null
+  AND?: FileIndexSubscriptionWhereInput[]
+}
+export type FileIndexSubscriptionWhereInputInputObject =
+  | Extract<keyof FileIndexSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
   
-export type WeChatUserOrderByInputValues =
+
+export type WeChatOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'username_ASC'
-  | 'username_DESC'
-  | 'alias_ASC'
-  | 'alias_DESC'
-  | 'conRemark_ASC'
-  | 'conRemark_DESC'
-  | 'nickname_ASC'
-  | 'nickname_DESC'
   
 export type MessageOrderByInputValues =
   | 'id_ASC'
@@ -11503,6 +12688,18 @@ export type MessageOrderByInputValues =
   | 'createTime_ASC'
   | 'createTime_DESC'
   
+export type WeChatUserOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'username_ASC'
+  | 'username_DESC'
+  | 'alias_ASC'
+  | 'alias_DESC'
+  | 'conRemark_ASC'
+  | 'conRemark_DESC'
+  | 'nickname_ASC'
+  | 'nickname_DESC'
+  
 export type ChatRoomOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -11515,13 +12712,19 @@ export type ChatRoomOrderByInputValues =
   | 'modifyTime_ASC'
   | 'modifyTime_DESC'
   
+export type UserOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'password_ASC'
+  | 'password_DESC'
+  
 export type AvatarOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'thumbnailImg_ASC'
-  | 'thumbnailImg_DESC'
-  | 'bigImg_ASC'
-  | 'bigImg_DESC'
   
 export type ContactOrderByInputValues =
   | 'id_ASC'
@@ -11542,34 +12745,22 @@ export type TextOrderByInputValues =
 export type ImageOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'thumbnailImg_ASC'
-  | 'thumbnailImg_DESC'
-  | 'bigImg_ASC'
-  | 'bigImg_DESC'
   
 export type VoiceOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'fileName_ASC'
-  | 'fileName_DESC'
   | 'voiceLength_ASC'
   | 'voiceLength_DESC'
   
 export type VideoOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'fileName_ASC'
-  | 'fileName_DESC'
-  | 'thumbnailImg_ASC'
-  | 'thumbnailImg_DESC'
   | 'videolength_ASC'
   | 'videolength_DESC'
   
 export type FileOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'fileName_ASC'
-  | 'fileName_DESC'
   | 'size_ASC'
   | 'size_DESC'
   
@@ -11578,6 +12769,18 @@ export type AppOrderByInputValues =
   | 'id_DESC'
   | 'xml_ASC'
   | 'xml_DESC'
+  
+export type FileIndexOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'fileName_ASC'
+  | 'fileName_DESC'
+  | 'mimetype_ASC'
+  | 'mimetype_DESC'
+  | 'size_ASC'
+  | 'size_DESC'
+  | 'url_ASC'
+  | 'url_DESC'
   
 export type MutationTypeValues =
   | 'CREATED'

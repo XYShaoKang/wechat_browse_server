@@ -1,3 +1,12 @@
+type WeChat {
+  id: ID! @id
+  weChatOwner: WeChatUser! @relation(name: "WeChatIdWithUser", link: INLINE)
+  weChatUsers: [WeChatUser!]!
+    @relation(name: "WeChatUsersWithUser", link: INLINE)
+  chatRooms: [ChatRoom!]! @relation(link: INLINE)
+  messages: [Message!]! @relation(link: INLINE)
+}
+
 type WeChatUser {
   id: ID! @id
   username: String! @unique
@@ -24,10 +33,11 @@ type ChatRoom {
 }
 type Avatar {
   id: ID! @id
-  thumbnailImg: String
-  bigImg: String
-  weChatUser: WeChatUser
-  chatRoom: ChatRoom
+  thumbnailImg: FileIndex
+    @relation(name: "AvatarThumbnailImgWithFileIndex", link: INLINE)
+  bigImg: FileIndex @relation(name: "AvatarBigImgWithFileIndex", link: INLINE)
+  # weChatUser: WeChatUser
+  # chatRoom: ChatRoom
 }
 
 type Contact {
@@ -62,26 +72,30 @@ type Text {
 }
 type Image {
   id: ID! @id
-  thumbnailImg: String
-  bigImg: String
+  thumbnailImg: FileIndex
+    @relation(name: "ImageThumbnailImgWithFileIndex", link: INLINE)
+  bigImg: FileIndex @relation(name: "ImageBigImgWithFileIndex", link: INLINE)
   content: Content
 }
 type Voice {
   id: ID! @id
-  fileName: String!
+  fileName: FileIndex
+    @relation(name: "VoiceFileNameWithFileIndex", link: INLINE)
   voiceLength: Int
   content: Content
 }
 type Video {
   id: ID! @id
-  fileName: String!
-  thumbnailImg: String
+  fileName: FileIndex
+    @relation(name: "VideoFileNameWithFileIndex", link: INLINE)
+  thumbnailImg: FileIndex
+    @relation(name: "VideoThumbnailImgWithFileIndex", link: INLINE)
   videolength: Int
   content: Content
 }
 type File {
   id: ID! @id
-  fileName: String!
+  fileName: FileIndex @relation(name: "FileFileNameWithFileIndex", link: INLINE)
   size: Int
   content: Content
 }
@@ -89,4 +103,12 @@ type App {
   id: ID! @id
   xml: Json
   content: Content
+}
+
+type FileIndex {
+  id: ID! @id
+  fileName: String! @unique
+  mimetype: String!
+  size: Int!
+  url: String
 }

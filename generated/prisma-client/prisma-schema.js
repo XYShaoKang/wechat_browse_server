@@ -27,6 +27,10 @@ type AggregateFile {
   count: Int!
 }
 
+type AggregateFileIndex {
+  count: Int!
+}
+
 type AggregateImage {
   count: Int!
 }
@@ -48,6 +52,10 @@ type AggregateVideo {
 }
 
 type AggregateVoice {
+  count: Int!
+}
+
+type AggregateWeChat {
   count: Int!
 }
 
@@ -168,10 +176,8 @@ input AppWhereUniqueInput {
 
 type Avatar {
   id: ID!
-  thumbnailImg: String
-  bigImg: String
-  weChatUser: WeChatUser
-  chatRoom: ChatRoom
+  thumbnailImg: FileIndex
+  bigImg: FileIndex
 }
 
 type AvatarConnection {
@@ -182,34 +188,13 @@ type AvatarConnection {
 
 input AvatarCreateInput {
   id: ID
-  thumbnailImg: String
-  bigImg: String
-  weChatUser: WeChatUserCreateOneWithoutAvatarInput
-  chatRoom: ChatRoomCreateOneWithoutAvatarInput
+  thumbnailImg: FileIndexCreateOneInput
+  bigImg: FileIndexCreateOneInput
 }
 
-input AvatarCreateOneWithoutChatRoomInput {
-  create: AvatarCreateWithoutChatRoomInput
+input AvatarCreateOneInput {
+  create: AvatarCreateInput
   connect: AvatarWhereUniqueInput
-}
-
-input AvatarCreateOneWithoutWeChatUserInput {
-  create: AvatarCreateWithoutWeChatUserInput
-  connect: AvatarWhereUniqueInput
-}
-
-input AvatarCreateWithoutChatRoomInput {
-  id: ID
-  thumbnailImg: String
-  bigImg: String
-  weChatUser: WeChatUserCreateOneWithoutAvatarInput
-}
-
-input AvatarCreateWithoutWeChatUserInput {
-  id: ID
-  thumbnailImg: String
-  bigImg: String
-  chatRoom: ChatRoomCreateOneWithoutAvatarInput
 }
 
 type AvatarEdge {
@@ -220,16 +205,10 @@ type AvatarEdge {
 enum AvatarOrderByInput {
   id_ASC
   id_DESC
-  thumbnailImg_ASC
-  thumbnailImg_DESC
-  bigImg_ASC
-  bigImg_DESC
 }
 
 type AvatarPreviousValues {
   id: ID!
-  thumbnailImg: String
-  bigImg: String
 }
 
 type AvatarSubscriptionPayload {
@@ -248,56 +227,28 @@ input AvatarSubscriptionWhereInput {
   AND: [AvatarSubscriptionWhereInput!]
 }
 
+input AvatarUpdateDataInput {
+  thumbnailImg: FileIndexUpdateOneInput
+  bigImg: FileIndexUpdateOneInput
+}
+
 input AvatarUpdateInput {
-  thumbnailImg: String
-  bigImg: String
-  weChatUser: WeChatUserUpdateOneWithoutAvatarInput
-  chatRoom: ChatRoomUpdateOneWithoutAvatarInput
+  thumbnailImg: FileIndexUpdateOneInput
+  bigImg: FileIndexUpdateOneInput
 }
 
-input AvatarUpdateManyMutationInput {
-  thumbnailImg: String
-  bigImg: String
-}
-
-input AvatarUpdateOneWithoutChatRoomInput {
-  create: AvatarCreateWithoutChatRoomInput
-  update: AvatarUpdateWithoutChatRoomDataInput
-  upsert: AvatarUpsertWithoutChatRoomInput
+input AvatarUpdateOneInput {
+  create: AvatarCreateInput
+  update: AvatarUpdateDataInput
+  upsert: AvatarUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
   connect: AvatarWhereUniqueInput
 }
 
-input AvatarUpdateOneWithoutWeChatUserInput {
-  create: AvatarCreateWithoutWeChatUserInput
-  update: AvatarUpdateWithoutWeChatUserDataInput
-  upsert: AvatarUpsertWithoutWeChatUserInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: AvatarWhereUniqueInput
-}
-
-input AvatarUpdateWithoutChatRoomDataInput {
-  thumbnailImg: String
-  bigImg: String
-  weChatUser: WeChatUserUpdateOneWithoutAvatarInput
-}
-
-input AvatarUpdateWithoutWeChatUserDataInput {
-  thumbnailImg: String
-  bigImg: String
-  chatRoom: ChatRoomUpdateOneWithoutAvatarInput
-}
-
-input AvatarUpsertWithoutChatRoomInput {
-  update: AvatarUpdateWithoutChatRoomDataInput!
-  create: AvatarCreateWithoutChatRoomInput!
-}
-
-input AvatarUpsertWithoutWeChatUserInput {
-  update: AvatarUpdateWithoutWeChatUserDataInput!
-  create: AvatarCreateWithoutWeChatUserInput!
+input AvatarUpsertNestedInput {
+  update: AvatarUpdateDataInput!
+  create: AvatarCreateInput!
 }
 
 input AvatarWhereInput {
@@ -315,36 +266,8 @@ input AvatarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  thumbnailImg: String
-  thumbnailImg_not: String
-  thumbnailImg_in: [String!]
-  thumbnailImg_not_in: [String!]
-  thumbnailImg_lt: String
-  thumbnailImg_lte: String
-  thumbnailImg_gt: String
-  thumbnailImg_gte: String
-  thumbnailImg_contains: String
-  thumbnailImg_not_contains: String
-  thumbnailImg_starts_with: String
-  thumbnailImg_not_starts_with: String
-  thumbnailImg_ends_with: String
-  thumbnailImg_not_ends_with: String
-  bigImg: String
-  bigImg_not: String
-  bigImg_in: [String!]
-  bigImg_not_in: [String!]
-  bigImg_lt: String
-  bigImg_lte: String
-  bigImg_gt: String
-  bigImg_gte: String
-  bigImg_contains: String
-  bigImg_not_contains: String
-  bigImg_starts_with: String
-  bigImg_not_starts_with: String
-  bigImg_ends_with: String
-  bigImg_not_ends_with: String
-  weChatUser: WeChatUserWhereInput
-  chatRoom: ChatRoomWhereInput
+  thumbnailImg: FileIndexWhereInput
+  bigImg: FileIndexWhereInput
   AND: [AvatarWhereInput!]
 }
 
@@ -382,8 +305,13 @@ input ChatRoomCreateInput {
   owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
-  avatar: AvatarCreateOneWithoutChatRoomInput
+  avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutChatRoomInput
+}
+
+input ChatRoomCreateManyInput {
+  create: [ChatRoomCreateInput!]
+  connect: [ChatRoomWhereUniqueInput!]
 }
 
 input ChatRoomCreateManyWithoutMemberListInput {
@@ -396,25 +324,9 @@ input ChatRoomCreateManyWithoutOwnerInput {
   connect: [ChatRoomWhereUniqueInput!]
 }
 
-input ChatRoomCreateOneWithoutAvatarInput {
-  create: ChatRoomCreateWithoutAvatarInput
-  connect: ChatRoomWhereUniqueInput
-}
-
 input ChatRoomCreateOneWithoutMessageInput {
   create: ChatRoomCreateWithoutMessageInput
   connect: ChatRoomWhereUniqueInput
-}
-
-input ChatRoomCreateWithoutAvatarInput {
-  id: ID
-  userName: String!
-  nickName: String
-  displayName: String!
-  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
-  memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
-  modifyTime: DateTime
-  message: MessageCreateManyWithoutChatRoomInput
 }
 
 input ChatRoomCreateWithoutMemberListInput {
@@ -424,7 +336,7 @@ input ChatRoomCreateWithoutMemberListInput {
   displayName: String!
   owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
   modifyTime: DateTime
-  avatar: AvatarCreateOneWithoutChatRoomInput
+  avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutChatRoomInput
 }
 
@@ -436,7 +348,7 @@ input ChatRoomCreateWithoutMessageInput {
   owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
-  avatar: AvatarCreateOneWithoutChatRoomInput
+  avatar: AvatarCreateOneInput
 }
 
 input ChatRoomCreateWithoutOwnerInput {
@@ -446,7 +358,7 @@ input ChatRoomCreateWithoutOwnerInput {
   displayName: String!
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
-  avatar: AvatarCreateOneWithoutChatRoomInput
+  avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutChatRoomInput
 }
 
@@ -562,6 +474,17 @@ input ChatRoomSubscriptionWhereInput {
   AND: [ChatRoomSubscriptionWhereInput!]
 }
 
+input ChatRoomUpdateDataInput {
+  userName: String
+  nickName: String
+  displayName: String
+  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
+  modifyTime: DateTime
+  avatar: AvatarUpdateOneInput
+  message: MessageUpdateManyWithoutChatRoomInput
+}
+
 input ChatRoomUpdateInput {
   userName: String
   nickName: String
@@ -569,7 +492,7 @@ input ChatRoomUpdateInput {
   owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
-  avatar: AvatarUpdateOneWithoutChatRoomInput
+  avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutChatRoomInput
 }
 
@@ -578,6 +501,18 @@ input ChatRoomUpdateManyDataInput {
   nickName: String
   displayName: String
   modifyTime: DateTime
+}
+
+input ChatRoomUpdateManyInput {
+  create: [ChatRoomCreateInput!]
+  update: [ChatRoomUpdateWithWhereUniqueNestedInput!]
+  upsert: [ChatRoomUpsertWithWhereUniqueNestedInput!]
+  delete: [ChatRoomWhereUniqueInput!]
+  connect: [ChatRoomWhereUniqueInput!]
+  set: [ChatRoomWhereUniqueInput!]
+  disconnect: [ChatRoomWhereUniqueInput!]
+  deleteMany: [ChatRoomScalarWhereInput!]
+  updateMany: [ChatRoomUpdateManyWithWhereNestedInput!]
 }
 
 input ChatRoomUpdateManyMutationInput {
@@ -616,15 +551,6 @@ input ChatRoomUpdateManyWithWhereNestedInput {
   data: ChatRoomUpdateManyDataInput!
 }
 
-input ChatRoomUpdateOneWithoutAvatarInput {
-  create: ChatRoomCreateWithoutAvatarInput
-  update: ChatRoomUpdateWithoutAvatarDataInput
-  upsert: ChatRoomUpsertWithoutAvatarInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: ChatRoomWhereUniqueInput
-}
-
 input ChatRoomUpdateOneWithoutMessageInput {
   create: ChatRoomCreateWithoutMessageInput
   update: ChatRoomUpdateWithoutMessageDataInput
@@ -634,23 +560,13 @@ input ChatRoomUpdateOneWithoutMessageInput {
   connect: ChatRoomWhereUniqueInput
 }
 
-input ChatRoomUpdateWithoutAvatarDataInput {
-  userName: String
-  nickName: String
-  displayName: String
-  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
-  memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
-  modifyTime: DateTime
-  message: MessageUpdateManyWithoutChatRoomInput
-}
-
 input ChatRoomUpdateWithoutMemberListDataInput {
   userName: String
   nickName: String
   displayName: String
   owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
   modifyTime: DateTime
-  avatar: AvatarUpdateOneWithoutChatRoomInput
+  avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutChatRoomInput
 }
 
@@ -661,7 +577,7 @@ input ChatRoomUpdateWithoutMessageDataInput {
   owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
-  avatar: AvatarUpdateOneWithoutChatRoomInput
+  avatar: AvatarUpdateOneInput
 }
 
 input ChatRoomUpdateWithoutOwnerDataInput {
@@ -670,8 +586,13 @@ input ChatRoomUpdateWithoutOwnerDataInput {
   displayName: String
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
-  avatar: AvatarUpdateOneWithoutChatRoomInput
+  avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutChatRoomInput
+}
+
+input ChatRoomUpdateWithWhereUniqueNestedInput {
+  where: ChatRoomWhereUniqueInput!
+  data: ChatRoomUpdateDataInput!
 }
 
 input ChatRoomUpdateWithWhereUniqueWithoutMemberListInput {
@@ -684,14 +605,15 @@ input ChatRoomUpdateWithWhereUniqueWithoutOwnerInput {
   data: ChatRoomUpdateWithoutOwnerDataInput!
 }
 
-input ChatRoomUpsertWithoutAvatarInput {
-  update: ChatRoomUpdateWithoutAvatarDataInput!
-  create: ChatRoomCreateWithoutAvatarInput!
-}
-
 input ChatRoomUpsertWithoutMessageInput {
   update: ChatRoomUpdateWithoutMessageDataInput!
   create: ChatRoomCreateWithoutMessageInput!
+}
+
+input ChatRoomUpsertWithWhereUniqueNestedInput {
+  where: ChatRoomWhereUniqueInput!
+  update: ChatRoomUpdateDataInput!
+  create: ChatRoomCreateInput!
 }
 
 input ChatRoomUpsertWithWhereUniqueWithoutMemberListInput {
@@ -1249,7 +1171,7 @@ scalar DateTime
 
 type File {
   id: ID!
-  fileName: String!
+  fileName: FileIndex
   size: Int
   content: Content
 }
@@ -1262,7 +1184,7 @@ type FileConnection {
 
 input FileCreateInput {
   id: ID
-  fileName: String!
+  fileName: FileIndexCreateOneInput
   size: Int
   content: ContentCreateOneWithoutFileInput
 }
@@ -1274,7 +1196,7 @@ input FileCreateOneWithoutContentInput {
 
 input FileCreateWithoutContentInput {
   id: ID
-  fileName: String!
+  fileName: FileIndexCreateOneInput
   size: Int
 }
 
@@ -1283,68 +1205,111 @@ type FileEdge {
   cursor: String!
 }
 
-enum FileOrderByInput {
+type FileIndex {
+  id: ID!
+  fileName: String!
+  mimetype: String!
+  size: Int!
+  url: String
+}
+
+type FileIndexConnection {
+  pageInfo: PageInfo!
+  edges: [FileIndexEdge]!
+  aggregate: AggregateFileIndex!
+}
+
+input FileIndexCreateInput {
+  id: ID
+  fileName: String!
+  mimetype: String!
+  size: Int!
+  url: String
+}
+
+input FileIndexCreateOneInput {
+  create: FileIndexCreateInput
+  connect: FileIndexWhereUniqueInput
+}
+
+type FileIndexEdge {
+  node: FileIndex!
+  cursor: String!
+}
+
+enum FileIndexOrderByInput {
   id_ASC
   id_DESC
   fileName_ASC
   fileName_DESC
+  mimetype_ASC
+  mimetype_DESC
   size_ASC
   size_DESC
+  url_ASC
+  url_DESC
 }
 
-type FilePreviousValues {
+type FileIndexPreviousValues {
   id: ID!
   fileName: String!
-  size: Int
+  mimetype: String!
+  size: Int!
+  url: String
 }
 
-type FileSubscriptionPayload {
+type FileIndexSubscriptionPayload {
   mutation: MutationType!
-  node: File
+  node: FileIndex
   updatedFields: [String!]
-  previousValues: FilePreviousValues
+  previousValues: FileIndexPreviousValues
 }
 
-input FileSubscriptionWhereInput {
+input FileIndexSubscriptionWhereInput {
   mutation_in: [MutationType!]
   updatedFields_contains: String
   updatedFields_contains_every: [String!]
   updatedFields_contains_some: [String!]
-  node: FileWhereInput
-  AND: [FileSubscriptionWhereInput!]
+  node: FileIndexWhereInput
+  AND: [FileIndexSubscriptionWhereInput!]
 }
 
-input FileUpdateInput {
+input FileIndexUpdateDataInput {
   fileName: String
+  mimetype: String
   size: Int
-  content: ContentUpdateOneWithoutFileInput
+  url: String
 }
 
-input FileUpdateManyMutationInput {
+input FileIndexUpdateInput {
   fileName: String
+  mimetype: String
   size: Int
+  url: String
 }
 
-input FileUpdateOneWithoutContentInput {
-  create: FileCreateWithoutContentInput
-  update: FileUpdateWithoutContentDataInput
-  upsert: FileUpsertWithoutContentInput
+input FileIndexUpdateManyMutationInput {
+  fileName: String
+  mimetype: String
+  size: Int
+  url: String
+}
+
+input FileIndexUpdateOneInput {
+  create: FileIndexCreateInput
+  update: FileIndexUpdateDataInput
+  upsert: FileIndexUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
-  connect: FileWhereUniqueInput
+  connect: FileIndexWhereUniqueInput
 }
 
-input FileUpdateWithoutContentDataInput {
-  fileName: String
-  size: Int
+input FileIndexUpsertNestedInput {
+  update: FileIndexUpdateDataInput!
+  create: FileIndexCreateInput!
 }
 
-input FileUpsertWithoutContentInput {
-  update: FileUpdateWithoutContentDataInput!
-  create: FileCreateWithoutContentInput!
-}
-
-input FileWhereInput {
+input FileIndexWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -1373,6 +1338,123 @@ input FileWhereInput {
   fileName_not_starts_with: String
   fileName_ends_with: String
   fileName_not_ends_with: String
+  mimetype: String
+  mimetype_not: String
+  mimetype_in: [String!]
+  mimetype_not_in: [String!]
+  mimetype_lt: String
+  mimetype_lte: String
+  mimetype_gt: String
+  mimetype_gte: String
+  mimetype_contains: String
+  mimetype_not_contains: String
+  mimetype_starts_with: String
+  mimetype_not_starts_with: String
+  mimetype_ends_with: String
+  mimetype_not_ends_with: String
+  size: Int
+  size_not: Int
+  size_in: [Int!]
+  size_not_in: [Int!]
+  size_lt: Int
+  size_lte: Int
+  size_gt: Int
+  size_gte: Int
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  AND: [FileIndexWhereInput!]
+}
+
+input FileIndexWhereUniqueInput {
+  id: ID
+  fileName: String
+}
+
+enum FileOrderByInput {
+  id_ASC
+  id_DESC
+  size_ASC
+  size_DESC
+}
+
+type FilePreviousValues {
+  id: ID!
+  size: Int
+}
+
+type FileSubscriptionPayload {
+  mutation: MutationType!
+  node: File
+  updatedFields: [String!]
+  previousValues: FilePreviousValues
+}
+
+input FileSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FileWhereInput
+  AND: [FileSubscriptionWhereInput!]
+}
+
+input FileUpdateInput {
+  fileName: FileIndexUpdateOneInput
+  size: Int
+  content: ContentUpdateOneWithoutFileInput
+}
+
+input FileUpdateManyMutationInput {
+  size: Int
+}
+
+input FileUpdateOneWithoutContentInput {
+  create: FileCreateWithoutContentInput
+  update: FileUpdateWithoutContentDataInput
+  upsert: FileUpsertWithoutContentInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: FileWhereUniqueInput
+}
+
+input FileUpdateWithoutContentDataInput {
+  fileName: FileIndexUpdateOneInput
+  size: Int
+}
+
+input FileUpsertWithoutContentInput {
+  update: FileUpdateWithoutContentDataInput!
+  create: FileCreateWithoutContentInput!
+}
+
+input FileWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  fileName: FileIndexWhereInput
   size: Int
   size_not: Int
   size_in: [Int!]
@@ -1391,8 +1473,8 @@ input FileWhereUniqueInput {
 
 type Image {
   id: ID!
-  thumbnailImg: String
-  bigImg: String
+  thumbnailImg: FileIndex
+  bigImg: FileIndex
   content: Content
 }
 
@@ -1404,8 +1486,8 @@ type ImageConnection {
 
 input ImageCreateInput {
   id: ID
-  thumbnailImg: String
-  bigImg: String
+  thumbnailImg: FileIndexCreateOneInput
+  bigImg: FileIndexCreateOneInput
   content: ContentCreateOneWithoutImageInput
 }
 
@@ -1416,8 +1498,8 @@ input ImageCreateOneWithoutContentInput {
 
 input ImageCreateWithoutContentInput {
   id: ID
-  thumbnailImg: String
-  bigImg: String
+  thumbnailImg: FileIndexCreateOneInput
+  bigImg: FileIndexCreateOneInput
 }
 
 type ImageEdge {
@@ -1428,16 +1510,10 @@ type ImageEdge {
 enum ImageOrderByInput {
   id_ASC
   id_DESC
-  thumbnailImg_ASC
-  thumbnailImg_DESC
-  bigImg_ASC
-  bigImg_DESC
 }
 
 type ImagePreviousValues {
   id: ID!
-  thumbnailImg: String
-  bigImg: String
 }
 
 type ImageSubscriptionPayload {
@@ -1457,14 +1533,9 @@ input ImageSubscriptionWhereInput {
 }
 
 input ImageUpdateInput {
-  thumbnailImg: String
-  bigImg: String
+  thumbnailImg: FileIndexUpdateOneInput
+  bigImg: FileIndexUpdateOneInput
   content: ContentUpdateOneWithoutImageInput
-}
-
-input ImageUpdateManyMutationInput {
-  thumbnailImg: String
-  bigImg: String
 }
 
 input ImageUpdateOneWithoutContentInput {
@@ -1477,8 +1548,8 @@ input ImageUpdateOneWithoutContentInput {
 }
 
 input ImageUpdateWithoutContentDataInput {
-  thumbnailImg: String
-  bigImg: String
+  thumbnailImg: FileIndexUpdateOneInput
+  bigImg: FileIndexUpdateOneInput
 }
 
 input ImageUpsertWithoutContentInput {
@@ -1501,34 +1572,8 @@ input ImageWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  thumbnailImg: String
-  thumbnailImg_not: String
-  thumbnailImg_in: [String!]
-  thumbnailImg_not_in: [String!]
-  thumbnailImg_lt: String
-  thumbnailImg_lte: String
-  thumbnailImg_gt: String
-  thumbnailImg_gte: String
-  thumbnailImg_contains: String
-  thumbnailImg_not_contains: String
-  thumbnailImg_starts_with: String
-  thumbnailImg_not_starts_with: String
-  thumbnailImg_ends_with: String
-  thumbnailImg_not_ends_with: String
-  bigImg: String
-  bigImg_not: String
-  bigImg_in: [String!]
-  bigImg_not_in: [String!]
-  bigImg_lt: String
-  bigImg_lte: String
-  bigImg_gt: String
-  bigImg_gte: String
-  bigImg_contains: String
-  bigImg_not_contains: String
-  bigImg_starts_with: String
-  bigImg_not_starts_with: String
-  bigImg_ends_with: String
-  bigImg_not_ends_with: String
+  thumbnailImg: FileIndexWhereInput
+  bigImg: FileIndexWhereInput
   content: ContentWhereInput
   AND: [ImageWhereInput!]
 }
@@ -1567,6 +1612,11 @@ input MessageCreateInput {
   createTime: DateTime
   chatRoom: ChatRoomCreateOneWithoutMessageInput
   content: ContentCreateOneInput
+}
+
+input MessageCreateManyInput {
+  create: [MessageCreateInput!]
+  connect: [MessageWhereUniqueInput!]
 }
 
 input MessageCreateManyWithoutChatRoomInput {
@@ -1699,6 +1749,16 @@ input MessageSubscriptionWhereInput {
   AND: [MessageSubscriptionWhereInput!]
 }
 
+input MessageUpdateDataInput {
+  msgSvrId: String
+  isSend: Int
+  type: Int
+  talker: WeChatUserUpdateOneRequiredWithoutMessageInput
+  createTime: DateTime
+  chatRoom: ChatRoomUpdateOneWithoutMessageInput
+  content: ContentUpdateOneInput
+}
+
 input MessageUpdateInput {
   msgSvrId: String
   isSend: Int
@@ -1714,6 +1774,18 @@ input MessageUpdateManyDataInput {
   isSend: Int
   type: Int
   createTime: DateTime
+}
+
+input MessageUpdateManyInput {
+  create: [MessageCreateInput!]
+  update: [MessageUpdateWithWhereUniqueNestedInput!]
+  upsert: [MessageUpsertWithWhereUniqueNestedInput!]
+  delete: [MessageWhereUniqueInput!]
+  connect: [MessageWhereUniqueInput!]
+  set: [MessageWhereUniqueInput!]
+  disconnect: [MessageWhereUniqueInput!]
+  deleteMany: [MessageScalarWhereInput!]
+  updateMany: [MessageUpdateManyWithWhereNestedInput!]
 }
 
 input MessageUpdateManyMutationInput {
@@ -1770,6 +1842,11 @@ input MessageUpdateWithoutTalkerDataInput {
   content: ContentUpdateOneInput
 }
 
+input MessageUpdateWithWhereUniqueNestedInput {
+  where: MessageWhereUniqueInput!
+  data: MessageUpdateDataInput!
+}
+
 input MessageUpdateWithWhereUniqueWithoutChatRoomInput {
   where: MessageWhereUniqueInput!
   data: MessageUpdateWithoutChatRoomDataInput!
@@ -1778,6 +1855,12 @@ input MessageUpdateWithWhereUniqueWithoutChatRoomInput {
 input MessageUpdateWithWhereUniqueWithoutTalkerInput {
   where: MessageWhereUniqueInput!
   data: MessageUpdateWithoutTalkerDataInput!
+}
+
+input MessageUpsertWithWhereUniqueNestedInput {
+  where: MessageWhereUniqueInput!
+  update: MessageUpdateDataInput!
+  create: MessageCreateInput!
 }
 
 input MessageUpsertWithWhereUniqueWithoutChatRoomInput {
@@ -1864,7 +1947,6 @@ type Mutation {
   deleteManyApps(where: AppWhereInput): BatchPayload!
   createAvatar(data: AvatarCreateInput!): Avatar!
   updateAvatar(data: AvatarUpdateInput!, where: AvatarWhereUniqueInput!): Avatar
-  updateManyAvatars(data: AvatarUpdateManyMutationInput!, where: AvatarWhereInput): BatchPayload!
   upsertAvatar(where: AvatarWhereUniqueInput!, create: AvatarCreateInput!, update: AvatarUpdateInput!): Avatar!
   deleteAvatar(where: AvatarWhereUniqueInput!): Avatar
   deleteManyAvatars(where: AvatarWhereInput): BatchPayload!
@@ -1891,9 +1973,14 @@ type Mutation {
   upsertFile(where: FileWhereUniqueInput!, create: FileCreateInput!, update: FileUpdateInput!): File!
   deleteFile(where: FileWhereUniqueInput!): File
   deleteManyFiles(where: FileWhereInput): BatchPayload!
+  createFileIndex(data: FileIndexCreateInput!): FileIndex!
+  updateFileIndex(data: FileIndexUpdateInput!, where: FileIndexWhereUniqueInput!): FileIndex
+  updateManyFileIndexes(data: FileIndexUpdateManyMutationInput!, where: FileIndexWhereInput): BatchPayload!
+  upsertFileIndex(where: FileIndexWhereUniqueInput!, create: FileIndexCreateInput!, update: FileIndexUpdateInput!): FileIndex!
+  deleteFileIndex(where: FileIndexWhereUniqueInput!): FileIndex
+  deleteManyFileIndexes(where: FileIndexWhereInput): BatchPayload!
   createImage(data: ImageCreateInput!): Image!
   updateImage(data: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image
-  updateManyImages(data: ImageUpdateManyMutationInput!, where: ImageWhereInput): BatchPayload!
   upsertImage(where: ImageWhereUniqueInput!, create: ImageCreateInput!, update: ImageUpdateInput!): Image!
   deleteImage(where: ImageWhereUniqueInput!): Image
   deleteManyImages(where: ImageWhereInput): BatchPayload!
@@ -1927,6 +2014,11 @@ type Mutation {
   upsertVoice(where: VoiceWhereUniqueInput!, create: VoiceCreateInput!, update: VoiceUpdateInput!): Voice!
   deleteVoice(where: VoiceWhereUniqueInput!): Voice
   deleteManyVoices(where: VoiceWhereInput): BatchPayload!
+  createWeChat(data: WeChatCreateInput!): WeChat!
+  updateWeChat(data: WeChatUpdateInput!, where: WeChatWhereUniqueInput!): WeChat
+  upsertWeChat(where: WeChatWhereUniqueInput!, create: WeChatCreateInput!, update: WeChatUpdateInput!): WeChat!
+  deleteWeChat(where: WeChatWhereUniqueInput!): WeChat
+  deleteManyWeChats(where: WeChatWhereInput): BatchPayload!
   createWeChatUser(data: WeChatUserCreateInput!): WeChatUser!
   updateWeChatUser(data: WeChatUserUpdateInput!, where: WeChatUserWhereUniqueInput!): WeChatUser
   updateManyWeChatUsers(data: WeChatUserUpdateManyMutationInput!, where: WeChatUserWhereInput): BatchPayload!
@@ -1971,6 +2063,9 @@ type Query {
   file(where: FileWhereUniqueInput!): File
   files(where: FileWhereInput, orderBy: FileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [File]!
   filesConnection(where: FileWhereInput, orderBy: FileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FileConnection!
+  fileIndex(where: FileIndexWhereUniqueInput!): FileIndex
+  fileIndexes(where: FileIndexWhereInput, orderBy: FileIndexOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FileIndex]!
+  fileIndexesConnection(where: FileIndexWhereInput, orderBy: FileIndexOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FileIndexConnection!
   image(where: ImageWhereUniqueInput!): Image
   images(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Image]!
   imagesConnection(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ImageConnection!
@@ -1989,6 +2084,9 @@ type Query {
   voice(where: VoiceWhereUniqueInput!): Voice
   voices(where: VoiceWhereInput, orderBy: VoiceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Voice]!
   voicesConnection(where: VoiceWhereInput, orderBy: VoiceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VoiceConnection!
+  weChat(where: WeChatWhereUniqueInput!): WeChat
+  weChats(where: WeChatWhereInput, orderBy: WeChatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChat]!
+  weChatsConnection(where: WeChatWhereInput, orderBy: WeChatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WeChatConnection!
   weChatUser(where: WeChatUserWhereUniqueInput!): WeChatUser
   weChatUsers(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChatUser]!
   weChatUsersConnection(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WeChatUserConnection!
@@ -2002,12 +2100,14 @@ type Subscription {
   contact(where: ContactSubscriptionWhereInput): ContactSubscriptionPayload
   content(where: ContentSubscriptionWhereInput): ContentSubscriptionPayload
   file(where: FileSubscriptionWhereInput): FileSubscriptionPayload
+  fileIndex(where: FileIndexSubscriptionWhereInput): FileIndexSubscriptionPayload
   image(where: ImageSubscriptionWhereInput): ImageSubscriptionPayload
   message(where: MessageSubscriptionWhereInput): MessageSubscriptionPayload
   text(where: TextSubscriptionWhereInput): TextSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   video(where: VideoSubscriptionWhereInput): VideoSubscriptionPayload
   voice(where: VoiceSubscriptionWhereInput): VoiceSubscriptionPayload
+  weChat(where: WeChatSubscriptionWhereInput): WeChatSubscriptionPayload
   weChatUser(where: WeChatUserSubscriptionWhereInput): WeChatUserSubscriptionPayload
 }
 
@@ -2141,6 +2241,7 @@ type User {
   email: String!
   name: String!
   password: String!
+  weChat(where: WeChatWhereInput, orderBy: WeChatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChat!]
 }
 
 type UserConnection {
@@ -2154,6 +2255,7 @@ input UserCreateInput {
   email: String!
   name: String!
   password: String!
+  weChat: WeChatCreateManyInput
 }
 
 type UserEdge {
@@ -2199,6 +2301,7 @@ input UserUpdateInput {
   email: String
   name: String
   password: String
+  weChat: WeChatUpdateManyInput
 }
 
 input UserUpdateManyMutationInput {
@@ -2264,6 +2367,7 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
+  weChat_some: WeChatWhereInput
   AND: [UserWhereInput!]
 }
 
@@ -2274,8 +2378,8 @@ input UserWhereUniqueInput {
 
 type Video {
   id: ID!
-  fileName: String!
-  thumbnailImg: String
+  fileName: FileIndex
+  thumbnailImg: FileIndex
   videolength: Int
   content: Content
 }
@@ -2288,8 +2392,8 @@ type VideoConnection {
 
 input VideoCreateInput {
   id: ID
-  fileName: String!
-  thumbnailImg: String
+  fileName: FileIndexCreateOneInput
+  thumbnailImg: FileIndexCreateOneInput
   videolength: Int
   content: ContentCreateOneWithoutVideoInput
 }
@@ -2301,8 +2405,8 @@ input VideoCreateOneWithoutContentInput {
 
 input VideoCreateWithoutContentInput {
   id: ID
-  fileName: String!
-  thumbnailImg: String
+  fileName: FileIndexCreateOneInput
+  thumbnailImg: FileIndexCreateOneInput
   videolength: Int
 }
 
@@ -2314,18 +2418,12 @@ type VideoEdge {
 enum VideoOrderByInput {
   id_ASC
   id_DESC
-  fileName_ASC
-  fileName_DESC
-  thumbnailImg_ASC
-  thumbnailImg_DESC
   videolength_ASC
   videolength_DESC
 }
 
 type VideoPreviousValues {
   id: ID!
-  fileName: String!
-  thumbnailImg: String
   videolength: Int
 }
 
@@ -2346,15 +2444,13 @@ input VideoSubscriptionWhereInput {
 }
 
 input VideoUpdateInput {
-  fileName: String
-  thumbnailImg: String
+  fileName: FileIndexUpdateOneInput
+  thumbnailImg: FileIndexUpdateOneInput
   videolength: Int
   content: ContentUpdateOneWithoutVideoInput
 }
 
 input VideoUpdateManyMutationInput {
-  fileName: String
-  thumbnailImg: String
   videolength: Int
 }
 
@@ -2368,8 +2464,8 @@ input VideoUpdateOneWithoutContentInput {
 }
 
 input VideoUpdateWithoutContentDataInput {
-  fileName: String
-  thumbnailImg: String
+  fileName: FileIndexUpdateOneInput
+  thumbnailImg: FileIndexUpdateOneInput
   videolength: Int
 }
 
@@ -2393,34 +2489,8 @@ input VideoWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  fileName: String
-  fileName_not: String
-  fileName_in: [String!]
-  fileName_not_in: [String!]
-  fileName_lt: String
-  fileName_lte: String
-  fileName_gt: String
-  fileName_gte: String
-  fileName_contains: String
-  fileName_not_contains: String
-  fileName_starts_with: String
-  fileName_not_starts_with: String
-  fileName_ends_with: String
-  fileName_not_ends_with: String
-  thumbnailImg: String
-  thumbnailImg_not: String
-  thumbnailImg_in: [String!]
-  thumbnailImg_not_in: [String!]
-  thumbnailImg_lt: String
-  thumbnailImg_lte: String
-  thumbnailImg_gt: String
-  thumbnailImg_gte: String
-  thumbnailImg_contains: String
-  thumbnailImg_not_contains: String
-  thumbnailImg_starts_with: String
-  thumbnailImg_not_starts_with: String
-  thumbnailImg_ends_with: String
-  thumbnailImg_not_ends_with: String
+  fileName: FileIndexWhereInput
+  thumbnailImg: FileIndexWhereInput
   videolength: Int
   videolength_not: Int
   videolength_in: [Int!]
@@ -2439,7 +2509,7 @@ input VideoWhereUniqueInput {
 
 type Voice {
   id: ID!
-  fileName: String!
+  fileName: FileIndex
   voiceLength: Int
   content: Content
 }
@@ -2452,7 +2522,7 @@ type VoiceConnection {
 
 input VoiceCreateInput {
   id: ID
-  fileName: String!
+  fileName: FileIndexCreateOneInput
   voiceLength: Int
   content: ContentCreateOneWithoutVoiceInput
 }
@@ -2464,7 +2534,7 @@ input VoiceCreateOneWithoutContentInput {
 
 input VoiceCreateWithoutContentInput {
   id: ID
-  fileName: String!
+  fileName: FileIndexCreateOneInput
   voiceLength: Int
 }
 
@@ -2476,15 +2546,12 @@ type VoiceEdge {
 enum VoiceOrderByInput {
   id_ASC
   id_DESC
-  fileName_ASC
-  fileName_DESC
   voiceLength_ASC
   voiceLength_DESC
 }
 
 type VoicePreviousValues {
   id: ID!
-  fileName: String!
   voiceLength: Int
 }
 
@@ -2505,13 +2572,12 @@ input VoiceSubscriptionWhereInput {
 }
 
 input VoiceUpdateInput {
-  fileName: String
+  fileName: FileIndexUpdateOneInput
   voiceLength: Int
   content: ContentUpdateOneWithoutVoiceInput
 }
 
 input VoiceUpdateManyMutationInput {
-  fileName: String
   voiceLength: Int
 }
 
@@ -2525,7 +2591,7 @@ input VoiceUpdateOneWithoutContentInput {
 }
 
 input VoiceUpdateWithoutContentDataInput {
-  fileName: String
+  fileName: FileIndexUpdateOneInput
   voiceLength: Int
 }
 
@@ -2549,20 +2615,7 @@ input VoiceWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  fileName: String
-  fileName_not: String
-  fileName_in: [String!]
-  fileName_not_in: [String!]
-  fileName_lt: String
-  fileName_lte: String
-  fileName_gt: String
-  fileName_gte: String
-  fileName_contains: String
-  fileName_not_contains: String
-  fileName_starts_with: String
-  fileName_not_starts_with: String
-  fileName_ends_with: String
-  fileName_not_ends_with: String
+  fileName: FileIndexWhereInput
   voiceLength: Int
   voiceLength_not: Int
   voiceLength_in: [Int!]
@@ -2577,6 +2630,119 @@ input VoiceWhereInput {
 
 input VoiceWhereUniqueInput {
   id: ID
+}
+
+type WeChat {
+  id: ID!
+  weChatOwner: WeChatUser!
+  weChatUsers(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChatUser!]
+  chatRooms(where: ChatRoomWhereInput, orderBy: ChatRoomOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ChatRoom!]
+  messages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message!]
+}
+
+type WeChatConnection {
+  pageInfo: PageInfo!
+  edges: [WeChatEdge]!
+  aggregate: AggregateWeChat!
+}
+
+input WeChatCreateInput {
+  id: ID
+  weChatOwner: WeChatUserCreateOneInput!
+  weChatUsers: WeChatUserCreateManyInput
+  chatRooms: ChatRoomCreateManyInput
+  messages: MessageCreateManyInput
+}
+
+input WeChatCreateManyInput {
+  create: [WeChatCreateInput!]
+  connect: [WeChatWhereUniqueInput!]
+}
+
+type WeChatEdge {
+  node: WeChat!
+  cursor: String!
+}
+
+enum WeChatOrderByInput {
+  id_ASC
+  id_DESC
+}
+
+type WeChatPreviousValues {
+  id: ID!
+}
+
+input WeChatScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [WeChatScalarWhereInput!]
+  OR: [WeChatScalarWhereInput!]
+  NOT: [WeChatScalarWhereInput!]
+}
+
+type WeChatSubscriptionPayload {
+  mutation: MutationType!
+  node: WeChat
+  updatedFields: [String!]
+  previousValues: WeChatPreviousValues
+}
+
+input WeChatSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: WeChatWhereInput
+  AND: [WeChatSubscriptionWhereInput!]
+}
+
+input WeChatUpdateDataInput {
+  weChatOwner: WeChatUserUpdateOneRequiredInput
+  weChatUsers: WeChatUserUpdateManyInput
+  chatRooms: ChatRoomUpdateManyInput
+  messages: MessageUpdateManyInput
+}
+
+input WeChatUpdateInput {
+  weChatOwner: WeChatUserUpdateOneRequiredInput
+  weChatUsers: WeChatUserUpdateManyInput
+  chatRooms: ChatRoomUpdateManyInput
+  messages: MessageUpdateManyInput
+}
+
+input WeChatUpdateManyInput {
+  create: [WeChatCreateInput!]
+  update: [WeChatUpdateWithWhereUniqueNestedInput!]
+  upsert: [WeChatUpsertWithWhereUniqueNestedInput!]
+  delete: [WeChatWhereUniqueInput!]
+  connect: [WeChatWhereUniqueInput!]
+  set: [WeChatWhereUniqueInput!]
+  disconnect: [WeChatWhereUniqueInput!]
+  deleteMany: [WeChatScalarWhereInput!]
+}
+
+input WeChatUpdateWithWhereUniqueNestedInput {
+  where: WeChatWhereUniqueInput!
+  data: WeChatUpdateDataInput!
+}
+
+input WeChatUpsertWithWhereUniqueNestedInput {
+  where: WeChatWhereUniqueInput!
+  update: WeChatUpdateDataInput!
+  create: WeChatCreateInput!
 }
 
 type WeChatUser {
@@ -2604,11 +2770,16 @@ input WeChatUserCreateInput {
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarCreateOneWithoutWeChatUserInput
+  avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutTalkerInput
   haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
   joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
   contact: ContactCreateOneWithoutWeChatUserInput
+}
+
+input WeChatUserCreateManyInput {
+  create: [WeChatUserCreateInput!]
+  connect: [WeChatUserWhereUniqueInput!]
 }
 
 input WeChatUserCreateManyWithoutContactInput {
@@ -2621,8 +2792,8 @@ input WeChatUserCreateManyWithoutJoinChatRoomInput {
   connect: [WeChatUserWhereUniqueInput!]
 }
 
-input WeChatUserCreateOneWithoutAvatarInput {
-  create: WeChatUserCreateWithoutAvatarInput
+input WeChatUserCreateOneInput {
+  create: WeChatUserCreateInput
   connect: WeChatUserWhereUniqueInput
 }
 
@@ -2636,25 +2807,13 @@ input WeChatUserCreateOneWithoutMessageInput {
   connect: WeChatUserWhereUniqueInput
 }
 
-input WeChatUserCreateWithoutAvatarInput {
-  id: ID
-  username: String!
-  alias: String
-  conRemark: String
-  nickname: String
-  message: MessageCreateManyWithoutTalkerInput
-  haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
-  joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
-  contact: ContactCreateOneWithoutWeChatUserInput
-}
-
 input WeChatUserCreateWithoutContactInput {
   id: ID
   username: String!
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarCreateOneWithoutWeChatUserInput
+  avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutTalkerInput
   haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
   joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
@@ -2666,7 +2825,7 @@ input WeChatUserCreateWithoutHaveChatRoomInput {
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarCreateOneWithoutWeChatUserInput
+  avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutTalkerInput
   joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
   contact: ContactCreateOneWithoutWeChatUserInput
@@ -2678,7 +2837,7 @@ input WeChatUserCreateWithoutJoinChatRoomInput {
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarCreateOneWithoutWeChatUserInput
+  avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutTalkerInput
   haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
   contact: ContactCreateOneWithoutWeChatUserInput
@@ -2690,7 +2849,7 @@ input WeChatUserCreateWithoutMessageInput {
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarCreateOneWithoutWeChatUserInput
+  avatar: AvatarCreateOneInput
   haveChatRoom: ChatRoomCreateManyWithoutOwnerInput
   joinChatRoom: ChatRoomCreateManyWithoutMemberListInput
   contact: ContactCreateOneWithoutWeChatUserInput
@@ -2814,12 +2973,24 @@ input WeChatUserSubscriptionWhereInput {
   AND: [WeChatUserSubscriptionWhereInput!]
 }
 
+input WeChatUserUpdateDataInput {
+  username: String
+  alias: String
+  conRemark: String
+  nickname: String
+  avatar: AvatarUpdateOneInput
+  message: MessageUpdateManyWithoutTalkerInput
+  haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
+  joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
+  contact: ContactUpdateOneWithoutWeChatUserInput
+}
+
 input WeChatUserUpdateInput {
   username: String
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutTalkerInput
   haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
   joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
@@ -2831,6 +3002,18 @@ input WeChatUserUpdateManyDataInput {
   alias: String
   conRemark: String
   nickname: String
+}
+
+input WeChatUserUpdateManyInput {
+  create: [WeChatUserCreateInput!]
+  update: [WeChatUserUpdateWithWhereUniqueNestedInput!]
+  upsert: [WeChatUserUpsertWithWhereUniqueNestedInput!]
+  delete: [WeChatUserWhereUniqueInput!]
+  connect: [WeChatUserWhereUniqueInput!]
+  set: [WeChatUserWhereUniqueInput!]
+  disconnect: [WeChatUserWhereUniqueInput!]
+  deleteMany: [WeChatUserScalarWhereInput!]
+  updateMany: [WeChatUserUpdateManyWithWhereNestedInput!]
 }
 
 input WeChatUserUpdateManyMutationInput {
@@ -2869,6 +3052,13 @@ input WeChatUserUpdateManyWithWhereNestedInput {
   data: WeChatUserUpdateManyDataInput!
 }
 
+input WeChatUserUpdateOneRequiredInput {
+  create: WeChatUserCreateInput
+  update: WeChatUserUpdateDataInput
+  upsert: WeChatUserUpsertNestedInput
+  connect: WeChatUserWhereUniqueInput
+}
+
 input WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput {
   create: WeChatUserCreateWithoutHaveChatRoomInput
   update: WeChatUserUpdateWithoutHaveChatRoomDataInput
@@ -2883,32 +3073,12 @@ input WeChatUserUpdateOneRequiredWithoutMessageInput {
   connect: WeChatUserWhereUniqueInput
 }
 
-input WeChatUserUpdateOneWithoutAvatarInput {
-  create: WeChatUserCreateWithoutAvatarInput
-  update: WeChatUserUpdateWithoutAvatarDataInput
-  upsert: WeChatUserUpsertWithoutAvatarInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: WeChatUserWhereUniqueInput
-}
-
-input WeChatUserUpdateWithoutAvatarDataInput {
-  username: String
-  alias: String
-  conRemark: String
-  nickname: String
-  message: MessageUpdateManyWithoutTalkerInput
-  haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
-  joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
-  contact: ContactUpdateOneWithoutWeChatUserInput
-}
-
 input WeChatUserUpdateWithoutContactDataInput {
   username: String
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutTalkerInput
   haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
   joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
@@ -2919,7 +3089,7 @@ input WeChatUserUpdateWithoutHaveChatRoomDataInput {
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutTalkerInput
   joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
   contact: ContactUpdateOneWithoutWeChatUserInput
@@ -2930,7 +3100,7 @@ input WeChatUserUpdateWithoutJoinChatRoomDataInput {
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutTalkerInput
   haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
   contact: ContactUpdateOneWithoutWeChatUserInput
@@ -2941,10 +3111,15 @@ input WeChatUserUpdateWithoutMessageDataInput {
   alias: String
   conRemark: String
   nickname: String
-  avatar: AvatarUpdateOneWithoutWeChatUserInput
+  avatar: AvatarUpdateOneInput
   haveChatRoom: ChatRoomUpdateManyWithoutOwnerInput
   joinChatRoom: ChatRoomUpdateManyWithoutMemberListInput
   contact: ContactUpdateOneWithoutWeChatUserInput
+}
+
+input WeChatUserUpdateWithWhereUniqueNestedInput {
+  where: WeChatUserWhereUniqueInput!
+  data: WeChatUserUpdateDataInput!
 }
 
 input WeChatUserUpdateWithWhereUniqueWithoutContactInput {
@@ -2957,9 +3132,9 @@ input WeChatUserUpdateWithWhereUniqueWithoutJoinChatRoomInput {
   data: WeChatUserUpdateWithoutJoinChatRoomDataInput!
 }
 
-input WeChatUserUpsertWithoutAvatarInput {
-  update: WeChatUserUpdateWithoutAvatarDataInput!
-  create: WeChatUserCreateWithoutAvatarInput!
+input WeChatUserUpsertNestedInput {
+  update: WeChatUserUpdateDataInput!
+  create: WeChatUserCreateInput!
 }
 
 input WeChatUserUpsertWithoutHaveChatRoomInput {
@@ -2970,6 +3145,12 @@ input WeChatUserUpsertWithoutHaveChatRoomInput {
 input WeChatUserUpsertWithoutMessageInput {
   update: WeChatUserUpdateWithoutMessageDataInput!
   create: WeChatUserCreateWithoutMessageInput!
+}
+
+input WeChatUserUpsertWithWhereUniqueNestedInput {
+  where: WeChatUserWhereUniqueInput!
+  update: WeChatUserUpdateDataInput!
+  create: WeChatUserCreateInput!
 }
 
 input WeChatUserUpsertWithWhereUniqueWithoutContactInput {
@@ -3066,6 +3247,32 @@ input WeChatUserWhereInput {
 input WeChatUserWhereUniqueInput {
   id: ID
   username: String
+}
+
+input WeChatWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  weChatOwner: WeChatUserWhereInput
+  weChatUsers_some: WeChatUserWhereInput
+  chatRooms_some: ChatRoomWhereInput
+  messages_some: MessageWhereInput
+  AND: [WeChatWhereInput!]
+}
+
+input WeChatWhereUniqueInput {
+  id: ID
 }
 `
       }

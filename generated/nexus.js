@@ -35,26 +35,12 @@ export interface NexusGenInputs {
     id_starts_with?: string | null; // ID
   }
   AvatarCreateInput: { // input type
-    bigImg?: any | null; // Upload
-    thumbnailImg?: any | null; // Upload
+    bigImg: string; // String!
+    thumbnailImg: string; // String!
   }
   AvatarWhereInput: { // input type
     AND?: NexusGenInputs['AvatarWhereInput'][] | null; // [AvatarWhereInput!]
-    bigImg?: string | null; // String
-    bigImg_contains?: string | null; // String
-    bigImg_ends_with?: string | null; // String
-    bigImg_gt?: string | null; // String
-    bigImg_gte?: string | null; // String
-    bigImg_in?: string[] | null; // [String!]
-    bigImg_lt?: string | null; // String
-    bigImg_lte?: string | null; // String
-    bigImg_not?: string | null; // String
-    bigImg_not_contains?: string | null; // String
-    bigImg_not_ends_with?: string | null; // String
-    bigImg_not_in?: string[] | null; // [String!]
-    bigImg_not_starts_with?: string | null; // String
-    bigImg_starts_with?: string | null; // String
-    chatRoom?: NexusGenInputs['ChatRoomWhereInput'] | null; // ChatRoomWhereInput
+    bigImg?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -69,21 +55,16 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
-    thumbnailImg?: string | null; // String
-    thumbnailImg_contains?: string | null; // String
-    thumbnailImg_ends_with?: string | null; // String
-    thumbnailImg_gt?: string | null; // String
-    thumbnailImg_gte?: string | null; // String
-    thumbnailImg_in?: string[] | null; // [String!]
-    thumbnailImg_lt?: string | null; // String
-    thumbnailImg_lte?: string | null; // String
-    thumbnailImg_not?: string | null; // String
-    thumbnailImg_not_contains?: string | null; // String
-    thumbnailImg_not_ends_with?: string | null; // String
-    thumbnailImg_not_in?: string[] | null; // [String!]
-    thumbnailImg_not_starts_with?: string | null; // String
-    thumbnailImg_starts_with?: string | null; // String
-    weChatUser?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
+    thumbnailImg?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
+  }
+  ChatRoomCreateInput: { // input type
+    avatar?: NexusGenInputs['AvatarCreateInput'] | null; // AvatarCreateInput
+    displayName: string; // String!
+    memberList: string[]; // [String!]!
+    modifyTime: any; // DateTime!
+    nickname: string; // String!
+    owner: string; // String!
+    username: string; // String!
   }
   ChatRoomWhereInput: { // input type
     AND?: NexusGenInputs['ChatRoomWhereInput'][] | null; // [ChatRoomWhereInput!]
@@ -211,9 +192,8 @@ export interface NexusGenInputs {
     video?: NexusGenInputs['VideoWhereInput'] | null; // VideoWhereInput
     voice?: NexusGenInputs['VoiceWhereInput'] | null; // VoiceWhereInput
   }
-  FileWhereInput: { // input type
-    AND?: NexusGenInputs['FileWhereInput'][] | null; // [FileWhereInput!]
-    content?: NexusGenInputs['ContentWhereInput'] | null; // ContentWhereInput
+  FileIndexWhereInput: { // input type
+    AND?: NexusGenInputs['FileIndexWhereInput'][] | null; // [FileIndexWhereInput!]
     fileName?: string | null; // String
     fileName_contains?: string | null; // String
     fileName_ends_with?: string | null; // String
@@ -242,6 +222,61 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
+    mimetype?: string | null; // String
+    mimetype_contains?: string | null; // String
+    mimetype_ends_with?: string | null; // String
+    mimetype_gt?: string | null; // String
+    mimetype_gte?: string | null; // String
+    mimetype_in?: string[] | null; // [String!]
+    mimetype_lt?: string | null; // String
+    mimetype_lte?: string | null; // String
+    mimetype_not?: string | null; // String
+    mimetype_not_contains?: string | null; // String
+    mimetype_not_ends_with?: string | null; // String
+    mimetype_not_in?: string[] | null; // [String!]
+    mimetype_not_starts_with?: string | null; // String
+    mimetype_starts_with?: string | null; // String
+    size?: number | null; // Int
+    size_gt?: number | null; // Int
+    size_gte?: number | null; // Int
+    size_in?: number[] | null; // [Int!]
+    size_lt?: number | null; // Int
+    size_lte?: number | null; // Int
+    size_not?: number | null; // Int
+    size_not_in?: number[] | null; // [Int!]
+    url?: string | null; // String
+    url_contains?: string | null; // String
+    url_ends_with?: string | null; // String
+    url_gt?: string | null; // String
+    url_gte?: string | null; // String
+    url_in?: string[] | null; // [String!]
+    url_lt?: string | null; // String
+    url_lte?: string | null; // String
+    url_not?: string | null; // String
+    url_not_contains?: string | null; // String
+    url_not_ends_with?: string | null; // String
+    url_not_in?: string[] | null; // [String!]
+    url_not_starts_with?: string | null; // String
+    url_starts_with?: string | null; // String
+  }
+  FileWhereInput: { // input type
+    AND?: NexusGenInputs['FileWhereInput'][] | null; // [FileWhereInput!]
+    content?: NexusGenInputs['ContentWhereInput'] | null; // ContentWhereInput
+    fileName?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
     size?: number | null; // Int
     size_gt?: number | null; // Int
     size_gte?: number | null; // Int
@@ -253,20 +288,7 @@ export interface NexusGenInputs {
   }
   ImageWhereInput: { // input type
     AND?: NexusGenInputs['ImageWhereInput'][] | null; // [ImageWhereInput!]
-    bigImg?: string | null; // String
-    bigImg_contains?: string | null; // String
-    bigImg_ends_with?: string | null; // String
-    bigImg_gt?: string | null; // String
-    bigImg_gte?: string | null; // String
-    bigImg_in?: string[] | null; // [String!]
-    bigImg_lt?: string | null; // String
-    bigImg_lte?: string | null; // String
-    bigImg_not?: string | null; // String
-    bigImg_not_contains?: string | null; // String
-    bigImg_not_ends_with?: string | null; // String
-    bigImg_not_in?: string[] | null; // [String!]
-    bigImg_not_starts_with?: string | null; // String
-    bigImg_starts_with?: string | null; // String
+    bigImg?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
     content?: NexusGenInputs['ContentWhereInput'] | null; // ContentWhereInput
     id?: string | null; // ID
     id_contains?: string | null; // ID
@@ -282,20 +304,7 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
-    thumbnailImg?: string | null; // String
-    thumbnailImg_contains?: string | null; // String
-    thumbnailImg_ends_with?: string | null; // String
-    thumbnailImg_gt?: string | null; // String
-    thumbnailImg_gte?: string | null; // String
-    thumbnailImg_in?: string[] | null; // [String!]
-    thumbnailImg_lt?: string | null; // String
-    thumbnailImg_lte?: string | null; // String
-    thumbnailImg_not?: string | null; // String
-    thumbnailImg_not_contains?: string | null; // String
-    thumbnailImg_not_ends_with?: string | null; // String
-    thumbnailImg_not_in?: string[] | null; // [String!]
-    thumbnailImg_not_starts_with?: string | null; // String
-    thumbnailImg_starts_with?: string | null; // String
+    thumbnailImg?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
   }
   MessageWhereInput: { // input type
     AND?: NexusGenInputs['MessageWhereInput'][] | null; // [MessageWhereInput!]
@@ -445,24 +454,12 @@ export interface NexusGenInputs {
     password_not_in?: string[] | null; // [String!]
     password_not_starts_with?: string | null; // String
     password_starts_with?: string | null; // String
+    weChat_some?: NexusGenInputs['WeChatWhereInput'] | null; // WeChatWhereInput
   }
   VideoWhereInput: { // input type
     AND?: NexusGenInputs['VideoWhereInput'][] | null; // [VideoWhereInput!]
     content?: NexusGenInputs['ContentWhereInput'] | null; // ContentWhereInput
-    fileName?: string | null; // String
-    fileName_contains?: string | null; // String
-    fileName_ends_with?: string | null; // String
-    fileName_gt?: string | null; // String
-    fileName_gte?: string | null; // String
-    fileName_in?: string[] | null; // [String!]
-    fileName_lt?: string | null; // String
-    fileName_lte?: string | null; // String
-    fileName_not?: string | null; // String
-    fileName_not_contains?: string | null; // String
-    fileName_not_ends_with?: string | null; // String
-    fileName_not_in?: string[] | null; // [String!]
-    fileName_not_starts_with?: string | null; // String
-    fileName_starts_with?: string | null; // String
+    fileName?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -477,20 +474,7 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
-    thumbnailImg?: string | null; // String
-    thumbnailImg_contains?: string | null; // String
-    thumbnailImg_ends_with?: string | null; // String
-    thumbnailImg_gt?: string | null; // String
-    thumbnailImg_gte?: string | null; // String
-    thumbnailImg_in?: string[] | null; // [String!]
-    thumbnailImg_lt?: string | null; // String
-    thumbnailImg_lte?: string | null; // String
-    thumbnailImg_not?: string | null; // String
-    thumbnailImg_not_contains?: string | null; // String
-    thumbnailImg_not_ends_with?: string | null; // String
-    thumbnailImg_not_in?: string[] | null; // [String!]
-    thumbnailImg_not_starts_with?: string | null; // String
-    thumbnailImg_starts_with?: string | null; // String
+    thumbnailImg?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
     videolength?: number | null; // Int
     videolength_gt?: number | null; // Int
     videolength_gte?: number | null; // Int
@@ -503,20 +487,7 @@ export interface NexusGenInputs {
   VoiceWhereInput: { // input type
     AND?: NexusGenInputs['VoiceWhereInput'][] | null; // [VoiceWhereInput!]
     content?: NexusGenInputs['ContentWhereInput'] | null; // ContentWhereInput
-    fileName?: string | null; // String
-    fileName_contains?: string | null; // String
-    fileName_ends_with?: string | null; // String
-    fileName_gt?: string | null; // String
-    fileName_gte?: string | null; // String
-    fileName_in?: string[] | null; // [String!]
-    fileName_lt?: string | null; // String
-    fileName_lte?: string | null; // String
-    fileName_not?: string | null; // String
-    fileName_not_contains?: string | null; // String
-    fileName_not_ends_with?: string | null; // String
-    fileName_not_in?: string[] | null; // [String!]
-    fileName_not_starts_with?: string | null; // String
-    fileName_starts_with?: string | null; // String
+    fileName?: NexusGenInputs['FileIndexWhereInput'] | null; // FileIndexWhereInput
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -541,11 +512,11 @@ export interface NexusGenInputs {
     voiceLength_not_in?: number[] | null; // [Int!]
   }
   WeChatUserCreateInput: { // input type
-    alias?: string | null; // String
+    alias: string; // String!
     avatar?: NexusGenInputs['AvatarCreateInput'] | null; // AvatarCreateInput
-    conRemark?: string | null; // String
-    nickname?: string | null; // String
-    username?: string | null; // String
+    conRemark: string; // String!
+    nickname: string; // String!
+    username: string; // String!
   }
   WeChatUserWhereInput: { // input type
     alias?: string | null; // String
@@ -625,12 +596,34 @@ export interface NexusGenInputs {
     username_not_starts_with?: string | null; // String
     username_starts_with?: string | null; // String
   }
+  WeChatWhereInput: { // input type
+    AND?: NexusGenInputs['WeChatWhereInput'][] | null; // [WeChatWhereInput!]
+    chatRooms_some?: NexusGenInputs['ChatRoomWhereInput'] | null; // ChatRoomWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    messages_some?: NexusGenInputs['MessageWhereInput'] | null; // MessageWhereInput
+    weChatId?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
+    weChatUsers_some?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
+  }
 }
 
 export interface NexusGenEnums {
   ChatRoomOrderByInput: "displayName_ASC" | "displayName_DESC" | "id_ASC" | "id_DESC" | "modifyTime_ASC" | "modifyTime_DESC" | "nickName_ASC" | "nickName_DESC" | "userName_ASC" | "userName_DESC"
   MessageOrderByInput: "createTime_ASC" | "createTime_DESC" | "id_ASC" | "id_DESC" | "isSend_ASC" | "isSend_DESC" | "msgSvrId_ASC" | "msgSvrId_DESC" | "type_ASC" | "type_DESC"
   UserOrderByInput: "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC"
+  WeChatOrderByInput: "id_ASC" | "id_DESC"
   WeChatUserOrderByInput: "alias_ASC" | "alias_DESC" | "conRemark_ASC" | "conRemark_DESC" | "id_ASC" | "id_DESC" | "nickname_ASC" | "nickname_DESC" | "username_ASC" | "username_DESC"
 }
 
@@ -644,9 +637,7 @@ export interface NexusGenRootTypes {
     user: NexusGenRootTypes['User']; // User!
   }
   Avatar: { // root type
-    bigImg?: string | null; // String
     id: string; // ID!
-    thumbnailImg?: string | null; // String
   }
   ChatRoom: { // root type
     displayName: string; // String!
@@ -663,14 +654,18 @@ export interface NexusGenRootTypes {
     id: string; // ID!
   }
   File: { // root type
-    fileName: string; // String!
     id: string; // ID!
     size?: number | null; // Int
   }
-  Image: { // root type
-    bigImg?: string | null; // String
+  FileIndex: { // root type
+    fileName: string; // String!
     id: string; // ID!
-    thumbnailImg?: string | null; // String
+    mimetype: string; // String!
+    size: number; // Int!
+    url?: string | null; // String
+  }
+  Image: { // root type
+    id: string; // ID!
   }
   Message: { // root type
     createTime?: any | null; // DateTime
@@ -692,15 +687,15 @@ export interface NexusGenRootTypes {
     password: string; // String!
   }
   Video: { // root type
-    fileName: string; // String!
     id: string; // ID!
-    thumbnailImg?: string | null; // String
     videolength?: number | null; // Int
   }
   Voice: { // root type
-    fileName: string; // String!
     id: string; // ID!
     voiceLength?: number | null; // Int
+  }
+  WeChat: { // root type
+    id: string; // ID!
   }
   WeChatUser: { // root type
     alias?: string | null; // String
@@ -723,9 +718,11 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   AppWhereInput: NexusGenInputs['AppWhereInput'];
   AvatarCreateInput: NexusGenInputs['AvatarCreateInput'];
   AvatarWhereInput: NexusGenInputs['AvatarWhereInput'];
+  ChatRoomCreateInput: NexusGenInputs['ChatRoomCreateInput'];
   ChatRoomWhereInput: NexusGenInputs['ChatRoomWhereInput'];
   ContactWhereInput: NexusGenInputs['ContactWhereInput'];
   ContentWhereInput: NexusGenInputs['ContentWhereInput'];
+  FileIndexWhereInput: NexusGenInputs['FileIndexWhereInput'];
   FileWhereInput: NexusGenInputs['FileWhereInput'];
   ImageWhereInput: NexusGenInputs['ImageWhereInput'];
   MessageWhereInput: NexusGenInputs['MessageWhereInput'];
@@ -735,9 +732,11 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   VoiceWhereInput: NexusGenInputs['VoiceWhereInput'];
   WeChatUserCreateInput: NexusGenInputs['WeChatUserCreateInput'];
   WeChatUserWhereInput: NexusGenInputs['WeChatUserWhereInput'];
+  WeChatWhereInput: NexusGenInputs['WeChatWhereInput'];
   ChatRoomOrderByInput: NexusGenEnums['ChatRoomOrderByInput'];
   MessageOrderByInput: NexusGenEnums['MessageOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
+  WeChatOrderByInput: NexusGenEnums['WeChatOrderByInput'];
   WeChatUserOrderByInput: NexusGenEnums['WeChatUserOrderByInput'];
 }
 
@@ -752,11 +751,9 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User']; // User!
   }
   Avatar: { // field return type
-    bigImg: string | null; // String
-    chatRoom: NexusGenRootTypes['ChatRoom'] | null; // ChatRoom
+    bigImg: NexusGenRootTypes['FileIndex'] | null; // FileIndex
     id: string; // ID!
-    thumbnailImg: string | null; // String
-    weChatUser: NexusGenRootTypes['WeChatUser'] | null; // WeChatUser
+    thumbnailImg: NexusGenRootTypes['FileIndex'] | null; // FileIndex
   }
   ChatRoom: { // field return type
     avatar: NexusGenRootTypes['Avatar'] | null; // Avatar
@@ -785,15 +782,22 @@ export interface NexusGenFieldTypes {
   }
   File: { // field return type
     content: NexusGenRootTypes['Content'] | null; // Content
-    fileName: string; // String!
+    fileName: NexusGenRootTypes['FileIndex'] | null; // FileIndex
     id: string; // ID!
     size: number | null; // Int
   }
+  FileIndex: { // field return type
+    fileName: string; // String!
+    id: string; // ID!
+    mimetype: string; // String!
+    size: number; // Int!
+    url: string | null; // String
+  }
   Image: { // field return type
-    bigImg: string | null; // String
+    bigImg: NexusGenRootTypes['FileIndex'] | null; // FileIndex
     content: NexusGenRootTypes['Content'] | null; // Content
     id: string; // ID!
-    thumbnailImg: string | null; // String
+    thumbnailImg: NexusGenRootTypes['FileIndex'] | null; // FileIndex
   }
   Message: { // field return type
     chatRoom: NexusGenRootTypes['ChatRoom'] | null; // ChatRoom
@@ -806,7 +810,8 @@ export interface NexusGenFieldTypes {
     type: number | null; // Int
   }
   Mutation: { // field return type
-    createWechatUsers: NexusGenRootTypes['WeChatUser']; // WeChatUser!
+    CreateChatRooms: NexusGenRootTypes['ChatRoom']; // ChatRoom!
+    CreateWeChatUsers: NexusGenRootTypes['WeChat']; // WeChat!
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
   }
@@ -824,19 +829,27 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     name: string; // String!
     password: string; // String!
+    weChat: NexusGenRootTypes['WeChat'][] | null; // [WeChat!]
   }
   Video: { // field return type
     content: NexusGenRootTypes['Content'] | null; // Content
-    fileName: string; // String!
+    fileName: NexusGenRootTypes['FileIndex'] | null; // FileIndex
     id: string; // ID!
-    thumbnailImg: string | null; // String
+    thumbnailImg: NexusGenRootTypes['FileIndex'] | null; // FileIndex
     videolength: number | null; // Int
   }
   Voice: { // field return type
     content: NexusGenRootTypes['Content'] | null; // Content
-    fileName: string; // String!
+    fileName: NexusGenRootTypes['FileIndex'] | null; // FileIndex
     id: string; // ID!
     voiceLength: number | null; // Int
+  }
+  WeChat: { // field return type
+    chatRooms: NexusGenRootTypes['ChatRoom'][] | null; // [ChatRoom!]
+    id: string; // ID!
+    messages: NexusGenRootTypes['Message'][] | null; // [Message!]
+    weChatId: NexusGenRootTypes['WeChatUser']; // WeChatUser!
+    weChatUsers: NexusGenRootTypes['WeChatUser'][] | null; // [WeChatUser!]
   }
   WeChatUser: { // field return type
     alias: string | null; // String
@@ -885,8 +898,11 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
-    createWechatUsers: { // args
-      data: NexusGenInputs['WeChatUserCreateInput']; // WeChatUserCreateInput!
+    CreateChatRooms: { // args
+      data: NexusGenInputs['ChatRoomCreateInput'][]; // [ChatRoomCreateInput!]!
+    }
+    CreateWeChatUsers: { // args
+      data: NexusGenInputs['WeChatUserCreateInput'][]; // [WeChatUserCreateInput!]!
     }
     login: { // args
       email: string; // String!
@@ -907,6 +923,46 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['UserOrderByInput'] | null; // UserOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    }
+    weChatUsers: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['WeChatUserOrderByInput'] | null; // WeChatUserOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
+    }
+  }
+  User: {
+    weChat: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['WeChatOrderByInput'] | null; // WeChatOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['WeChatWhereInput'] | null; // WeChatWhereInput
+    }
+  }
+  WeChat: {
+    chatRooms: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ChatRoomOrderByInput'] | null; // ChatRoomOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ChatRoomWhereInput'] | null; // ChatRoomWhereInput
+    }
+    messages: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['MessageOrderByInput'] | null; // MessageOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['MessageWhereInput'] | null; // MessageWhereInput
     }
     weChatUsers: { // args
       after?: string | null; // String
@@ -954,11 +1010,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "App" | "AuthPayload" | "Avatar" | "ChatRoom" | "Contact" | "Content" | "File" | "Image" | "Message" | "Mutation" | "Query" | "Text" | "User" | "Video" | "Voice" | "WeChatUser";
+export type NexusGenObjectNames = "App" | "AuthPayload" | "Avatar" | "ChatRoom" | "Contact" | "Content" | "File" | "FileIndex" | "Image" | "Message" | "Mutation" | "Query" | "Text" | "User" | "Video" | "Voice" | "WeChat" | "WeChatUser";
 
-export type NexusGenInputNames = "AppWhereInput" | "AvatarCreateInput" | "AvatarWhereInput" | "ChatRoomWhereInput" | "ContactWhereInput" | "ContentWhereInput" | "FileWhereInput" | "ImageWhereInput" | "MessageWhereInput" | "TextWhereInput" | "UserWhereInput" | "VideoWhereInput" | "VoiceWhereInput" | "WeChatUserCreateInput" | "WeChatUserWhereInput";
+export type NexusGenInputNames = "AppWhereInput" | "AvatarCreateInput" | "AvatarWhereInput" | "ChatRoomCreateInput" | "ChatRoomWhereInput" | "ContactWhereInput" | "ContentWhereInput" | "FileIndexWhereInput" | "FileWhereInput" | "ImageWhereInput" | "MessageWhereInput" | "TextWhereInput" | "UserWhereInput" | "VideoWhereInput" | "VoiceWhereInput" | "WeChatUserCreateInput" | "WeChatUserWhereInput" | "WeChatWhereInput";
 
-export type NexusGenEnumNames = "ChatRoomOrderByInput" | "MessageOrderByInput" | "UserOrderByInput" | "WeChatUserOrderByInput";
+export type NexusGenEnumNames = "ChatRoomOrderByInput" | "MessageOrderByInput" | "UserOrderByInput" | "WeChatOrderByInput" | "WeChatUserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

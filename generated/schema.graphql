@@ -33,35 +33,19 @@ type AuthPayload {
 }
 
 type Avatar {
-  bigImg: String
-  chatRoom: ChatRoom
+  bigImg: FileIndex
   id: ID!
-  thumbnailImg: String
-  weChatUser: WeChatUser
+  thumbnailImg: FileIndex
 }
 
 input AvatarCreateInput {
-  bigImg: Upload
-  thumbnailImg: Upload
+  bigImg: String!
+  thumbnailImg: String!
 }
 
 input AvatarWhereInput {
   AND: [AvatarWhereInput!]
-  bigImg: String
-  bigImg_contains: String
-  bigImg_ends_with: String
-  bigImg_gt: String
-  bigImg_gte: String
-  bigImg_in: [String!]
-  bigImg_lt: String
-  bigImg_lte: String
-  bigImg_not: String
-  bigImg_not_contains: String
-  bigImg_not_ends_with: String
-  bigImg_not_in: [String!]
-  bigImg_not_starts_with: String
-  bigImg_starts_with: String
-  chatRoom: ChatRoomWhereInput
+  bigImg: FileIndexWhereInput
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -76,21 +60,7 @@ input AvatarWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  thumbnailImg: String
-  thumbnailImg_contains: String
-  thumbnailImg_ends_with: String
-  thumbnailImg_gt: String
-  thumbnailImg_gte: String
-  thumbnailImg_in: [String!]
-  thumbnailImg_lt: String
-  thumbnailImg_lte: String
-  thumbnailImg_not: String
-  thumbnailImg_not_contains: String
-  thumbnailImg_not_ends_with: String
-  thumbnailImg_not_in: [String!]
-  thumbnailImg_not_starts_with: String
-  thumbnailImg_starts_with: String
-  weChatUser: WeChatUserWhereInput
+  thumbnailImg: FileIndexWhereInput
 }
 
 type ChatRoom {
@@ -103,6 +73,16 @@ type ChatRoom {
   nickName: String
   owner: WeChatUser!
   userName: String!
+}
+
+input ChatRoomCreateInput {
+  avatar: AvatarCreateInput
+  displayName: String!
+  memberList: [String!]!
+  modifyTime: DateTime!
+  nickname: String!
+  owner: String!
+  username: String!
 }
 
 enum ChatRoomOrderByInput {
@@ -267,14 +247,21 @@ scalar DateTime
 
 type File {
   content: Content
-  fileName: String!
+  fileName: FileIndex
   id: ID!
   size: Int
 }
 
-input FileWhereInput {
-  AND: [FileWhereInput!]
-  content: ContentWhereInput
+type FileIndex {
+  fileName: String!
+  id: ID!
+  mimetype: String!
+  size: Int!
+  url: String
+}
+
+input FileIndexWhereInput {
+  AND: [FileIndexWhereInput!]
   fileName: String
   fileName_contains: String
   fileName_ends_with: String
@@ -303,6 +290,62 @@ input FileWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
+  mimetype: String
+  mimetype_contains: String
+  mimetype_ends_with: String
+  mimetype_gt: String
+  mimetype_gte: String
+  mimetype_in: [String!]
+  mimetype_lt: String
+  mimetype_lte: String
+  mimetype_not: String
+  mimetype_not_contains: String
+  mimetype_not_ends_with: String
+  mimetype_not_in: [String!]
+  mimetype_not_starts_with: String
+  mimetype_starts_with: String
+  size: Int
+  size_gt: Int
+  size_gte: Int
+  size_in: [Int!]
+  size_lt: Int
+  size_lte: Int
+  size_not: Int
+  size_not_in: [Int!]
+  url: String
+  url_contains: String
+  url_ends_with: String
+  url_gt: String
+  url_gte: String
+  url_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_not: String
+  url_not_contains: String
+  url_not_ends_with: String
+  url_not_in: [String!]
+  url_not_starts_with: String
+  url_starts_with: String
+}
+
+input FileWhereInput {
+  AND: [FileWhereInput!]
+  content: ContentWhereInput
+  fileName: FileIndexWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
   size: Int
   size_gt: Int
   size_gte: Int
@@ -314,28 +357,15 @@ input FileWhereInput {
 }
 
 type Image {
-  bigImg: String
+  bigImg: FileIndex
   content: Content
   id: ID!
-  thumbnailImg: String
+  thumbnailImg: FileIndex
 }
 
 input ImageWhereInput {
   AND: [ImageWhereInput!]
-  bigImg: String
-  bigImg_contains: String
-  bigImg_ends_with: String
-  bigImg_gt: String
-  bigImg_gte: String
-  bigImg_in: [String!]
-  bigImg_lt: String
-  bigImg_lte: String
-  bigImg_not: String
-  bigImg_not_contains: String
-  bigImg_not_ends_with: String
-  bigImg_not_in: [String!]
-  bigImg_not_starts_with: String
-  bigImg_starts_with: String
+  bigImg: FileIndexWhereInput
   content: ContentWhereInput
   id: ID
   id_contains: ID
@@ -351,20 +381,7 @@ input ImageWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  thumbnailImg: String
-  thumbnailImg_contains: String
-  thumbnailImg_ends_with: String
-  thumbnailImg_gt: String
-  thumbnailImg_gte: String
-  thumbnailImg_in: [String!]
-  thumbnailImg_lt: String
-  thumbnailImg_lte: String
-  thumbnailImg_not: String
-  thumbnailImg_not_contains: String
-  thumbnailImg_not_ends_with: String
-  thumbnailImg_not_in: [String!]
-  thumbnailImg_not_starts_with: String
-  thumbnailImg_starts_with: String
+  thumbnailImg: FileIndexWhereInput
 }
 
 scalar Json
@@ -453,7 +470,8 @@ input MessageWhereInput {
 }
 
 type Mutation {
-  createWechatUsers(data: WeChatUserCreateInput!): WeChatUser!
+  CreateChatRooms(data: [ChatRoomCreateInput!]!): ChatRoom!
+  CreateWeChatUsers(data: [WeChatUserCreateInput!]!): WeChat!
   login(email: String!, password: String!): AuthPayload!
   signup(email: String!, name: String!, password: String!): AuthPayload!
 }
@@ -510,6 +528,7 @@ type User {
   id: ID!
   name: String!
   password: String!
+  weChat(after: String, before: String, first: Int, last: Int, orderBy: WeChatOrderByInput, skip: Int, where: WeChatWhereInput): [WeChat!]
 }
 
 enum UserOrderByInput {
@@ -581,33 +600,21 @@ input UserWhereInput {
   password_not_in: [String!]
   password_not_starts_with: String
   password_starts_with: String
+  weChat_some: WeChatWhereInput
 }
 
 type Video {
   content: Content
-  fileName: String!
+  fileName: FileIndex
   id: ID!
-  thumbnailImg: String
+  thumbnailImg: FileIndex
   videolength: Int
 }
 
 input VideoWhereInput {
   AND: [VideoWhereInput!]
   content: ContentWhereInput
-  fileName: String
-  fileName_contains: String
-  fileName_ends_with: String
-  fileName_gt: String
-  fileName_gte: String
-  fileName_in: [String!]
-  fileName_lt: String
-  fileName_lte: String
-  fileName_not: String
-  fileName_not_contains: String
-  fileName_not_ends_with: String
-  fileName_not_in: [String!]
-  fileName_not_starts_with: String
-  fileName_starts_with: String
+  fileName: FileIndexWhereInput
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -622,20 +629,7 @@ input VideoWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  thumbnailImg: String
-  thumbnailImg_contains: String
-  thumbnailImg_ends_with: String
-  thumbnailImg_gt: String
-  thumbnailImg_gte: String
-  thumbnailImg_in: [String!]
-  thumbnailImg_lt: String
-  thumbnailImg_lte: String
-  thumbnailImg_not: String
-  thumbnailImg_not_contains: String
-  thumbnailImg_not_ends_with: String
-  thumbnailImg_not_in: [String!]
-  thumbnailImg_not_starts_with: String
-  thumbnailImg_starts_with: String
+  thumbnailImg: FileIndexWhereInput
   videolength: Int
   videolength_gt: Int
   videolength_gte: Int
@@ -648,7 +642,7 @@ input VideoWhereInput {
 
 type Voice {
   content: Content
-  fileName: String!
+  fileName: FileIndex
   id: ID!
   voiceLength: Int
 }
@@ -656,20 +650,7 @@ type Voice {
 input VoiceWhereInput {
   AND: [VoiceWhereInput!]
   content: ContentWhereInput
-  fileName: String
-  fileName_contains: String
-  fileName_ends_with: String
-  fileName_gt: String
-  fileName_gte: String
-  fileName_in: [String!]
-  fileName_lt: String
-  fileName_lte: String
-  fileName_not: String
-  fileName_not_contains: String
-  fileName_not_ends_with: String
-  fileName_not_in: [String!]
-  fileName_not_starts_with: String
-  fileName_starts_with: String
+  fileName: FileIndexWhereInput
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -694,6 +675,19 @@ input VoiceWhereInput {
   voiceLength_not_in: [Int!]
 }
 
+type WeChat {
+  chatRooms(after: String, before: String, first: Int, last: Int, orderBy: ChatRoomOrderByInput, skip: Int, where: ChatRoomWhereInput): [ChatRoom!]
+  id: ID!
+  messages(after: String, before: String, first: Int, last: Int, orderBy: MessageOrderByInput, skip: Int, where: MessageWhereInput): [Message!]
+  weChatId: WeChatUser!
+  weChatUsers(after: String, before: String, first: Int, last: Int, orderBy: WeChatUserOrderByInput, skip: Int, where: WeChatUserWhereInput): [WeChatUser!]
+}
+
+enum WeChatOrderByInput {
+  id_ASC
+  id_DESC
+}
+
 type WeChatUser {
   alias: String
   avatar: Avatar
@@ -708,11 +702,11 @@ type WeChatUser {
 }
 
 input WeChatUserCreateInput {
-  alias: String
+  alias: String!
   avatar: AvatarCreateInput
-  conRemark: String
-  nickname: String
-  username: String
+  conRemark: String!
+  nickname: String!
+  username: String!
 }
 
 enum WeChatUserOrderByInput {
@@ -805,4 +799,26 @@ input WeChatUserWhereInput {
   username_not_in: [String!]
   username_not_starts_with: String
   username_starts_with: String
+}
+
+input WeChatWhereInput {
+  AND: [WeChatWhereInput!]
+  chatRooms_some: ChatRoomWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  messages_some: MessageWhereInput
+  weChatId: WeChatUserWhereInput
+  weChatUsers_some: WeChatUserWhereInput
 }

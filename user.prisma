@@ -3,4 +3,5 @@ type User {
   email: String! @unique
   name: String!
   password: String!
+  weChat: [WeChat!]! @relation(link: INLINE)
 }
