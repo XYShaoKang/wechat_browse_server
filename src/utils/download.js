@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
-// import { prisma } from '../../generated/prisma-client'
 import { saveFile } from './file'
+import { from } from 'rxjs'
 
 /**
  * @param {string} url
@@ -32,11 +32,10 @@ const getFile = (url, retryCount = 0) => {
 
 /**
  * @param {string} url
- * @returns {Promise<{fileName:string; mimetype:string; size:number; url:string;}>} fileIndex id
+ * @returns {Promise<{fileName:string; mimetype:string; size:number; url:string;}|null>} fileIndex id
  */
-const download = async url => {
+const downloadFile = async url => {
   if (!url) {
-    // @ts-ignore
     return null
   }
 
@@ -44,9 +43,13 @@ const download = async url => {
   const fileStream = await getFile(url)
 
   // // 保存文件
-  // @ts-ignore
   const { fileName, mimetype, size } = await saveFile(fileStream)
   return { fileName, mimetype, size, url }
 }
+
+/**
+ * @param {string} url
+ */
+const download = url => from(downloadFile(url))
 
 export { download, getFile }

@@ -75,7 +75,7 @@ const saveFile = async file => {
 }
 /**
  *
- * @param {Object} fileIndex
+ * @param {object} fileIndex
  * @param {string} fileIndex.fileName
  * @param {string} fileIndex.mimetype
  * @param {number} fileIndex.size

@@ -4,7 +4,7 @@ import { downloadManage, asyncMap, groupsOf } from '../../utils'
 import { map } from 'rxjs/operators'
 /**
  * @param {string} key
- * @param {any} parent
+ * @param {object} parent
  * @returns {import('rxjs').Observable<string> | undefined}
  */
 const asyncFn = (key, parent) => {
@@ -18,11 +18,22 @@ const asyncFn = (key, parent) => {
         return id
       }),
     )
+  } else if (key === 'memberList') {
+    return el.map(
+      /**
+       * @param {string} username
+       */
+      username => ({
+        connect: {
+          username,
+        },
+      }),
+    )
   }
 }
 
 export const CreateChatRooms = mutationField('CreateChatRooms', {
-  type: 'ChatRoom',
+  type: 'WeChat',
   args: {
     data: arg({ type: 'ChatRoomCreateInput', list: true, required: true }),
   },

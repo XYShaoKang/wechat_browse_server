@@ -13,12 +13,12 @@ export const Signup = mutationField('signup', {
     if (!args.password) {
       throw new Error('密码不能为空')
     }
-    const password = await bcrypt.hash(args.password, 10)
     const tempUser = await prisma.user({ email: args.email })
 
     if (tempUser) {
       throw new Error('Email Already Exists')
     }
+    const password = await bcrypt.hash(args.password, 10)
     const user = await prisma.createUser({ ...args, password })
 
     const weChats = await prisma.user({ id: user.id }).weChat()

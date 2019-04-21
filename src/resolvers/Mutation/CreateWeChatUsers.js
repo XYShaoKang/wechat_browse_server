@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators'
 
 /**
  * @param {string} key
- * @param {any} parent
+ * @param {object} parent
  * @returns {import('rxjs').Observable<string> | undefined}
  */
 export const asyncFn = (key, parent) => {
@@ -47,7 +47,6 @@ export const CreateWeChatUsers = mutationField('CreateWeChatUsers', {
         },
       })
     }
-    // console.log('ok')
     return {
       id: currentWeChat.id,
     }

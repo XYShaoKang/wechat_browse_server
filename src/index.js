@@ -9,7 +9,10 @@ import { permissions } from './permissions'
 
 import { schema } from './schema'
 
-// @ts-ignore
+/**
+ *
+ * @param {{ctx:Koa.Context}} param0
+ */
 export const context = async ({ ctx }) => {
   const authorization = ctx.request.header.authorization || ''
   let currentUser = null

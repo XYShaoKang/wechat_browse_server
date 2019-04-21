@@ -3,9 +3,9 @@ import { Observable, from, of } from 'rxjs'
 import { mergeAll, map, mergeMap } from 'rxjs/operators'
 
 /**
- * @param {(key: string,parent:any) => any} asyncFn
- * @param {Object} data
- * @param {[import('rxjs').Observable<any>]} observables
+ * @param {(key: string,parent:object) => any} asyncFn
+ * @param {object} data
+ * @param {[Observable<any>]|array} observables
  */
 export function _asyncMap(asyncFn, data, observables) {
   for (const key in data) {
@@ -26,16 +26,15 @@ export function _asyncMap(asyncFn, data, observables) {
   return data
 }
 /**
- * @param {(key: string,parent:any) => any} asyncFn
- * @param {Object} data
+ * @param {(key: string,parent:object) => any} asyncFn
+ * @param {object} data
  * @returns {Promise<any>}
  */
 export async function asyncMap(asyncFn, data) {
   const tempData = R.clone(data)
-  /** @type {[Observable<any>]} */
-  // @ts-ignore
+  /** @type {[Observable<any>]|array} */
   let observables = []
-  // @ts-ignore
+
   _asyncMap(asyncFn, tempData, observables)
 
   await from(observables)
@@ -47,8 +46,8 @@ export async function asyncMap(asyncFn, data) {
  * 将数组按个数分组
  *
  * @param {number} n
- * @param {Array} list
- * @returns {Array}
+ * @param {array} list
+ * @returns {array}
  */
 function group(n, list) {
   return R.isEmpty(list)

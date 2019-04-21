@@ -21,6 +21,9 @@ const thread = 20
 
 export const download$ = (thread = 5) => {
   return mergeMap(
+    /**
+     * @param {{key:string,url:string}} arg
+     */
     ({ key, url }) => from(download(url)).pipe(map(file => ({ key, file }))),
     thread,
   )
@@ -29,6 +32,9 @@ export const saveToFileIndex$ = () =>
   cache(
     ({ fileName }) => fileName,
     async file => {
+      /**
+       * @type {string}
+       */
       const id = await saveToFileIndex(file)
       return id
     },
@@ -39,15 +45,34 @@ const result$ = store.pipe(
   flatMap(({ key, file }) => {
     return of(file).pipe(
       saveToFileIndex$(),
-      map(id => ({ key, id })),
+      map(
+        /**
+         * @param {string} id
+         */
+        id => ({ key, id }),
+      ),
     )
   }, 1),
   publishReplay(),
   refCount(),
 )
 
-// @ts-ignore
-from([result$.pipe(scan(acc => ++acc, 0)), store.pipe(scan(acc => ++acc, 0))])
+from([
+  result$.pipe(
+    scan(
+      /**
+       * @param {number} acc
+       * @param {{ key: string; id: string; }} _
+       *
+       * @returns {number}
+       */
+      // eslint-disable-next-line no-unused-vars
+      (acc, _) => ++acc,
+      0,
+    ),
+  ),
+  store.pipe(scan(acc => ++acc, 0)),
+])
   .pipe(combineAll())
   .subscribe(([curr, total]) => {
     if ((curr * 10) % total === 0) {

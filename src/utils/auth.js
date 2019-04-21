@@ -6,8 +6,11 @@ import jwt from 'jsonwebtoken'
  */
 export const getUserId = authorization => {
   const token = authorization.replace('Bearer ', '')
-  // @ts-ignore
-  return jwt.verify(token, process.env.APP_SECRET || '')
+  /**
+   * @type {object}
+   */
+  const result = jwt.verify(token, process.env.APP_SECRET || '')
+  return result
 }
 
 /**
