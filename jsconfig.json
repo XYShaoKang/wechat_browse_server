@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
+    "sourceMap": true,
     "strict": true,
     "checkJs": true,
-    "rootDir": "./src",
-    "skipLibCheck": true,
+    // "rootDir": "./src",
+    // "skipLibCheck": true,
     "newLine": "LF"
   },
   "typeAcquisition": {
     "include": ["jest"]
   },
-  "exclude": ["node_modules", "public"],
-  "include": ["src/**/*"]
+  "exclude": ["node_modules", "public"]
+  // "include": ["src/**/*"]
 }
