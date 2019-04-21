@@ -470,7 +470,7 @@ input MessageWhereInput {
 }
 
 type Mutation {
-  CreateChatRooms(data: [ChatRoomCreateInput!]!): ChatRoom!
+  CreateChatRooms(data: [ChatRoomCreateInput!]!): WeChat!
   CreateWeChatUsers(data: [WeChatUserCreateInput!]!): WeChat!
   login(email: String!, password: String!): AuthPayload!
   signup(email: String!, name: String!, password: String!): AuthPayload!
@@ -679,7 +679,7 @@ type WeChat {
   chatRooms(after: String, before: String, first: Int, last: Int, orderBy: ChatRoomOrderByInput, skip: Int, where: ChatRoomWhereInput): [ChatRoom!]
   id: ID!
   messages(after: String, before: String, first: Int, last: Int, orderBy: MessageOrderByInput, skip: Int, where: MessageWhereInput): [Message!]
-  weChatId: WeChatUser!
+  weChatOwner: WeChatUser!
   weChatUsers(after: String, before: String, first: Int, last: Int, orderBy: WeChatUserOrderByInput, skip: Int, where: WeChatUserWhereInput): [WeChatUser!]
 }
 
@@ -819,6 +819,6 @@ input WeChatWhereInput {
   id_not_starts_with: ID
   id_starts_with: ID
   messages_some: MessageWhereInput
-  weChatId: WeChatUserWhereInput
+  weChatOwner: WeChatUserWhereInput
   weChatUsers_some: WeChatUserWhereInput
 }

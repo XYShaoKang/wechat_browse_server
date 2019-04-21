@@ -614,7 +614,7 @@ export interface NexusGenInputs {
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
     messages_some?: NexusGenInputs['MessageWhereInput'] | null; // MessageWhereInput
-    weChatId?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
+    weChatOwner?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
     weChatUsers_some?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
   }
 }
@@ -810,7 +810,7 @@ export interface NexusGenFieldTypes {
     type: number | null; // Int
   }
   Mutation: { // field return type
-    CreateChatRooms: NexusGenRootTypes['ChatRoom']; // ChatRoom!
+    CreateChatRooms: NexusGenRootTypes['WeChat']; // WeChat!
     CreateWeChatUsers: NexusGenRootTypes['WeChat']; // WeChat!
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
@@ -848,7 +848,7 @@ export interface NexusGenFieldTypes {
     chatRooms: NexusGenRootTypes['ChatRoom'][] | null; // [ChatRoom!]
     id: string; // ID!
     messages: NexusGenRootTypes['Message'][] | null; // [Message!]
-    weChatId: NexusGenRootTypes['WeChatUser']; // WeChatUser!
+    weChatOwner: NexusGenRootTypes['WeChatUser']; // WeChatUser!
     weChatUsers: NexusGenRootTypes['WeChatUser'][] | null; // [WeChatUser!]
   }
   WeChatUser: { // field return type
