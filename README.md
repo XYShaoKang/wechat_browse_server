@@ -26,6 +26,12 @@ yarn deploy # 将服务配置部署到Prisma服务
 yarn start # 运行查询服务器
 ```
 
+## 测试
+
+```sh
+yarn test # 运行测试用例
+```
+
 ## 其他命令
 
 ```sh
