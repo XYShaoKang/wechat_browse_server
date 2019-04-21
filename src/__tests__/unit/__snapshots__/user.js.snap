@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mutation login Fail Invalid password 1`] = `
+Object {
+  "data": null,
+  "errors": Array [
+    [GraphQLError: Invalid password],
+  ],
+}
+`;
+
+exports[`Mutation login Fail No such user found 1`] = `
+Object {
+  "data": null,
+  "errors": Array [
+    [GraphQLError: No such user found],
+  ],
+}
+`;
+
+exports[`Mutation login Success 1`] = `
+Object {
+  "data": Object {
+    "login": Object {
+      "token": "abcd",
+      "user": Object {
+        "email": "a@a.com",
+        "id": "0",
+        "name": "a",
+        "password": "abcd",
+      },
+    },
+  },
+}
+`;
+
+exports[`Mutation signup 1`] = `
+Object {
+  "data": Object {
+    "signup": Object {
+      "token": "abcd",
+      "user": Object {
+        "email": "b@a.com",
+        "id": "1",
+        "name": "a",
+        "password": "abcd",
+      },
+    },
+  },
+}
+`;
+
+exports[`Mutation signup Email Already Exists 1`] = `
+Object {
+  "data": null,
+  "errors": Array [
+    [GraphQLError: Email Already Exists],
+  ],
+}
+`;
+
+exports[`Queries users 1`] = `
+Object {
+  "data": Object {
+    "users": Array [
+      Object {
+        "email": "a@a.com",
+        "id": "0",
+        "name": "a",
+        "password": "abcd",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Queries users no auth 1`] = `
+Object {
+  "data": null,
+  "errors": Array [
+    [GraphQLError: Not Authorised!],
+  ],
+}
+`;

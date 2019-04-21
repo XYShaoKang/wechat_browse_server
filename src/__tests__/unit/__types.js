@@ -1,6 +1,4 @@
-import gql from 'graphql-tag'
-
-export const LOGIN = gql`
+export const LOGIN = /* GraphQL */ `
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
@@ -14,7 +12,7 @@ export const LOGIN = gql`
   }
 `
 
-export const SIGNUP = gql`
+export const SIGNUP = /* GraphQL */ `
   mutation signup($name: String!, $email: String!, $password: String!) {
     signup(name: $name, email: $email, password: $password) {
       token
@@ -28,7 +26,7 @@ export const SIGNUP = gql`
   }
 `
 
-export const USERS = gql`
+export const USERS = /* GraphQL */ `
   query users {
     users {
       id
@@ -39,14 +37,14 @@ export const USERS = gql`
   }
 `
 
-export const CreateWeChatUsers = gql`
+export const CreateWeChatUsers = /* GraphQL */ `
   mutation CreateWeChatUsers($weChatUsers: [WeChatUserCreateInput!]!) {
     CreateWeChatUsers(data: $weChatUsers) {
       id
     }
   }
 `
-export const CreateChatRooms = gql`
+export const CreateChatRooms = /* GraphQL */ `
   mutation CreateChatRooms($chatRooms: [ChatRoomCreateInput!]!) {
     CreateChatRooms(data: $chatRooms) {
       id

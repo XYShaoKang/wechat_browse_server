@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mutation create ChatRoom 1`] = `
+Object {
+  "data": Object {
+    "CreateChatRooms": Object {
+      "id": "0",
+    },
+  },
+}
+`;
+
+exports[`Mutation create WeChatUser Fail No WeChat 1`] = `
+Object {
+  "data": null,
+  "errors": Array [
+    [GraphQLError: No WeChat],
+  ],
+}
+`;

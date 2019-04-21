@@ -47,12 +47,17 @@ describe('asyncMap', () => {
   it('Use Subject', async () => {
     const store = new Subject()
     const store$ = store.pipe(
-      // @ts-ignore
-      scan((acc, { key, value }) => {
-        // @ts-ignore
-        acc[key] = value
-        return acc
-      }, {}),
+      scan(
+        /**
+         * @param {object} acc
+         * @param {{key:string,value:number}} arg2
+         */
+        (acc, { key, value }) => {
+          acc[key] = value
+          return acc
+        },
+        {},
+      ),
     )
 
     const data = {

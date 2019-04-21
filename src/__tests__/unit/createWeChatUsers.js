@@ -1,18 +1,23 @@
+//#region mock
+
 jest.mock('../../utils/download')
-
-import { of } from 'rxjs'
-
-import { constructTestServer } from '../__utils'
-import { CreateWeChatUsers } from './__types'
-// @ts-ignore
 import * as downloadManageUtils from '../../utils/downloadManage'
 
 let id = 0
 const downloadManage = jest.fn(() => {
   return of(++id + '')
 })
-// @ts-ignore
-downloadManageUtils.downloadManage = downloadManage
+
+jest
+  .spyOn(downloadManageUtils, 'downloadManage')
+  .mockImplementation(downloadManage)
+
+//#endregion
+
+import { of } from 'rxjs'
+
+import { Prisma, graphqlTestCall } from '../__utils'
+import { CreateWeChatUsers } from './__types'
 
 const variables = {
   weChatUsers: [
@@ -30,30 +35,41 @@ const variables = {
 }
 
 describe('Mutation', () => {
+  /** @type {Prisma} */
+  let prisma
+  beforeEach(() => {
+    prisma = new Prisma()
+  })
   it('create WeChatUser', async () => {
-    const { mutate, prisma } = constructTestServer({
-      // @ts-ignore
-      context: { currentWeChat: { id: 1 } },
-    })
-
-    const result = await mutate({
-      mutation: CreateWeChatUsers,
-      // @ts-ignore
+    const result = await graphqlTestCall({
+      query: CreateWeChatUsers,
       variables,
+      context: {
+        prisma,
+        currentUser: { id: '0' },
+        currentWeChat: { id: '0' },
+      },
     })
+    const id = result.data && result.data.CreateWeChatUsers.id
 
-    expect(result.data.CreateWeChatUsers.id).toBe('1')
-    expect(prisma.updateWeChat.mock.calls.length).toBe(1)
+    expect(id).toBe('0')
+    expect(prisma.updateWeChat).toHaveBeenCalled()
+    expect(prisma.createWeChatUser).toHaveBeenCalled()
     expect(downloadManage.mock.calls.length).toBe(2)
+    expect(result).toMatchSnapshot()
   })
   it('create WeChatUser Fail No WeChat', async () => {
-    const { mutate } = constructTestServer()
-    const result = await mutate({
-      mutation: CreateWeChatUsers,
-      // @ts-ignore
+    const result = await graphqlTestCall({
+      query: CreateWeChatUsers,
       variables,
+      context: {
+        prisma,
+        currentUser: { id: '0' },
+      },
     })
+    const message = result.errors && result.errors[0].message
 
-    expect(result.errors[0].message).toBe('No WeChat')
+    expect(message).toBe('No WeChat')
+    expect(result).toMatchSnapshot()
   })
 })

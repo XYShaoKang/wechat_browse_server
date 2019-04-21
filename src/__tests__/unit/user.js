@@ -1,102 +1,124 @@
-import { constructTestServer } from '../__utils'
+//#region mock
+
+jest.mock('bcryptjs')
+jest.mock('jsonwebtoken')
+
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+
+//#endregion
+
+import { Prisma, graphqlTestCall } from '../__utils'
 import { LOGIN, SIGNUP, USERS } from './__types'
 
-const mockUsers = [
-  {
-    id: '1',
-    name: 'a',
-    email: 'a@a.com',
-    password: '$2a$10$faeVK0d72BU6m3YUnB/NLO.Pc3DLrZr5kpF4pd5HvTneYiBR3G3jy',
-  },
-]
+jest.spyOn(bcrypt, 'hash').mockImplementation(() => 'abcd')
+jest.spyOn(jwt, 'sign').mockImplementation(() => 'abcd')
+
+/** @type {Prisma} */
+let prisma
+beforeEach(() => {
+  prisma = new Prisma()
+})
 
 describe('Queries', () => {
   it('users', async () => {
-    const { query, prisma } = constructTestServer()
-    prisma.setDB({ users: mockUsers })
+    const result = await graphqlTestCall({
+      query: USERS,
+      context: {
+        prisma,
+        currentUser: { id: '0' },
+      },
+    })
 
-    const result = await query({ query: USERS })
+    expect(prisma.users).toHaveBeenCalled()
+    expect(result).toMatchSnapshot()
+  })
+  it('users no auth', async () => {
+    const result = await graphqlTestCall({
+      query: USERS,
+      context: {
+        prisma,
+      },
+    })
 
-    expect(prisma.users.mock.calls.length).toBe(1)
-    // @ts-ignore
-    expect(result.data.users).toEqual(prisma.db.users)
-    // @ts-ignore
-    expect(result.data.users).toEqual(mockUsers)
+    const message = result.errors && result.errors[0].message
+
+    expect(message).toBe('Not Authorised!')
+    expect(prisma.users).not.toHaveBeenCalled()
+    expect(result).toMatchSnapshot()
   })
 })
 
 describe('Mutation', () => {
   it('signup', async () => {
-    const { mutate, prisma } = constructTestServer()
-
-    const result = await mutate({
-      mutation: SIGNUP,
-      // @ts-ignore
-      variables: { name: 'a', email: 'a@a.com', password: 'a' },
+    const result = await graphqlTestCall({
+      query: SIGNUP,
+      variables: { name: 'a', email: 'b@a.com', password: 'a' },
+      context: { prisma },
     })
-    expect(prisma.createUser.mock.calls.length).toBe(1)
-    expect(prisma.user.mock.calls.length).toBe(2)
-    expect(prisma.weChat.mock.calls.length).toBe(1)
-    expect(result.data.signup.user).toEqual(prisma.db.users[0])
+
+    expect(prisma.user).toHaveBeenCalled()
+    expect(prisma.createUser).toHaveBeenCalled()
+    expect(prisma.weChats).toHaveBeenCalled()
+    expect(result).toMatchSnapshot()
   })
 
   it('signup Email Already Exists', async () => {
-    const { mutate, prisma } = constructTestServer()
-    prisma.setDB({ users: mockUsers })
-
-    const result = await mutate({
-      mutation: SIGNUP,
-      // @ts-ignore
+    const result = await graphqlTestCall({
+      query: SIGNUP,
       variables: { name: 'a', email: 'a@a.com', password: 'a' },
+      context: { prisma },
     })
-    expect(prisma.createUser.mock.calls.length).toBe(0)
-    expect(prisma.user.mock.calls.length).toBe(1)
-    expect(prisma.weChat.mock.calls.length).toBe(0)
-    expect(result.errors[0].message).toBe('Email Already Exists')
+
+    const message = result.errors && result.errors[0].message
+
+    expect(prisma.user).toHaveBeenCalled()
+    expect(prisma.createUser).not.toHaveBeenCalled()
+    expect(prisma.weChats).not.toHaveBeenCalled()
+    expect(message).toBe('Email Already Exists')
+    expect(result).toMatchSnapshot()
   })
 
   it('login Success', async () => {
-    const { mutate, prisma } = constructTestServer()
-    prisma.setDB({ users: mockUsers })
+    jest.spyOn(bcrypt, 'compare').mockImplementation(() => true)
 
-    const result = await mutate({
-      mutation: LOGIN,
-      // @ts-ignore
+    const result = await graphqlTestCall({
+      query: LOGIN,
       variables: { email: 'a@a.com', password: 'a' },
+      context: { prisma },
     })
 
-    expect(prisma.user.mock.calls.length).toBe(2)
-    expect(prisma.weChat.mock.calls.length).toBe(1)
-    expect(result.data.login.user).toEqual(prisma.db.users[0])
+    expect(prisma.user).toHaveBeenCalled()
+    expect(result).toMatchSnapshot()
   })
 
   it('login Fail Invalid password', async () => {
-    const { mutate, prisma } = constructTestServer()
-    prisma.setDB({ users: mockUsers })
+    jest.spyOn(bcrypt, 'compare').mockImplementation(() => false)
 
-    const result = await mutate({
-      mutation: LOGIN,
-      // @ts-ignore
+    const result = await graphqlTestCall({
+      query: LOGIN,
       variables: { email: 'a@a.com', password: 'b' },
+      context: { prisma },
     })
 
-    expect(prisma.user.mock.calls.length).toBe(1)
-    expect(prisma.weChat.mock.calls.length).toBe(0)
-    expect(result.errors[0].message).toBe('Invalid password')
+    const message = result.errors && result.errors[0].message
+
+    expect(prisma.user).toHaveBeenCalled()
+    expect(message).toBe('Invalid password')
+    expect(result).toMatchSnapshot()
   })
 
   it('login Fail No such user found', async () => {
-    const { mutate, prisma } = constructTestServer()
-    prisma.setDB({ users: mockUsers })
-
-    const result = await mutate({
-      mutation: LOGIN,
-      // @ts-ignore
+    const result = await graphqlTestCall({
+      query: LOGIN,
       variables: { email: 'b@b.com', password: 'a' },
+      context: { prisma },
     })
 
-    expect(prisma.user.mock.calls.length).toBe(1)
-    expect(prisma.weChat.mock.calls.length).toBe(0)
-    expect(result.errors[0].message).toBe('No such user found')
+    const message = result.errors && result.errors[0].message
+
+    expect(prisma.user).toHaveBeenCalled()
+    expect(message).toBe('No such user found')
+    expect(result).toMatchSnapshot()
   })
 })
