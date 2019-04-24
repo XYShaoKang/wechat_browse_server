@@ -57,6 +57,8 @@ describe('Mutation', () => {
     expect(prisma.createWeChatUser).toHaveBeenCalled()
     expect(downloadManage.mock.calls.length).toBe(2)
     expect(result).toMatchSnapshot()
+    expect(prisma.db.weChatUsers).toMatchSnapshot()
+    expect(prisma.db.avatars).toMatchSnapshot()
   })
   it('create WeChatUser Fail No WeChat', async () => {
     const result = await graphqlTestCall({

@@ -1,4 +1,4 @@
-export const db = {
+export const db = () => ({
   users: [
     {
       id: '0',
@@ -31,5 +31,19 @@ export const db = {
       createdAt: '2019-04-21T05:19:31.395Z',
       updatedAt: '2019-04-21T05:19:31.395Z',
     },
+    {
+      id: '1',
+      username: 'dddd',
+      createdAt: '2019-04-21T05:19:31.395Z',
+      updatedAt: '2019-04-21T05:19:31.395Z',
+    },
   ],
-}
+  /**
+   * @type {Array}
+   */
+  avatars: [],
+  /**
+   * @type {Array}
+   */
+  fileIndexs: [],
+})

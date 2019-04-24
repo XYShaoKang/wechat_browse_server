@@ -15,11 +15,16 @@ describe('asyncMap', () => {
         }, 500)
       }),
     }
-    const result = await asyncMap((key, parent) => {
-      const el = parent[key]
-      if (el.then) {
-        return from(el).pipe(map(v => (parent[key] = v)))
+    const result = await asyncMap(data => {
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          const el = data[key]
+          if (el.then) {
+            data[key] = from(el).pipe(map(v => (data[key] = v)))
+          }
+        }
       }
+      return data
     }, data)
     expect(result).toEqual({ a: 1, b: 2 })
     expect(result).not.toEqual(data)
@@ -35,11 +40,16 @@ describe('asyncMap', () => {
         }),
       },
     }
-    const result = await asyncMap((key, parent) => {
-      const el = parent[key]
-      if (el.then) {
-        return from(el).pipe(map(v => (parent[key] = v)))
+    const result = await asyncMap(data => {
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          const el = data[key]
+          if (el.then) {
+            data[key] = from(el).pipe(map(v => (data[key] = v)))
+          }
+        }
       }
+      return data
     }, data)
     expect(result).toEqual({ a: 1, b: { c: 2 } })
     expect(result).not.toEqual(data)
@@ -66,20 +76,30 @@ describe('asyncMap', () => {
         c: 2,
       },
     }
-    const result = await asyncMap((key, parent) => {
-      const el = parent[key]
-      if (R.is(Number, el)) {
-        const md5 = randomMd5()
-        const result$ = store$.pipe(
-          pluck(md5),
-          filter(v => v),
-          first(),
-        )
-        setTimeout(() => {
-          store.next({ key: md5, value: el })
-        }, 1)
-        return result$
+    const result = await asyncMap(data => {
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          const el = data[key]
+          if (R.is(Number, el)) {
+            const md5 = randomMd5()
+            const result$ = store$.pipe(
+              pluck(md5),
+              filter(v => v),
+              first(),
+            )
+            setTimeout(() => {
+              store.next({ key: md5, value: el })
+            }, 1)
+            data[key] = result$.pipe(
+              map(v => {
+                data[key] = v
+              }),
+            )
+          }
+        }
       }
+
+      return data
     }, data)
     expect(result).toEqual({ a: 1, b: { c: 2 } })
     expect(result).not.toBe(data)
@@ -91,20 +111,24 @@ describe('asyncMap', () => {
     }
 
     /**
-     * @param {string} key
-     * @param {object} parent
+     * @param {object} data
      */
-    const asyncFn = async (key, parent) => {
-      const el = parent[key]
-      if (R.is(Number, el)) {
-        return await new Promise(function(resolve) {
-          setTimeout(() => {
-            parent[key] = `延时${el}ms`
-            resolve()
-          }, el)
-        })
+    const asyncFn = data => {
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          const el = data[key]
+          if (R.is(Number, el)) {
+            data[key] = new Promise(function(resolve) {
+              setTimeout(() => {
+                data[key] = `延时${el}ms`
+                resolve()
+              }, el)
+            })
+          }
+        }
       }
-      return el
+
+      return data
     }
 
     const result = await asyncMap(asyncFn, data)

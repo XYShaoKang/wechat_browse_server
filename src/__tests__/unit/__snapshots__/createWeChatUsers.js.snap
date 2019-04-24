@@ -10,6 +10,47 @@ Object {
 }
 `;
 
+exports[`Mutation create WeChatUser 2`] = `
+Array [
+  Object {
+    "createdAt": "2019-04-21T05:19:31.395Z",
+    "id": "0",
+    "updatedAt": "2019-04-21T05:19:31.395Z",
+    "username": "a",
+  },
+  Object {
+    "createdAt": "2019-04-21T05:19:31.395Z",
+    "id": "1",
+    "updatedAt": "2019-04-21T05:19:31.395Z",
+    "username": "dddd",
+  },
+  Object {
+    "alias": "bbbb",
+    "avatar": Object {
+      "id": "0",
+    },
+    "conRemark": "cccc",
+    "id": "2",
+    "nickname": "dddd",
+    "username": "aaaa",
+  },
+]
+`;
+
+exports[`Mutation create WeChatUser 3`] = `
+Array [
+  Object {
+    "bigImg": Object {
+      "id": "2",
+    },
+    "id": "0",
+    "thumbnailImg": Object {
+      "id": "1",
+    },
+  },
+]
+`;
+
 exports[`Mutation create WeChatUser Fail No WeChat 1`] = `
 Object {
   "data": null,

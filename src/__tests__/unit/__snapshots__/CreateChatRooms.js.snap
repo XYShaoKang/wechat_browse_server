@@ -10,6 +10,41 @@ Object {
 }
 `;
 
+exports[`Mutation create ChatRoom 2`] = `
+Array [
+  Object {
+    "avatar": Object {
+      "id": "0",
+    },
+    "displayName": "cccc",
+    "id": "0",
+    "memberList": Array [
+      Object {
+        "id": "1",
+      },
+    ],
+    "modifyTime": 2019-04-24T16:51:14.743Z,
+    "nickname": "bbbb",
+    "owner": "",
+    "username": "aaaa",
+  },
+]
+`;
+
+exports[`Mutation create ChatRoom 3`] = `
+Array [
+  Object {
+    "bigImg": Object {
+      "id": "2",
+    },
+    "id": "0",
+    "thumbnailImg": Object {
+      "id": "1",
+    },
+  },
+]
+`;
+
 exports[`Mutation create WeChatUser Fail No WeChat 1`] = `
 Object {
   "data": null,
