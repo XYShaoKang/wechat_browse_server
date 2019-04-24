@@ -3,39 +3,38 @@ import { Observable, from, of } from 'rxjs'
 import { mergeAll, map, mergeMap } from 'rxjs/operators'
 
 /**
- * @param {(key: string,parent:object) => any} asyncFn
+ * @param {(data:object) => any} fn
  * @param {object} data
  * @param {[Observable<any>]|array} observables
  */
-export function _asyncMap(asyncFn, data, observables) {
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const result = asyncFn(key, data)
+export function _asyncMap(fn, data, observables) {
+  const newData = fn(data)
+  for (const key in newData) {
+    if (newData.hasOwnProperty(key)) {
+      const result = newData[key]
       if (result instanceof Observable) {
         observables.push(result)
       } else if (result instanceof Promise) {
         observables.push(from(result))
-      }
-
-      if (R.is(Object)(data[key])) {
-        _asyncMap(asyncFn, data[key], observables)
+      } else if (R.is(Object)(result)) {
+        _asyncMap(fn, result, observables)
       }
     }
   }
 
-  return data
+  return newData
 }
 /**
- * @param {(key: string,parent:object) => any} asyncFn
+ * @param {(data:object) => any} fn
  * @param {object} data
  * @returns {Promise<any>}
  */
-export async function asyncMap(asyncFn, data) {
+export async function asyncMap(fn, data) {
   const tempData = R.clone(data)
   /** @type {[Observable<any>]|array} */
   let observables = []
 
-  _asyncMap(asyncFn, tempData, observables)
+  _asyncMap(fn, tempData, observables)
 
   await from(observables)
     .pipe(mergeAll())

@@ -4,22 +4,27 @@ import { downloadManage, asyncMap, groupsOf } from '../../utils'
 import { map } from 'rxjs/operators'
 
 /**
- * @param {string} key
- * @param {object} parent
- * @returns {import('rxjs').Observable<string> | undefined}
+ * @param {object} data
+ * @returns {object}
  */
-export const asyncFn = (key, parent) => {
-  const el = parent[key]
-  if (key === 'avatar') {
-    parent[key] = { create: el }
-  } else if (key === 'thumbnailImg' || key === 'bigImg') {
-    return downloadManage(el).pipe(
-      map(id => {
-        parent[key] = { connect: { id } }
-        return id
-      }),
-    )
+export const asyncFn = data => {
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const element = data[key]
+      if (key === 'avatar') {
+        data[key] = { create: element }
+      } else if (key === 'thumbnailImg' || key === 'bigImg') {
+        data[key] = downloadManage(element).pipe(
+          map(id => {
+            data[key] = { connect: { id } }
+            return id
+          }),
+        )
+      }
+    }
   }
+
+  return data
 }
 
 export const CreateWeChatUsers = mutationField('CreateWeChatUsers', {

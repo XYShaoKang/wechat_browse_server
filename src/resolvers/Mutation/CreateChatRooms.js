@@ -3,33 +3,35 @@ import { arg, mutationField } from 'nexus'
 import { downloadManage, asyncMap, groupsOf } from '../../utils'
 import { map } from 'rxjs/operators'
 /**
- * @param {string} key
- * @param {object} parent
- * @returns {import('rxjs').Observable<string> | undefined}
+ * @param {object} data
+ * @returns {object}
  */
-const asyncFn = (key, parent) => {
-  const el = parent[key]
-  if (key === 'avatar') {
-    parent[key] = { create: el }
-  } else if (key === 'thumbnailImg' || key === 'bigImg') {
-    return downloadManage(el).pipe(
-      map(id => {
-        parent[key] = { connect: { id } }
-        return id
-      }),
-    )
-  } else if (key === 'memberList') {
-    return el.map(
-      /**
-       * @param {string} username
-       */
-      username => ({
-        connect: {
-          username,
-        },
-      }),
-    )
+const asyncFn = data => {
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const el = data[key]
+      if (key === 'avatar') {
+        data[key] = { create: el }
+      } else if (key === 'thumbnailImg' || key === 'bigImg') {
+        data[key] = downloadManage(el).pipe(
+          map(id => {
+            data[key] = { connect: { id } }
+            return id
+          }),
+        )
+      } else if (key === 'memberList') {
+        data[key] = {
+          connect: el.map(
+            /**
+             * @param {string} username
+             */
+            username => ({ username }),
+          ),
+        }
+      }
+    }
   }
+  return data
 }
 
 export const CreateChatRooms = mutationField('CreateChatRooms', {
