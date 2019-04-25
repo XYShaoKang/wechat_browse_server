@@ -1,7 +1,7 @@
 {
   "verbose": true,
   "restartable": "rs",
-  "exec": "babel-node src/index.js",
+  "exec": "babel-node -r node_modules/dotenv/config src/index.js",
   "ignore": [".git", "node_modules/**/node_modules", "**/__tests__/*"],
   "watch": ["src"],
   "env": {
