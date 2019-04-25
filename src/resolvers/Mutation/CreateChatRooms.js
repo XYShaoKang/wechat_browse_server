@@ -28,6 +28,12 @@ const asyncFn = data => {
             username => ({ username }),
           ),
         }
+      } else if (key === 'owner') {
+        data[key] = {
+          connect: {
+            username: el,
+          },
+        }
       }
     }
   }

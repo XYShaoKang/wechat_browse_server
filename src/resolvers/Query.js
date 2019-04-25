@@ -4,3 +4,9 @@ export const Query = prismaObjectType({
   name: 'Query',
   definition: t => t.prismaFields(['users', 'weChatUsers']),
 })
+export const User = prismaObjectType({
+  name: 'User',
+  definition(t) {
+    t.prismaFields(['id', 'name', 'email', 'weChat'])
+  },
+})

@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken'
 //#endregion
 
 import { Prisma, graphqlTestCall } from '../__utils'
-import { LOGIN, SIGNUP, USERS } from './__types'
+import { LOGIN, SIGNUP, USERS } from '../__types'
 
 jest.spyOn(bcrypt, 'hash').mockImplementation(() => 'abcd')
 jest.spyOn(jwt, 'sign').mockImplementation(() => 'abcd')

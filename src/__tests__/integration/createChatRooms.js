@@ -17,7 +17,7 @@ jest
 import { of } from 'rxjs'
 
 import { Prisma, graphqlTestCall } from '../__utils'
-import { CreateChatRooms } from './__types'
+import { CreateChatRooms } from '../__types'
 
 const variables = {
   chatRooms: [

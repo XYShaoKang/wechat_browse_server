@@ -6,7 +6,6 @@ export const LOGIN = /* GraphQL */ `
         id
         name
         email
-        password
       }
     }
   }
@@ -20,7 +19,6 @@ export const SIGNUP = /* GraphQL */ `
         id
         name
         email
-        password
       }
     }
   }
@@ -32,7 +30,6 @@ export const USERS = /* GraphQL */ `
       id
       name
       email
-      password
     }
   }
 `

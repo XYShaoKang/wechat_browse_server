@@ -17,7 +17,7 @@ jest
 import { of } from 'rxjs'
 
 import { Prisma, graphqlTestCall } from '../__utils'
-import { CreateWeChatUsers } from './__types'
+import { CreateWeChatUsers } from '../__types'
 
 const variables = {
   weChatUsers: [

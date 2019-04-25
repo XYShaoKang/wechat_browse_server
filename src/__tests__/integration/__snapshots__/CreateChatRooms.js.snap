@@ -25,7 +25,11 @@ Array [
     ],
     "modifyTime": 2019-04-24T16:51:14.743Z,
     "nickname": "bbbb",
-    "owner": "",
+    "owner": Object {
+      "connect": Object {
+        "username": "",
+      },
+    },
     "username": "aaaa",
   },
 ]
