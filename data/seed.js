@@ -2,10 +2,15 @@ import { prisma } from '../generated/prisma-client'
 import bcrypt from 'bcryptjs'
 
 async function main() {
-  const password = await bcrypt.hash(process.env.ADMIN_PASSWD, 10)
+  const {
+    ADMIN_EMAIL: email = '',
+    ADMIN_PASSWD: ADMIN_PASSWD = '',
+    ADMIN_NAME: name = '',
+  } = process.env
+  const password = await bcrypt.hash(ADMIN_PASSWD, 10)
   await prisma.createUser({
-    email: process.env.ADMIN_EMAIL,
-    name: process.env.ADMIN_NAME,
+    email,
+    name,
     password,
     weChat: {
       create: {

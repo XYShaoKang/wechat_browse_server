@@ -70,9 +70,9 @@ type ChatRoom {
   memberList(after: String, before: String, first: Int, last: Int, orderBy: WeChatUserOrderByInput, skip: Int, where: WeChatUserWhereInput): [WeChatUser!]
   message(after: String, before: String, first: Int, last: Int, orderBy: MessageOrderByInput, skip: Int, where: MessageWhereInput): [Message!]
   modifyTime: DateTime
-  nickName: String
+  nickname: String
   owner: WeChatUser!
-  userName: String!
+  username: String!
 }
 
 input ChatRoomCreateInput {
@@ -92,10 +92,10 @@ enum ChatRoomOrderByInput {
   id_DESC
   modifyTime_ASC
   modifyTime_DESC
-  nickName_ASC
-  nickName_DESC
-  userName_ASC
-  userName_DESC
+  nickname_ASC
+  nickname_DESC
+  username_ASC
+  username_DESC
 }
 
 input ChatRoomWhereInput {
@@ -139,35 +139,35 @@ input ChatRoomWhereInput {
   modifyTime_lte: DateTime
   modifyTime_not: DateTime
   modifyTime_not_in: [DateTime!]
-  nickName: String
-  nickName_contains: String
-  nickName_ends_with: String
-  nickName_gt: String
-  nickName_gte: String
-  nickName_in: [String!]
-  nickName_lt: String
-  nickName_lte: String
-  nickName_not: String
-  nickName_not_contains: String
-  nickName_not_ends_with: String
-  nickName_not_in: [String!]
-  nickName_not_starts_with: String
-  nickName_starts_with: String
+  nickname: String
+  nickname_contains: String
+  nickname_ends_with: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_not: String
+  nickname_not_contains: String
+  nickname_not_ends_with: String
+  nickname_not_in: [String!]
+  nickname_not_starts_with: String
+  nickname_starts_with: String
   owner: WeChatUserWhereInput
-  userName: String
-  userName_contains: String
-  userName_ends_with: String
-  userName_gt: String
-  userName_gte: String
-  userName_in: [String!]
-  userName_lt: String
-  userName_lte: String
-  userName_not: String
-  userName_not_contains: String
-  userName_not_ends_with: String
-  userName_not_in: [String!]
-  userName_not_starts_with: String
-  userName_starts_with: String
+  username: String
+  username_contains: String
+  username_ends_with: String
+  username_gt: String
+  username_gte: String
+  username_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_not: String
+  username_not_contains: String
+  username_not_ends_with: String
+  username_not_in: [String!]
+  username_not_starts_with: String
+  username_starts_with: String
 }
 
 type Contact {
@@ -527,7 +527,6 @@ type User {
   email: String!
   id: ID!
   name: String!
-  password: String!
   weChat(after: String, before: String, first: Int, last: Int, orderBy: WeChatOrderByInput, skip: Int, where: WeChatWhereInput): [WeChat!]
 }
 

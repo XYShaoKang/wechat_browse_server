@@ -276,8 +276,8 @@ type BatchPayload {
 
 type ChatRoom {
   id: ID!
-  userName: String!
-  nickName: String
+  username: String!
+  nickname: String
   displayName: String!
   owner: WeChatUser!
   memberList(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChatUser!]
@@ -294,8 +294,8 @@ type ChatRoomConnection {
 
 input ChatRoomCreateInput {
   id: ID
-  userName: String!
-  nickName: String
+  username: String!
+  nickname: String
   displayName: String!
   owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
@@ -326,8 +326,8 @@ input ChatRoomCreateOneWithoutMessageInput {
 
 input ChatRoomCreateWithoutMemberListInput {
   id: ID
-  userName: String!
-  nickName: String
+  username: String!
+  nickname: String
   displayName: String!
   owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
   modifyTime: DateTime
@@ -337,8 +337,8 @@ input ChatRoomCreateWithoutMemberListInput {
 
 input ChatRoomCreateWithoutMessageInput {
   id: ID
-  userName: String!
-  nickName: String
+  username: String!
+  nickname: String
   displayName: String!
   owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
@@ -348,8 +348,8 @@ input ChatRoomCreateWithoutMessageInput {
 
 input ChatRoomCreateWithoutOwnerInput {
   id: ID
-  userName: String!
-  nickName: String
+  username: String!
+  nickname: String
   displayName: String!
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
@@ -365,10 +365,10 @@ type ChatRoomEdge {
 enum ChatRoomOrderByInput {
   id_ASC
   id_DESC
-  userName_ASC
-  userName_DESC
-  nickName_ASC
-  nickName_DESC
+  username_ASC
+  username_DESC
+  nickname_ASC
+  nickname_DESC
   displayName_ASC
   displayName_DESC
   modifyTime_ASC
@@ -377,8 +377,8 @@ enum ChatRoomOrderByInput {
 
 type ChatRoomPreviousValues {
   id: ID!
-  userName: String!
-  nickName: String
+  username: String!
+  nickname: String
   displayName: String!
   modifyTime: DateTime
 }
@@ -398,34 +398,34 @@ input ChatRoomScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  userName: String
-  userName_not: String
-  userName_in: [String!]
-  userName_not_in: [String!]
-  userName_lt: String
-  userName_lte: String
-  userName_gt: String
-  userName_gte: String
-  userName_contains: String
-  userName_not_contains: String
-  userName_starts_with: String
-  userName_not_starts_with: String
-  userName_ends_with: String
-  userName_not_ends_with: String
-  nickName: String
-  nickName_not: String
-  nickName_in: [String!]
-  nickName_not_in: [String!]
-  nickName_lt: String
-  nickName_lte: String
-  nickName_gt: String
-  nickName_gte: String
-  nickName_contains: String
-  nickName_not_contains: String
-  nickName_starts_with: String
-  nickName_not_starts_with: String
-  nickName_ends_with: String
-  nickName_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
   displayName: String
   displayName_not: String
   displayName_in: [String!]
@@ -470,8 +470,8 @@ input ChatRoomSubscriptionWhereInput {
 }
 
 input ChatRoomUpdateDataInput {
-  userName: String
-  nickName: String
+  username: String
+  nickname: String
   displayName: String
   owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
@@ -481,8 +481,8 @@ input ChatRoomUpdateDataInput {
 }
 
 input ChatRoomUpdateInput {
-  userName: String
-  nickName: String
+  username: String
+  nickname: String
   displayName: String
   owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
@@ -492,8 +492,8 @@ input ChatRoomUpdateInput {
 }
 
 input ChatRoomUpdateManyDataInput {
-  userName: String
-  nickName: String
+  username: String
+  nickname: String
   displayName: String
   modifyTime: DateTime
 }
@@ -511,8 +511,8 @@ input ChatRoomUpdateManyInput {
 }
 
 input ChatRoomUpdateManyMutationInput {
-  userName: String
-  nickName: String
+  username: String
+  nickname: String
   displayName: String
   modifyTime: DateTime
 }
@@ -556,8 +556,8 @@ input ChatRoomUpdateOneWithoutMessageInput {
 }
 
 input ChatRoomUpdateWithoutMemberListDataInput {
-  userName: String
-  nickName: String
+  username: String
+  nickname: String
   displayName: String
   owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
   modifyTime: DateTime
@@ -566,8 +566,8 @@ input ChatRoomUpdateWithoutMemberListDataInput {
 }
 
 input ChatRoomUpdateWithoutMessageDataInput {
-  userName: String
-  nickName: String
+  username: String
+  nickname: String
   displayName: String
   owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
@@ -576,8 +576,8 @@ input ChatRoomUpdateWithoutMessageDataInput {
 }
 
 input ChatRoomUpdateWithoutOwnerDataInput {
-  userName: String
-  nickName: String
+  username: String
+  nickname: String
   displayName: String
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
@@ -638,34 +638,34 @@ input ChatRoomWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  userName: String
-  userName_not: String
-  userName_in: [String!]
-  userName_not_in: [String!]
-  userName_lt: String
-  userName_lte: String
-  userName_gt: String
-  userName_gte: String
-  userName_contains: String
-  userName_not_contains: String
-  userName_starts_with: String
-  userName_not_starts_with: String
-  userName_ends_with: String
-  userName_not_ends_with: String
-  nickName: String
-  nickName_not: String
-  nickName_in: [String!]
-  nickName_not_in: [String!]
-  nickName_lt: String
-  nickName_lte: String
-  nickName_gt: String
-  nickName_gte: String
-  nickName_contains: String
-  nickName_not_contains: String
-  nickName_starts_with: String
-  nickName_not_starts_with: String
-  nickName_ends_with: String
-  nickName_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
   displayName: String
   displayName_not: String
   displayName_in: [String!]
@@ -697,7 +697,7 @@ input ChatRoomWhereInput {
 
 input ChatRoomWhereUniqueInput {
   id: ID
-  userName: String
+  username: String
 }
 
 type Contact {

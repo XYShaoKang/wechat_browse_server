@@ -1,4 +1,4 @@
-endpoint: ${env:PRISMA_SERVER_ENDPOINT}
+endpoint: ${env:PRISMA_SERVER_ENDPOINT}${env:STAGE}
 datamodel:
   - user.prisma
   - wechat.prisma

@@ -2021,8 +2021,8 @@ export interface MessageFieldDetails {
 type ChatRoomObject =
   | ChatRoomFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'userName', args?: [] | false, alias?: string  } 
-  | { name: 'nickName', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'displayName', args?: [] | false, alias?: string  } 
   | { name: 'owner', args?: [] | false, alias?: string  } 
   | { name: 'memberList', args?: ChatRoomMemberListArgs[] | false, alias?: string  } 
@@ -2032,8 +2032,8 @@ type ChatRoomObject =
 
 type ChatRoomFields =
   | 'id'
-  | 'userName'
-  | 'nickName'
+  | 'username'
+  | 'nickname'
   | 'displayName'
   | 'owner'
   | 'memberList'
@@ -2069,7 +2069,7 @@ export interface ChatRoomFieldDetails {
     nullable: false
     resolve: undefined
   }
-  userName: {
+  username: {
     type: 'String'
     args: {}
     description: string
@@ -2077,7 +2077,7 @@ export interface ChatRoomFieldDetails {
     nullable: false
     resolve: undefined
   }
-  nickName: {
+  nickname: {
     type: 'String'
     args: {}
     description: string
@@ -6894,15 +6894,15 @@ export interface ChatRoomSubscriptionPayloadFieldDetails {
 type ChatRoomPreviousValuesObject =
   | ChatRoomPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'userName', args?: [] | false, alias?: string  } 
-  | { name: 'nickName', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'displayName', args?: [] | false, alias?: string  } 
   | { name: 'modifyTime', args?: [] | false, alias?: string  } 
 
 type ChatRoomPreviousValuesFields =
   | 'id'
-  | 'userName'
-  | 'nickName'
+  | 'username'
+  | 'nickname'
   | 'displayName'
   | 'modifyTime'
 
@@ -6919,7 +6919,7 @@ export interface ChatRoomPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  userName: {
+  username: {
     type: 'String'
     args: {}
     description: string
@@ -6927,7 +6927,7 @@ export interface ChatRoomPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  nickName: {
+  nickname: {
     type: 'String'
     args: {}
     description: string
@@ -8655,34 +8655,34 @@ export interface ChatRoomWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  userName?: string | null
-  userName_not?: string | null
-  userName_in?: string[]
-  userName_not_in?: string[]
-  userName_lt?: string | null
-  userName_lte?: string | null
-  userName_gt?: string | null
-  userName_gte?: string | null
-  userName_contains?: string | null
-  userName_not_contains?: string | null
-  userName_starts_with?: string | null
-  userName_not_starts_with?: string | null
-  userName_ends_with?: string | null
-  userName_not_ends_with?: string | null
-  nickName?: string | null
-  nickName_not?: string | null
-  nickName_in?: string[]
-  nickName_not_in?: string[]
-  nickName_lt?: string | null
-  nickName_lte?: string | null
-  nickName_gt?: string | null
-  nickName_gte?: string | null
-  nickName_contains?: string | null
-  nickName_not_contains?: string | null
-  nickName_starts_with?: string | null
-  nickName_not_starts_with?: string | null
-  nickName_ends_with?: string | null
-  nickName_not_ends_with?: string | null
+  username?: string | null
+  username_not?: string | null
+  username_in?: string[]
+  username_not_in?: string[]
+  username_lt?: string | null
+  username_lte?: string | null
+  username_gt?: string | null
+  username_gte?: string | null
+  username_contains?: string | null
+  username_not_contains?: string | null
+  username_starts_with?: string | null
+  username_not_starts_with?: string | null
+  username_ends_with?: string | null
+  username_not_ends_with?: string | null
+  nickname?: string | null
+  nickname_not?: string | null
+  nickname_in?: string[]
+  nickname_not_in?: string[]
+  nickname_lt?: string | null
+  nickname_lte?: string | null
+  nickname_gt?: string | null
+  nickname_gte?: string | null
+  nickname_contains?: string | null
+  nickname_not_contains?: string | null
+  nickname_starts_with?: string | null
+  nickname_not_starts_with?: string | null
+  nickname_ends_with?: string | null
+  nickname_not_ends_with?: string | null
   displayName?: string | null
   displayName_not?: string | null
   displayName_in?: string[]
@@ -8727,34 +8727,34 @@ export type ChatRoomWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'userName', alias?: string  } 
-  | { name: 'userName_not', alias?: string  } 
-  | { name: 'userName_in', alias?: string  } 
-  | { name: 'userName_not_in', alias?: string  } 
-  | { name: 'userName_lt', alias?: string  } 
-  | { name: 'userName_lte', alias?: string  } 
-  | { name: 'userName_gt', alias?: string  } 
-  | { name: 'userName_gte', alias?: string  } 
-  | { name: 'userName_contains', alias?: string  } 
-  | { name: 'userName_not_contains', alias?: string  } 
-  | { name: 'userName_starts_with', alias?: string  } 
-  | { name: 'userName_not_starts_with', alias?: string  } 
-  | { name: 'userName_ends_with', alias?: string  } 
-  | { name: 'userName_not_ends_with', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'nickName_not', alias?: string  } 
-  | { name: 'nickName_in', alias?: string  } 
-  | { name: 'nickName_not_in', alias?: string  } 
-  | { name: 'nickName_lt', alias?: string  } 
-  | { name: 'nickName_lte', alias?: string  } 
-  | { name: 'nickName_gt', alias?: string  } 
-  | { name: 'nickName_gte', alias?: string  } 
-  | { name: 'nickName_contains', alias?: string  } 
-  | { name: 'nickName_not_contains', alias?: string  } 
-  | { name: 'nickName_starts_with', alias?: string  } 
-  | { name: 'nickName_not_starts_with', alias?: string  } 
-  | { name: 'nickName_ends_with', alias?: string  } 
-  | { name: 'nickName_not_ends_with', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'username_not', alias?: string  } 
+  | { name: 'username_in', alias?: string  } 
+  | { name: 'username_not_in', alias?: string  } 
+  | { name: 'username_lt', alias?: string  } 
+  | { name: 'username_lte', alias?: string  } 
+  | { name: 'username_gt', alias?: string  } 
+  | { name: 'username_gte', alias?: string  } 
+  | { name: 'username_contains', alias?: string  } 
+  | { name: 'username_not_contains', alias?: string  } 
+  | { name: 'username_starts_with', alias?: string  } 
+  | { name: 'username_not_starts_with', alias?: string  } 
+  | { name: 'username_ends_with', alias?: string  } 
+  | { name: 'username_not_ends_with', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nickname_not', alias?: string  } 
+  | { name: 'nickname_in', alias?: string  } 
+  | { name: 'nickname_not_in', alias?: string  } 
+  | { name: 'nickname_lt', alias?: string  } 
+  | { name: 'nickname_lte', alias?: string  } 
+  | { name: 'nickname_gt', alias?: string  } 
+  | { name: 'nickname_gte', alias?: string  } 
+  | { name: 'nickname_contains', alias?: string  } 
+  | { name: 'nickname_not_contains', alias?: string  } 
+  | { name: 'nickname_starts_with', alias?: string  } 
+  | { name: 'nickname_not_starts_with', alias?: string  } 
+  | { name: 'nickname_ends_with', alias?: string  } 
+  | { name: 'nickname_not_ends_with', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'displayName_not', alias?: string  } 
   | { name: 'displayName_in', alias?: string  } 
@@ -9344,12 +9344,12 @@ export type WeChatUserWhereUniqueInputInputObject =
   
 export interface ChatRoomWhereUniqueInput {
   id?: string | null
-  userName?: string | null
+  username?: string | null
 }
 export type ChatRoomWhereUniqueInputInputObject =
   | Extract<keyof ChatRoomWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'userName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   
 export interface AvatarWhereUniqueInput {
   id?: string | null
@@ -9573,8 +9573,8 @@ export type ChatRoomCreateOneWithoutMessageInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface ChatRoomCreateWithoutMessageInput {
-  userName?: string
-  nickName?: string | null
+  username?: string
+  nickname?: string | null
   displayName?: string
   owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
   memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
@@ -9583,8 +9583,8 @@ export interface ChatRoomCreateWithoutMessageInput {
 }
 export type ChatRoomCreateWithoutMessageInputInputObject =
   | Extract<keyof ChatRoomCreateWithoutMessageInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'memberList', alias?: string  } 
@@ -9631,8 +9631,8 @@ export type ChatRoomCreateManyWithoutMemberListInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface ChatRoomCreateWithoutMemberListInput {
-  userName?: string
-  nickName?: string | null
+  username?: string
+  nickname?: string | null
   displayName?: string
   owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
   modifyTime?: string | null
@@ -9641,8 +9641,8 @@ export interface ChatRoomCreateWithoutMemberListInput {
 }
 export type ChatRoomCreateWithoutMemberListInputInputObject =
   | Extract<keyof ChatRoomCreateWithoutMemberListInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'modifyTime', alias?: string  } 
@@ -9715,8 +9715,8 @@ export type ChatRoomCreateManyWithoutOwnerInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface ChatRoomCreateWithoutOwnerInput {
-  userName?: string
-  nickName?: string | null
+  username?: string
+  nickname?: string | null
   displayName?: string
   memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
   modifyTime?: string | null
@@ -9725,8 +9725,8 @@ export interface ChatRoomCreateWithoutOwnerInput {
 }
 export type ChatRoomCreateWithoutOwnerInputInputObject =
   | Extract<keyof ChatRoomCreateWithoutOwnerInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'memberList', alias?: string  } 
   | { name: 'modifyTime', alias?: string  } 
@@ -9930,8 +9930,8 @@ export type ChatRoomCreateManyInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface ChatRoomCreateInput {
-  userName?: string
-  nickName?: string | null
+  username?: string
+  nickname?: string | null
   displayName?: string
   owner?: WeChatUserCreateOneWithoutHaveChatRoomInput
   memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput | null
@@ -9941,8 +9941,8 @@ export interface ChatRoomCreateInput {
 }
 export type ChatRoomCreateInputInputObject =
   | Extract<keyof ChatRoomCreateInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'memberList', alias?: string  } 
@@ -10211,8 +10211,8 @@ export type ChatRoomUpdateOneWithoutMessageInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface ChatRoomUpdateWithoutMessageDataInput {
-  userName?: string | null
-  nickName?: string | null
+  username?: string | null
+  nickname?: string | null
   displayName?: string | null
   owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
@@ -10221,8 +10221,8 @@ export interface ChatRoomUpdateWithoutMessageDataInput {
 }
 export type ChatRoomUpdateWithoutMessageDataInputInputObject =
   | Extract<keyof ChatRoomUpdateWithoutMessageDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'memberList', alias?: string  } 
@@ -10296,8 +10296,8 @@ export type ChatRoomUpdateWithWhereUniqueWithoutMemberListInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface ChatRoomUpdateWithoutMemberListDataInput {
-  userName?: string | null
-  nickName?: string | null
+  username?: string | null
+  nickname?: string | null
   displayName?: string | null
   owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
   modifyTime?: string | null
@@ -10306,8 +10306,8 @@ export interface ChatRoomUpdateWithoutMemberListDataInput {
 }
 export type ChatRoomUpdateWithoutMemberListDataInputInputObject =
   | Extract<keyof ChatRoomUpdateWithoutMemberListDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'modifyTime', alias?: string  } 
@@ -10430,8 +10430,8 @@ export type ChatRoomUpdateWithWhereUniqueWithoutOwnerInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface ChatRoomUpdateWithoutOwnerDataInput {
-  userName?: string | null
-  nickName?: string | null
+  username?: string | null
+  nickname?: string | null
   displayName?: string | null
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
   modifyTime?: string | null
@@ -10440,8 +10440,8 @@ export interface ChatRoomUpdateWithoutOwnerDataInput {
 }
 export type ChatRoomUpdateWithoutOwnerDataInputInputObject =
   | Extract<keyof ChatRoomUpdateWithoutOwnerDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'memberList', alias?: string  } 
   | { name: 'modifyTime', alias?: string  } 
@@ -10744,34 +10744,34 @@ export interface ChatRoomScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  userName?: string | null
-  userName_not?: string | null
-  userName_in?: string[]
-  userName_not_in?: string[]
-  userName_lt?: string | null
-  userName_lte?: string | null
-  userName_gt?: string | null
-  userName_gte?: string | null
-  userName_contains?: string | null
-  userName_not_contains?: string | null
-  userName_starts_with?: string | null
-  userName_not_starts_with?: string | null
-  userName_ends_with?: string | null
-  userName_not_ends_with?: string | null
-  nickName?: string | null
-  nickName_not?: string | null
-  nickName_in?: string[]
-  nickName_not_in?: string[]
-  nickName_lt?: string | null
-  nickName_lte?: string | null
-  nickName_gt?: string | null
-  nickName_gte?: string | null
-  nickName_contains?: string | null
-  nickName_not_contains?: string | null
-  nickName_starts_with?: string | null
-  nickName_not_starts_with?: string | null
-  nickName_ends_with?: string | null
-  nickName_not_ends_with?: string | null
+  username?: string | null
+  username_not?: string | null
+  username_in?: string[]
+  username_not_in?: string[]
+  username_lt?: string | null
+  username_lte?: string | null
+  username_gt?: string | null
+  username_gte?: string | null
+  username_contains?: string | null
+  username_not_contains?: string | null
+  username_starts_with?: string | null
+  username_not_starts_with?: string | null
+  username_ends_with?: string | null
+  username_not_ends_with?: string | null
+  nickname?: string | null
+  nickname_not?: string | null
+  nickname_in?: string[]
+  nickname_not_in?: string[]
+  nickname_lt?: string | null
+  nickname_lte?: string | null
+  nickname_gt?: string | null
+  nickname_gte?: string | null
+  nickname_contains?: string | null
+  nickname_not_contains?: string | null
+  nickname_starts_with?: string | null
+  nickname_not_starts_with?: string | null
+  nickname_ends_with?: string | null
+  nickname_not_ends_with?: string | null
   displayName?: string | null
   displayName_not?: string | null
   displayName_in?: string[]
@@ -10814,34 +10814,34 @@ export type ChatRoomScalarWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'userName', alias?: string  } 
-  | { name: 'userName_not', alias?: string  } 
-  | { name: 'userName_in', alias?: string  } 
-  | { name: 'userName_not_in', alias?: string  } 
-  | { name: 'userName_lt', alias?: string  } 
-  | { name: 'userName_lte', alias?: string  } 
-  | { name: 'userName_gt', alias?: string  } 
-  | { name: 'userName_gte', alias?: string  } 
-  | { name: 'userName_contains', alias?: string  } 
-  | { name: 'userName_not_contains', alias?: string  } 
-  | { name: 'userName_starts_with', alias?: string  } 
-  | { name: 'userName_not_starts_with', alias?: string  } 
-  | { name: 'userName_ends_with', alias?: string  } 
-  | { name: 'userName_not_ends_with', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
-  | { name: 'nickName_not', alias?: string  } 
-  | { name: 'nickName_in', alias?: string  } 
-  | { name: 'nickName_not_in', alias?: string  } 
-  | { name: 'nickName_lt', alias?: string  } 
-  | { name: 'nickName_lte', alias?: string  } 
-  | { name: 'nickName_gt', alias?: string  } 
-  | { name: 'nickName_gte', alias?: string  } 
-  | { name: 'nickName_contains', alias?: string  } 
-  | { name: 'nickName_not_contains', alias?: string  } 
-  | { name: 'nickName_starts_with', alias?: string  } 
-  | { name: 'nickName_not_starts_with', alias?: string  } 
-  | { name: 'nickName_ends_with', alias?: string  } 
-  | { name: 'nickName_not_ends_with', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'username_not', alias?: string  } 
+  | { name: 'username_in', alias?: string  } 
+  | { name: 'username_not_in', alias?: string  } 
+  | { name: 'username_lt', alias?: string  } 
+  | { name: 'username_lte', alias?: string  } 
+  | { name: 'username_gt', alias?: string  } 
+  | { name: 'username_gte', alias?: string  } 
+  | { name: 'username_contains', alias?: string  } 
+  | { name: 'username_not_contains', alias?: string  } 
+  | { name: 'username_starts_with', alias?: string  } 
+  | { name: 'username_not_starts_with', alias?: string  } 
+  | { name: 'username_ends_with', alias?: string  } 
+  | { name: 'username_not_ends_with', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nickname_not', alias?: string  } 
+  | { name: 'nickname_in', alias?: string  } 
+  | { name: 'nickname_not_in', alias?: string  } 
+  | { name: 'nickname_lt', alias?: string  } 
+  | { name: 'nickname_lte', alias?: string  } 
+  | { name: 'nickname_gt', alias?: string  } 
+  | { name: 'nickname_gte', alias?: string  } 
+  | { name: 'nickname_contains', alias?: string  } 
+  | { name: 'nickname_not_contains', alias?: string  } 
+  | { name: 'nickname_starts_with', alias?: string  } 
+  | { name: 'nickname_not_starts_with', alias?: string  } 
+  | { name: 'nickname_ends_with', alias?: string  } 
+  | { name: 'nickname_not_ends_with', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'displayName_not', alias?: string  } 
   | { name: 'displayName_in', alias?: string  } 
@@ -10878,15 +10878,15 @@ export type ChatRoomUpdateManyWithWhereNestedInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface ChatRoomUpdateManyDataInput {
-  userName?: string | null
-  nickName?: string | null
+  username?: string | null
+  nickname?: string | null
   displayName?: string | null
   modifyTime?: string | null
 }
 export type ChatRoomUpdateManyDataInputInputObject =
   | Extract<keyof ChatRoomUpdateManyDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'modifyTime', alias?: string  } 
   
@@ -11423,8 +11423,8 @@ export type ChatRoomUpdateWithWhereUniqueNestedInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface ChatRoomUpdateDataInput {
-  userName?: string | null
-  nickName?: string | null
+  username?: string | null
+  nickname?: string | null
   displayName?: string | null
   owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
@@ -11434,8 +11434,8 @@ export interface ChatRoomUpdateDataInput {
 }
 export type ChatRoomUpdateDataInputInputObject =
   | Extract<keyof ChatRoomUpdateDataInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'memberList', alias?: string  } 
@@ -11627,8 +11627,8 @@ export type WeChatUserUpdateManyMutationInputInputObject =
   | { name: 'nickname', alias?: string  } 
   
 export interface ChatRoomUpdateInput {
-  userName?: string | null
-  nickName?: string | null
+  username?: string | null
+  nickname?: string | null
   displayName?: string | null
   owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput | null
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput | null
@@ -11638,8 +11638,8 @@ export interface ChatRoomUpdateInput {
 }
 export type ChatRoomUpdateInputInputObject =
   | Extract<keyof ChatRoomUpdateInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'memberList', alias?: string  } 
@@ -11648,15 +11648,15 @@ export type ChatRoomUpdateInputInputObject =
   | { name: 'message', alias?: string  } 
   
 export interface ChatRoomUpdateManyMutationInput {
-  userName?: string | null
-  nickName?: string | null
+  username?: string | null
+  nickname?: string | null
   displayName?: string | null
   modifyTime?: string | null
 }
 export type ChatRoomUpdateManyMutationInputInputObject =
   | Extract<keyof ChatRoomUpdateManyMutationInput, string>
-  | { name: 'userName', alias?: string  } 
-  | { name: 'nickName', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'displayName', alias?: string  } 
   | { name: 'modifyTime', alias?: string  } 
   
@@ -12703,10 +12703,10 @@ export type WeChatUserOrderByInputValues =
 export type ChatRoomOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'userName_ASC'
-  | 'userName_DESC'
-  | 'nickName_ASC'
-  | 'nickName_DESC'
+  | 'username_ASC'
+  | 'username_DESC'
+  | 'nickname_ASC'
+  | 'nickname_DESC'
   | 'displayName_ASC'
   | 'displayName_DESC'
   | 'modifyTime_ASC'

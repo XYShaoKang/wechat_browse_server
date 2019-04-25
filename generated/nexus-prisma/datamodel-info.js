@@ -8,7 +8,7 @@ module.exports = {
     User: ['id', 'email'],
     WeChat: ['id'],
     WeChatUser: ['id', 'username'],
-    ChatRoom: ['id', 'userName'],
+    ChatRoom: ['id', 'username'],
     Avatar: ['id'],
     Contact: ['id'],
     Message: ['id'],
@@ -6245,7 +6245,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6255,7 +6255,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not",
+            "name": "username_not",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6265,7 +6265,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_in",
+            "name": "username_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -6283,7 +6283,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_in",
+            "name": "username_not_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -6301,7 +6301,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_lt",
+            "name": "username_lt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6311,7 +6311,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_lte",
+            "name": "username_lte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6321,7 +6321,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_gt",
+            "name": "username_gt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6331,7 +6331,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_gte",
+            "name": "username_gte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6341,7 +6341,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_contains",
+            "name": "username_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6351,7 +6351,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_contains",
+            "name": "username_not_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6361,7 +6361,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_starts_with",
+            "name": "username_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6371,7 +6371,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_starts_with",
+            "name": "username_not_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6381,7 +6381,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_ends_with",
+            "name": "username_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6391,7 +6391,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_ends_with",
+            "name": "username_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6401,7 +6401,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6411,7 +6411,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not",
+            "name": "nickname_not",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6421,7 +6421,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_in",
+            "name": "nickname_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -6439,7 +6439,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_in",
+            "name": "nickname_not_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -6457,7 +6457,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_lt",
+            "name": "nickname_lt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6467,7 +6467,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_lte",
+            "name": "nickname_lte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6477,7 +6477,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_gt",
+            "name": "nickname_gt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6487,7 +6487,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_gte",
+            "name": "nickname_gte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6497,7 +6497,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_contains",
+            "name": "nickname_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6507,7 +6507,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_contains",
+            "name": "nickname_not_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6517,7 +6517,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_starts_with",
+            "name": "nickname_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6527,7 +6527,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_starts_with",
+            "name": "nickname_not_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6537,7 +6537,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_ends_with",
+            "name": "nickname_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -6547,7 +6547,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_ends_with",
+            "name": "nickname_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -10202,7 +10202,7 @@ module.exports = {
             "deprecationReason": null
           },
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "args": [],
             "type": {
@@ -10218,7 +10218,7 @@ module.exports = {
             "deprecationReason": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "args": [],
             "type": {
@@ -11044,25 +11044,25 @@ module.exports = {
             "deprecationReason": null
           },
           {
-            "name": "userName_ASC",
+            "name": "username_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "userName_DESC",
+            "name": "username_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "nickName_ASC",
+            "name": "nickname_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "nickName_DESC",
+            "name": "nickname_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -12495,7 +12495,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -18573,7 +18573,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -18587,7 +18587,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -18839,7 +18839,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -18853,7 +18853,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -19227,7 +19227,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -19241,7 +19241,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -20076,7 +20076,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -20090,7 +20090,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -21415,7 +21415,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -21425,7 +21425,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -21850,7 +21850,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -21860,7 +21860,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -22568,7 +22568,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -22578,7 +22578,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24280,7 +24280,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24290,7 +24290,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not",
+            "name": "username_not",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24300,7 +24300,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_in",
+            "name": "username_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -24318,7 +24318,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_in",
+            "name": "username_not_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -24336,7 +24336,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_lt",
+            "name": "username_lt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24346,7 +24346,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_lte",
+            "name": "username_lte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24356,7 +24356,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_gt",
+            "name": "username_gt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24366,7 +24366,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_gte",
+            "name": "username_gte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24376,7 +24376,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_contains",
+            "name": "username_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24386,7 +24386,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_contains",
+            "name": "username_not_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24396,7 +24396,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_starts_with",
+            "name": "username_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24406,7 +24406,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_starts_with",
+            "name": "username_not_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24416,7 +24416,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_ends_with",
+            "name": "username_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24426,7 +24426,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "userName_not_ends_with",
+            "name": "username_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24436,7 +24436,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24446,7 +24446,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not",
+            "name": "nickname_not",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24456,7 +24456,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_in",
+            "name": "nickname_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -24474,7 +24474,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_in",
+            "name": "nickname_not_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -24492,7 +24492,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_lt",
+            "name": "nickname_lt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24502,7 +24502,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_lte",
+            "name": "nickname_lte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24512,7 +24512,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_gt",
+            "name": "nickname_gt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24522,7 +24522,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_gte",
+            "name": "nickname_gte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24532,7 +24532,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_contains",
+            "name": "nickname_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24542,7 +24542,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_contains",
+            "name": "nickname_not_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24552,7 +24552,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_starts_with",
+            "name": "nickname_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24562,7 +24562,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_starts_with",
+            "name": "nickname_not_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24572,7 +24572,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_ends_with",
+            "name": "nickname_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24582,7 +24582,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName_not_ends_with",
+            "name": "nickname_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24948,7 +24948,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24958,7 +24958,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -27563,7 +27563,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -27573,7 +27573,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -28608,7 +28608,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -28618,7 +28618,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -28699,7 +28699,7 @@ module.exports = {
         "fields": null,
         "inputFields": [
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -28709,7 +28709,7 @@ module.exports = {
             "defaultValue": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -33107,7 +33107,7 @@ module.exports = {
             "deprecationReason": null
           },
           {
-            "name": "userName",
+            "name": "username",
             "description": null,
             "args": [],
             "type": {
@@ -33123,7 +33123,7 @@ module.exports = {
             "deprecationReason": null
           },
           {
-            "name": "nickName",
+            "name": "nickname",
             "description": null,
             "args": [],
             "type": {
@@ -36439,4 +36439,5 @@ module.exports = {
   }
 }
 }
-
+  
+  

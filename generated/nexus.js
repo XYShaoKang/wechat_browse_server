@@ -107,35 +107,35 @@ export interface NexusGenInputs {
     modifyTime_lte?: any | null; // DateTime
     modifyTime_not?: any | null; // DateTime
     modifyTime_not_in?: any[] | null; // [DateTime!]
-    nickName?: string | null; // String
-    nickName_contains?: string | null; // String
-    nickName_ends_with?: string | null; // String
-    nickName_gt?: string | null; // String
-    nickName_gte?: string | null; // String
-    nickName_in?: string[] | null; // [String!]
-    nickName_lt?: string | null; // String
-    nickName_lte?: string | null; // String
-    nickName_not?: string | null; // String
-    nickName_not_contains?: string | null; // String
-    nickName_not_ends_with?: string | null; // String
-    nickName_not_in?: string[] | null; // [String!]
-    nickName_not_starts_with?: string | null; // String
-    nickName_starts_with?: string | null; // String
+    nickname?: string | null; // String
+    nickname_contains?: string | null; // String
+    nickname_ends_with?: string | null; // String
+    nickname_gt?: string | null; // String
+    nickname_gte?: string | null; // String
+    nickname_in?: string[] | null; // [String!]
+    nickname_lt?: string | null; // String
+    nickname_lte?: string | null; // String
+    nickname_not?: string | null; // String
+    nickname_not_contains?: string | null; // String
+    nickname_not_ends_with?: string | null; // String
+    nickname_not_in?: string[] | null; // [String!]
+    nickname_not_starts_with?: string | null; // String
+    nickname_starts_with?: string | null; // String
     owner?: NexusGenInputs['WeChatUserWhereInput'] | null; // WeChatUserWhereInput
-    userName?: string | null; // String
-    userName_contains?: string | null; // String
-    userName_ends_with?: string | null; // String
-    userName_gt?: string | null; // String
-    userName_gte?: string | null; // String
-    userName_in?: string[] | null; // [String!]
-    userName_lt?: string | null; // String
-    userName_lte?: string | null; // String
-    userName_not?: string | null; // String
-    userName_not_contains?: string | null; // String
-    userName_not_ends_with?: string | null; // String
-    userName_not_in?: string[] | null; // [String!]
-    userName_not_starts_with?: string | null; // String
-    userName_starts_with?: string | null; // String
+    username?: string | null; // String
+    username_contains?: string | null; // String
+    username_ends_with?: string | null; // String
+    username_gt?: string | null; // String
+    username_gte?: string | null; // String
+    username_in?: string[] | null; // [String!]
+    username_lt?: string | null; // String
+    username_lte?: string | null; // String
+    username_not?: string | null; // String
+    username_not_contains?: string | null; // String
+    username_not_ends_with?: string | null; // String
+    username_not_in?: string[] | null; // [String!]
+    username_not_starts_with?: string | null; // String
+    username_starts_with?: string | null; // String
   }
   ContactWhereInput: { // input type
     AND?: NexusGenInputs['ContactWhereInput'][] | null; // [ContactWhereInput!]
@@ -620,7 +620,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  ChatRoomOrderByInput: "displayName_ASC" | "displayName_DESC" | "id_ASC" | "id_DESC" | "modifyTime_ASC" | "modifyTime_DESC" | "nickName_ASC" | "nickName_DESC" | "userName_ASC" | "userName_DESC"
+  ChatRoomOrderByInput: "displayName_ASC" | "displayName_DESC" | "id_ASC" | "id_DESC" | "modifyTime_ASC" | "modifyTime_DESC" | "nickname_ASC" | "nickname_DESC" | "username_ASC" | "username_DESC"
   MessageOrderByInput: "createTime_ASC" | "createTime_DESC" | "id_ASC" | "id_DESC" | "isSend_ASC" | "isSend_DESC" | "msgSvrId_ASC" | "msgSvrId_DESC" | "type_ASC" | "type_DESC"
   UserOrderByInput: "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC"
   WeChatOrderByInput: "id_ASC" | "id_DESC"
@@ -643,8 +643,8 @@ export interface NexusGenRootTypes {
     displayName: string; // String!
     id: string; // ID!
     modifyTime?: any | null; // DateTime
-    nickName?: string | null; // String
-    userName: string; // String!
+    nickname?: string | null; // String
+    username: string; // String!
   }
   Contact: { // root type
     id: string; // ID!
@@ -684,7 +684,6 @@ export interface NexusGenRootTypes {
     email: string; // String!
     id: string; // ID!
     name: string; // String!
-    password: string; // String!
   }
   Video: { // root type
     id: string; // ID!
@@ -762,9 +761,9 @@ export interface NexusGenFieldTypes {
     memberList: NexusGenRootTypes['WeChatUser'][] | null; // [WeChatUser!]
     message: NexusGenRootTypes['Message'][] | null; // [Message!]
     modifyTime: any | null; // DateTime
-    nickName: string | null; // String
+    nickname: string | null; // String
     owner: NexusGenRootTypes['WeChatUser']; // WeChatUser!
-    userName: string; // String!
+    username: string; // String!
   }
   Contact: { // field return type
     id: string; // ID!
@@ -828,7 +827,6 @@ export interface NexusGenFieldTypes {
     email: string; // String!
     id: string; // ID!
     name: string; // String!
-    password: string; // String!
     weChat: NexusGenRootTypes['WeChat'][] | null; // [WeChat!]
   }
   Video: { // field return type

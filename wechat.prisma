@@ -22,8 +22,8 @@ type WeChatUser {
 
 type ChatRoom {
   id: ID! @id
-  userName: String! @unique
-  nickName: String
+  username: String! @unique
+  nickname: String
   displayName: String!
   owner: WeChatUser! @relation(name: "HaveChatRoom", link: INLINE)
   memberList: [WeChatUser] @relation(name: "JoinChatRoom", link: INLINE)
