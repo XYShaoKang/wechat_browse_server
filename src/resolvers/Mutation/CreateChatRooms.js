@@ -1,12 +1,14 @@
 import { arg, mutationField } from 'nexus'
+import { map } from 'rxjs/operators'
+import * as R from 'ramda'
 
 import { downloadManage, asyncMap, groupsOf } from '../../utils'
-import { map } from 'rxjs/operators'
+
 /**
- * @param {object} data
- * @returns {object}
+ * @param {import('../../../generated/prisma-client').Prisma} prisma
+ * @returns {(data:object)=>object}
  */
-const asyncFn = data => {
+const asyncFn = prisma => data => {
   for (const key in data) {
     if (data.hasOwnProperty(key)) {
       const el = data[key]
@@ -20,14 +22,13 @@ const asyncFn = data => {
           }),
         )
       } else if (key === 'memberList') {
-        data[key] = {
-          connect: el.map(
-            /**
-             * @param {string} username
-             */
-            username => ({ username }),
-          ),
-        }
+        data[key] = prisma
+          .weChatUsers({ where: { username_in: el } })
+          .then(users => {
+            data[key] = {
+              connect: users.map(R.pick(['id'])),
+            }
+          })
       } else if (key === 'owner') {
         data[key] = {
           connect: {
@@ -52,7 +53,7 @@ export const CreateChatRooms = mutationField('CreateChatRooms', {
     const maxLength = 1000
     const chatRooms = groupsOf(maxLength)(data)
     for (const chatRoomSection of chatRooms) {
-      const chatRoomsInput = await asyncMap(asyncFn, chatRoomSection)
+      const chatRoomsInput = await asyncMap(asyncFn(prisma), chatRoomSection)
       await prisma.updateWeChat({
         data: {
           chatRooms: {

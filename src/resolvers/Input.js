@@ -3,8 +3,8 @@ import { inputObjectType } from 'nexus'
 export const AvatarCreateInput = inputObjectType({
   name: 'AvatarCreateInput',
   definition(t) {
-    t.string('thumbnailImg', { required: true })
-    t.string('bigImg', { required: true })
+    t.string('thumbnailImg')
+    t.string('bigImg')
   },
 })
 

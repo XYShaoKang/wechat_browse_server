@@ -16,7 +16,11 @@ const getFile = (url, retryCount = 0) => {
       }
     })
     .catch(err => {
-      if (err.message.includes('connect ETIMEDOUT') && retryCount < 3) {
+      if (
+        (err.message.includes('connect ETIMEDOUT') ||
+          err.message.includes('read ECONNRESET')) &&
+        retryCount < 3
+      ) {
         retryCount++
         return new Promise(function(resolve) {
           setTimeout(() => {

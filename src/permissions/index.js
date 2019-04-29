@@ -7,6 +7,7 @@ export const permissions = shield({
   Query: {
     users: isAuthenticatedUser,
     weChatUsers: isAuthenticatedUser,
+    chatRooms: isAuthenticatedUser,
   },
   Mutation: {
     CreateWeChatUsers: isAuthenticatedUser,

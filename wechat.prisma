@@ -25,7 +25,7 @@ type ChatRoom {
   username: String! @unique
   nickname: String
   displayName: String!
-  owner: WeChatUser! @relation(name: "HaveChatRoom", link: INLINE)
+  owner: WeChatUser @relation(name: "HaveChatRoom", link: INLINE)
   memberList: [WeChatUser] @relation(name: "JoinChatRoom", link: INLINE)
   modifyTime: DateTime
   avatar: Avatar @relation(link: INLINE)

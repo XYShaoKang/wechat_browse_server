@@ -2,7 +2,7 @@ import { prismaObjectType } from 'nexus-prisma'
 
 export const Query = prismaObjectType({
   name: 'Query',
-  definition: t => t.prismaFields(['users', 'weChatUsers']),
+  definition: t => t.prismaFields(['users', 'weChatUsers', 'chatRooms']),
 })
 export const User = prismaObjectType({
   name: 'User',

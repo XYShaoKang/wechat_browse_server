@@ -35,8 +35,8 @@ export interface NexusGenInputs {
     id_starts_with?: string | null; // ID
   }
   AvatarCreateInput: { // input type
-    bigImg: string; // String!
-    thumbnailImg: string; // String!
+    bigImg?: string | null; // String
+    thumbnailImg?: string | null; // String
   }
   AvatarWhereInput: { // input type
     AND?: NexusGenInputs['AvatarWhereInput'][] | null; // [AvatarWhereInput!]
@@ -762,7 +762,7 @@ export interface NexusGenFieldTypes {
     message: NexusGenRootTypes['Message'][] | null; // [Message!]
     modifyTime: any | null; // DateTime
     nickname: string | null; // String
-    owner: NexusGenRootTypes['WeChatUser']; // WeChatUser!
+    owner: NexusGenRootTypes['WeChatUser'] | null; // WeChatUser
     username: string; // String!
   }
   Contact: { // field return type
@@ -815,6 +815,7 @@ export interface NexusGenFieldTypes {
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
   }
   Query: { // field return type
+    chatRooms: NexusGenRootTypes['ChatRoom'][]; // [ChatRoom!]!
     users: NexusGenRootTypes['User'][]; // [User!]!
     weChatUsers: NexusGenRootTypes['WeChatUser'][]; // [WeChatUser!]!
   }
@@ -913,6 +914,15 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    chatRooms: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ChatRoomOrderByInput'] | null; // ChatRoomOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ChatRoomWhereInput'] | null; // ChatRoomWhereInput
+    }
     users: { // args
       after?: string | null; // String
       before?: string | null; // String

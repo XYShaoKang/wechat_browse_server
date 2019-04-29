@@ -1125,7 +1125,7 @@ export interface ChatRoomCreateInput {
   username: String;
   nickname?: String;
   displayName: String;
-  owner: WeChatUserCreateOneWithoutHaveChatRoomInput;
+  owner?: WeChatUserCreateOneWithoutHaveChatRoomInput;
   memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput;
   modifyTime?: DateTimeInput;
   avatar?: AvatarCreateOneInput;
@@ -1233,7 +1233,7 @@ export interface ChatRoomCreateWithoutMessageInput {
   username: String;
   nickname?: String;
   displayName: String;
-  owner: WeChatUserCreateOneWithoutHaveChatRoomInput;
+  owner?: WeChatUserCreateOneWithoutHaveChatRoomInput;
   memberList?: WeChatUserCreateManyWithoutJoinChatRoomInput;
   modifyTime?: DateTimeInput;
   avatar?: AvatarCreateOneInput;
@@ -1391,7 +1391,7 @@ export interface ChatRoomCreateWithoutMemberListInput {
   username: String;
   nickname?: String;
   displayName: String;
-  owner: WeChatUserCreateOneWithoutHaveChatRoomInput;
+  owner?: WeChatUserCreateOneWithoutHaveChatRoomInput;
   modifyTime?: DateTimeInput;
   avatar?: AvatarCreateOneInput;
   message?: MessageCreateManyWithoutChatRoomInput;
@@ -1447,7 +1447,7 @@ export interface ChatRoomUpdateDataInput {
   username?: String;
   nickname?: String;
   displayName?: String;
-  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  owner?: WeChatUserUpdateOneWithoutHaveChatRoomInput;
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput;
   modifyTime?: DateTimeInput;
   avatar?: AvatarUpdateOneInput;
@@ -1534,7 +1534,7 @@ export interface ChatRoomUpdateInput {
   username?: String;
   nickname?: String;
   displayName?: String;
-  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  owner?: WeChatUserUpdateOneWithoutHaveChatRoomInput;
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput;
   modifyTime?: DateTimeInput;
   avatar?: AvatarUpdateOneInput;
@@ -1546,10 +1546,12 @@ export interface WeChatUserUpdateWithWhereUniqueNestedInput {
   data: WeChatUserUpdateDataInput;
 }
 
-export interface WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput {
+export interface WeChatUserUpdateOneWithoutHaveChatRoomInput {
   create?: WeChatUserCreateWithoutHaveChatRoomInput;
   update?: WeChatUserUpdateWithoutHaveChatRoomDataInput;
   upsert?: WeChatUserUpsertWithoutHaveChatRoomInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
   connect?: WeChatUserWhereUniqueInput;
 }
 
@@ -1683,7 +1685,7 @@ export interface ChatRoomUpdateWithoutMessageDataInput {
   username?: String;
   nickname?: String;
   displayName?: String;
-  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  owner?: WeChatUserUpdateOneWithoutHaveChatRoomInput;
   memberList?: WeChatUserUpdateManyWithoutJoinChatRoomInput;
   modifyTime?: DateTimeInput;
   avatar?: AvatarUpdateOneInput;
@@ -2005,7 +2007,7 @@ export interface ChatRoomUpdateWithoutMemberListDataInput {
   username?: String;
   nickname?: String;
   displayName?: String;
-  owner?: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput;
+  owner?: WeChatUserUpdateOneWithoutHaveChatRoomInput;
   modifyTime?: DateTimeInput;
   avatar?: AvatarUpdateOneInput;
   message?: MessageUpdateManyWithoutChatRoomInput;

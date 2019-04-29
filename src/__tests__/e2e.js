@@ -8,6 +8,8 @@ import {
   SIGNUP,
   CreateWeChatUsers,
   CreateChatRooms,
+  WeChatUsers,
+  ChatRooms,
 } from './__types'
 import { reset } from '../../data/reset'
 
@@ -110,7 +112,12 @@ describe('e2e', () => {
         token,
       }),
     )
+    const dbWeChatUsers = await toPromise(
+      graphql({ query: gql(WeChatUsers), token }),
+    )
+
     expect(res.data).toBeObject()
+    expect(dbWeChatUsers.data && dbWeChatUsers.data.weChatUsers.length).toBe(2)
   })
   it('createChatRooms', async () => {
     const { ADMIN_EMAIL: email, ADMIN_PASSWD: password } = process.env
@@ -148,6 +155,11 @@ describe('e2e', () => {
         token,
       }),
     )
+    const dbChatRooms = await toPromise(
+      graphql({ query: gql(ChatRooms), token }),
+    )
+
     expect(res.data).toBeObject()
+    expect(dbChatRooms.data && dbChatRooms.data.chatRooms.length).toBe(1)
   })
 })

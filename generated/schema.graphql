@@ -39,8 +39,8 @@ type Avatar {
 }
 
 input AvatarCreateInput {
-  bigImg: String!
-  thumbnailImg: String!
+  bigImg: String
+  thumbnailImg: String
 }
 
 input AvatarWhereInput {
@@ -71,7 +71,7 @@ type ChatRoom {
   message(after: String, before: String, first: Int, last: Int, orderBy: MessageOrderByInput, skip: Int, where: MessageWhereInput): [Message!]
   modifyTime: DateTime
   nickname: String
-  owner: WeChatUser!
+  owner: WeChatUser
   username: String!
 }
 
@@ -477,6 +477,7 @@ type Mutation {
 }
 
 type Query {
+  chatRooms(after: String, before: String, first: Int, last: Int, orderBy: ChatRoomOrderByInput, skip: Int, where: ChatRoomWhereInput): [ChatRoom!]!
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
   weChatUsers(after: String, before: String, first: Int, last: Int, orderBy: WeChatUserOrderByInput, skip: Int, where: WeChatUserWhereInput): [WeChatUser!]!
 }

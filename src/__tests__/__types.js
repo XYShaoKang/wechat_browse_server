@@ -41,10 +41,34 @@ export const CreateWeChatUsers = /* GraphQL */ `
     }
   }
 `
+
+export const WeChatUsers = /* GraphQL */ `
+  query weChatUsers {
+    weChatUsers {
+      id
+      username
+      alias
+      conRemark
+      nickname
+    }
+  }
+`
+
 export const CreateChatRooms = /* GraphQL */ `
   mutation CreateChatRooms($chatRooms: [ChatRoomCreateInput!]!) {
     CreateChatRooms(data: $chatRooms) {
       id
+    }
+  }
+`
+export const ChatRooms = /* GraphQL */ `
+  query chatRooms {
+    chatRooms {
+      id
+      username
+      nickname
+      displayName
+      modifyTime
     }
   }
 `

@@ -284,7 +284,7 @@ type ChatRoom {
   username: String!
   nickname: String
   displayName: String!
-  owner: WeChatUser!
+  owner: WeChatUser
   memberList(where: WeChatUserWhereInput, orderBy: WeChatUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeChatUser!]
   modifyTime: DateTime
   avatar: Avatar
@@ -302,7 +302,7 @@ input ChatRoomCreateInput {
   username: String!
   nickname: String
   displayName: String!
-  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
   avatar: AvatarCreateOneInput
@@ -334,7 +334,7 @@ input ChatRoomCreateWithoutMemberListInput {
   username: String!
   nickname: String
   displayName: String!
-  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput
   modifyTime: DateTime
   avatar: AvatarCreateOneInput
   message: MessageCreateManyWithoutChatRoomInput
@@ -345,7 +345,7 @@ input ChatRoomCreateWithoutMessageInput {
   username: String!
   nickname: String
   displayName: String!
-  owner: WeChatUserCreateOneWithoutHaveChatRoomInput!
+  owner: WeChatUserCreateOneWithoutHaveChatRoomInput
   memberList: WeChatUserCreateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
   avatar: AvatarCreateOneInput
@@ -478,7 +478,7 @@ input ChatRoomUpdateDataInput {
   username: String
   nickname: String
   displayName: String
-  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  owner: WeChatUserUpdateOneWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
   avatar: AvatarUpdateOneInput
@@ -489,7 +489,7 @@ input ChatRoomUpdateInput {
   username: String
   nickname: String
   displayName: String
-  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  owner: WeChatUserUpdateOneWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
   avatar: AvatarUpdateOneInput
@@ -564,7 +564,7 @@ input ChatRoomUpdateWithoutMemberListDataInput {
   username: String
   nickname: String
   displayName: String
-  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  owner: WeChatUserUpdateOneWithoutHaveChatRoomInput
   modifyTime: DateTime
   avatar: AvatarUpdateOneInput
   message: MessageUpdateManyWithoutChatRoomInput
@@ -574,7 +574,7 @@ input ChatRoomUpdateWithoutMessageDataInput {
   username: String
   nickname: String
   displayName: String
-  owner: WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput
+  owner: WeChatUserUpdateOneWithoutHaveChatRoomInput
   memberList: WeChatUserUpdateManyWithoutJoinChatRoomInput
   modifyTime: DateTime
   avatar: AvatarUpdateOneInput
@@ -3059,17 +3059,19 @@ input WeChatUserUpdateOneRequiredInput {
   connect: WeChatUserWhereUniqueInput
 }
 
-input WeChatUserUpdateOneRequiredWithoutHaveChatRoomInput {
-  create: WeChatUserCreateWithoutHaveChatRoomInput
-  update: WeChatUserUpdateWithoutHaveChatRoomDataInput
-  upsert: WeChatUserUpsertWithoutHaveChatRoomInput
-  connect: WeChatUserWhereUniqueInput
-}
-
 input WeChatUserUpdateOneRequiredWithoutMessageInput {
   create: WeChatUserCreateWithoutMessageInput
   update: WeChatUserUpdateWithoutMessageDataInput
   upsert: WeChatUserUpsertWithoutMessageInput
+  connect: WeChatUserWhereUniqueInput
+}
+
+input WeChatUserUpdateOneWithoutHaveChatRoomInput {
+  create: WeChatUserCreateWithoutHaveChatRoomInput
+  update: WeChatUserUpdateWithoutHaveChatRoomDataInput
+  upsert: WeChatUserUpsertWithoutHaveChatRoomInput
+  delete: Boolean
+  disconnect: Boolean
   connect: WeChatUserWhereUniqueInput
 }
 

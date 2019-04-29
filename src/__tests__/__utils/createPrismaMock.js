@@ -75,6 +75,16 @@ class Prisma {
     ),
   )
 
+  weChatUsers = jest.fn(
+    /**
+     * @param {{where:{username_in:Array.<string>}}} arg
+     */
+    async ({ where: { username_in } }) =>
+      this.db.weChatUsers.filter(({ username }) =>
+        username_in.includes(username),
+      ),
+  )
+
   createWeChatUser = jest.fn(user => {
     const id = this.db.weChatUsers.length + ''
     const data = map(obj => {
@@ -99,10 +109,10 @@ class Prisma {
       if (obj.memberList) {
         obj.memberList = obj.memberList.connect.map(
           /**
-           * @param {{username:string}} arg
+           * @param {{id:string,username:string}} arg
            */
-          ({ username }) => {
-            const weChatUser = this.weChatUser({ username })
+          ({ id }) => {
+            const weChatUser = this.weChatUser({ id })
             if (weChatUser) {
               return { id: weChatUser.id }
             } else {
