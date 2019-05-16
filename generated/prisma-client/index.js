@@ -61,7 +61,15 @@ var models = [
     embedded: false
   },
   {
+    name: "FileGroup",
+    embedded: false
+  },
+  {
     name: "FileIndex",
+    embedded: false
+  },
+  {
+    name: "Url",
     embedded: false
   }
 ];

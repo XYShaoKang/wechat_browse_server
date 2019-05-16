@@ -24,7 +24,7 @@ type ChatRoom {
   id: ID! @id
   username: String! @unique
   nickname: String
-  displayName: String!
+  displayName: String
   owner: WeChatUser @relation(name: "HaveChatRoom", link: INLINE)
   memberList: [WeChatUser] @relation(name: "JoinChatRoom", link: INLINE)
   modifyTime: DateTime
@@ -33,11 +33,8 @@ type ChatRoom {
 }
 type Avatar {
   id: ID! @id
-  thumbnailImg: FileIndex
-    @relation(name: "AvatarThumbnailImgWithFileIndex", link: INLINE)
-  bigImg: FileIndex @relation(name: "AvatarBigImgWithFileIndex", link: INLINE)
-  # weChatUser: WeChatUser
-  # chatRoom: ChatRoom
+  thumbnailImg: Url @relation(name: "AvatarThumbnailImgWithUrl", link: INLINE)
+  bigImg: Url @relation(name: "AvatarBigImgWithUrl", link: INLINE)
 }
 
 type Contact {
@@ -51,7 +48,7 @@ type Message {
   msgSvrId: String
   isSend: Int
   type: Int
-  talker: WeChatUser!
+  talker: WeChatUser
   createTime: DateTime
   chatRoom: ChatRoom
   content: Content @relation(link: INLINE)
@@ -105,10 +102,22 @@ type App {
   content: Content
 }
 
+type FileGroup {
+  id: ID! @id
+  name: String! @unique
+  fileIndexes: [FileIndex!]! @relation(link: INLINE)
+}
+
 type FileIndex {
   id: ID! @id
   fileName: String! @unique
   mimetype: String!
   size: Int!
-  url: String
+  urls: [Url!]! @relation(link: INLINE)
+}
+
+type Url {
+  id: ID! @id
+  url: String!
+  fileIndex: FileIndex
 }
