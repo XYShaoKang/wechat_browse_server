@@ -1,5 +1,2 @@
 export * from './auth'
-export * from './file'
-export * from './download'
-export * from './other'
-export * from './downloadManage'
+export * from './convert'

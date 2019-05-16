@@ -1,10 +1,9 @@
 import Koa from 'koa'
 import { ApolloServer } from 'apollo-server-koa'
-import serve from 'koa-static'
 import { applyMiddleware } from 'graphql-middleware'
 
 import { prisma } from '../generated/prisma-client'
-import { getUserId, STATIC_PATH } from './utils'
+import { getUserId } from './utils'
 import { permissions } from './permissions'
 
 import { schema } from './schema'
@@ -46,7 +45,6 @@ server.applyMiddleware({
   bodyParserConfig,
 })
 
-app.use(serve(STATIC_PATH))
 if (process.env.NODE_ENV !== 'test') {
   app.listen({ port: 4000 }, () =>
     // eslint-disable-next-line no-console

@@ -18,6 +18,7 @@ export const WeChatUserCreateInput = inputObjectType({
     t.field('avatar', { type: 'AvatarCreateInput' })
   },
 })
+
 export const ChatRoomCreateInput = inputObjectType({
   name: 'ChatRoomCreateInput',
   definition(t) {
@@ -28,5 +29,17 @@ export const ChatRoomCreateInput = inputObjectType({
     t.list.string('memberList', { required: true })
     t.field('modifyTime', { type: 'DateTime', required: true })
     t.field('avatar', { type: 'AvatarCreateInput' })
+  },
+})
+
+export const MessagesCreateInput = inputObjectType({
+  name: 'MessagesCreateInput',
+  definition(t) {
+    t.string('msgSvrId')
+    t.int('isSend', { required: true })
+    t.int('type', { required: true })
+    t.string('talker', { required: true })
+    t.field('createTime', { type: 'DateTime', required: true })
+    t.string('chatRoom')
   },
 })
