@@ -72,3 +72,29 @@ export const ChatRooms = /* GraphQL */ `
     }
   }
 `
+
+export const CreateMessages = /* GraphQL */ `
+  mutation CreateMessages($messages: [MessagesCreateInput!]!) {
+    CreateMessages(data: $messages)
+  }
+`
+
+export const Messages = /* GraphQL */ `
+  query messages {
+    messages {
+      id
+      msgSvrId
+      isSend
+      type
+      talker {
+        id
+        username
+      }
+      createTime
+      chatRoom {
+        id
+        username
+      }
+    }
+  }
+`

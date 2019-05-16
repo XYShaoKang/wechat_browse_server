@@ -22,7 +22,13 @@ Array [
     "createdAt": "2019-04-21T05:19:31.395Z",
     "id": "1",
     "updatedAt": "2019-04-21T05:19:31.395Z",
-    "username": "dddd",
+    "username": "b",
+  },
+  Object {
+    "createdAt": "2019-04-21T05:19:31.395Z",
+    "id": "2",
+    "updatedAt": "2019-04-21T05:19:31.395Z",
+    "username": "c",
   },
   Object {
     "alias": "bbbb",
@@ -30,7 +36,7 @@ Array [
       "id": "0",
     },
     "conRemark": "cccc",
-    "id": "2",
+    "id": "3",
     "nickname": "dddd",
     "username": "aaaa",
   },
@@ -41,11 +47,11 @@ exports[`Mutation create WeChatUser 3`] = `
 Array [
   Object {
     "bigImg": Object {
-      "id": "2",
+      "id": "1",
     },
     "id": "0",
     "thumbnailImg": Object {
-      "id": "1",
+      "id": "0",
     },
   },
 ]

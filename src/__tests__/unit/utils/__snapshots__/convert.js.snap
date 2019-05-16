@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`convert createMessageInput 1`] = `
+Array [
+  Object {
+    "chatRoom": null,
+    "createTime": "2016-05-19T00:00:22.935Z",
+    "isSend": 0,
+    "msgSvrId": "1000000000000000001",
+    "talker": Object {
+      "connect": Object {
+        "username": "aaaa",
+      },
+    },
+    "type": 1,
+  },
+  Object {
+    "chatRoom": Object {
+      "connect": Object {
+        "username": "bbbb@chatroom",
+      },
+    },
+    "createTime": "2016-05-19T00:00:22.935Z",
+    "isSend": 1,
+    "msgSvrId": "1000000000000000002",
+    "talker": Object {
+      "connect": Object {
+        "username": "bbbb",
+      },
+    },
+    "type": 1,
+  },
+  Object {
+    "chatRoom": Object {
+      "connect": Object {
+        "username": "bbbb@chatroom",
+      },
+    },
+    "createTime": "2016-07-10T11:40:28.809Z",
+    "isSend": 0,
+    "msgSvrId": "1000000000000000003",
+    "talker": null,
+    "type": 1,
+  },
+]
+`;
+
+exports[`convert createWeChatUserCreateInput 1`] = `
+Array [
+  Object {
+    "alias": "",
+    "avatar": Object {
+      "create": Object {
+        "bigImg": Object {
+          "create": Object {
+            "url": "http://a.com/1",
+          },
+        },
+        "thumbnailImg": Object {
+          "create": Object {
+            "url": "http://a.com/0",
+          },
+        },
+      },
+    },
+    "conRemark": "",
+    "nickname": "AAAA",
+    "username": "aaaa",
+  },
+  Object {
+    "alias": "",
+    "avatar": Object {
+      "create": Object {
+        "bigImg": Object {
+          "create": Object {
+            "url": "http://b.com/1",
+          },
+        },
+        "thumbnailImg": Object {
+          "create": Object {
+            "url": "http://b.com/0",
+          },
+        },
+      },
+    },
+    "conRemark": "",
+    "nickname": "BBBB",
+    "username": "bbbb",
+  },
+]
+`;
+
+exports[`convert pickUserName 1`] = `
+Array [
+  "aaaa",
+  "bbbb",
+  "cccc",
+  "aaaa",
+  "dddd",
+  "eeee",
+  "ffff",
+  "dddd",
+]
+`;
+
+exports[`convert pickUserName 2`] = `
+Array [
+  Object {
+    "avatar": null,
+    "displayName": "AAAA、BBBB、CCCC",
+    "memberList": Object {
+      "connect": Array [
+        Object {
+          "id": "0",
+        },
+        Object {
+          "id": "1",
+        },
+        Object {
+          "id": "2",
+        },
+      ],
+    },
+    "modifyTime": "2018-10-13T13:10:31.025Z",
+    "nickname": "ABC",
+    "owner": Object {
+      "connect": Object {
+        "id": "0",
+      },
+    },
+    "username": "abc@chatroom",
+  },
+  Object {
+    "avatar": Object {
+      "create": Object {
+        "bigImg": Object {
+          "create": Object {
+            "url": "http://def.com/1",
+          },
+        },
+        "thumbnailImg": Object {
+          "create": Object {
+            "url": "http://def.com/0",
+          },
+        },
+      },
+    },
+    "displayName": "DDDD、EEEE、FFFF",
+    "memberList": Object {
+      "connect": Array [
+        Object {
+          "id": "3",
+        },
+        Object {
+          "id": "4",
+        },
+        Object {
+          "id": "5",
+        },
+      ],
+    },
+    "modifyTime": "2018-10-13T13:10:31.025Z",
+    "nickname": "DEF",
+    "owner": Object {
+      "connect": Object {
+        "id": "3",
+      },
+    },
+    "username": "def@chatroom",
+  },
+]
+`;

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mutation create Messages 1`] = `
+Array [
+  Object {
+    "chatRoom": null,
+    "createTime": 2016-05-19T00:00:22.935Z,
+    "id": "0",
+    "isSend": 0,
+    "msgSvrId": "1000000000000000001",
+    "talker": Object {
+      "id": "0",
+    },
+    "type": 1,
+  },
+  Object {
+    "chatRoom": Object {
+      "id": "0",
+    },
+    "createTime": 2016-05-19T00:00:22.935Z,
+    "id": "1",
+    "isSend": 1,
+    "msgSvrId": "1000000000000000002",
+    "talker": Object {
+      "id": "1",
+    },
+    "type": 1,
+  },
+  Object {
+    "chatRoom": Object {
+      "id": "0",
+    },
+    "createTime": 2016-07-10T11:40:28.809Z,
+    "id": "2",
+    "isSend": 0,
+    "msgSvrId": "1000000000000000003",
+    "talker": null,
+    "type": 1,
+  },
+]
+`;
+
+exports[`Mutation create Messages Fail No WeChat 1`] = `
+Object {
+  "data": null,
+  "errors": Array [
+    [GraphQLError: No WeChat],
+  ],
+}
+`;

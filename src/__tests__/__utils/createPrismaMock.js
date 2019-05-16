@@ -1,6 +1,7 @@
 /**
  * @typedef {import ('../../../generated/prisma-client').WeChatUser} WeChatUser
  * @typedef {import ('../../../generated/prisma-client').ChatRoom} ChatRoom
+ * @typedef {import ('../../../generated/prisma-client').ChatRoom} Message
  */
 
 import * as R from 'ramda'
@@ -45,7 +46,7 @@ class Prisma {
     if (!weChat) {
       return null
     }
-    if (data.weChatUsers && data.weChatUsers.create) {
+    if (data.weChatUsers) {
       const weChatUsers = data.weChatUsers.create
       weChatUsers.forEach(
         /**
@@ -60,7 +61,16 @@ class Prisma {
         /**
          * @param {ChatRoom} chatRoom
          */
-        chatRoom => this.createChatRooms(chatRoom),
+        chatRoom => this.createChatRoom(chatRoom),
+      )
+    }
+    if (data.messages) {
+      const messages = data.messages.create
+      messages.forEach(
+        /**
+         * @param {Message} message
+         */
+        message => this.createMessage(message),
       )
     }
 
@@ -98,8 +108,14 @@ class Prisma {
     this.db.weChatUsers.push(newWeChatUser)
     return newWeChatUser
   })
+  connectWeChatUser = jest.fn(({ connect: { id, username } }) => {
+    const weChatUser = this.db.weChatUsers.find(
+      user => id === user.id || username === user.username,
+    )
+    return weChatUser
+  })
 
-  createChatRooms = jest.fn(chatRoom => {
+  createChatRoom = jest.fn(chatRoom => {
     const id = this.db.chatRooms.length + ''
 
     const data = map(obj => {
@@ -128,13 +144,40 @@ class Prisma {
     this.db.chatRooms.push(newWeChatRoom)
     return newWeChatRoom
   })
+  connectChatRoom = jest.fn(({ connect: { id, username } }) => {
+    const charRoom = this.db.chatRooms.find(
+      charRoom => id === charRoom.id || username === charRoom.username,
+    )
+    return charRoom
+  })
+
+  createMessage = jest.fn(message => {
+    const id = this.db.messages.length + ''
+
+    const data = map(obj => {
+      if (obj.talker) {
+        const weChatUser = this.connectWeChatUser(obj.talker)
+
+        obj.talker = { id: weChatUser && weChatUser.id }
+      }
+      if (obj.chatRoom) {
+        const charRoom = this.connectChatRoom(obj.chatRoom)
+        obj.chatRoom = { id: charRoom && charRoom.id }
+      }
+      return obj
+    }, message)
+
+    const newMessage = { ...data, id }
+    this.db.messages.push(newMessage)
+    return newMessage
+  })
 
   createAvatar = jest.fn(({ create }) => {
     const id = this.db.avatars.length + ''
 
     const data = map(obj => {
       if (obj.create) {
-        return { id: this.createFileIndex(obj).id }
+        return { id: this.createUrl(obj).id }
       }
       if (obj.connect) {
         return { id: obj.connect.id }
@@ -147,11 +190,11 @@ class Prisma {
     return newAvatar
   })
 
-  createFileIndex = jest.fn(file => {
-    const id = this.db.fileIndexs.length + ''
-    const newFile = { ...file, id }
-    this.db.fileIndexs.push(newFile)
-    return newFile
+  createUrl = jest.fn(({ url }) => {
+    const id = this.db.urls.length + ''
+    const newUrl = { url, id }
+    this.db.urls.push(newUrl)
+    return newUrl
   })
 }
 

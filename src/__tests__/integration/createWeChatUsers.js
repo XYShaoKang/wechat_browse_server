@@ -1,38 +1,6 @@
-//#region mock
-
-jest.mock('../../utils/download')
-import * as downloadManageUtils from '../../utils/downloadManage'
-
-let id = 0
-const downloadManage = jest.fn(() => {
-  return of(++id + '')
-})
-
-jest
-  .spyOn(downloadManageUtils, 'downloadManage')
-  .mockImplementation(downloadManage)
-
-//#endregion
-
-import { of } from 'rxjs'
-
 import { Prisma, graphqlTestCall } from '../__utils'
 import { CreateWeChatUsers } from '../__types'
-
-const variables = {
-  weChatUsers: [
-    {
-      username: 'aaaa',
-      alias: 'bbbb',
-      conRemark: 'cccc',
-      nickname: 'dddd',
-      avatar: {
-        bigImg: 'http://a.com/b',
-        thumbnailImg: 'http://b.com/a',
-      },
-    },
-  ],
-}
+import { weChatUserData } from '../__variables'
 
 describe('Mutation', () => {
   /** @type {Prisma} */
@@ -43,7 +11,7 @@ describe('Mutation', () => {
   it('create WeChatUser', async () => {
     const result = await graphqlTestCall({
       query: CreateWeChatUsers,
-      variables,
+      variables: weChatUserData,
       context: {
         prisma,
         currentUser: { id: '0' },
@@ -55,7 +23,6 @@ describe('Mutation', () => {
     expect(id).toBe('0')
     expect(prisma.updateWeChat).toHaveBeenCalled()
     expect(prisma.createWeChatUser).toHaveBeenCalled()
-    expect(downloadManage.mock.calls.length).toBe(2)
     expect(result).toMatchSnapshot()
     expect(prisma.db.weChatUsers).toMatchSnapshot()
     expect(prisma.db.avatars).toMatchSnapshot()
@@ -63,7 +30,7 @@ describe('Mutation', () => {
   it('create WeChatUser Fail No WeChat', async () => {
     const result = await graphqlTestCall({
       query: CreateWeChatUsers,
-      variables,
+      variables: weChatUserData,
       context: {
         prisma,
         currentUser: { id: '0' },

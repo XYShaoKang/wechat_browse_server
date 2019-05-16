@@ -13,12 +13,33 @@ Object {
 exports[`Mutation create ChatRoom 2`] = `
 Array [
   Object {
+    "displayName": "",
+    "id": "0",
+    "memberList": Array [
+      Object {
+        "id": "0",
+      },
+      Object {
+        "id": "1",
+      },
+    ],
+    "modifyTime": "2015-04-24T16:51:14.743Z",
+    "nickname": "",
+    "owner": Object {
+      "id": "0",
+    },
+    "username": "b@chatroom",
+  },
+  Object {
     "avatar": Object {
       "id": "0",
     },
     "displayName": "cccc",
-    "id": "0",
+    "id": "1",
     "memberList": Array [
+      Object {
+        "id": "0",
+      },
       Object {
         "id": "1",
       },
@@ -27,10 +48,10 @@ Array [
     "nickname": "bbbb",
     "owner": Object {
       "connect": Object {
-        "username": "",
+        "id": "0",
       },
     },
-    "username": "aaaa",
+    "username": "aaaa@chatroom",
   },
 ]
 `;
@@ -39,11 +60,11 @@ exports[`Mutation create ChatRoom 3`] = `
 Array [
   Object {
     "bigImg": Object {
-      "id": "2",
+      "id": "1",
     },
     "id": "0",
     "thumbnailImg": Object {
-      "id": "1",
+      "id": "0",
     },
   },
 ]

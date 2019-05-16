@@ -23,7 +23,19 @@ export const db = () => ({
   /**
    * @type {Array}
    */
-  chatRooms: [],
+  chatRooms: [
+    {
+      id: '0',
+      username: 'b@chatroom',
+      nickname: '',
+      displayName: '',
+      owner: {
+        id: '0',
+      },
+      memberList: [{ id: '0' }, { id: '1' }],
+      modifyTime: '2015-04-24T16:51:14.743Z',
+    },
+  ],
   weChatUsers: [
     {
       id: '0',
@@ -33,7 +45,13 @@ export const db = () => ({
     },
     {
       id: '1',
-      username: 'dddd',
+      username: 'b',
+      createdAt: '2019-04-21T05:19:31.395Z',
+      updatedAt: '2019-04-21T05:19:31.395Z',
+    },
+    {
+      id: '2',
+      username: 'c',
       createdAt: '2019-04-21T05:19:31.395Z',
       updatedAt: '2019-04-21T05:19:31.395Z',
     },
@@ -46,4 +64,12 @@ export const db = () => ({
    * @type {Array}
    */
   fileIndexs: [],
+  /**
+   * @type {Array}
+   */
+  urls: [],
+  /**
+   * @type {Array}
+   */
+  messages: [],
 })
