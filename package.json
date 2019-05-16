@@ -11,8 +11,10 @@
     "deploy:test": "cross-env STAGE=test prisma deploy -e .env --skip-hooks",
     "play": "cross-env STAGE=dev prisma playground",
     "admin": "cross-env STAGE=dev prisma admin",
+    "token": "cross-env STAGE=dev prisma cluster-token",
     "reset": "cross-env STAGE=dev babel-node -r node_modules/dotenv/config data/reset.js",
-    "test": "run-s test:ut_base test:it_base test:e2e_base",
+    "seed": "cross-env STAGE=dev babel-node -r node_modules/dotenv/config data/seed.js",
+    "test": "run-s test:ut_base test:it_base \"test:e2e_base -i\"",
     "test:ut_base": "jest --c jest.unit.config.js --setupFiles dotenv/config",
     "test:ut": "run-s \"test:ut_base --watch -i\"",
     "test:it_base": "jest --c jest.integration.config.js --setupFiles dotenv/config",
@@ -42,7 +44,7 @@
     "nodemon": "^1.18.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
-    "prisma": "^1.32.0-beta",
+    "prisma": "1.32.2",
     "rxjs-marbles": "^5.0.0"
   },
   "dependencies": {
@@ -58,7 +60,7 @@
     "nexus": "^0.11.6",
     "nexus-prisma": "^0.3.5",
     "node-fetch": "^2.3.0",
-    "prisma-client-lib": "^1.30.0",
+    "prisma-client-lib": "1.32.2",
     "ramda": "^0.26.1",
     "rxjs": "^6.4.0"
   }

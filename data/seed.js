@@ -23,6 +23,7 @@ async function main() {
       },
     },
   })
+  await prisma.createFileGroup({ name: 'cacheFiles' })
 }
 
 // eslint-disable-next-line no-console

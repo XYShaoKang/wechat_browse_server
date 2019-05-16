@@ -6,6 +6,7 @@ export async function reset() {
   await prisma.deleteManyChatRooms()
   await prisma.deleteManyAvatars()
   await prisma.deleteManyFileIndexes()
+  await prisma.deleteManyMessages()
 }
 if (process.env.NODE_ENV !== 'test') {
   // eslint-disable-next-line no-console
