@@ -48,7 +48,7 @@
     "rxjs-marbles": "^5.0.0"
   },
   "dependencies": {
-    "apollo-server-koa": "^2.4.8",
+    "apollo-server-koa": "^2.14.2",
     "bcryptjs": "^2.4.3",
     "graphql": "^14.2.1",
     "graphql-middleware": "^3.0.2",
