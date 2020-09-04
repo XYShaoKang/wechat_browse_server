@@ -52,7 +52,7 @@
     "bcryptjs": "^2.4.3",
     "graphql": "^14.2.1",
     "graphql-middleware": "^3.0.2",
-    "graphql-shield": "^5.3.2",
+    "graphql-shield": "^6.0.6",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
     "koa-static": "^5.0.0",
