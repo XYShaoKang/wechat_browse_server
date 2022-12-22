@@ -53,7 +53,7 @@
     "graphql": "^14.2.1",
     "graphql-middleware": "^3.0.2",
     "graphql-shield": "^5.3.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "koa": "^2.7.0",
     "koa-static": "^5.0.0",
     "mime-types": "^2.1.22",
